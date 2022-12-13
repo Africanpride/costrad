@@ -6,15 +6,15 @@
     </x-slot>
 
     <div class="container mx-auto">
-        <div class="border-b border-gray-200 px-4 dark:border-gray-700">
+        <div class="border-b border-firefly-200 px-4 dark:border-firefly-700">
             <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
-              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-white active" id="basic-tabs-item-1" data-hs-tab="#basic-tabs-1" aria-controls="basic-tabs-1" role="tab">
+              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-firefly-600 hs-tab-active:text-firefly-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-firefly-500 active" id="basic-tabs-item-1" data-hs-tab="#basic-tabs-1" aria-controls="basic-tabs-1" role="tab">
                 Tab 1
               </button>
-              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-white" id="basic-tabs-item-2" data-hs-tab="#basic-tabs-2" aria-controls="basic-tabs-2" role="tab">
+              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-firefly-600 hs-tab-active:text-firefly-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-firefly-500" id="basic-tabs-item-2" data-hs-tab="#basic-tabs-2" aria-controls="basic-tabs-2" role="tab">
                 Tab 2
               </button>
-              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-white" id="basic-tabs-item-3" data-hs-tab="#basic-tabs-3" aria-controls="basic-tabs-3" role="tab">
+              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-firefly-600 hs-tab-active:text-firefly-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-firefly-500" id="basic-tabs-item-3" data-hs-tab="#basic-tabs-3" aria-controls="basic-tabs-3" role="tab">
                 Tab 3
               </button>
             </nav>
@@ -38,13 +38,14 @@
             </div>
           </div>
     </div>
-    <div class="bg-base-300 flex items-center justify-between my-5 px-5 py-10">
+
+    <div class="bg-firefly-100 dark:bg-firefly-900 dark:text-firefly-300 flex items-center justify-between my-5 px-5 py-10">
         <div class="flex items-stretch">
-            <div class="text-current text-xs">Maintain <br> Clinic Settings </div>
-            <div class="h-10 border border-l  border-base-200 mx-4"></div>
+            <div class=" text-xs">Maintain <br> Clinic Settings </div>
+            <div class="h-10 border border-l  border-firefly-800 mx-4"></div>
             <div class="flex flex-nowrap  ">
                 <div class="h-9 w-9">
-                    <img class="object-cover w-full h-full rounded-full" src="https://ui-avatars.com/api/?name=Kwame Opoku">
+                    <img class="object-cover w-full h-full rounded-full" src="https://ui-avatars.com/api/?name={{ Auth::user()->full_name }}">
                 </div>
             </div>
         </div>
@@ -56,11 +57,8 @@
         </div>
 
     </div>
-    <button className="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-gray-800 dark:bg-gray-900 flex justify-center items-center text-white" id="theme-toggle">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fillRule="evenodd" clipRule="evenodd" d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z" fill="currentColor" />
-        </svg>
-      </button>
+
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
