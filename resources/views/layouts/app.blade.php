@@ -18,29 +18,35 @@
     @livewireStyles
 </head>
 
-<body class="bg-gray-50 dark:bg-slate-900">
-    <!-- ========== HEADER ========== -->
-    <livewire:layout.header />
-    <!-- ========== END HEADER ========== -->
+<body class="bg-gray-50 dark:bg-slate-900 grid md:grid-cols-12">
+    <div class="md:col-span-2 w-full">
+        <!-- Navigation -->
+        <livewire:layout.navigation />
+        <!-- End Navigation -->
+    </div>
+    <div class="md:col-span-10 w-full">
+        <!-- Content -->
+        <div class="bg-gray-50 dark:bg-firefly-900   w-full">
+            <!-- ========== HEADER ========== -->
+            <livewire:layout.header />
+            <!-- Sidebar Toggle -->
+            <livewire:layout.sidebar-toggle />
+            <!-- End Sidebar Toggle -->
+            <!-- ========== END HEADER ========== -->
+            {{ $slot }}
+            <!-- Footer -->
+            <livewire:layout.footer />
+            <!-- End Footer -->
+        </div>
+        <!-- End Content -->
+
+    </div>
+
 
     <!-- ========== MAIN CONTENT ========== -->
-    <!-- Sidebar Toggle -->
-    <livewire:layout.sidebar-toggle />
-    <!-- End Sidebar Toggle -->
 
-    <!-- Navigation -->
-    <livewire:layout.navigation />
-    <!-- End Navigation -->
 
-    <!-- Content -->
-    <div class="w-full py-10 px-4 sm:px-6 md:px-8 lg:pl-72">
-        {{ $slot }}
-    </div>
-    <!-- End Content -->
 
-        <!-- Footer -->
-<livewire:layout.footer />
-    <!-- End Footer -->
     <!-- ========== END MAIN CONTENT ========== -->
     @stack('modals')
 
