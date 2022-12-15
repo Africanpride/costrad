@@ -1,361 +1,94 @@
+
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-<div class=" grid md:grid-cols-12 py-4 gap-x-4 px-4">
+    <div class="container mx-auto">
+        <div class="border-b border-firefly-200 px-4 dark:border-firefly-700">
+            <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
+              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-firefly-600 hs-tab-active:text-firefly-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-firefly-500 active" id="basic-tabs-item-1" data-hs-tab="#basic-tabs-1" aria-controls="basic-tabs-1" role="tab">
+                Tab 1
+              </button>
+              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-firefly-600 hs-tab-active:text-firefly-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-firefly-500" id="basic-tabs-item-2" data-hs-tab="#basic-tabs-2" aria-controls="basic-tabs-2" role="tab">
+                Tab 2
+              </button>
+              <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-firefly-600 hs-tab-active:text-firefly-600 py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-firefly-500" id="basic-tabs-item-3" data-hs-tab="#basic-tabs-3" aria-controls="basic-tabs-3" role="tab">
+                Tab 3
+              </button>
+            </nav>
+          </div>
 
-    <div class="w-full md:col-span-8 bg-firefly-100 dark:bg-firefly-800 py-6 px-6 rounded-3xl text-firefly-800 dark:text-white">
-        <div class="flex justify-between  items-center mb-8">
-            <p class="text-2xl font-bold">Dashboard</p>
-            <p class="">{{ now()->format('F, Y') }}</p>
+          <div class="mt-3 p-4">
+            <div id="basic-tabs-1" role="tabpanel" aria-labelledby="basic-tabs-item-1">
+              <p class="text-gray-500 dark:text-gray-400">
+                This is the <em class="font-semibold text-gray-800 dark:text-gray-200">first</em> item's tab body.
+              </p>
+            </div>
+            <div id="basic-tabs-2" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-2">
+              <p class="text-gray-500 dark:text-gray-400">
+                This is the <em class="font-semibold text-gray-800 dark:text-gray-200">second</em> item's tab body.
+              </p>
+            </div>
+            <div id="basic-tabs-3" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-3">
+              <p class="text-gray-500 dark:text-gray-400">
+                This is the <em class="font-semibold text-gray-800 dark:text-gray-200">third</em> item's tab body.
+              </p>
+            </div>
+          </div>
+    </div>
+
+    <!-- Jumbotron -->
+<div class="p-6 shadow rounded-lg bg-firefly-50 dark:bg-slate-800 dark:text-white ">
+    {{-- <h2 class="font-semibold text-3xl mb-5">Hello world!</h2> --}}
+    <p>
+      This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+      to featured content or information.
+    </p>
+    <hr class="my-6 border-firefly-300" />
+    <p>
+      It uses utility classes for typography and spacing to space content out within the larger
+      container.
+    </p>
+    <button
+      type="button"
+      class="inline-block px-6 py-2.5 mt-4 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+      data-mdb-ripple="true"
+      data-mdb-ripple-color="light"
+    >
+      Learn more
+    </button>
+  </div>
+  <!-- Jumbotron -->
+
+    <div class="bg-firefly-100 dark:bg-slate-800 dark:text-firefly-300 flex items-center justify-between my-5 px-5 py-10">
+        <div class="flex items-stretch">
+            <div class=" text-xs">Maintain <br> Clinic Settings </div>
+            <div class="h-10 border border-l  border-firefly-200 dark:border-firefly-800 mx-4"></div>
+            <div class="flex flex-nowrap  ">
+                <div class="h-9 w-9">
+                    <img class="object-cover w-full h-full rounded-full" src="https://ui-avatars.com/api/?name={{ Auth::user()->full_name }}">
+                </div>
+            </div>
         </div>
-        <div class="flex flex-wrap justify-between items-center pb-8">
-            <div class="flex flex-wrap ">
-                <div class="pr-10">
-                    <div class="text-2xl font-bold">45</div>
-                    <div class="">In Progress</div>
-                </div>
-                <div class="pr-10">
-                    <div class="text-2xl font-bold">24</div>
-                    <div class="">Upcoming</div>
-                </div>
-                <div>
-                    <div class="text-2xl font-bold">62</div>
-                    <div class="">Total Projects</div>
-                </div>
+
+        <div class="hidden md:block">
+            <div class="badge badge-neutral badge-lg py-4 ">
+                <svg class="w-5 h-5 mr-2 text-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none"><path d="M16 5C14.8954 5 14 5.89543 14 7C14 8.10457 14.8954 9 16 9C17.1046 9 18 8.10457 18 7C18 5.89543 17.1046 5 16 5ZM12 7C12 4.79086 13.7909 3 16 3C18.2091 3 20 4.79086 20 7C20 9.20914 18.2091 11 16 11C13.7909 11 12 9.20914 12 7ZM25.5 6C24.6716 6 24 6.67157 24 7.5C24 8.32843 24.6716 9 25.5 9C26.3284 9 27 8.32843 27 7.5C27 6.67157 26.3284 6 25.5 6ZM22 7.5C22 5.567 23.567 4 25.5 4C27.433 4 29 5.567 29 7.5C29 9.433 27.433 11 25.5 11C23.567 11 22 9.433 22 7.5ZM5 7.5C5 6.67157 5.67157 6 6.5 6C7.32843 6 8 6.67157 8 7.5C8 8.32843 7.32843 9 6.5 9C5.67157 9 5 8.32843 5 7.5ZM6.5 4C4.567 4 3 5.567 3 7.5C3 9.433 4.567 11 6.5 11C8.433 11 10 9.433 10 7.5C10 5.567 8.433 4 6.5 4ZM8.65108 24.5052C8.17749 24.8179 7.61001 25 7 25C5.34315 25 4 23.6569 4 22V15.5C4 15.2239 4.22386 15 4.5 15H8.53095C8.62463 14.2488 8.92663 13.5622 9.37731 13H4.5C3.11929 13 2 14.1193 2 15.5V22C2 24.7614 4.23858 27 7 27C7.84011 27 8.63182 26.7928 9.32683 26.4267C9.01901 25.8285 8.78927 25.1835 8.65108 24.5052ZM22.6732 26.4267C23.3682 26.7928 24.1599 27 25 27C27.7614 27 30 24.7614 30 22V15.5C30 14.1193 28.8807 13 27.5 13H22.6227C23.0734 13.5622 23.3754 14.2488 23.4691 15H27.5C27.7761 15 28 15.2239 28 15.5V22C28 23.6569 26.6569 25 25 25C24.39 25 23.8225 24.8179 23.3489 24.5052C23.2107 25.1835 22.981 25.8285 22.6732 26.4267ZM12.5 13C11.1193 13 10 14.1193 10 15.5V23C10 26.3137 12.6863 29 16 29C19.3137 29 22 26.3137 22 23V15.5C22 14.1193 20.8807 13 19.5 13H12.5ZM12 15.5C12 15.2239 12.2239 15 12.5 15H19.5C19.7761 15 20 15.2239 20 15.5V23C20 25.2091 18.2091 27 16 27C13.7909 27 12 25.2091 12 23V15.5Z" fill="currentColor"></path></svg>            Settings
             </div>
-            <div class="flex items-center mt-4 md:mt-0">
-                <button class="dark:text-white bg-transparent"
-                    title="List View">
-                    <x-heroicon-o-list-bullet
-                        class=" flex-shrink-0 w-8 h-8 text-gray-800 dark:text-gray-200" />
-                </button>
-                    <button class="text-white dark:bg-slate-800 bg-firefly-700 p-2 ml-2" title="Grid View">
-                        <x-heroicon-o-squares-2x2
-                        class=" flex-shrink-0 w-6 h-6 text-white dark:text-white" />
-                </button></div>
         </div>
-        <div class="flex flex-wrap">
-            <div class="w-full md:w-4/12">
-                <div class="p-2">
-                    <div class="p-4 rounded-3xl" style="background-color: rgb(254, 228, 203);">
-                        <div class="flex items-center justify-b"><span class="text-sm">December 10, 2020</span>
-                        </div>
-                        <div class="text-center mb-4 mt-5">
-                            <p class="text-base font-bold opacity-70">Web Designing</p>
-                            <p class="text-sm opacity-70 mt-2">Prototyping</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold m-0">Progress</p>
-                            <div class="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0"><span
-                                    class="block h-1 rounded-md bg-yellow-700 w-6/12"></span></div>
-                            <p class="text-right m-0 text-sm font-bold">60%</p>
-                        </div>
-                        <div class="flex justify-between pt-4 relative">
-                            <div class="flex items-center"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                                    alt="participant1"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                                    alt="participant2"><button
-                                    class="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-plus">
-                                        <path d="M12 5v14M5 12h14"></path>
-                                    </svg></button></div>
-                            <div
-                                class="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-yellow-600">
-                                2 Days Left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-4/12">
-                <div class="p-2">
-                    <div class="p-4 rounded-3xl bg-gray-300">
-                        <div class="flex items-center justify-b"><span class="text-sm">December 10,
-                                2020</span></div>
-                        <div class="text-center mb-4 mt-5">
-                            <p class="text-base font-bold opacity-70">Web Designing</p>
-                            <p class="text-sm opacity-70 mt-2">Prototyping</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold m-0">Progress</p>
-                            <div class="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0"><span
-                                    class="block h-1 rounded-md bg-indigo-700 w-5/12"></span></div>
-                            <p class="text-right m-0 text-sm font-bold">50%</p>
-                        </div>
-                        <div class="flex justify-between pt-4 relative">
-                            <div class="flex items-center"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                                    alt="participant3"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                                    alt="participant4"><button
-                                    class="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-plus">
-                                        <path d="M12 5v14M5 12h14"></path>
-                                    </svg></button></div>
-                            <div
-                                class="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-indigo-700">
-                                2 Days Left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-4/12">
-                <div class="p-2">
-                    <div class="p-4 rounded-3xl bg-green-200">
-                        <div class="flex items-center justify-b"><span class="text-sm">December 10,
-                                2020</span></div>
-                        <div class="text-center mb-4 mt-5">
-                            <p class="text-base font-bold opacity-70">Web Designing</p>
-                            <p class="text-sm opacity-70 mt-2">Prototyping</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold m-0">Progress</p>
-                            <div class="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0"><span
-                                    class="block h-1 rounded-md bg-green-700 w-7/12"></span></div>
-                            <p class="text-right m-0 text-sm font-bold">70%</p>
-                        </div>
-                        <div class="flex justify-between pt-4 relative">
-                            <div class="flex items-center"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                                    alt="participant5"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                                    alt="participant6"><button
-                                    class="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-plus">
-                                        <path d="M12 5v14M5 12h14"></path>
-                                    </svg></button></div>
-                            <div
-                                class="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-green-700">
-                                2 Days Left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-4/12">
-                <div class="p-2">
-                    <div class="p-4 rounded-3xl bg-blue-200">
-                        <div class="flex items-center justify-b"><span class="text-sm">December 10,
-                                2020</span></div>
-                        <div class="text-center mb-4 mt-5">
-                            <p class="text-base font-bold opacity-70">Web Designing</p>
-                            <p class="text-sm opacity-70 mt-2">Prototyping</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold m-0">Progress</p>
-                            <div class="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0"><span
-                                    class="block h-1 rounded-md bg-blue-700 w-7/12"></span></div>
-                            <p class="text-right m-0 text-sm font-bold">70%</p>
-                        </div>
-                        <div class="flex justify-between pt-4 relative">
-                            <div class="flex items-center"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                                    alt="participant7"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                                    alt="participant8"><button
-                                    class="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-plus">
-                                        <path d="M12 5v14M5 12h14"></path>
-                                    </svg></button></div>
-                            <div
-                                class="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-700">
-                                2 Days Left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-4/12">
-                <div class="p-2">
-                    <div class="p-4 rounded-3xl bg-red-200">
-                        <div class="flex items-center justify-b"><span class="text-sm">December 10,
-                                2020</span></div>
-                        <div class="text-center mb-4 mt-5">
-                            <p class="text-base font-bold opacity-70">Web Designing</p>
-                            <p class="text-sm opacity-70 mt-2">Prototyping</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold m-0">Progress</p>
-                            <div class="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0"><span
-                                    class="block h-1 rounded-md bg-red-700 w-7/12"></span></div>
-                            <p class="text-right m-0 text-sm font-bold">70%</p>
-                        </div>
-                        <div class="flex justify-between pt-4 relative">
-                            <div class="flex items-center"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                                    alt="participant9"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                                    alt="participant10"><button
-                                    class="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-plus">
-                                        <path d="M12 5v14M5 12h14"></path>
-                                    </svg></button></div>
-                            <div
-                                class="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-red-700">
-                                2 Days Left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-4/12">
-                <div class="p-2">
-                    <div class="p-4 rounded-3xl bg-purple-200">
-                        <div class="flex items-center justify-b"><span class="text-sm">December 10,
-                                2020</span></div>
-                        <div class="text-center mb-4 mt-5">
-                            <p class="text-base font-bold opacity-70">Web Designing</p>
-                            <p class="text-sm opacity-70 mt-2">Prototyping</p>
-                        </div>
-                        <div>
-                            <p class="text-sm font-bold m-0">Progress</p>
-                            <div class="w-full h-1 rounded-md overflow-hidden bg-white my-2 mx-0"><span
-                                    class="block h-1 rounded-md bg-purple-700 w-7/12"></span></div>
-                            <p class="text-right m-0 text-sm font-bold">70%</p>
-                        </div>
-                        <div class="flex justify-between pt-4 relative">
-                            <div class="flex items-center"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                                    alt="participant11"><img
-                                    class="w-5 h-5 rounded-full overflow-hidden object-cover"
-                                    src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                                    alt="participant12"><button
-                                    class="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-plus">
-                                        <path d="M12 5v14M5 12h14"></path>
-                                    </svg></button></div>
-                            <div
-                                class="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-purple-700">
-                                2 Days Left</div>
-                        </div>
-                    </div>
-                </div>
+
+    </div>
+
+
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <x-jet-welcome />
             </div>
         </div>
     </div>
-    <div class="w-full md:col-span-4 ">
-        <div class="dark:bg-gray-900 bg-gray-800 rounded-3xl px-6 pt-6 pb-6 h-full">
-            <div class="flex justify-between items-center text-white text-2xl pb-6 font-bold">
-                <p>My Appointments</p>
-                <button class="text-white dark:bg-slate-800 bg-gray-700 p-2 ml-2" title="Grid View">
-                    <x-heroicon-o-queue-list
-                    class=" flex-shrink-0 w-6 h-6 text-white dark:text-white" />
-            </button>
-            </div>
-            <div>
-                <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                        alt="profile image" class="object-cover w-10 h-10 rounded-full">
-                    <div class="pl-4 w-full">
-                        <div class="flex items-center justify-between w-full">
-                            <div class="text-white font-medium">Stephanie</div>
-                            <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="text-white">
-                                    <polygon
-                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                    </polygon>
-                                </svg></div>
-                        </div>
-                        <p class="my-2 text-sm text-gray-400">I got your first assignment. It was quite good.
-                            🥳 We can continue with the next assignment.</p>
-                        <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                    </div>
-                </div>
-                <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                    <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                        alt="profile image2" class="object-cover w-10 h-10 rounded-full">
-                    <div class="pl-4 w-full">
-                        <div class="flex items-center justify-between w-full">
-                            <div class="text-white font-medium">Mark</div>
-                            <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="text-white">
-                                    <polygon
-                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                    </polygon>
-                                </svg></div>
-                        </div>
-                        <p class="my-2 text-sm text-gray-400">Hey, can tell me about progress of project? I'm
-                            waiting for your response.</p>
-                        <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                    </div>
-                </div>
-                <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                    <img src="https://images.unsplash.com/photo-1543965170-4c01a586684e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fG1hbnxlbnwwfDB8MHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                        alt="profile image" class="object-cover w-10 h-10 rounded-full">
-                    <div class="pl-4 w-full">
-                        <div class="flex items-center justify-between w-full">
-                            <div class="text-white font-medium">David</div>
-                            <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="text-white">
-                                    <polygon
-                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                    </polygon>
-                                </svg></div>
-                        </div>
-                        <p class="my-2 text-sm text-gray-400">Hey, can tell me about progress of project? I'm
-                            waiting for your response.</p>
-                        <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                    </div>
-                </div>
-                <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                    <img src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                        alt="profile image3" class="object-cover w-10 h-10 rounded-full">
-                    <div class="pl-4 w-full">
-                        <div class="flex items-center justify-between w-full">
-                            <div class="text-white font-medium">Mark</div>
-                            <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="text-white">
-                                    <polygon
-                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                    </polygon>
-                                </svg></div>
-                        </div>
-                        <p class="my-2 text-sm text-gray-400">I am really impressed! Can't wait to see the
-                            final result.</p>
-                        <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 </x-app-layout>
