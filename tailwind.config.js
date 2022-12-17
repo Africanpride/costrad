@@ -8,6 +8,9 @@ module.exports = {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/wireui/wireui/resources/**/*.blade.php',
+        './vendor/wireui/wireui/ts/**/*.ts',
+        './vendor/wireui/wireui/src/View/**/*.php'
     ],
     darkMode: 'class',
     theme: {
@@ -25,16 +28,16 @@ module.exports = {
                 // #f0faf6, #6bc7db, #1c3973, #131453, #1a1042
                 // https://coolors.co/f0faf6-6bc7db-1c3973-131453-1a1042
                 cool: {
-                  50: '#fdf8f6',
-                  100: '#f2e8e5',
-                  200: '#eaddd7',
-                  300: '#cad2c5',
-                  400: '#d2bab0',
-                  500: '#bfa094',
-                  600: '#a18072',
-                  700: '#977669',
-                  800: '#846358',
-                  900: '#2F3E46',
+                    50: '#fdf8f6',
+                    100: '#f2e8e5',
+                    200: '#eaddd7',
+                    300: '#cad2c5',
+                    400: '#d2bab0',
+                    500: '#bfa094',
+                    600: '#a18072',
+                    700: '#977669',
+                    800: '#846358',
+                    900: '#2F3E46',
                 },
                 firefly: {
                     50: '#f2f9fd',
@@ -62,10 +65,17 @@ module.exports = {
                 },
 
 
-              },
+            },
         },
     },
 
-    plugins: [require('preline/plugin'),require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [
+        require('preline/plugin'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('./vendor/wireui/wireui/tailwind.config.js')
+    ],
+
+
 
 };

@@ -1,5 +1,9 @@
 
 <x-app-layout>
+
+    <div class="p-4">
+
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -90,5 +94,7 @@
                 <x-jet-welcome />
             </div>
         </div>
+    </div>
+
     </div>
 </x-app-layout>

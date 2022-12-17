@@ -11,9 +11,16 @@ class pageheader extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $modelName; // name of model in question
+    public $description; // text describing activity on model
+    public $addButton = false; // show add button or not
+    // public String $icon = '<x-heroicon-o-ellipsis-vertical class="w-6 h-6 text-current" />';
+
+    public function __construct($modelName, $description, $addButton, $icon)
     {
-        //
+        $this->modelName = $modelName;
+        $this->description = $description;
+        $this->addButton = $addButton;
     }
 
     /**

@@ -13,8 +13,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Styles -->
+    {{-- @wireUiScripts --}}
+    {{-- <script src="//[unpkg.com/alpinejs](http://unpkg.com/alpinejs)" defer></script> --}}
     @livewireStyles
 </head>
 
@@ -26,7 +26,7 @@
     </div>
     <div class="md:col-span-10 w-full">
         <!-- Content -->
-        <div class="bg-gray-50 dark:bg-firefly-900   w-full">
+        <div class="bg-gray-50 dark:bg-firefly-900 w-full ">
             <!-- ========== HEADER ========== -->
             <livewire:layout.header />
             <!-- Sidebar Toggle -->

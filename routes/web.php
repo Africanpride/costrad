@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Hide register after Admin account is created
+
 if (User::count() > 1) {
 
     Route::get('register', function () {
@@ -47,12 +48,18 @@ Route::middleware([
     Route::get('invoice', function () {
         return view('invoice');
     });
-    Route::get('/test2', function () {
+    Route::get('/staff', function () {
+        $users = User::all();
+        return view('staff.index', compact('users'));
+    })->name('staff');
+
+    Route::get('test2', function () {
 
         return view('test2');
     });
-    Route::get('/staff', function () {
-        $users = User::all();
-        return view('staff', compact('users'));
+    Route::get('documentation', function () {
+
+        return view('documentation');
     });
+
 });
