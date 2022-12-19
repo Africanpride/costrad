@@ -43,11 +43,10 @@
     </div>
 
 
-    <!-- ========== MAIN CONTENT ========== -->
+    <!-- ========== MODALS ========== -->
+    <livewire:layout.all-modals />
 
-
-
-    <!-- ========== END MAIN CONTENT ========== -->
+    <!-- ========== END MODALS CONTENT ========== -->
     @stack('modals')
 
     @livewireScripts

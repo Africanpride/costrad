@@ -75,21 +75,6 @@
                         </div>
                     </div>
                 </button>
-                <button
-                    class="border-dashed border-b dark:border-slate-800	 text-left flex gap-y-6 w-full h-full hover:bg-gray-100 p-5 transition-all dark:hover:bg-white/[.075] hs-tab-active:text-gray-600 hs-tab-active:bg-gray-100 dark:hs-tab-active:bg-slate-900 "
-                    id="basic-tabs-item-6" data-hs-tab="#basic-tabs-6" aria-controls="basic-tabs-6" role="tab"
-                    active>
-                    <x-heroicon-o-bell-alert
-                        class=" flex-shrink-0 w-8 h-8 text-gray-800 mt-0.5 mr-6 dark:text-gray-200" />
-                    <div>
-                        <div>
-                            <h3 class="block font-bold text-gray-800 dark:text-white">Alerts & Notifications</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Set alerts and notifications </p>
-                        </div>
-                    </div>
-                </button>
-
-
             </nav>
         </div>
 
@@ -97,47 +82,61 @@
             <div id="basic-tabs-1" role="tabpanel" aria-labelledby="basic-tabs-item-1">
                 <div class="mx-auto w-full">
                     @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                        @livewire('profile.update-profile-information-form')
+                        <x-admin.pageheader model-name="Profile " description="Update <br /> Profile Details"
+                            add-button="false" class="mx-4">
+                            <x-heroicon-o-user-circle class="w-5 h-5 text-current" />
+                            </x-admin-pageheader>
+                            @livewire('profile.update-profile-information-form')
 
-                        {{-- <x-jet-section-border /> --}}
+                            {{-- <x-jet-section-border /> --}}
                     @endif
                 </div>
             </div>
             <div id="basic-tabs-2" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-2">
                 @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
-                </div>
+                    <x-admin.pageheader model-name="Password " description="Update <br /> Password Details"
+                        add-button="false" class="mx-4">
+                        <x-heroicon-o-lock-closed class="w-5 h-5 text-current" />
+                        </x-admin-pageheader>
 
-                {{-- <x-jet-section-border /> --}}
-            @endif
+                        <div class="mt-10 sm:mt-0">
+                            @livewire('profile.update-password-form')
+                        </div>
+
+                        {{-- <x-jet-section-border /> --}}
+                @endif
             </div>
             <div id="basic-tabs-3" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-3">
                 @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
-                </div>
-
-                {{-- <x-jet-section-border /> --}}
-            @endif
+                    <x-admin.pageheader model-name="Security " description="Multifactor <br /> Authentication"
+                        add-button="false" class="mx-4">
+                        <x-heroicon-o-shield-check class="w-5 h-5 text-current" />
+                        </x-admin-pageheader>
+                        <div class="mt-10 sm:mt-0">
+                            @livewire('profile.two-factor-authentication-form')
+                        </div>
+                @endif
             </div>
             <div id="basic-tabs-4" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-4">
-                @livewire('profile.logout-other-browser-sessions-form')
+                <x-admin.pageheader model-name="Sessions " description="Manage <br /> Sessions"
+                    add-button="false" class="mx-4">
+                    <x-heroicon-o-cpu-chip class="w-5 h-5 text-current" />
+                    </x-admin-pageheader>
+                    @livewire('profile.logout-other-browser-sessions-form')
             </div>
             <div id="basic-tabs-5" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-5">
                 @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                {{-- <x-jet-section-border /> --}}
+                <x-admin.pageheader model-name="Deletion " description="Account <br /> Deletion"
+                add-button="false" class="mx-4">
+                <x-heroicon-o-trash class="w-5 h-5 text-current" />
+                </x-admin-pageheader>
 
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
-            @endif
+                    <div class="mt-10 sm:mt-0">
+                        @livewire('profile.delete-user-form')
+                    </div>
+                @endif
             </div>
-            <div id="basic-tabs-6" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-6">
-                <p class="text-gray-500 dark:text-gray-400">
-                    NOtifications
-                </p>
-            </div>
+
         </div>
     </div>
 

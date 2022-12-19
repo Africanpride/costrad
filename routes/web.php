@@ -1,7 +1,10 @@
 <?php
 
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,8 +57,9 @@ Route::middleware([
     })->name('staff');
 
     Route::get('test2', function () {
-
-        return view('test2');
+        $roles = Role::paginate();
+        $permissions = Permission::all();
+        return view('test2', compact('roles', 'permissions'));
     });
     Route::get('documentation', function () {
 
