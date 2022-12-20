@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'bg-firefly-100 dark:bg-slate-800 dark:text-firefly-300 flex items-center justify-between my-5 p-14 shadow rounded-lg']) }}>
+<div {{ $attributes->merge(['class' => 'bg-firefly-50 dark:bg-slate-800 dark:text-firefly-300 flex items-center justify-between my-5 p-14 shadow rounded-lg']) }}>
     <div class="flex  items-center">
         <div class="text-sm  text-gray-500">{!! $description ?? ' '!!} </div>
         <div class="h-7 border border-l  border-firefly-200 dark:border-firefly-800 mx-4"></div>
