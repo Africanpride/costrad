@@ -13,8 +13,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- @wireUiScripts --}}
-    {{-- <script src="//[unpkg.com/alpinejs](http://unpkg.com/alpinejs)" defer></script> --}}
+
     @livewireStyles
 </head>
 
@@ -47,8 +46,9 @@
     <livewire:layout.all-modals />
 
     <!-- ========== END MODALS CONTENT ========== -->
-    @stack('modals')
+    @livewire('livewire-ui-modal')
 
+    @stack('modals')
     @livewireScripts
 </body>
 

@@ -7,16 +7,14 @@
 
             <!-- Jumbotron -->
             <div class="p-6 shadow rounded-lg bg-firefly-50 dark:bg-slate-800 dark:text-white ">
-                <div class="flex flex-row justify-between my-2">
-                    {{-- <h2 class="font-semibold text-3xl">Administrator</h2> --}}
-                </div>
+
                 <div class="space-y-3">
-                    <p class="max-w-3xl">
+                    <p class="max-w-7xl">
                         These are the Roles already in <b>{{ config('app.name') }}</b> with their
-                        associated roles. You can assign new roles to existing member here.
+                        associated roles. You can assign new roles to existing member here. A role provides access to predefined menus and features so that depending on the assigned role and permissions a user can have access to what they need.
                     </p>
 
-                    <x-admin.generic-button data-hs-overlay='#add-new-role' >
+                    <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.add-role')"  >
                         <span class="flex items-center justify-center gap-2">
                             <x-admin.green-shield-icon class="w-5 h-5 text-green-500 " />
                             Add New Role
@@ -25,15 +23,14 @@
 
                 </div>
                 <hr class="my-6 dark:border-gray-600 border-firefly-200" />
-                <livewire:admin.add-role-modal />
-                <livewire:admin.admin-roles />
+                <livewire:admin.available-roles />
             </div>
             <!-- Jumbotron -->
 
             <!-- Jumbotron -->
             <div class="p-6 shadow rounded-lg bg-gray-100 dark:bg-slate-800 dark:text-white ">
                 <div class="flex flex-row justify-between my-2">
-                    <h2 class="font-semibold text-3xl">Administrator Accounts</h2>
+                    <h2 class="font-semibold text-3xl">Administrator Privileges</h2>
                 </div>
                 <div class="space-y-3">
                     <p class="max-w-2xl">

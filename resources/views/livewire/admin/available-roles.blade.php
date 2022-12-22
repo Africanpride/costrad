@@ -4,7 +4,7 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
         @forelse ($roles as $role)
             <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
-                href="#">
+            wire:click='$emit("openModal", "admin.add-role")' href="#">
                 <div class="p-4 md:p-5">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center">
@@ -26,8 +26,9 @@
             </a>
 
         @empty
-            <div class="w-full flex flex-col space-y-3">
-                <img class="h-16 w-16 rounded-full" src="{{ asset('/images/empty.png') }}" alt="Image Description">
+            <div class="w-full flex flex-col  space-y-3">
+                <img class="h-16 w-16  rounded-full" src="{{ asset('/images/empty.png') }}" alt="Image Description">
+                {{-- <x-admin.nothing-here /> --}}
                 <div>No Role Added Yet</div>
             </div>
         @endforelse
