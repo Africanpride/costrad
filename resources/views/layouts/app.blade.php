@@ -24,7 +24,7 @@
         <livewire:layout.navigation />
         <!-- End Navigation -->
     </div>
-    <div class="md:col-span-10 w-full">
+    <div class="md:col-span-10 w-full overflow-x-hidden">
         <!-- Content -->
         <div class="bg-gray-50 dark:bg-firefly-900 w-full ">
             <!-- ========== HEADER ========== -->

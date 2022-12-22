@@ -19,16 +19,17 @@
                             </div>
                         </div>
                         <div class="pl-3">
-<x-heroicon-o-shield-check class="w-5 h-5 text-current" />
+                            <x-heroicon-o-shield-check class="w-5 h-5 text-current" />
                         </div>
                     </div>
                 </div>
             </a>
 
         @empty
-<div class="w-full flex justify-center items-center"> <img class="h-[2.375rem] w-[2.375rem] rounded-full"
-    src="{{ asset('/images/empty.png') }}"
-    alt="Image Description"></div>
+            <div class="w-full flex flex-col space-y-3">
+                <img class="h-16 w-16 rounded-full" src="{{ asset('/images/empty.png') }}" alt="Image Description">
+                <div>No Role Added Yet</div>
+            </div>
         @endforelse
 
     </div>

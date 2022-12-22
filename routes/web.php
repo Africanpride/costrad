@@ -44,9 +44,9 @@ Route::middleware([
     Route::get('/profile', function () {
         return view('profile.show');
     });
-    Route::get('/test', function () {
+    Route::get('manage-roles', function () {
         $users = User::all();
-        return view('test', compact('users'));
+        return view('manage-roles', compact('users'));
     });
     Route::get('invoice', function () {
         return view('invoice');
