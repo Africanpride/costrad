@@ -1,6 +1,6 @@
 <x-admin.roles-modal formAction="updateRole">
     <x-slot name="title">
-        Update Role {{ $role->name }}
+        Update Role {{ $role->name }} <br>
     </x-slot>
 
     <x-slot name="content">
@@ -29,13 +29,14 @@
                         wire:key="input-checkbox-{{ $permission->id }}">
 
                         <input class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
-                            type="checkbox" value="{{ $permission->id }}"
-                            wire:model="rolePermissions.{{ $key }}"
-                            value="{{ $permission->id }}"
-                            @if(in_array($permission->id, $permissionIds)) checked @endif>
+                            type="checkbox" value="{{ $permission->id }}" {{-- wire:model="rolePermissions.{{ $key }}" --}}
+                            wire:model.defer="rolePermissions" name="rolePermissions" value="{{ $permission->id }}"
+                            @if (in_array($permission->id, $permissionIds)) checked @endif>
 
                         <label for="permission-{{ $permission->id }}" class=" text-sm leading-5  capitalize">
-                            {{ $permission->name }} - @if (in_array($permission->id, $permissionIds)) true @endif
+                            {{ $permission->name }} - @if (in_array($permission->id, $permissionIds))
+                                true
+                            @endif
                         </label>
                     </div>
                 @endforeach

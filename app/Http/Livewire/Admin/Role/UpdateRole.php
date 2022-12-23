@@ -19,6 +19,7 @@ class UpdateRole extends ModalComponent
     public $permissionIds;
 
 
+
     // protected $rules = [
     //     'name' => 'unique:roles,email_address,'.$user->id,
     //     'description' => ['nullable', 'string', 'min:3', 'max:255'],
@@ -30,10 +31,11 @@ class UpdateRole extends ModalComponent
 
         $this->role = $role;
         $this->name = $role->name;
+        $this->rolePermissions = $role->permissions->pluck('id')->toArray();
         $this->description = $role->description;
         $this->permissionIds = $role->permissions->pluck('id')->toArray();
-        $this->permissions = Permission::all();
-        // $this->permissions  = Permission::all()->pluck('id');
+        $this->permissions = Permission::all(); // we shall check against this
+
     }
 
 
@@ -44,14 +46,13 @@ class UpdateRole extends ModalComponent
             'name' => 'required|unique:roles,name,'.$this->role->id,
             'description' => 'nullable|min:3',
         ]);
+        // dd($this->rolePermissions);
         $role->update([
             'name' => $this->name,
             'description' => $this->description,
         ]);
 
         $this->role->syncPermissions($this->rolePermissions);
-        // $this->role()->sync($this->rolePermissions);
-
         return redirect()->to('/manage-roles');
 
     }
