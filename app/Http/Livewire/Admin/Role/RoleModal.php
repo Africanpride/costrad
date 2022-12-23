@@ -1,13 +1,11 @@
 <?php
 
-
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Admin\Role;
 
 use App\Models\Role;
 use LivewireUI\Modal\ModalComponent;
 
-
-class AddRole extends ModalComponent
+class RoleModal extends ModalComponent
 {
     public int $counter = 0;
     public $name;
@@ -19,7 +17,7 @@ class AddRole extends ModalComponent
         'description' => ['nullable', 'string', 'min:3', 'max:255','unique:roles'],
     ];
 
-    public function addRole()
+    public function saveRole()
         {
 
             $validatedData = $this->validate();
@@ -38,6 +36,6 @@ class AddRole extends ModalComponent
     }
     public function render()
     {
-        return view('livewire.admin.add-role');
+        return view('livewire.admin.role-modal');
     }
 }
