@@ -4,6 +4,7 @@
 namespace App\Http\Livewire\Admin\Role;
 
 use App\Models\Role;
+use App\Models\Permission;
 use LivewireUI\Modal\ModalComponent;
 
 
@@ -12,37 +13,47 @@ class UpdateRole extends ModalComponent
 
     public $name;
     public $description;
-    public $permission = [];
-
-    protected $rules = [
-        'name' => ['required', 'string', 'min:3', 'max:255', 'unique:roles'],
-        'description' => ['nullable', 'string', 'min:3', 'max:255'],
-    ];
-
+    public $permissions;
+    public array $rolePermissions = [];
     public Role $role;
+    public $permissionIds;
+
+
+    // protected $rules = [
+    //     'name' => 'unique:roles,email_address,'.$user->id,
+    //     'description' => ['nullable', 'string', 'min:3', 'max:255'],
+    // ];
+
 
     public function mount(Role $role)
     {
-        // Gate::authorize('update', $role);
 
         $this->role = $role;
+        $this->name = $role->name;
+        $this->description = $role->description;
+        $this->permissionIds = $role->permissions->pluck('id')->toArray();
+        $this->permissions = Permission::all();
+        // $this->permissions  = Permission::all()->pluck('id');
     }
 
 
-    public function updateRole()
+    public function updateRole(Role $role)
     {
 
-        $validatedData = $this->validate();
+        $validated = $this->validate([
+            'name' => 'required|unique:roles,name,'.$this->role->id,
+            'description' => 'nullable|min:3',
+        ]);
+        $role->update([
+            'name' => $this->name,
+            'description' => $this->description,
+        ]);
 
-        $role =  Role::create(
-            [
-                'name' => $this->name,
-                'description' => $this->description,
-            ]
-        );
-        $role->syncPermissions($this->permission);
+        $this->role->syncPermissions($this->rolePermissions);
+        // $this->role()->sync($this->rolePermissions);
 
         return redirect()->to('/manage-roles');
+
     }
 
     public function render()

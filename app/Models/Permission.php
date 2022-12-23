@@ -11,4 +11,6 @@ class Permission extends SpatiePermission
 {
     use HasFactory;
     protected $guarded = [];
+
+
 }

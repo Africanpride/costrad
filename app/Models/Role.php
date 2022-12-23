@@ -14,4 +14,6 @@ class Role extends SpatieRole
     // use HasUuids;
     protected $guarded = [];
 
+
+
 }
