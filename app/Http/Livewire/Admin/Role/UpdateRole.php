@@ -28,11 +28,10 @@ class UpdateRole extends ModalComponent
         $this->permissions = Permission::all(); // we shall check against this
     }
 
-    public function updateRole(Role $role)
+    public function updateRole()
     {
-
         $validated = $this->validate([
-            'name' => 'required|unique:roles,name,'.$this->role->id,
+            'name' => 'required|min:3|unique:roles,name,'.$this->role->id,
             'description' => 'nullable|min:3',
         ]);
         // dd($this->rolePermissions);

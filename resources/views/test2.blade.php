@@ -5,12 +5,11 @@
 
             <img src="{{ Auth::user()->avatar_url }}" alt="" class="h-12 w-12 rounded-full">
         </div>
-
 <div>
-    <ul class="grid grid-cols-6 gap-3 space-x-4 items-center text-sm">
+    <ul class="grid grid-cols-6 gap-3 items-center text-sm">
     @forelse ($roles as $role)
 
-        <li class="flex space-x-3 my-3 ">
+        <li class="flex my-3 ">
             <svg class="flex-shrink-0 h-6 w-6 text-blue-600" width="16" height="16" viewBox="0 0 16 16"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

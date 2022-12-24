@@ -3,27 +3,26 @@
     <!-- Grid -->
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
         @forelse ($roles as $role)
-            <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
-            wire:click='$emit("openModal", "admin.role.update-role", {{ json_encode([$role]) }})' href="#">
+            <div class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800">
                 <div class="p-4 md:p-5">
                     <div class="flex justify-between items-center">
-                        <div class="flex items-center">
+                        <div wire:click='$emit("openModal", "admin.role.update-role", {{ json_encode([$role]) }})' class="flex items-center cursor-pointer"  >
                             <img class="h-[2.375rem] w-[2.375rem] rounded-full"
                                 src="https://ui-avatars.com/api/?name={{ $role->name }}?background=fff"
                                 alt="{{ $role->name }}">
                             <div class="ml-3">
                                 <h3
-                                    class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+                                    class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200 capitalize">
                                     {{ $role->name }}
                                 </h3>
                             </div>
                         </div>
-                        <div class="pl-3">
-                            <x-heroicon-o-shield-check class="w-5 h-5 text-current" />
+                        <div class="pl-3 cursor-pointer" wire:click='$emit("openModal", "admin.role.delete-role", {{ json_encode([$role]) }})' >
+                            <x-heroicon-o-trash class="w-6 h-6 text-red-500" />
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
         @empty
             <div class="w-full flex flex-col  space-y-3">
