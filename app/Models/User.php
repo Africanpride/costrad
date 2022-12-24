@@ -76,4 +76,11 @@ class User extends Authenticatable
     {
         return Cache::has('user-is-online-' . $this->id);
     }
+
+    function getAvatarUrlAttribute() {
+        $address = strtolower( trim($this->email) );
+        $hash = md5( $address );
+        return 'https://www.gravatar.com/avatar/' . $hash;
+    }
+
 }

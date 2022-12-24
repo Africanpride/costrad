@@ -18,26 +18,15 @@ class UpdateRole extends ModalComponent
     public Role $role;
     public $permissionIds;
 
-
-
-    // protected $rules = [
-    //     'name' => 'unique:roles,email_address,'.$user->id,
-    //     'description' => ['nullable', 'string', 'min:3', 'max:255'],
-    // ];
-
-
     public function mount(Role $role)
     {
-
         $this->role = $role;
         $this->name = $role->name;
         $this->rolePermissions = $role->permissions->pluck('id')->toArray();
         $this->description = $role->description;
         $this->permissionIds = $role->permissions->pluck('id')->toArray();
         $this->permissions = Permission::all(); // we shall check against this
-
     }
-
 
     public function updateRole(Role $role)
     {
@@ -47,7 +36,7 @@ class UpdateRole extends ModalComponent
             'description' => 'nullable|min:3',
         ]);
         // dd($this->rolePermissions);
-        $role->update([
+        $this->role->update([
             'name' => $this->name,
             'description' => $this->description,
         ]);
