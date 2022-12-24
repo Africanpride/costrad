@@ -13,13 +13,24 @@
                         These are the Roles already in <b>{{ config('app.name') }}</b> with their
                         associated roles. You can assign new roles to existing member here. A role provides access to predefined menus and features so that depending on the assigned role and permissions a user can have access to what they need.
                     </p>
+                    <p class="max-w-7xl">
+                        Roles would be assigned available Permissions.
+                    </p>
 
-                    <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.role.add-role')"  >
-                        <span class="flex items-center justify-center gap-2">
-                            <x-admin.green-shield-icon class="w-5 h-5 text-green-500 " />
-                            Add New Role
-                        </span>
-                    </x-admin.generic-button>
+<div class="gap-4 grid grid-cols-1 md:flex justify-start items-center">
+    <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.role.add-role')"  >
+        <span class="flex items-center justify-center gap-2">
+            <x-admin.green-shield-icon class="w-6 h-6 text-green-500 " />
+            Add New Role
+        </span>
+    </x-admin.generic-button>
+    <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.role.add-role')"  >
+        <span class="flex items-center justify-center gap-2">
+            <x-heroicon-o-adjustments-horizontal class="w-6 h-6 text-yellow-500 " />
+            Add New Permission
+        </span>
+    </x-admin.generic-button>
+</div>
 
                 </div>
                 <hr class="my-6 dark:border-gray-600 border-firefly-200" />
