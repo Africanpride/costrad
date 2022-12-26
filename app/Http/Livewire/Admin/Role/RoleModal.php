@@ -36,6 +36,6 @@ class RoleModal extends ModalComponent
     }
     public function render()
     {
-        return view('livewire.admin.role-modal');
+        return view('livewire.admin.roles-modal');
     }
 }

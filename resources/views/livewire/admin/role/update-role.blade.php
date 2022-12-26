@@ -1,6 +1,6 @@
 <x-admin.roles-modal formAction="updateRole">
     <x-slot name="title">
-        Update Role {{ $role->name }} <br>
+        Update <span class="text-red-500 capitalize">{{ $role->name }}</span>
     </x-slot>
 
     <x-slot name="content">

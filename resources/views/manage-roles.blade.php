@@ -24,9 +24,9 @@
             Add New Role
         </span>
     </x-admin.generic-button>
-    <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.role.add-role')"  >
+    <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.permissions.add-permission')"  >
         <span class="flex items-center justify-center gap-2">
-            <x-heroicon-o-adjustments-horizontal class="w-6 h-6 text-yellow-500 " />
+            <x-heroicon-o-adjustments-horizontal class="w-6 h-6 text-yellow-400 " />
             Add New Permission
         </span>
     </x-admin.generic-button>
@@ -35,6 +35,8 @@
                 </div>
                 <hr class="my-6 dark:border-gray-600 border-firefly-200" />
                 <livewire:admin.available-roles />
+                <hr class="my-6 dark:border-gray-600 border-firefly-200" />
+                <livewire:admin.available-permissions />
             </div>
             <!-- Jumbotron -->
 
@@ -57,7 +59,7 @@
                             <table class="min-w-full border-secondary-300 rounded-md dark:border-secondary-900">
                                 <thead>
                                     <tr
-                                        class=" bg-secondary-100 dark:border-secondary-900 dark:bg-secondary-900 text-secondary-900  dark:text-secondary-400">
+                                        class=" bg-gray-200 dark:border-secondary-900 dark:bg-secondary-900 text-secondary-900  dark:text-secondary-400">
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400">
                                             <span class="lg:pl-2">Name</span>
