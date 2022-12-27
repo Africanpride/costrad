@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Jenssegers\Agent\Agent;
 use Illuminate\Database\Eloquent\Builder;
+use JamesMills\LaravelTimezone\Facades\Timezone;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog as Log;
-
-use Illuminate\Support\Carbon;
 
 
 
@@ -26,6 +26,11 @@ class AuthenticationLog extends DataTableComponent
     {
       $this->setPrimaryKey('id');
     }
+
+    public function getUserEmail($id) {
+        return User::where('id', $id)->first();
+    }
+
     public function mount(User $user)
     {
         // if (! auth()->user() || ! auth()->user()->isAdmin()) {
@@ -38,14 +43,17 @@ class AuthenticationLog extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('IP Address', 'ip_address')
+            Column::make('Email', 'authenticatable_id')
+                ->sortable()
+                ->format(fn($value) => User::where('id', $value)->first()->email),
+            Column::make('IP Address', ' ip_address')
                 ->searchable(),
-            Column::make('Browser', 'user_agent')
+/*             Column::make('Browser', 'user_agent')
                 ->searchable()
                 ->format(function($value) {
                     $agent = tap(new Agent, fn($agent) => $agent->setUserAgent($value));
                     return $agent->platform() . ' - ' . $agent->browser();
-                }),
+                }), */
             Column::make('Location')
                 ->searchable(function (Builder $query, $searchTerm) {
                     $query->orWhere('location->city', 'like', '%'.$searchTerm.'%')
@@ -55,16 +63,15 @@ class AuthenticationLog extends DataTableComponent
                 })
                 ->format(fn ($value) => $value && $value['default'] === false ? $value['city'] . ', ' . $value['state'] : '-'),
             Column::make('Login At')
-                ->sortable(),
+                ->sortable()
+                ->format(fn($value) => $value ? Timezone::convertToLocal($value) : '-'),
             Column::make('Login Successful')
                 ->sortable()
                 ->format(fn($value) => $value === true ? 'Yes' : 'No'),
             Column::make('Logout At')
                 ->sortable()
                 ->format(fn($value) => $value ? Timezone::convertToLocal($value) : '-'),
-            Column::make('Cleared By User')
-                ->sortable()
-                ->format(fn($value) => $value === true ? 'Yes' : 'No'),
+
         ];
     }
 

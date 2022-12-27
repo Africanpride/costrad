@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create(config('authentication-log.table_name'), function (Blueprint $table) {
             $table->id();
-            // $table->morphs('authenticatable');
             $table->uuidMorphs('authenticatable');
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();

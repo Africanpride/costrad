@@ -4,6 +4,8 @@
     </x-admin-pageheader>
 
         <div class="p-4">
+{{ Auth::user()->lastSuccessfulLoginAt()->diffForHumans() }}
+
             <div
                 class="relative overflow-hidden before:absolute before:top-1/2 before:left-1/2 before:bg-[url('../svg/component/hyperdrive.svg')] before:bg-no-repeat before:bg-center before:w-full before:h-96 before:-z-[1] before:transform before:-translate-y-1/2 before:-translate-x-1/2 dark:before:bg-[url('../svg/component/hyperdrive-dark.svg')]">
                 <div class="max-w-3xl mx-auto relative text-center px-4 sm:px-6 lg:px-8 py-10 md:py-24">
