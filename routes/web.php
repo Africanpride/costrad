@@ -32,6 +32,9 @@ if (User::count() > 1) {
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/logs', function () {
+    return view('logs');
+});
 
 Route::middleware([
     'auth:sanctum',
