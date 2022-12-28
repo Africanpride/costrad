@@ -29,7 +29,7 @@ return [
         ],
         'failed-login' => [
             // Send the FailedLogin notification
-            'enabled' => env('FAILED_LOGIN_NOTIFICATION', false),
+            'enabled' => env('FAILED_LOGIN_NOTIFICATION', true),
 
             // Use torann/geoip to attempt to get a location
             'location' => true,
@@ -41,5 +41,5 @@ return [
 
     // When the clean-up command is run, delete old logs greater than `purge` days
     // Don't schedule the clean-up command if you want to keep logs forever.
-    'purge' => 365,
+    'purge' => 90,
 ];

@@ -24,10 +24,11 @@ class AuthenticationLog extends DataTableComponent
 
     public function configure(): void
     {
-      $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id');
     }
 
-    public function getUserEmail($id) {
+    public function getUserEmail($id)
+    {
         return User::where('id', $id)->first();
     }
 
@@ -45,11 +46,11 @@ class AuthenticationLog extends DataTableComponent
         return [
             Column::make('Email', 'authenticatable_id')
                 ->sortable()
-                ->format(fn($value) => User::where('id', $value)->first()->email)
+                ->format(fn ($value) => User::where('id', $value)->first()->email)
                 ->searchable(),
             Column::make('IP Address', ' ip_address')
                 ->searchable(),
-/*             Column::make('Browser', 'user_agent')
+            /*             Column::make('Browser', 'user_agent')
                 ->searchable()
                 ->format(function($value) {
                     $agent = tap(new Agent, fn($agent) => $agent->setUserAgent($value));
@@ -65,13 +66,13 @@ class AuthenticationLog extends DataTableComponent
             //     ->format(fn ($value) => $value && $value['default'] === false ? $value['city'] . ', ' . $value['state'] : '-'),
             Column::make('Login At')
                 ->sortable()
-                ->format(fn($value) => $value ? Timezone::convertToLocal($value) : '-'),
-            Column::make('Login Successful')
-                ->sortable()
-                ->format(fn($value) => $value === true ? 'Yes' : 'No'),
+                ->format(fn ($value) => $value ? Timezone::convertToLocal($value) : '-'),
             Column::make('Logout At')
                 ->sortable()
-                ->format(fn($value) => $value ? Timezone::convertToLocal($value) : '-'),
+                ->format(fn ($value) => $value ? Timezone::convertToLocal($value) : '-'),
+            Column::make('Login Successful')
+                ->sortable()
+                ->format(fn ($value) => $value === true ? 'Yes' : 'No'),
 
         ];
     }
