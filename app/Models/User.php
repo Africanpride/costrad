@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
@@ -15,9 +17,14 @@ use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, HasProfilePhoto,
-    Notifiable, TwoFactorAuthenticatable,
-    HasRoles, HasUuids, AuthenticationLoggable;
+    use HasApiTokens,
+        HasFactory,
+        HasProfilePhoto,
+        Notifiable,
+        TwoFactorAuthenticatable,
+        HasRoles,
+        HasUuids,
+        AuthenticationLoggable;
 
     /**
      * The attributes that are mass assignable.
@@ -25,15 +32,15 @@ class User extends Authenticatable
      * @var string[]
      */
 
-     protected $fillable = [
+    protected $fillable = [
         'firstName',
         'lastName',
         'email',
         'password',
     ];
 
-    public $incrementing=false;
-    protected $keyType='string';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     public function getRouteKeyName()
     {
@@ -74,15 +81,22 @@ class User extends Authenticatable
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
     }
 
+    public function isLoggedIn()
+    {
+        return Auth::check();
+    }
+
+
     public function isOnline()
     {
-        return Cache::has('user-is-online-' . $this->id);
+        $timestamp = Carbon::parse('2 minute ago');
+        return $this->last_seen > $timestamp;
     }
 
-    function getAvatarUrlAttribute() {
-        $address = strtolower( trim($this->email) );
-        $hash = md5( $address );
+    function getAvatarUrlAttribute()
+    {
+        $address = strtolower(trim($this->email));
+        $hash = md5($address);
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
-
 }

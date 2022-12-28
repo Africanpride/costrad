@@ -45,7 +45,8 @@ class AuthenticationLog extends DataTableComponent
         return [
             Column::make('Email', 'authenticatable_id')
                 ->sortable()
-                ->format(fn($value) => User::where('id', $value)->first()->email),
+                ->format(fn($value) => User::where('id', $value)->first()->email)
+                ->searchable(),
             Column::make('IP Address', ' ip_address')
                 ->searchable(),
 /*             Column::make('Browser', 'user_agent')
@@ -54,14 +55,14 @@ class AuthenticationLog extends DataTableComponent
                     $agent = tap(new Agent, fn($agent) => $agent->setUserAgent($value));
                     return $agent->platform() . ' - ' . $agent->browser();
                 }), */
-            Column::make('Location')
-                ->searchable(function (Builder $query, $searchTerm) {
-                    $query->orWhere('location->city', 'like', '%'.$searchTerm.'%')
-                        ->orWhere('location->state', 'like', '%'.$searchTerm.'%')
-                        ->orWhere('location->state_name', 'like', '%'.$searchTerm.'%')
-                        ->orWhere('location->postal_code', 'like', '%'.$searchTerm.'%');
-                })
-                ->format(fn ($value) => $value && $value['default'] === false ? $value['city'] . ', ' . $value['state'] : '-'),
+            // Column::make('Location')
+            //     ->searchable(function (Builder $query, $searchTerm) {
+            //         $query->orWhere('location->city', 'like', '%'.$searchTerm.'%')
+            //             ->orWhere('location->state', 'like', '%'.$searchTerm.'%')
+            //             ->orWhere('location->state_name', 'like', '%'.$searchTerm.'%')
+            //             ->orWhere('location->postal_code', 'like', '%'.$searchTerm.'%');
+            //     })
+            //     ->format(fn ($value) => $value && $value['default'] === false ? $value['city'] . ', ' . $value['state'] : '-'),
             Column::make('Login At')
                 ->sortable()
                 ->format(fn($value) => $value ? Timezone::convertToLocal($value) : '-'),
