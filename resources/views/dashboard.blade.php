@@ -19,7 +19,7 @@
                     </div>
                     <div>
                         <div class="text-2xl font-bold">62</div>
-                        <div class="">Total Projects</div>
+                        <div class="">Total Consultations</div>
                     </div>
                 </div>
                 <div class="flex items-center mt-4 md:mt-0">

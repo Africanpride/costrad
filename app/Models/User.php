@@ -42,6 +42,9 @@ class User extends Authenticatable
     public $incrementing = false;
     protected $keyType = 'string';
 
+    public $guard_name = 'sanctum';
+
+
     public function getRouteKeyName()
     {
         return 'uuid';

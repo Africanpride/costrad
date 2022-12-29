@@ -50,11 +50,13 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 my-4 md:mb-0 mt-6">
+            <div class="col-span-2">
+                <!-- staff Members -->
+                @livewire('admin.staff.staff-members')
+                <!-- end staff Members -->
 
-            <!-- staff Members -->
-            @livewire('admin.staff-members')
-            <!-- staff Members -->
-
+                <!-- staff Members -->
+            </div>
             <!-- profile -->
             <div
                 class=" h-fit md:col-span-1 md:my-0 my-4 px-10 py-16 rounded-2xl
@@ -81,7 +83,8 @@
                         @endauth
                     </span>
                     <div class="">{{ Auth::user()->full_name }}</div>
-                    <div class="text-xxs text-gray-400 mt-1">{{ Auth::user()->name ?? 'Add User Role' }}</div>
+                    <div class="text-xxs text-gray-400 mt-1">Role: {{ Auth::user()->getRoleNames() }}</div>
+                    {{-- <div class="text-xxs text-gray-400 mt-1">Role: {{ Auth::user()->roles[0]['name'] }}</div> --}}
                 </div>
 
 
