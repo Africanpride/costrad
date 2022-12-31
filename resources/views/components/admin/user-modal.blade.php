@@ -1,6 +1,6 @@
 @props(['formAction' => false])
 
-<div>
+<div class="z-10">
     <div class=" ease-out transition-all mx-auto">
 
         <div

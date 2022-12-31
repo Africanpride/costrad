@@ -79,6 +79,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function getUserRoleAttribute()
+    {
+        return $this->getRoleNames()->implode(' | ');
+    }
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);

@@ -83,8 +83,7 @@
                         @endauth
                     </span>
                     <div class="">{{ Auth::user()->full_name }}</div>
-                    <div class="text-xxs text-gray-400 mt-1">Role: {{ Auth::user()->getRoleNames() }}</div>
-                    {{-- <div class="text-xxs text-gray-400 mt-1">Role: {{ Auth::user()->roles[0]['name'] }}</div> --}}
+                    <div class="text-xxs text-gray-400 mt-1 capitalize">{{ __('Roles:') }} {{ Auth::user()->user_role ?? 'None' }}</div>
                 </div>
 
 

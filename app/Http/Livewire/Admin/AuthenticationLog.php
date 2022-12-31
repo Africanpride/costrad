@@ -46,7 +46,7 @@ class AuthenticationLog extends DataTableComponent
         return [
             Column::make('Email', 'authenticatable_id')
                 ->sortable()
-                ->format(fn ($value) => User::where('id', $value)->first()->email)
+                ->format(fn ($value) => User::where('id', $value)->pluck('email')->first())
                 ->searchable(),
             Column::make('IP Address', ' ip_address')
                 ->searchable(),

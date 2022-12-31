@@ -1,21 +1,20 @@
 <div>
 
-    <div class="text-sm flex items-center justify-between w-full">
+    <div class="text-sm flex items-center justify-between w-full hidden">
         <span class="font-semibold">Staff Members ({{ App\Models\User::count() }})</span>
         <a href="#" class="text-accent-400 font-medium text-sm">View all</a>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 ">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4  ">
 
 
         <div
-            class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-800 text-gray-500 hover:ring-2 hover:ring-gray-300 flex justify-center items-center flex-col text-accent-400 text-sm
-        hover:shadow hover:text-accent-500 hover:font-medium group">
+            class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-800 text-gray-500 hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700 flex justify-center items-center flex-col text-accent-400 text-sm
+        hover:shadow hover:text-accent-500 hover:font-medium group cursor-pointer " wire:click='$emit("openModal", "admin.staff.add-staff")'>
             <span
                 class="bg-firefly-50 dark:bg-firefly-900 rounded-full group-hover:text-accent-500  text-accent-400 p-2.5
             border border-current hover:border-secondary-focus  border-dashed mb-3">
-                <label for="my-modal-3" class="cursor-pointer "
-                    wire:click='$emit("openModal", "admin.staff.add-staff")'>
+                <label for="my-modal-3" class="cursor-pointer ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -24,7 +23,7 @@
                 </label>
             </span>
             <label for="my-modal-3" class="cursor-pointer ">
-                <div>Add New</div>
+                <div class="dark:text-white">Add New</div>
             </label>
         </div>
 
