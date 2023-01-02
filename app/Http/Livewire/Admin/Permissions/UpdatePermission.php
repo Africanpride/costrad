@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin\Permissions;
 
 use App\Models\Permission;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class UpdatePermission extends ModalComponent

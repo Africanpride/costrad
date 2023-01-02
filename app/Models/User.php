@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function getRouteKeyName()
     {
-        return 'uuid';
+        return 'id';
     }
     /**
      * The attributes that should be hidden for serialization.
