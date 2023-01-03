@@ -6,6 +6,7 @@
     <x-slot name="content">
 <div class="text-current dark:text-white text-md">
     Are you sure you want to delete <span class="text-red-500 text-bold"> {{ $user->full_name }}</span>?
+    Action cannot be reversed.
 
 </div>
 

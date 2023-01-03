@@ -29,13 +29,6 @@ if (User::count() > 1) {
     })->name('register');
 }
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/logs', function () {
-    return view('logs');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -44,29 +37,24 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
     Route::get('/profile', function () {
         return view('profile.show');
     });
-    Route::get('manage-roles', function () {
-        $users = User::all();
-        return view('manage-roles', compact('users'));
-    });
+
     Route::get('invoice', function () {
         return view('invoice');
     });
-    Route::get('/staff', function () {
-        $users = User::all();
-        return view('staff.index', compact('users'));
-    })->name('staff');
+
+    Route::view('/', 'welcome');
+    Route::view('manage-roles', 'manage-roles', ['users' => User::all()]);
+    Route::view('staff', 'staff.index', ['users' => User::all()])->name('staff');
+    Route::view('documentation', 'documentation');
+    Route::view('logs', 'logs');
 
     Route::get('test2', function () {
         $roles = Role::paginate();
         $permissions = Permission::all();
         return view('test2', compact('roles', 'permissions'));
     });
-    Route::get('documentation', function () {
-
-        return view('documentation');
-    });
-
 });

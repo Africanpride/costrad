@@ -30,9 +30,9 @@
         @forelse ($users as $user)
             {{-- @if ($loop->first) @continue  @endif --}}
             {{-- Exclude Current user from Staff list --}}
-            {{-- @if ($user->id === Auth::user()->id)
+            @if ($user->id === Auth::user()->id)
                 @continue
-            @endif --}}
+            @endif
 
             <div
                 class="relative aspect-square rounded-2xl bg-gray-200 dark:bg-slate-800  flex justify-center
@@ -68,7 +68,7 @@
                 <div class="text-gray-500 dark:text-white">{{ $user->full_name }}</div>
                 <div class="text-xxs text-firefly-400 mt-1  cursor-pointer "
                     onclick="Livewire.emit('openModal', 'admin.staff.update-staff', {{ json_encode([$user->id]) }})">
-                    Edit
+                    <span class="inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">Edit Staff</span>
                 </div>
             </div>
 

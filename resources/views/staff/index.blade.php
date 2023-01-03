@@ -52,7 +52,8 @@
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 my-4 md:mb-0 mt-6">
             <div class="col-span-2">
                 <!-- staff Members -->
-                @livewire('admin.staff.staff-members')
+                {{-- @livewire('admin.staff.staff-members') --}}
+                <livewire:admin.staff.staff-members />
                 <!-- end staff Members -->
 
                 <!-- staff Members -->
