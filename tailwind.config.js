@@ -72,8 +72,6 @@ module.exports = {
                     800: '#1a5172',
                     900: '#0a1a24',
                 },
-
-
             },
         },
     },
@@ -83,7 +81,4 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography')
     ],
-
-
-
 };

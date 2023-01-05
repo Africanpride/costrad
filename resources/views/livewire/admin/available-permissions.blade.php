@@ -5,12 +5,12 @@
 
             @forelse ($permissions as $permission)
                 <div
-                    class=" flex justify-between items-center bg-white/[.05] dark:border-white/[.05] p-1 pl-2 rounded-md shadow-sm hover:shadow bg-firefly-100 hover:bg-slate/[.1] border dark:border-slate/[.05]">
+                    class=" flex justify-between items-center bg-white/[.05] dark:border-white/[.05] p-1 pl-2 rounded-md shadow-sm hover:shadow bg-firefly-100 dark:bg-slate-700 hover:bg-slate/[.1] border dark:border-slate/[.05]">
                     <p class="  text-current text-sm capitalize">
                         {{ $permission->name }}
                     </p>
                     <span
-                        class="dark:hover:bg-white/[.1] hover:bg-firefly-700 py-2 px-2 inline-flex justify-center items-center  rounded-md dark:bg-white/[.075] bg-firefly-400 font-semibold text-current text-white text-sm cursor-pointer"
+                        class="dark:hover:bg-white/[.1] hover:bg-gray-700 py-2 px-2 inline-flex justify-center items-center  rounded-md dark:bg-white/[.095] bg-gray-400 font-semibold text-current text-white text-sm cursor-pointer"
                         onclick="Livewire.emit('openModal', 'admin.permissions.update-permission', {{ json_encode([$permission]) }})">
                         <svg class="w-2 h-2" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path

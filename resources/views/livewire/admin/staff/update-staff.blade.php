@@ -61,32 +61,35 @@
 
         </div>
 
-        <div class="mb-6">
-            <label class="block text-gray-700 dark:text-firefly-500 text-sm font-bold my-3" for="role">
-                {{ __('Assign Role to staff') }}
-            </label>
-            <div class="w-full grid grid-cols-2 gap-2 text-gray-900 dark:text-gray-100">
-                @foreach ($roles as $key => $role)
-                    <div class="flex justify-start items-center space-x-2"
-                        wire:key="input-checkbox-{{ $role->id }}">
+@if (\App\Models\Role::count())
+<div class="mb-6">
+    <label class="block text-gray-700 dark:text-firefly-500 text-sm font-bold my-3" for="role">
+        {{ __('Assign Role to staff') }}
+    </label>
+    <div class="w-full grid grid-cols-2 gap-2 text-gray-900 dark:text-gray-100">
+        @foreach ($roles as $key => $role)
+            <div class="flex justify-start items-center space-x-2"
+                wire:key="input-checkbox-{{ $role->id }}">
 
-                        <input class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
-                            type="checkbox" value="{{ $role->id }}"
-                            wire:model.defer="staffRoles" name="staffRoles"
-                            value="{{ $role->id }}"
-                            @if (in_array($role->id, $staffRoles)) checked @endif>
+                <input class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                    type="checkbox" value="{{ $role->id }}"
+                    wire:model.defer="staffRoles" name="staffRoles"
+                    value="{{ $role->id }}"
+                    @if (in_array($role->id, $staffRoles)) checked @endif>
 
-                        <label for="role-{{ $role->id }}" class=" text-sm leading-5  capitalize">
-                            {{ $role->name }}
-                        </label>
-                    </div>
-                @endforeach
+                <label for="role-{{ $role->id }}" class=" text-sm leading-5  capitalize">
+                    {{ $role->name }}
+                </label>
             </div>
-            @error('role')
-                <span class="text-red-500">{{ $message }}</span>
-            @enderror
-        </div>
+        @endforeach
+    </div>
+    @error('role')
+        <span class="text-red-500">{{ $message }}</span>
+    @enderror
+</div>
 
+
+@endif
     </x-slot>
 
     <x-slot name="buttons">
