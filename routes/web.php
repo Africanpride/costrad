@@ -5,6 +5,9 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
+
+Route::view('/', 'welcome');
+
 Route::group(['middleware' => 'guest'], function () {
 
     Route::get('login', function () {
@@ -43,7 +46,7 @@ Route::middleware([
         return view('staff.index', compact('users'));
     })->name('staff');
 
-    Route::view('/', 'welcome');
+
 
     Route::view('documentation', 'documentation');
     Route::view('logs', 'logs');

@@ -39,8 +39,8 @@ class User extends Authenticatable
         'password',
     ];
 
-    public $incrementing = false;
-    protected $keyType = 'string';
+    // public $incrementing = false;
+    // protected $keyType = 'string';
 
     public $guard_name = 'sanctum';
 
