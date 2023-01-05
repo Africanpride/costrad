@@ -25,12 +25,12 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->timestamp('last_seen')->nullable();
+    // public function down()
+    // {
+    //     Schema::table('users', function (Blueprint $table) {
+    //         //
+    //         $table->timestamp('last_seen')->nullable();
 
-        });
-    }
+    //     });
+    // }
 };

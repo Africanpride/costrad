@@ -18,16 +18,13 @@ use Spatie\Permission\Models\Permission;
 */
 // Hide register after Admin account is created
 
-if (User::count() > 1) {
+Route::get('login', function () {
+    return view('auth.login');
+})->name('login');
 
-    Route::get('register', function () {
-        return view('auth.login');
-    })->name('register');
-} else {
-    Route::get('register', function () {
-        return view('auth.register');
-    })->name('register');
-}
+Route::get('register', function () {
+    return view('auth.register');
+})->name('register');
 
 Route::middleware([
     'auth:sanctum',
@@ -46,9 +43,18 @@ Route::middleware([
         return view('invoice');
     });
 
+    Route::get('manage-roles', function() {
+        $users = User::all();
+        return view('manage-roles', compact('users'));
+    });
+    Route::get('staff', function() {
+        $users = User::all();
+        return view('staff.index', compact('users'));
+    })->name('staff');
+
     Route::view('/', 'welcome');
-    Route::view('manage-roles', 'manage-roles', ['users' => User::all()]);
-    Route::view('staff', 'staff.index', ['users' => User::all()])->name('staff');
+    // Route::view('manage-roles', 'manage-roles', ['users' => User::all()]);
+    // Route::view('staff', 'staff.index', ['users' => User::all()])->name('staff');
     Route::view('documentation', 'documentation');
     Route::view('logs', 'logs');
 
