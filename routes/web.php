@@ -42,7 +42,7 @@ Route::middleware([
         return view('manage-roles', compact('users'));
     });
     Route::get('staff', function () {
-        $users = User::all();
+        $users = User::paginate(7);
         return view('staff.index', compact('users'));
     })->name('staff');
 

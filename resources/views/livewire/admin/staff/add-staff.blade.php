@@ -42,13 +42,16 @@
                     </svg>
                 </div>
             </div>
+            @error('email')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
         </div>
         <div class=" w-full">
             <div class="mt-4">
 
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" wire:model="password" required
                     autocomplete="password" placeholder="enter password" />
-                @error('role')
+                @error('password')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
