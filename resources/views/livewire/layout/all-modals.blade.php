@@ -24,7 +24,7 @@
         </h3>
 
           <p class="text-gray-500">
-            Are you sure you would like to sign out of your {{ config('app.name') }} account?
+            Are you sure you would like to sign out of your account?
           </p>
 
           <div class="mt-6 grid gap-y-2">

@@ -46,14 +46,53 @@
             <span class="text-red-500">{{ $message }}</span>
         @enderror
         </div>
-        <div class=" w-full">
-            <div class="mt-4">
+@if (!$resetPassword)
+<div class=" w-full">
+    <div class="mt-4">
 
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" wire:model="password" required
-                    autocomplete="password" placeholder="enter password" />
-                @error('password')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
+        <x-jet-input id="password" class="block mt-1 w-full" type="password" wire:model="password" required
+            autocomplete="password" placeholder="enter password" />
+        @error('password')
+            <span class="text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+</div>
+
+@endif
+        <div class=" w-full mt-4 text-sm dark:text-white space-y-3 ">
+
+            {{-- <div class="italic ">{{__('Note: Staff would be sent an email to reset their password')}}</div> --}}
+            <div class="grid space-y-3">
+                <div class="relative flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="hs-checkbox-delete" name="hs-checkbox-delete" type="checkbox"
+                            wire:model='resetPassword'
+                            class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                            aria-describedby="hs-checkbox-delete-description">
+                    </div>
+                    <label for="hs-checkbox-delete" class="ml-3">
+                        <span class="block text-sm font-semibold text-gray-800 dark:text-white">Staff to create own password</span>
+                        <span id="hs-checkbox-delete-description"
+                            class="block text-sm text-gray-600 dark:text-gray-500 italic ">{{ $resetPassword ? 'Staff would be emailed to create password.' : 'Tick here to enable Staff create password.' }}</span>
+                    </label>
+                </div>
+
+                <div class="relative flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="hs-checkbox-archive" name="hs-checkbox-archive" type="checkbox"
+                            wire:model='active'
+                            class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                            aria-describedby="hs-checkbox-archive-description">
+                    </div>
+                    <label for="hs-checkbox-archive" class="ml-3">
+                        <span class="block text-sm font-semibold text-gray-800 dark:text-white">Pre-Activate this account</span>
+                        <span id="hs-checkbox-archive-description"
+                            class="block text-sm text-gray-600 dark:text-gray-500 italic ">{{ $active ? 'Staff Account would be pre-activated.' : 'Tick here to pre-activate staff account' }}</span>
+                    </label>
+                </div>
+                @error('active')
+                <span class="text-red-500">{{ $message }}</span>
+            @enderror
             </div>
 
 

@@ -2,7 +2,7 @@
 
     <div class=" grid md:grid-cols-12 py-4 gap-x-4 px-4">
 
-        <div class="w-full md:col-span-8 bg-firefly-100 dark:bg-firefly-800 py-6 px-6 rounded-3xl text-firefly-800 dark:text-white">
+        <div class="shadow-md w-full md:col-span-8 bg-firefly-100 dark:bg-firefly-800 py-6 px-6 rounded-3xl text-firefly-800 dark:text-white">
             <div class="flex justify-between  items-center mb-8">
                 <p class="text-2xl font-bold">Dashboard</p>
                 <p class="">{{ now()->format('F, Y') }}</p>
@@ -28,7 +28,7 @@
                         <x-heroicon-o-list-bullet
                             class=" flex-shrink-0 w-8 h-8 text-gray-800 dark:text-gray-200" />
                     </button>
-                        <button class="text-white dark:bg-slate-800 bg-firefly-700 p-2 ml-2" title="Grid View">
+                        <button class="text-white dark:bg-slate-900 bg-firefly-700 p-2 ml-2" title="Grid View">
                             <x-heroicon-o-squares-2x2
                             class=" flex-shrink-0 w-6 h-6 text-white dark:text-white" />
                     </button></div>
@@ -258,11 +258,12 @@
                 </div>
             </div>
         </div>
-        <div class="w-full md:col-span-4 ">
-            <div class="dark:bg-gray-900 bg-gray-800 rounded-3xl px-6 pt-6 pb-6 h-full">
+
+        <div class=" w-full md:col-span-4 ">
+            <div class="shadow-md dark:bg-gray-900 bg-gray-800 rounded-3xl px-6 pt-6 pb-6 h-full">
                 <div class="flex justify-between items-center text-white text-2xl pb-6 font-bold">
                     <p>My Appointments</p>
-                    <button class="text-white dark:bg-slate-800 bg-gray-700 p-2 ml-2" title="Grid View">
+                    <button class="text-white dark:bg-slate-900 bg-gray-700 p-2 ml-2" title="Grid View">
                         <x-heroicon-o-queue-list
                         class=" flex-shrink-0 w-6 h-6 text-white dark:text-white" />
                 </button>

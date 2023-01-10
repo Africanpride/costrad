@@ -2,13 +2,13 @@
     <div class="m-4 dark:text-white">
 
         <div
-            class="bg-gray-100 dark:bg-slate-800 dark:text-firefly-100 rounded-2xl w-full px-6 py-4 flex flex-col md:flex-row
+            class="bg-gray-100 dark:bg-slate-900 dark:text-firefly-100 rounded-2xl w-full px-6 py-4 flex flex-col md:flex-row
         items-center text-gray-800 justify-between gap-5 ">
             <div class="flex items-center ">
 
                 <div
                     class="hidden md:flex px-5  py-3.5 bg-white   w-full border-firefly-200 shadow-sm  text-sm
-                focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-firefly-900
+                focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-black
                  dark:border-firefly-700 dark:text-firefly-400 rounded-lg font-semibold text-gray-700">
                     <livewire:admin.clock />
                 </div>
@@ -16,7 +16,7 @@
 
             <div class="flex w-full items-center md:flex-1 ">
                 <div
-                    class="bg-white  border-firefly-200 shadow-sm text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-firefly-900 dark:border-firefly-700 dark:text-firefly-400 px-5  py-3.5 rounded-lg font-semibold text-info flex items-center  self-stretch justify-between w-full ">
+                    class="bg-white  border-firefly-200 shadow-sm text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-firefly-700 dark:text-firefly-400 px-5  py-3.5 rounded-lg font-semibold text-info flex items-center  self-stretch justify-between w-full ">
                     <span class="text-sm font-semibold inline-flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2 fill-firefly-800 mr-1" viewBox="0 0 24 24">
                             <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z"></path>
@@ -61,7 +61,8 @@
             <!-- profile -->
             <div
                 class=" h-fit md:col-span-1 md:my-0 my-4 px-10 py-16 rounded-2xl
-                relative bg-gray-100 dark:bg-slate-800 dark:text-firefly-300">
+                relative bg-gray-50 border-gray-300 dark:border-gray-700 border-2 dark:bg-black dark:text-firefly-300">
+
                 <a href="#" class="absolute top-4 right-4 text-gray-400 hover:text-accent-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">

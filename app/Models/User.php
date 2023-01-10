@@ -37,6 +37,7 @@ class User extends Authenticatable
         'lastName',
         'email',
         'password',
+        'active'
     ];
 
     // public $incrementing = false;
@@ -77,6 +78,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        'full_name'
     ];
 
     public function getUserRoleAttribute()

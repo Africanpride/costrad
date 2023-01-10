@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    {{-- <script src="./node_modules/preline/dist/preline.js" /> --}}
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -17,7 +17,7 @@
     @livewireStyles
 </head>
 
-<body class="bg-gray-50 dark:bg-slate-900 grid md:grid-cols-12">
+<body class="bg-gray-50 dark:bg-black grid md:grid-cols-12">
     <div class="md:col-span-2 w-full">
         <!-- Navigation -->
         <livewire:layout.navigation />
@@ -25,7 +25,7 @@
     </div>
     <div class="md:col-span-10 w-full overflow-x-hidden">
         <!-- Content -->
-        <div class="bg-gray-50 dark:bg-firefly-900 w-full ">
+        <div class="bg-gray-50 dark:bg-black w-full ">
             <!-- ========== HEADER ========== -->
             <livewire:layout.header />
             <!-- Sidebar Toggle -->

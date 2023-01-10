@@ -8,13 +8,13 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4  ">
 
 
-        <div class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-800 text-gray-500 hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700 flex justify-center items-center flex-col text-accent-400 text-sm
+        <div class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-900 text-gray-500 hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700 flex justify-center items-center flex-col text-accent-400 text-sm
         hover:shadow hover:text-accent-500 hover:font-medium group cursor-pointer "
             wire:click='$emit("openModal", "admin.staff.add-staff")'>
             <span
-                class="bg-firefly-50 dark:bg-firefly-900 rounded-full group-hover:text-accent-500  text-accent-400 p-2.5
+                class="bg-firefly-50 dark:bg-black rounded-full group-hover:text-accent-500  text-accent-400 p-2.5
             border border-current hover:border-secondary-focus  border-dashed mb-3">
-                <label for="my-modal-3" class="cursor-pointer " >
+                <label for="my-modal-3" class="cursor-pointer ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -30,19 +30,17 @@
         @forelse ($users as $user)
             {{-- @if ($loop->first) @continue  @endif --}}
             {{-- Exclude Current user from Staff list --}}
-            @if ($user->id === Auth::user()->id)
+            {{-- @if ($user->id === Auth::user()->id)
                 @continue
-            @endif
+            @endif --}}
 
             <div
-                class="relative aspect-square rounded-2xl bg-gray-200 dark:bg-slate-800  flex justify-center
-            items-center flex-col text-gray-500 text-sm hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700">
+                class="relative aspect-square rounded-2xl bg-gray-50 border-gray-300 dark:border-gray-700 border-2 dark:bg-black  flex justify-center
+            items-center flex-col text-gray-500 text-sm  hover:bg-gray-100 hover:dark:bg-slate-900 ">
 
                 <div class="absolute top-2 right-2 text-gray-500 dark:text-white hover:text-accent-500">
-                        <x-heroicon-o-trash
-                        class="w-5 h-5 text-red-500 cursor-pointer"
-                        onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$user->id]) }})"
-                        />
+                    <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
+                        onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$user->id]) }})" />
                 </div>
                 <span class="relative">
 
@@ -65,10 +63,29 @@
                         </svg>
                     @endif
                 </span>
+
                 <div class="text-gray-500 dark:text-white">{{ $user->full_name }}</div>
-                <div class="text-xxs text-firefly-400 mt-1  cursor-pointer "
-                    onclick="Livewire.emit('openModal', 'admin.staff.update-staff', {{ json_encode([$user->id]) }})">
-                    <span class="inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">Edit Staff</span>
+                <div class="flex gap-2 items-center justify-center">
+                    <div class="text-xxs text-firefly-400 mt-1  cursor-pointer "
+                        onclick="Livewire.emit('openModal', 'admin.staff.update-staff', {{ json_encode([$user->id]) }})">
+                        <span
+                            class="inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-white">Edit
+                            Staff</span>
+                    </div>
+                    <div class="text-xxs text-firefly-400 mt-1  ">
+                        @if ($user->active == 1)
+                        <span
+                        class="inline bg-green-50 border border-green-500 text-green-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2 dark:bg-green-900/[.75] dark:border-green-700 dark:text-white">Active
+                        Active</span>
+                        @else
+                            <span
+                                class="inline bg-red-100 dark:bg-black  border border-red-600 text-red-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2
+                                  dark:border-red-700 dark:text-white">
+                                {{ __('Inactive') }}
+                            </span>
+                        @endif
+
+                    </div>
                 </div>
             </div>
 

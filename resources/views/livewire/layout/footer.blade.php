@@ -1,4 +1,4 @@
-<footer class="w-full py-10  bg-gray-100 dark:bg-firefly-900 px-4 rounded-t-md ">
+<footer class="w-full py-10  bg-gray-100 dark:bg-black px-4 rounded-t-md ">
     <!-- Grid -->
     <div class="text-center">
       <div>

@@ -6,48 +6,41 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
-
-
+use App\Traits\PasswordResetNotification;
 
 class AddStaff extends ModalComponent
 {
-    // use PasswordValidationRules;
-
+    use PasswordResetNotification;
     public $firstName, $lastName, $email, $password, $availableRoles, $roles = [];
-    // public Role $role;
-
-    // public function mount()
-    // {
-    //     $this->firstName = $firstName;
-    //     $this->availableRoles = Role::all(); // we shall check against this
-    // }
-
+    public bool $resetPassword = false;
+    public bool $active = false;
 
     protected $rules = [
         'firstName' => ['required', 'string', 'min:2', 'max:255'],
         'lastName' => ['required', 'string', 'min:2', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required']
+        'active' => 'required|boolean',
+        'resetPassword' => 'required|boolean',
+        'password' => 'sometimes'
     ];
-
 
     public function addStaff()
     {
+        $data = $this->validate();
 
-        // dd($this->roles);
+        // persist data
+        $user = User::create($data);
+        // set password
+        $user->forceFill([
+            'password' => Hash::make($this->password),
+        ])->save();
 
-        $this->validate();
-        $staff =  User::create(
-            [
-                'firstName' => $this->firstName,
-                'lastName' => $this->lastName,
-                'email' => $this->email,
-                'password' => Hash::make($this->password),
-            ]
-        );
-        $staff->syncRoles($this->roles);
+        // send reset password
+        if($this->resetPassword) {
+            $this->sendPasswordResetLink($this->email);
+        }
 
-
+        $user->syncRoles($this->roles);
         return redirect()->to('/staff');
     }
 

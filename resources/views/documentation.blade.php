@@ -198,7 +198,7 @@
             </div>
 
             <!-- Jumbotron -->
-            <div class="p-6 shadow rounded-lg bg-firefly-50 dark:bg-slate-800 dark:text-white ">
+            <div class="p-6 shadow rounded-lg bg-firefly-50 dark:bg-slate-900 dark:text-white ">
                 {{-- <h2 class="font-semibold text-3xl mb-5">Hello world!</h2> --}}
                 <p>
                     This is a simple hero unit, a simple jumbotron-style component for calling extra attention
@@ -218,7 +218,7 @@
             <!-- Jumbotron -->
 
             <div
-                class="bg-firefly-50 dark:bg-slate-800 dark:text-firefly-300 flex items-center justify-between my-5  py-10 p-6 shadow rounded-lg">
+                class="bg-firefly-50 dark:bg-slate-900 dark:text-firefly-300 flex items-center justify-between my-5  py-10 p-6 shadow rounded-lg">
                 <div class="flex items-stretch">
                     <div class=" text-sm">Maintain <br> Clinic Settings </div>
                     <div class="h-10 border border-l  border-firefly-200 dark:border-firefly-800 mx-4"></div>
