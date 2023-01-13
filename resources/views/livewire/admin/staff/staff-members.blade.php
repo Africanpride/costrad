@@ -35,8 +35,8 @@
             @endif --}}
 
             <div
-                class="relative aspect-square rounded-2xl bg-gray-50 border-gray-300 dark:border-gray-700 border-2 dark:bg-black  flex justify-center
-            items-center flex-col text-gray-500 text-sm  hover:bg-gray-100 hover:dark:bg-slate-900 ">
+                class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-900 text-gray-500 hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700 flex justify-center items-center flex-col text-accent-400 text-sm
+                hover:shadow hover:text-accent-500 hover:font-medium group ">
 
                 <div class="absolute top-2 right-2 text-gray-500 dark:text-white hover:text-accent-500">
                     <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"

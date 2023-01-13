@@ -58,4 +58,9 @@ Route::middleware([
         $permissions = Permission::all();
         return view('test2', compact('roles', 'permissions'));
     });
+
+    Route::get('/inactive', function () {
+        return view('inactive');
+    })->name('inactive');
+
 });

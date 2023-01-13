@@ -1,4 +1,4 @@
-<div class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-firefly-800 dark:border-firefly-700">
+<div class="sticky top-0 inset-x-0 z-10 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-firefly-800 dark:border-firefly-700">
     <div class="flex items-center py-4">
       <!-- Navigation Toggle -->
       <button type="button" class="text-firefly-500 hover:text-firefly-600" data-hs-overlay="#application-sidebar" aria-controls="application-sidebar" aria-label="Toggle navigation">

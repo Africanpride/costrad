@@ -19,11 +19,13 @@
 
 <body class="bg-gray-50 dark:bg-black grid md:grid-cols-12">
     <div class="md:col-span-2 w-full">
+
         <!-- Navigation -->
         <livewire:layout.navigation />
         <!-- End Navigation -->
     </div>
     <div class="md:col-span-10 w-full overflow-x-hidden">
+
         <!-- Content -->
         <div class="bg-gray-50 dark:bg-black w-full ">
             <!-- ========== HEADER ========== -->

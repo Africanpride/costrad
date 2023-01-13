@@ -107,7 +107,7 @@
                     @foreach (App\Models\Role::all() as $role)
                         <div class="flex justify-start items-center space-x-2">
 
-                            <input class="form-checkbox h-4 w-4 text-firefly-600 transition duration-150 ease-in-out"
+                            <input class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                 type="checkbox" name="{{ $role->name }}" wire:model.lazy="roles"
                                 value="{{ $role->id }}" id="role-{{ $role->id }}">
 
