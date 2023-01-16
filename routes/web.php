@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Insurance;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    Route::view('/powergrid', 'powergrid-demo');
+
     Route::get('/profile', function () {
         return view('profile.show');
     });
@@ -41,10 +44,16 @@ Route::middleware([
         $users = User::all();
         return view('manage-roles', compact('users'));
     });
+
     Route::get('staff', function () {
-        $users = User::paginate(12);
+        $users = User::paginate(8);
         return view('staff.index', compact('users'));
     })->name('staff');
+
+    Route::get('insurance', function () {
+        $insurances = Insurance::paginate(12);
+        return view('insurance.index', compact('insurances'));
+    })->name('insurance');
 
     Route::get('users', function () {
         return User::all();

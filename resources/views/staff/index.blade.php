@@ -49,8 +49,8 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 my-4 md:mb-0 mt-6">
-            <div class="col-span-2">
+        <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 my-4 md:mb-0 mt-6">
+            <div class="col-span-2 md:col-span-9">
                 <!-- staff Members -->
                 {{-- @livewire('admin.staff.staff-members') --}}
                 <livewire:admin.staff.staff-members />
@@ -59,8 +59,7 @@
                 <!-- staff Members -->
             </div>
             <!-- profile -->
-            <div
-                class=" h-fit md:col-span-1 md:my-0 my-4 px-10 py-16 rounded-2xl
+            <div class=" h-fit md:col-span-3 md:my-0 my-4 px-10 py-16 rounded-2xl
                 relative bg-gray-50 border-gray-300 dark:border-gray-700 border-2 dark:bg-black dark:text-firefly-300">
 
                 <a href="#" class="absolute top-4 right-4 text-gray-400 hover:text-accent-500">

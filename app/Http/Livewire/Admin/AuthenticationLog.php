@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\User;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Jenssegers\Agent\Agent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Auth\Authenticatable;
 use JamesMills\LaravelTimezone\Facades\Timezone;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog as Log;
 
 
@@ -21,10 +23,19 @@ class AuthenticationLog extends DataTableComponent
 
     public User $user;
     public $model = Log::class;
-
+    public $columnSearch = [
+        'name' => null,
+        'email' => null,
+    ];
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setSecondaryHeaderStatus(true);
+
+          $this->setTableWrapperAttributes([
+            'default' => false,
+            'class' => 'overflow-y-hidden',
+          ]);
     }
 
     public function getUserEmail($id)
@@ -70,9 +81,14 @@ class AuthenticationLog extends DataTableComponent
             Column::make('Logout At')
                 ->sortable()
                 ->format(fn ($value) => $value ? Timezone::convertToLocal($value) : '-'),
-            Column::make('Login Successful')
+            BooleanColumn::make('Login Successful')
                 ->sortable()
                 ->format(fn ($value) => $value === true ? 'Yes' : 'No'),
+            // LinkColumn::make('Edit')
+            //     ->title(fn ($row) => 'Edit')
+            //     ->location(fn ($row) => route('staff', $row)),
+            // BooleanColumn::make('Active','user.active')
+            //     ->view('my.active.view')
 
         ];
     }

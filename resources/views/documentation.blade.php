@@ -1,17 +1,103 @@
 <x-app-layout>
-    <x-admin.pageheader model-name="Documentation" description="Application <br /> Documentation" add-button="false" class="mx-4">
+    <x-admin.pageheader model-name="Documentation" description="Application <br /> Documentation" add-button="false"
+        class="mx-4">
         <x-heroicon-o-question-mark-circle class="w-6 h-6 text-current" />
-    </x-admin-pageheader>
+        </x-admin-pageheader>
 
         <div class="p-4">
+            <button type="button"
+                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                data-hs-overlay="#hs-scroll-inside-body-modal">
+                Add insurance Company
+            </button>
+
+            <div id="hs-scroll-inside-body-modal"
+                class="hs-overlay hidden w-full h-full fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto">
+                <div
+                    class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)]">
+                    <div
+                        class="max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+                        <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
+                            <h3 class="font-bold text-gray-800 dark:text-white">
+                                Add Insurance Company
+                            </h3>
+                            <button type="button"
+                                class="hs-dropdown-toggle inline-flex flex-shrink-0 justify-center items-center h-8 w-8 rounded-md text-gray-500 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
+                                data-hs-overlay="#hs-scroll-inside-body-modal">
+                                <span class="sr-only">Close</span>
+                                <svg class="w-3.5 h-3.5" width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0.258206 1.00652C0.351976 0.912791 0.479126 0.860131 0.611706 0.860131C0.744296 0.860131 0.871447 0.912791 0.965207 1.00652L3.61171 3.65302L6.25822 1.00652C6.30432 0.958771 6.35952 0.920671 6.42052 0.894471C6.48152 0.868271 6.54712 0.854471 6.61352 0.853901C6.67992 0.853321 6.74572 0.865971 6.80722 0.891111C6.86862 0.916251 6.92442 0.953381 6.97142 1.00032C7.01832 1.04727 7.05552 1.1031 7.08062 1.16454C7.10572 1.22599 7.11842 1.29183 7.11782 1.35822C7.11722 1.42461 7.10342 1.49022 7.07722 1.55122C7.05102 1.61222 7.01292 1.6674 6.96522 1.71352L4.31871 4.36002L6.96522 7.00648C7.05632 7.10078 7.10672 7.22708 7.10552 7.35818C7.10442 7.48928 7.05182 7.61468 6.95912 7.70738C6.86642 7.80018 6.74102 7.85268 6.60992 7.85388C6.47882 7.85498 6.35252 7.80458 6.25822 7.71348L3.61171 5.06702L0.965207 7.71348C0.870907 7.80458 0.744606 7.85498 0.613506 7.85388C0.482406 7.85268 0.357007 7.80018 0.264297 7.70738C0.171597 7.61468 0.119017 7.48928 0.117877 7.35818C0.116737 7.22708 0.167126 7.10078 0.258206 7.00648L2.90471 4.36002L0.258206 1.71352C0.164476 1.61976 0.111816 1.4926 0.111816 1.36002C0.111816 1.22744 0.164476 1.10028 0.258206 1.00652Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-4 overflow-y-auto">
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be bold</h3>
+                                    <p class="mt-1 text-gray-800 dark:text-gray-400">
+                                        Motivate teams to do their best work. Offer best practices to get users going in
+                                        the right direction. Be bold and offer just enough help to get the work started,
+                                        and then get out of the way. Give accurate information so users can make
+                                        educated decisions. Know your user's struggles and desired outcomes and give
+                                        just enough information to let them get where they need to go.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be optimistic</h3>
+                                    <p class="mt-1 text-gray-800 dark:text-gray-400">
+                                        Focusing on the details gives people confidence in our products. Weave a
+                                        consistent story across our fabric and be diligent about vocabulary across all
+                                        messaging by being brand conscious across products to create a seamless flow
+                                        across all the things. Let people know that they can jump in and start working
+                                        expecting to find a dependable experience across all the things. Keep teams in
+                                        the loop about what is happening by informing them of relevant features,
+                                        products and opportunities for success. Be on the journey with them and
+                                        highlight the key points that will help them the most - right now. Be in the
+                                        moment by focusing attention on the important bits first.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be practical, with a
+                                        wink</h3>
+                                    <p class="mt-1 text-gray-800 dark:text-gray-400">
+                                        Keep our own story short and give teams just enough to get moving. Get to the
+                                        point and be direct. Be concise - we tell the story of how we can help, but we
+                                        do it directly and with purpose. Be on the lookout for opportunities and be
+                                        quick to offer a helping hand. At the same time realize that nobody likes a nosy
+                                        neighbor. Give the user just enough to know that something awesome is around the
+                                        corner and then get out of the way. Write clear, accurate, and concise text that
+                                        makes interfaces more usable and consistent - and builds trust. We strive to
+                                        write text that is understandable by anyone, anywhere, regardless of their
+                                        culture or language so that everyone feels they are part of the team.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
+                            <button type="button"
+                                class="hs-dropdown-toggle py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                                data-hs-overlay="#hs-scroll-inside-body-modal">
+                                Close
+                            </button>
+                            <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                                href="#">
+                                Save changes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-<button type="button" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" data-hs-overlay="#add-staff">
-    Vertically centered scrollable modal
-  </button>
 
 
-{{ Auth::user()->lastSuccessfulLoginAt()->diffForHumans() }}
+
+            {{ Auth::user()->lastSuccessfulLoginAt()->diffForHumans() }}
 
             <div
                 class="relative overflow-hidden before:absolute before:top-1/2 before:left-1/2 before:bg-[url('../svg/component/hyperdrive.svg')] before:bg-no-repeat before:bg-center before:w-full before:h-96 before:-z-[1] before:transform before:-translate-y-1/2 before:-translate-x-1/2 dark:before:bg-[url('../svg/component/hyperdrive-dark.svg')]">
@@ -28,7 +114,8 @@
 
                     <h1 class="text-3xl font-bold md:text-4xl lg:text-5xl lg:leading-tight dark:text-white">Application
                         Documentation With Examples</h1>
-                    <p class="mt-4 md:text-lg text-gray-600 dark:text-gray-400">Quickly get a project started with any of
+                    <p class="mt-4 md:text-lg text-gray-600 dark:text-gray-400">Quickly get a project started with any
+                        of
                         our
                         examples ranging from using parts of the UI to custom components and layouts using Tailwind CSS.
                     </p>
@@ -215,34 +302,6 @@
                     Learn more
                 </button>
             </div>
-            <!-- Jumbotron -->
-
-            <div
-                class="bg-firefly-50 dark:bg-slate-900 dark:text-firefly-300 flex items-center justify-between my-5  py-10 p-6 shadow rounded-lg">
-                <div class="flex items-stretch">
-                    <div class=" text-sm">Maintain <br> Clinic Settings </div>
-                    <div class="h-10 border border-l  border-firefly-200 dark:border-firefly-800 mx-4"></div>
-                    <div class="flex flex-nowrap  ">
-                        <div class="h-9 w-9">
-                            <img class="object-cover w-full h-full rounded-full"
-                                src="https://ui-avatars.com/api/?name={{ Auth::user()->full_name }}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hidden md:block">
-                    <div class="badge badge-neutral badge-lg py-4 ">
-                        <svg class="w-5 h-5 mr-2 text-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
-                            fill="none">
-                            <path
-                                d="M16 5C14.8954 5 14 5.89543 14 7C14 8.10457 14.8954 9 16 9C17.1046 9 18 8.10457 18 7C18 5.89543 17.1046 5 16 5ZM12 7C12 4.79086 13.7909 3 16 3C18.2091 3 20 4.79086 20 7C20 9.20914 18.2091 11 16 11C13.7909 11 12 9.20914 12 7ZM25.5 6C24.6716 6 24 6.67157 24 7.5C24 8.32843 24.6716 9 25.5 9C26.3284 9 27 8.32843 27 7.5C27 6.67157 26.3284 6 25.5 6ZM22 7.5C22 5.567 23.567 4 25.5 4C27.433 4 29 5.567 29 7.5C29 9.433 27.433 11 25.5 11C23.567 11 22 9.433 22 7.5ZM5 7.5C5 6.67157 5.67157 6 6.5 6C7.32843 6 8 6.67157 8 7.5C8 8.32843 7.32843 9 6.5 9C5.67157 9 5 8.32843 5 7.5ZM6.5 4C4.567 4 3 5.567 3 7.5C3 9.433 4.567 11 6.5 11C8.433 11 10 9.433 10 7.5C10 5.567 8.433 4 6.5 4ZM8.65108 24.5052C8.17749 24.8179 7.61001 25 7 25C5.34315 25 4 23.6569 4 22V15.5C4 15.2239 4.22386 15 4.5 15H8.53095C8.62463 14.2488 8.92663 13.5622 9.37731 13H4.5C3.11929 13 2 14.1193 2 15.5V22C2 24.7614 4.23858 27 7 27C7.84011 27 8.63182 26.7928 9.32683 26.4267C9.01901 25.8285 8.78927 25.1835 8.65108 24.5052ZM22.6732 26.4267C23.3682 26.7928 24.1599 27 25 27C27.7614 27 30 24.7614 30 22V15.5C30 14.1193 28.8807 13 27.5 13H22.6227C23.0734 13.5622 23.3754 14.2488 23.4691 15H27.5C27.7761 15 28 15.2239 28 15.5V22C28 23.6569 26.6569 25 25 25C24.39 25 23.8225 24.8179 23.3489 24.5052C23.2107 25.1835 22.981 25.8285 22.6732 26.4267ZM12.5 13C11.1193 13 10 14.1193 10 15.5V23C10 26.3137 12.6863 29 16 29C19.3137 29 22 26.3137 22 23V15.5C22 14.1193 20.8807 13 19.5 13H12.5ZM12 15.5C12 15.2239 12.2239 15 12.5 15H19.5C19.7761 15 20 15.2239 20 15.5V23C20 25.2091 18.2091 27 16 27C13.7909 27 12 25.2091 12 23V15.5Z"
-                                fill="currentColor"></path>
-                        </svg> Settings
-                    </div>
-                </div>
-
-            </div>
-
 
 
             <div class="py-12">
