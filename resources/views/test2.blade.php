@@ -1,7 +1,14 @@
 <x-app-layout>
 
-    <div class="container mx-auto p-4">
-        <div>
+    <div class="container mx-auto p-8 space-y-4">
+        <div class="flex items-center">
+            <input type="checkbox" id="hs-basic-with-description-unchecked" class="relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent   focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
+
+            before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200">
+            <label for="hs-basic-with-description-unchecked" class="text-sm text-gray-500 ml-3 dark:text-gray-400">Unchecked</label>
+          </div>
+
+
 
             <img src="{{ Auth::user()->avatar_url }}" alt="" class="h-12 w-12 rounded-full">
         </div>
@@ -62,6 +69,38 @@
 
 
     </div>
+    <div class="flex justify-center">
+        <svg viewBox="0 0 700 380" fill="none" width="300" xmlns="http://www.w3.org/2000/svg" id="svg">
+            <path class="text-gray-300"
+                d="M100 350C100 283.696 126.339 220.107 173.223 173.223C220.107 126.339 283.696 100 350 100C416.304 100 479.893 126.339 526.777 173.223C573.661 220.107 600 283.696 600 350"
+                stroke="currentColor" stroke-width="40" stroke-linecap="round"></path>
+            <path
+                d="M100 350C100 283.696 126.339 220.107 173.223 173.223C220.107 126.339 283.696 100 350 100C416.304 100 479.893 126.339 526.777 173.223C573.661 220.107 600 283.696 600 350"
+                stroke="#2f49d0" stroke-width="40" stroke-linecap="round" stroke-dasharray="485.4"
+                stroke-dashoffset="78.54" id="svgPath" class="svgPath"></path>
+
+            {{-- <circle cx="587.7641290737884" cy="272.7457514062631" r="12" fill="#cc0099"></circle> --}}
+
+            <circle cx="140" cy="350" r="5" fill="#2f49d0"></circle>
+            <circle cx="144.5890038459008" cy="306.3385449282706" r="5" fill="#2f49d0"></circle>
+            <circle cx="158.15545389505382" cy="264.58530495408195" r="5" fill="#2f49d0"></circle>
+            <circle cx="180.10643118126103" cy="226.56509701858067" r="5" fill="#2f49d0"></circle>
+            <circle cx="209.48257266463972" cy="193.93958664974724" r="5" fill="#2f49d0"></circle>
+            <circle cx="244.9999999999999" cy="168.1346652052679" r="5" fill="#2f49d0"></circle>
+            <circle cx="285.10643118126103" cy="150.27813157801776" r="5" fill="#2f49d0"></circle>
+            <circle cx="328.0490227137926" cy="141.15040197266262" r="5" fill="#2f49d0"></circle>
+            <circle cx="371.95097728620715" cy="141.1504019726626" r="5" fill="#2f49d0"></circle>
+            <circle cx="414.8935688187389" cy="150.27813157801774" r="5" fill="#2f49d0"></circle>
+            <circle cx="454.9999999999999" cy="168.1346652052678" r="5" fill="#2f49d0"></circle>
+            <circle cx="490.51742733536014" cy="193.93958664974713" r="5" fill="#2f49d0"></circle>
+            <circle cx="519.8935688187389" cy="226.5650970185806" r="5" fill="#2f49d0"></circle>
+            <circle cx="541.8445461049462" cy="264.58530495408183" r="5" fill="#2f49d0"></circle>
+            <circle cx="555.4109961540992" cy="306.33854492827044" r="5" fill="#2f49d0"></circle>
+            <circle cx="560" cy="349.99999999999994" r="5" fill="#2f49d0"></circle>
+
+        </svg>
+    </div>
+
 
     <!-- Card Section -->
     <div class="max-w-9xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -175,5 +214,26 @@
         </div>
         <!-- End Grid -->
     </div>
+    <input type="checkbox" id="hs-basic-usage" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-600 focus:ring-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
+
+    before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200">
+    <label for="hs-basic-usage" class="sr-only">switch</label>
 
 </x-app-layout>
+
+<script>
+    const scrollProgress = () => {
+        return {
+            init() {
+                window.addEventListener('scroll', () => {
+                    let winScroll = document.body.scrollTop || document.documentElement.scrollTop
+                    let height = document.documentElement.scrollHeight - document.documentElement
+                        .clientHeight
+                    this.percent = Math.round((winScroll / height) * 100)
+                })
+            },
+            circumference: 15 * 2 * Math.PI,
+            percent: 0,
+        }
+    }
+</script>

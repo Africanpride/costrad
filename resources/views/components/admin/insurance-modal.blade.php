@@ -1,6 +1,6 @@
 @props(['formAction' => false])
 
-<div class="z-10">
+<div>
     <div class=" ease-out transition-all mx-auto">
 
         <div
@@ -20,9 +20,8 @@
                 </div>
 
                 <div class="space-y-4">
-                    @if (isset($content))
-                        {{ $content }}
-                    @endif
+
+                    {{ $content }}
 
                 </div>
             </div>

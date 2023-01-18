@@ -1,4 +1,4 @@
-<x-admin.insurance-modal formAction="addInsurance">
+<x-admin.insurance-modal formAction="updateInsurance">
     <x-slot name="title">
         Add New Insurance
     </x-slot>
@@ -7,15 +7,6 @@
 
 
         <div class="space-y-4">
-            {{-- <label for="toggle-example" class="flex items-center cursor-pointer relative mb-4">
-                <input type="checkbox" id="toggle-example" class="sr-only" checked>
-                <div
-                    class="toggle-bg bg-gray-200 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-700 h-6 w-11 rounded-full">
-                </div>
-                <span class="ml-3 text-gray-400 text-sm font-medium">Toggle me</span>
-            </label> --}}
-
-
 
             <div class="">
 
@@ -100,7 +91,7 @@
             </div>
 
             <div>
-                <label for="small-file-input" class="sr-only">Add Company Logo</label>
+                {{-- <label for="small-file-input" class="sr-only">Add Company Logo</label> --}}
                 <input wire:model="logo" type="file" name="small-file-input" id="small-file-input"
                     class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
                   file:bg-transparent file:border-0

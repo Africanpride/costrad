@@ -103,7 +103,7 @@ class User extends Authenticatable
         return $this->last_seen > $timestamp;
     }
 
-    function getAvatarUrlAttribute()
+    public function getAvatarUrlAttribute()
     {
         $address = strtolower(trim($this->email));
         $hash = md5($address);

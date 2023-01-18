@@ -4,7 +4,6 @@
 namespace App\Http\Livewire\Admin\Role;
 
 use App\Models\Role;
-use App\Models\Permission;
 use LivewireUI\Modal\ModalComponent;
 
 

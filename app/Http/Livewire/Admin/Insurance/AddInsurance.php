@@ -2,27 +2,40 @@
 
 namespace App\Http\Livewire\Admin\Insurance;
 
-use Livewire\Component;
+use App\Models\Insurance;
+use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
 
 class AddInsurance extends ModalComponent
 {
-    public $name, $address, $telephone_1, $telephone_2, $telephone_3, $country, $email, $percentage, $logo;
+    use WithFileUploads;
+
+    public $name, $address, $telephone_1, $telephone_2, $telephone_3, $country, $email, $percentage = 0, $logo;
 
     protected $rules = [
-        'name' => ['required', 'string', 'min:3', 'max:255', 'unique:roles'],
-        'address' => ['nullable', 'string', 'min:3', 'max:255'],
-        'telephone_1' => ['nullable', 'string', 'min:3', 'max:255'],
-        'telephone_2' => ['nullable', 'string', 'min:3', 'max:255'],
-        'telephone_3' => ['nullable', 'string', 'min:3', 'max:255'],
-        'country' => ['nullable', 'string', 'min:3', 'max:255'],
-        'percentage' => ['email', 'string', 'min:3', 'max:255'],
-        'logo' => ['string', 'min:3', 'max:255'],
-        'email' => ['email', 'string', 'min:3', 'max:255'],
+        'name' => 'required|min:3|max:255|unique:insurances',
+        'address' => 'nullable|min:3|max:255',
+        'telephone_1' => 'nullable|min:3|max:255|unique:insurances',
+        'telephone_2' => 'nullable|min:3|max:255',
+        'telephone_3' => 'nullable|min:3|max:255',
+        'percentage' => 'required',
+        'country' => 'required',
+        'email' => 'required|email|unique:insurances',
+        'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
     ];
 
-    public function addInsurance() {
-        dd($this->validate());
+    public function addInsurance()
+    {
+        $validatedData = $this->validate();
+
+        if ($this->logo) {
+            $imageName = $this->logo->store("logo", 'public');
+            $validatedData['logo'] = $imageName;
+        }
+
+        Insurance::create($validatedData);
+
+        return redirect()->to('insurance');
     }
 
 

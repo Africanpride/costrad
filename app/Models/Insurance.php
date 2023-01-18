@@ -25,5 +25,19 @@ class Insurance extends Model
 
     public $guard_name = 'sanctum';
 
+    protected $appends = [
+        'company_logo'
+    ];
 
+    public function getCompanyLogoAttribute()
+    {
+        $address = strtolower(trim($this->email));
+        $hash = md5($address);
+        if (!is_null($this->logo)) {
+
+            return url('/') . '/storage/' . $this->logo;
+        }
+
+        return 'https://www.gravatar.com/avatar/' . $hash;
+    }
 }
