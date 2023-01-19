@@ -56,8 +56,9 @@
                                 <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                                     <div class="flex items-center gap-4">
                                         <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white dark:ring-firefly-900"
-                                        src={{ $insurance->company_logo }} alt="{{ $insurance->name }}">
-                                        <div> {{ $insurance->name }}<br> <span>{{ $insurance->email }}</span></div>
+                                        src="{{ $insurance->company_logo }}" alt="{{ $insurance->name }}">
+                                        <div> {{ $insurance->name }}<br> <span>{{ $insurance->email }}</span>
+                                            </div>
 
                                     </div>
                                 </td>

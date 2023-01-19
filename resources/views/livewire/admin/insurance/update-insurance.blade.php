@@ -11,7 +11,8 @@
             <div class="">
 
                 <div x-data="{ percentage: 5 }" class="w-full">
-                    <label for="percentage" class="font-bold text-gray-700 dark:text-gray-300 flex justify-start items-center gap-1">
+                    <label for="percentage"
+                        class="font-bold text-gray-700 dark:text-gray-300 flex justify-start items-center gap-1">
 
 
                         <span
@@ -86,23 +87,32 @@
                     </div>
                 </div>
                 @error('email')
-                <span class="text-red-500">{{ $message }}</span>
-            @enderror
-            </div>
-
-            <div>
-                {{-- <label for="small-file-input" class="sr-only">Add Company Logo</label> --}}
-                <input wire:model="logo" type="file" name="small-file-input" id="small-file-input"
-                    class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
-                  file:bg-transparent file:border-0
-                  file:bg-gray-100 file:mr-4
-                  file:py-2 file:px-4
-                  dark:file:bg-gray-700 dark:file:text-gray-400">
-                @error('logo')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
 
+            <div class="flex flex-row justify-even items-center gap-4">
+                @if ($logo)
+                    <div>
+                        <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white dark:ring-firefly-900"
+                            src={{ $logo->temporaryUrl() }} alt="{{ $insurance->name }}">
+                    </div>
+                @endif
+
+                <div>
+                    {{-- <label for="small-file-input" class="sr-only">Add Company Logo</label> --}}
+                    <input wire:model="logo" type="file"
+                        class="block w-[100%] border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
+          file:bg-transparent file:border-0
+          file:bg-gray-100 file:mr-4
+          file:py-2 file:px-4
+          dark:file:bg-gray-700 dark:file:text-gray-400">
+                    @error('logo')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+
+            </div>
 
         </div>
 

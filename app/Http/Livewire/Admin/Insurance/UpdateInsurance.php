@@ -32,34 +32,29 @@ class UpdateInsurance extends ModalComponent
         $this->name    = $insurance->name;
         $this->telephone_1     = $insurance->telephone_1;
         $this->email        = $insurance->email;
-        $this->logo       = $insurance->company_logo;
         $this->percentage       = $insurance->percentage;
         $this->country = $insurance->country;
     }
 
-
     public function updateInsurance()
     {
         $data = $this->validate([
-
             'name' => 'required|min:3|max:255|unique:insurances, ' . $this->insurance->id,
             'address' => 'nullable|min:3|max:255',
             'telephone_1' => 'nullable|min:3|max:255|unique:insurances,' . $this->insurance->id,
-            'telephone_2' => 'nullable|min:3|max:255',
-            'telephone_3' => 'nullable|min:3|max:255',
             'percentage' => 'required',
             'country' => 'required',
-            'email' => 'required|unique:users,email, ' . $this->insurance->id,
+            'email' => 'required|unique:users,email,' . $this->insurance->id,
             'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
-        ]);
 
+        ]);
         if ($this->logo) {
             Storage::delete($this->insurance->company_logo);
             $imageName = $this->logo->store("logo", 'public');
             $data['logo'] = $imageName;
         }
 
-        $this->insurance->update($data);
+        $this->insurance->update(array_filter($data));
         return redirect('insurance');
     }
 

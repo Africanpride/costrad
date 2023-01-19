@@ -7,7 +7,7 @@
             class="relative flex flex-col bg-white border shadow-sm overflow-hidden
              dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
             @if ($formAction)
-                <form wire:submit.prevent="{{ $formAction }}">
+                <form wire:submit.prevent="{{ $formAction }}" >
                     @csrf
             @endif
             <div class="p-4 sm:p-10 overflow-y-auto">
