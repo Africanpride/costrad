@@ -1,6 +1,82 @@
 <x-app-layout>
 
     <div class="container mx-auto p-8 space-y-4">
+<!-- component -->
+
+<div class=" py-20 px-10 ">
+  <div class="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
+    <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20"
+       x-data="{ circumference: 100 * 2 * Math.PI, percent: 45 }"
+       >
+          <div class="flex items-center justify-center -m-6 overflow-hidden  rounded-full">
+            <svg class="w-64 h-64 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
+              <circle
+                class="text-gray-300"
+                stroke-width="20"
+                stroke="currentColor"
+                fill="transparent"
+                r="100"
+                cx="120"
+                cy="120"
+                />
+              <circle
+                class="text-firefly-600"
+                stroke-width="22"
+                :stroke-dasharray="circumference"
+                :stroke-dashoffset="circumference - percent / 100 * circumference"
+                stroke-linecap="round"
+                stroke="currentColor"
+                fill="transparent"
+                r="100"
+                cx="120"
+                cy="120"
+               />
+            </svg>
+            <span class="absolute text-2xl text-firefly-700" x-text="`${percent}%`"></span>
+          </div>
+
+      </div>
+
+{{--
+    <div class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-xl rounded-2xl h-20"
+       x-data="{ circumference: 50 * 2 * Math.PI, percent: 90 }"
+       >
+          <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
+            <svg class="w-32 h-32 transform translate-x-1 translate-y-1" x-cloak aria-hidden="true">
+              <circle
+                class="text-gray-300"
+                stroke-width="10"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+                />
+              <circle
+                class="text-red-600"
+                stroke-width="10"
+                :stroke-dasharray="circumference"
+                :stroke-dashoffset="circumference - percent / 100 * circumference"
+                stroke-linecap="round"
+                stroke="currentColor"
+                fill="transparent"
+                r="50"
+                cx="60"
+                cy="60"
+               />
+            </svg>
+            <span class="absolute text-2xl text-red-700" x-text="`${percent}%`"></span>
+          </div>
+          <p class="ml-10 font-medium text-gray-600 sm:text-xl">Storage</p>
+
+          <span class="ml-auto text-xl font-medium text-red-600 hidden sm:block">20GB</span>
+      </div> --}}
+  </div>
+</div>
+
+
+
+
         <div class="flex items-center">
             <input type="checkbox" id="hs-basic-with-description-unchecked" class="relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent   focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
 
@@ -70,14 +146,38 @@
 
     </div>
     <div class="flex justify-center">
+        <!-- component -->
+<div class="w-full">
+
+    <div class="shadow w-full bg-grey-light">
+      <div class="bg-blue text-xs leading-none py-1 text-center text-white" style="width: 45%">45%</div>
+    </div>
+
+
+    <div class="shadow w-full bg-grey-light mt-2">
+      <div class="bg-teal text-xs leading-none py-1 text-center text-white" style="width: 55%">55%</div>
+    </div>
+
+
+    <div class="shadow w-full bg-grey-light mt-2">
+      <div class="bg-orange text-xs leading-none py-1 text-center text-white" style="width: 65%">65%</div>
+    </div>
+
+
+
+    <div class="shadow w-full bg-grey-light mt-2">
+      <div class="bg-red text-xs leading-none py-1 text-center text-white" style="width: 75%">75%</div>
+    </div>
+  <div>
+
         <svg viewBox="0 0 700 380" fill="none" width="300" xmlns="http://www.w3.org/2000/svg" id="svg">
             <path class="text-gray-300"
                 d="M100 350C100 283.696 126.339 220.107 173.223 173.223C220.107 126.339 283.696 100 350 100C416.304 100 479.893 126.339 526.777 173.223C573.661 220.107 600 283.696 600 350"
-                stroke="currentColor" stroke-width="40" stroke-linecap="round"></path>
+                stroke="currentColor" stroke-width="38" stroke-linecap="round"></path>
             <path
                 d="M100 350C100 283.696 126.339 220.107 173.223 173.223C220.107 126.339 283.696 100 350 100C416.304 100 479.893 126.339 526.777 173.223C573.661 220.107 600 283.696 600 350"
-                stroke="#2f49d0" stroke-width="40" stroke-linecap="round" stroke-dasharray="485.4"
-                stroke-dashoffset="78.54" id="svgPath" class="svgPath"></path>
+                stroke="#2f49d0" stroke-width="40" stroke-linecap="round" stroke-dasharray="50% 0"
+                stroke-dashoffset="90%" id="svgPath" class="svgPath"></path>
 
             {{-- <circle cx="587.7641290737884" cy="272.7457514062631" r="12" fill="#cc0099"></circle> --}}
 
@@ -97,6 +197,12 @@
             <circle cx="541.8445461049462" cy="264.58530495408183" r="5" fill="#2f49d0"></circle>
             <circle cx="555.4109961540992" cy="306.33854492827044" r="5" fill="#2f49d0"></circle>
             <circle cx="560" cy="349.99999999999994" r="5" fill="#2f49d0"></circle>
+
+        </svg>
+
+
+        <svg class="flex">
+            circle
 
         </svg>
     </div>

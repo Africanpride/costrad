@@ -45,7 +45,7 @@ class UpdateInsurance extends ModalComponent
             'percentage' => 'required',
             'country' => 'required',
             'email' => 'required|unique:users,email,' . $this->insurance->id,
-            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
         ]);
         if ($this->logo) {

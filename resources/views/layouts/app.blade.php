@@ -17,7 +17,7 @@
     @livewireStyles
 </head>
 
-<body class="bg-gray-50 dark:bg-black grid md:grid-cols-12 h-full">
+<body class="bg-gray-50 dark:bg-black grid md:grid-cols-12 h-full scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-300 overflow-y-scroll">
     <div class="md:col-span-2 w-full">
 
         <!-- Navigation -->

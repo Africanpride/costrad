@@ -76,10 +76,14 @@ module.exports = {
             },
         },
     },
-
+    variants: {
+        scrollbar: ['dark']
+    },
     plugins: [
         require('preline/plugin'),
         require('@tailwindcss/forms'),
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
+        require('tailwind-scrollbar'),
+
     ],
 };

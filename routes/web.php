@@ -29,6 +29,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/doctor', function () {
+        return view('doctor.index');
+    })->name('doctor');
 
     Route::view('/powergrid', 'powergrid-demo');
 
