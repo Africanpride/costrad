@@ -56,20 +56,21 @@
             </div>
         @endif
 
-        <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="firstName" value="{{ __('First Name') }}" />
-            <x-jet-input id="firstName" type="text" class="mt-1 block w-full" wire:model.defer="state.firstName"
-                autocomplete="firstName" />
-            <x-jet-input-error for="firstName" class="mt-2" />
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="lastName" value="{{ __('Last Name') }}" />
-            <x-jet-input id="lastName" type="text" class="mt-1 block w-full" wire:model.defer="state.lastName"
-                autocomplete="lastName" />
-            <x-jet-input-error for="lastName" class="mt-2" />
-        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="">
+                <x-jet-label for="firstName" value="{{ __('First Name') }}" />
+                <x-jet-input id="firstName" type="text" class="mt-1 block w-full" wire:model.defer="state.firstName"
+                    autocomplete="firstName" />
+                <x-jet-input-error for="firstName" class="mt-2" />
+            </div>
+            <div class="">
+                <x-jet-label for="lastName" value="{{ __('Last Name') }}" />
+                <x-jet-input id="lastName" type="text" class="mt-1 block w-full" wire:model.defer="state.lastName"
+                    autocomplete="lastName" />
+                <x-jet-input-error for="lastName" class="mt-2" />
+            </div>
 
+        </div>
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -77,7 +78,7 @@
             <x-jet-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&
-                !$this->user->hasVerifiedEmail())
+                    !$this->user->hasVerifiedEmail())
                 <p class="text-sm mt-2">
                     {{ __('Your email address is unverified.') }}
 

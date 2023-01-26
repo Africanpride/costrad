@@ -25,7 +25,7 @@
                      cy="120"
                      />
                    <circle
-                     class="text-blue-600"
+                     class="text-firefly-800"
                      stroke-width="17"
                      :stroke-dasharray="circumference"
                      :stroke-dashoffset="circumference - percent / 100 * circumference"
@@ -37,7 +37,7 @@
                      cy="120"
                     />
                  </svg>
-                 <span class="absolute text-bold text-5xl text-blue-600" x-text="`${percent}%`"></span>
+                 <span class="absolute text-bold text-5xl text-firefly-800" x-text="`${percent}%`"></span>
                </div>
 
             </div>

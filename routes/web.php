@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Insurance;
 use App\Models\User;
+use App\Models\Insurance;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
@@ -9,16 +10,16 @@ use Spatie\Permission\Models\Permission;
 
 Route::view('/', 'welcome');
 
-Route::group(['middleware' => 'guest'], function () {
+// Route::group(['middleware' => 'guest'], function () {
 
-    Route::get('login', function () {
-        return view('auth.login');
-    })->name('login');
+//     Route::get('login', function () {
+//         return view('auth.login');
+//     })->name('login');
 
-    Route::get('register', function () {
-        return view('auth.register');
-    })->name('register');
-});
+//     Route::get('register', function () {
+//         return view('auth.register');
+//     })->name('register');
+// });
 
 
 Route::middleware([
@@ -53,6 +54,11 @@ Route::middleware([
         return view('staff.index', compact('users'));
     })->name('staff');
 
+    Route::get('patients', function () {
+        // $users = User::paginate(8);
+        return view('patients.index');
+    })->name('patients');
+
     Route::get('insurance', function () {
         $insurances = Insurance::paginate(12);
         return view('insurance.index', compact('insurances'));
@@ -74,5 +80,9 @@ Route::middleware([
     Route::get('/inactive', function () {
         return view('inactive');
     })->name('inactive');
+    Route::get('trim', function() {
+        return Str::of('/Laravel/')->ltrim('/');
+
+    });
 
 });

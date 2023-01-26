@@ -77,7 +77,7 @@ module.exports = {
         },
     },
     variants: {
-        scrollbar: ['dark']
+        scrollbar: ['rounded']
     },
     plugins: [
         require('preline/plugin'),

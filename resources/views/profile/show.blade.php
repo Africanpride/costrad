@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- <x-admin.pageheader /> --}}
-    <div class="grid md:grid-cols-12 gap-4 md:gap-2 ">
-        <div class=" col-span-12 md:col-span-3 md:border-r border-gray-200 dark:border-gray-700 ">
+    <div class="grid md:grid-cols-12 gap-4 md:gap-2">
+        <div class=" col-span-12 md:col-span-3 md:border-r border-gray-200 dark:border-gray-700  md:h-screen ">
             <nav class="flex flex-col " aria-label="Tabs" role="tablist">
 
                 <button
@@ -63,7 +63,7 @@
                     </div>
                 </button>
                 <button
-                    class="border-dashed border-b dark:border-slate-800	 text-left flex gap-y-6 w-full h-full hover:bg-gray-100 p-5 transition-all dark:hover:bg-white/[.075] hs-tab-active:text-gray-600 hs-tab-active:bg-gray-100 dark:hs-tab-active:bg-slate-900 "
+                    class=" dark:border-slate-800	 text-left flex gap-y-6 w-full h-full hover:bg-gray-100 p-5 transition-all dark:hover:bg-white/[.075] hs-tab-active:text-gray-600 hs-tab-active:bg-gray-100 dark:hs-tab-active:bg-slate-900 "
                     id="basic-tabs-item-5" data-hs-tab="#basic-tabs-5" aria-controls="basic-tabs-5" role="tab"
                     active>
                     <x-heroicon-o-minus-circle
