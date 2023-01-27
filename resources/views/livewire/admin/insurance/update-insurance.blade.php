@@ -1,6 +1,6 @@
 <x-admin.insurance-modal formAction="updateInsurance">
     <x-slot name="title">
-        Add New Insurance
+        Update Insurance
     </x-slot>
 
     <x-slot name="content">

@@ -46,7 +46,7 @@ class Patient extends Model
         $hash = md5($email);
         if (!is_null($this->avatar)) {
 
-            return url('/') . '/storage/' . $this->avatar;
+            return $this->avatar;
         }
 
         return 'https://www.gravatar.com/avatar/' . $hash;

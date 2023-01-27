@@ -9,7 +9,7 @@
 
             <div class="hidden">
                 <button type="button"
-                    class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-700 align-middle hover:bg-firefly-50 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-400 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
+                    class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-700 align-middle hover:bg-firefly-50 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
                     <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" viewBox="0 0 16 16">
                         <path
@@ -29,7 +29,7 @@
                         </svg>
                     </div>
                     <input type="text" id="icon" name="icon"
-                        class="py-2 px-4 pl-11 block w-full border-firefly-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-firefly-700 dark:text-firefly-400"
+                        class="py-2 px-4 pl-11 block w-full border-firefly-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-firefly-700 dark:text-firefly-700"
                         placeholder="Search">
                 </div>
             </div>
@@ -45,11 +45,11 @@
                     {{-- <x-heroicon-o-ellipsis-vertical class="w-5 h-5 text-current" /> --}}
                 </div>
                 <div
-                class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-400 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
+                class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
                 <x-heroicon-o-magnifying-glass class="w-5 h-5 text-current cursor-pointer" />
                 </div>
                 <div
-                    class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-400 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
+                    class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
                     <x-admin.dark-switch />
                 </div>
 
@@ -57,7 +57,7 @@
 
                 <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
                     <button type="button"
-                        class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-400 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
+                        class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
                         <x-heroicon-o-bell class="w-5 h-5 text-current" />
 
                     </button>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="hs-dropdown relative inline-flex">
                     <button id="hs-dropdown-custom-trigger" type="button"
-                        class="hs-dropdown-toggle py-1 pl-1 pr-3 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
+                        class="hs-dropdown-toggle py-1 pl-1 pr-3 inline-flex justify-center items-center gap-3 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-transparent dark:hover:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
                         @auth
                             <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white dark:ring-firefly-900"
                                 src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->full_name }}">
@@ -133,7 +133,7 @@
                     <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 dark:bg-black dark:border dark:border-firefly-700"
                         aria-labelledby="hs-dropdown-with-header">
                         <div class="py-3 px-5 -m-2 bg-firefly-100 rounded-t-lg dark:bg-firefly-700">
-                            <p class="text-sm text-firefly-500 dark:text-firefly-400">Signed in as</p>
+                            <p class="text-sm text-firefly-500 dark:text-firefly-700">Signed in as</p>
                             <p class="text-sm font-medium text-firefly-900 dark:text-firefly-300">
                                 @auth
                                     {{ Auth::user()->email }}
@@ -141,7 +141,7 @@
                             </p>
                         </div>
                         <div class="mt-2 py-2 first:pt-0 last:pb-0">
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-400 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                                 href="#">
                                 <svg class="flex-none" width="16" height="16" viewBox="0 0 16 16"
                                     fill="currentColor">
@@ -150,12 +150,12 @@
                                 </svg>
                                 Newsletter
                             </a>
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-400 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                                 href="{{ url('profile') }}">
                                 <x-heroicon-o-identification class=" flex-shrink-0 w-5 h-5 " />
                                 {{ __('Profile') }}
                             </a>
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-400 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                                 href="#">
                                 <svg class="flex-none" width="16" height="16" viewBox="0 0 16 16"
                                     fill="currentColor">
@@ -166,7 +166,7 @@
                                 </svg>
                                 Downloads
                             </a>
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-400 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                                 href="#">
                                 <svg class="flex-none" width="16" height="16" viewBox="0 0 16 16"
                                     fill="currentColor">
@@ -177,7 +177,7 @@
                             </a>
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-400 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                                     href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                     <x-heroicon-o-arrow-left-on-rectangle class="w-5 h-5 " />
                                     {{ __('Logout') }}

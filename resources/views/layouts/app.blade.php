@@ -19,7 +19,8 @@
 {{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}
 
 
-<body class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 h-full scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll scrollbar-thumb-rounded-full ">
+<body class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 h-full scrollbar-thin
+scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll  ">
     <div class="md:col-span-2 w-full">
 
         <!-- Navigation -->
