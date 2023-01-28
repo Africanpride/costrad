@@ -8,7 +8,7 @@
             <div class="flex justify-end items-center md:px-4">
                 <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.insurance.add-insurance')">
                     <span class="flex items-center justify-center gap-2">
-                        <x-heroicon-o-plus-circle class="w-6 h-6 text-yellow-500 text-xs " />
+                        <x-heroicon-o-plus-circle class="w-5 h-5 text-yellow-500 text-xs " />
                         Add insurance Company
                     </span>
                 </x-admin.generic-button>
@@ -22,15 +22,13 @@
                         <tr
                             class=" bg-gray-200 dark:border-secondary-900 dark:bg-secondary-900
              text-secondary-900  dark:text-secondary-400 uppercase ">
-                            <th class="font-normal px-3 pt-0 border-b border-gray-200 dark:border-gray-800">Identity
-                            </th>
-                            <th class="font-normal py-2  border-b border-gray-200 dark:border-gray-800">Company
+
+                            <th class="font-normal px-4 py-2  border-b border-gray-200 dark:border-gray-800">Company
                             </th>
                             <th
                                 class="font-normal py-2  border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
                                 Address</th>
-                            <th class="font-normal py-2  border-b border-gray-200 dark:border-gray-800">Percentage
-                                %</th>
+                            <th class="font-normal py-2  border-b border-gray-200 dark:border-gray-800">Coverage ( % )</th>
                             <th
                                 class="font-normal py-2  border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
                                 Telephone</th>
@@ -41,18 +39,7 @@
                     <tbody class="text-gray-600 dark:text-gray-100 text-sm">
                         @forelse ($insurances as $insurance)
                         <tr>
-                                <td class="sm:p-3 py-2 px-3 border-b border-gray-200 dark:border-gray-800">
-                                    <div class="flex items-center">
-                                        {{-- <svg viewBox="0 0 24 24" class="w-4 mr-2 text-yellow-500" stroke="currentColor"
-                                            stroke-width="3" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <line x1="12" y1="8" x2="12" y2="12"></line>
-                                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                        </svg> --}}
-                                        {{ $insurance->id }}
-                                    </div>
-                                </td>
+
                                 <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                                     <div class="flex items-center gap-4">
                                         <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white dark:ring-firefly-900"

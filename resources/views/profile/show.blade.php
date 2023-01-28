@@ -12,7 +12,8 @@
                     <div>
                         <div>
                             <h3 class="block font-bold text-gray-800 dark:text-white">Profile Information</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-xs">The simplest way to keep your portfolio always
+                            <p class="text-gray-600 dark:text-gray-400 text-xs">The simplest way to keep your portfolio
+                                always
                                 up-to-date.</p>
                         </div>
                     </div>
@@ -26,7 +27,8 @@
                     <div>
                         <div>
                             <h3 class="block font-bold text-gray-800 dark:text-white">Update Password</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-xs">Ensure your account is using a long, random
+                            <p class="text-gray-600 dark:text-gray-400 text-xs">Ensure your account is using a long,
+                                random
                                 password to stay secure.
 
                             </p>
@@ -43,7 +45,8 @@
                         <div>
                             <h3 class="block font-bold text-gray-800 dark:text-white">Multifactor Authentication (2FA)
                             </h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-xs">Add additional security to your account using
+                            <p class="text-gray-600 dark:text-gray-400 text-xs">Add additional security to your account
+                                using
                                 two factor authentication.</p>
                         </div>
                     </div>
@@ -57,7 +60,8 @@
                     <div>
                         <div>
                             <h3 class="block font-bold text-gray-800 dark:text-white">Manage Browser Sessions</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-xs">Manage and log out your active sessions on other
+                            <p class="text-gray-600 dark:text-gray-400 text-xs">Manage and log out your active sessions
+                                on other
                                 browsers and devices.</p>
                         </div>
                     </div>
@@ -93,18 +97,19 @@
                 </div>
             </div>
             <div id="basic-tabs-2" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-2">
-                @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                    <x-admin.pageheader model-name="Password " description="Update <br /> Password Details"
-                        add-button="false" class="mx-4">
-                        <x-heroicon-o-lock-closed class="w-5 h-5 text-current" />
-                        </x-admin-pageheader>
+                <div class="mx-auto w-full relative">
+                    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+                        <x-admin.pageheader model-name="Password " description="Update <br /> Password Details"
+                            add-button="false" class="mx-4">
+                            <x-heroicon-o-lock-closed class="w-5 h-5 text-current" />
+                            </x-admin-pageheader>
 
-                        <div class="mt-10 sm:mt-0">
-                            @livewire('profile.update-password-form')
-                        </div>
-
-                        {{-- <x-jet-section-border /> --}}
-                @endif
+                            <div class="mt-10 sm:mt-0">
+                                @livewire('profile.update-password-form')
+                            </div>
+                            {{-- <x-jet-section-border /> --}}
+                    @endif
+                </div>
             </div>
             <div id="basic-tabs-3" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-3">
                 @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
@@ -118,22 +123,22 @@
                 @endif
             </div>
             <div id="basic-tabs-4" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-4">
-                <x-admin.pageheader model-name="Sessions " description="Manage <br /> Sessions"
-                    add-button="false" class="mx-4">
+                <x-admin.pageheader model-name="Sessions " description="Manage <br /> Sessions" add-button="false"
+                    class="mx-4">
                     <x-heroicon-o-cpu-chip class="w-5 h-5 text-current" />
                     </x-admin-pageheader>
                     @livewire('profile.logout-other-browser-sessions-form')
             </div>
             <div id="basic-tabs-5" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-5">
                 @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-admin.pageheader model-name="Deletion " description="Account <br /> Deletion"
-                add-button="false" class="mx-4">
-                <x-heroicon-o-trash class="w-5 h-5 text-current" />
-                </x-admin-pageheader>
+                    <x-admin.pageheader model-name="Deletion " description="Account <br /> Deletion" add-button="false"
+                        class="mx-4">
+                        <x-heroicon-o-trash class="w-5 h-5 text-current" />
+                        </x-admin-pageheader>
 
-                    <div class="mt-10 sm:mt-0">
-                        @livewire('profile.delete-user-form')
-                    </div>
+                        <div class="mt-10 sm:mt-0">
+                            @livewire('profile.delete-user-form')
+                        </div>
                 @endif
             </div>
 

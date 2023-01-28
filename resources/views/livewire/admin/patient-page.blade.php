@@ -10,7 +10,7 @@
             <div class="w-full">
                 <label for="hs-search-box-with-loading-1" class="block text-sm  mb-2 dark:text-white uppercase "></label>
                 <div class="relative">
-                    <input type="text" id="hs-search-box-with-loading-1" name="hs-search-box-with-loading-1"
+                    <input type="text" wire:model="search" id="hs-search-box-with-loading-1" name="hs-search-box-with-loading-1"
                         class="py-2 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500/10 focus:ring-blue-500/20 dark:bg-slate-900 dark:border-gray-800 dark:text-gray-400"
                         placeholder="Patient search">
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
@@ -40,9 +40,13 @@
                             <div class="ml-auto text-xs text-gray-500">$1,902.00</div>
                         </div>
                     </button>
-                @empty
-                @endforelse
-
+                    @empty
+                    <div class="gap-4 flex justify-start items-center">
+                        <x-admin.nothing-here />
+                        <div>Sorry Nothing Here. </div>
+                    </div>
+                    @endforelse
+                    {{ $patients->links() }}
 
 
             </div>
@@ -58,7 +62,7 @@
                             border-2 border-gray-400 grayscale contrast-200	"
                                 alt="profile">
                             <span class="text-2xl">
-                                {{ Auth::user()->full_name }}
+                                {{ Auth::user()->full_name }} {{ $search }}
                             </span>
                         </div>
                         <div class="ml-auto sm:flex hidden items-center justify-end">
@@ -110,7 +114,10 @@
 
                     <div class="mt-3 p-4">
                         <div id="basic-tabs-1" role="tabpanel" aria-labelledby="basic-tabs-item-1">
-                            <div class="flex w-full items-center mb-7">
+                            <div>
+                                whew
+                            </div>
+                            <div class="flex w-full items-center mb-7 hidden">
                                 <button
                                     class="inline-flex mr-3 items-center h-8 pl-2.5 pr-2 rounded-md shadow text-gray-700 dark:text-gray-400 dark:border-gray-800 border border-gray-200 leading-none py-0">
                                     <svg viewBox="0 0 24 24" class="w-4 mr-2 text-gray-400 dark:text-gray-600"
