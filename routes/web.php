@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Patient;
 use App\Models\Insurance;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
@@ -55,8 +56,8 @@ Route::middleware([
     })->name('staff');
 
     Route::get('patients', function () {
-        // $users = User::paginate(8);
-        return view('patients.index');
+        $patients = Patient::orderBy('id', 'DESC')->paginate(8);
+        return view('patients.index', compact('patients'));
     })->name('patients');
 
     Route::get('insurance', function () {

@@ -7,16 +7,6 @@
 
 
         <div class="space-y-4">
-            {{-- <label for="toggle-example" class="flex items-center cursor-pointer relative mb-4">
-                <input type="checkbox" id="toggle-example" class="sr-only" checked>
-                <div
-                    class="toggle-bg bg-gray-200 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-700 h-6 w-11 rounded-full">
-                </div>
-                <span class="ml-3 text-gray-400 text-sm font-medium">Toggle me</span>
-            </label> --}}
-
-
-
             <div class="">
 
                 <div x-data="{ percentage: 5 }" class="w-full">

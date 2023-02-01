@@ -103,6 +103,7 @@ class User extends Authenticatable
         return $this->last_seen > $timestamp;
     }
 
+
     public function getAvatarUrlAttribute()
     {
         $address = strtolower(trim($this->email));

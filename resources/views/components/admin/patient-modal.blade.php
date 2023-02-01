@@ -1,7 +1,7 @@
 @props(['formAction' => false])
 
-<div>
-    <div class=" ease-out transition-all mx-auto">
+<div class="">
+    <div class=" ease-out duration-500 transition-all mx-auto">
 
         <div
             class="relative flex flex-col bg-white border shadow-sm overflow-hidden
@@ -10,7 +10,8 @@
                 <form wire:submit.prevent="{{ $formAction }}">
                     @csrf
             @endif
-            <div class="p-4 sm:p-10 overflow-y-auto">
+            <div class="p-2 sm:p-5 overflow-y-auto">
+            <div class="p-2 sm:p-5 overflow-y-auto">
                 <div class="mb-6 text-center">
                     <h3 class="mb-2 text-xl font-bold text-gray-800 dark:text-gray-200">
                         @if (isset($title))
@@ -18,11 +19,12 @@
                         @endif
                     </h3>
                 </div>
-
+                <div class="p-2 overflow-y-auto">
                 <div class="space-y-4">
 
                     {{ $content }}
 
+                </div>
                 </div>
             </div>
 

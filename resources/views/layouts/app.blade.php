@@ -10,11 +10,14 @@
     {{-- <script src="./node_modules/preline/dist/preline.js" /> --}}
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    {{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
+    {{-- <script type="module">
+        $('body').html('<h1>Hello World!</h1>');
+    </script> --}}
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     @livewireStyles
+
 </head>
 {{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}
 

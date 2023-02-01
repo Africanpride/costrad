@@ -1,6 +1,10 @@
 import _ from 'lodash';
 window._ = _;
 
+import jQuery from 'jquery';
+window.$ = jQuery;
+
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -74,11 +78,4 @@ function setLightTheme() {
 }
 
 themeToggleButton.addEventListener("click", () => { theme === "light" ? setDarkTheme() : setLightTheme() });
-
- // Update clock every 1 second
- setInterval(function() {
-    var now = new Date(); // Get current date and time
-    var time = now.toLocaleTimeString(); // Format time as HH:mm:ss
-    document.getElementById("time").innerHTML = time; // Update clock
-}, 1000);
 

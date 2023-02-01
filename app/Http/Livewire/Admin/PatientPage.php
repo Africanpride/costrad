@@ -11,9 +11,6 @@ class PatientPage extends Component
     use WithPagination;
     public $search = '';
     public $searchTerm = '';
-    public $sortDirection = 'asc';
-
-
 
     public function render()
     {
