@@ -14,7 +14,7 @@ class PatientPage extends Component
 
     public function render()
     {
-        $patients = Patient::whereLike(['firstName', 'lastName', 'email', 'telephone'], $this->search)->orderBy('email')->paginate(25);
+        $patients = Patient::whereLike(['firstName', 'lastName', 'email', 'telephone','insuranceNumber'], $this->search)->orderByDesc('created_at')->paginate(25);
         return view('livewire.admin.patient-page', compact('patients'));
     }
 }

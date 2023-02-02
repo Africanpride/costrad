@@ -10,6 +10,10 @@ class DeleteStaff extends ModalComponent
 {
     public User $user;
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function mount(User $user)
     {
         $this->user = $user;

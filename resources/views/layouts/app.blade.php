@@ -10,12 +10,15 @@
     {{-- <script src="./node_modules/preline/dist/preline.js" /> --}}
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-    {{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
-    {{-- <script type="module">
-        $('body').html('<h1>Hello World!</h1>');
-    </script> --}}
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- FlatPickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     @livewireStyles
 
 </head>
@@ -58,6 +61,6 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
 
     @stack('modals')
     @livewireScripts
+    {{-- @stack('scripts') --}}
 </body>
-
 </html>

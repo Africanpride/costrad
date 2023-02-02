@@ -14,6 +14,10 @@ class DeleteInsurance extends ModalComponent
         $this->insurance = $insurance;
     }
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function deleteInsurance()
     {
         $this->insurance->delete();

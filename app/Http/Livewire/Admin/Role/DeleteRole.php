@@ -12,6 +12,10 @@ class DeleteRole extends ModalComponent
 
     public Role $role;
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function mount(Role $role)
     {
         $this->role = $role;

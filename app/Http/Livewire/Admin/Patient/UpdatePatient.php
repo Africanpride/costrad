@@ -2,14 +2,11 @@
 
 namespace App\Http\Livewire\Admin\Patient;
 
-use App\Models\Insurance;
 use App\Models\Patient;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use LivewireUI\Modal\ModalComponent;
-use Illuminate\Support\Facades\Storage;
 
-class AddPatient extends ModalComponent
+class UpdatePatient extends Component
 {
     use WithFileUploads;
 
@@ -34,11 +31,29 @@ class AddPatient extends ModalComponent
     public $emergencyContactTelephone;
     public $nationality;
     public $insurance_id;
-    public $insuranceNumber;
     public bool $insured = false;
     public bool $active = false;
     public $avatar;
 
+    public Patient $patient;
+//
+    public function mount(Patient $patient)
+    {
+        $this->patient = $patient;
+
+    }
+
+    protected $listeners = ['updatePatient'];
+
+
+    public function updatePatient(Patient $patient)
+    {
+
+        dd($patient);
+        // $this->patient = Patient::findOrFail($patientId);
+        // or alternatively
+        // $this->patient = Patient::whereId($patientId)->firstOrFail();
+    }
 
     protected $rules = [
         'title' => ['nullable', 'string', 'min:1', 'max:3'],
@@ -57,38 +72,19 @@ class AddPatient extends ModalComponent
         'emergencyContactTelephone' => ['nullable', 'string', 'min:3', 'max:255'],
         'nationality' => ['nullable', 'string', 'min:1', 'max:255'],
         'insurance_id' => ['nullable', 'string', 'min:1', 'max:255'],
-        'insuranceNumber' => ['nullable', 'string', 'min:1', 'max:255'],
         'insured' => ['required', 'boolean'],
         'active' => ['required', 'boolean'],
         'avatar' => ['nullable', 'image', 'mimes:jpg,png,jpeg,gif,svg', 'max:2048'],
     ];
-    public static function closeModalOnClickAway(): bool
-    {
-        return false;
-    }
+
     public static function closeModalOnEscape(): bool
     {
         return false;
     }
-    public function mount()
-    {
-        $this->insuranceOptions = Insurance::whereLike(['name'], $this->searchInsurance)->get();
-    }
-
-    public function addPatient()
-    {
-        $data = $this->validate();
-        // dd($data);
-        if ($this->avatar) {
-            $imageName = $this->avatar->store("avatar", 'public');
-            $data['avatar'] = $imageName;
-        }
-        Patient::create(array_filter($data));
-        return redirect()->to('patients');
-    }
-
     public function render()
     {
-        return view('livewire.admin.patient.add-patient');
+        return view('livewire.admin.patient.update-patient', [
+            'patient' => $this->patient
+        ]);
     }
 }

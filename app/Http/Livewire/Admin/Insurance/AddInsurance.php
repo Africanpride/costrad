@@ -24,6 +24,14 @@ class AddInsurance extends ModalComponent
         'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
     ];
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
+    public static function closeModalOnClickAway(): bool
+{
+    return false;
+}
     public function addInsurance()
     {
         $validatedData = $this->validate();

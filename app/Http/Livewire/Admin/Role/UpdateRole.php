@@ -18,6 +18,10 @@ class UpdateRole extends ModalComponent
     public Role $role;
     public $permissionIds;
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function mount(Role $role)
     {
         $this->role = $role;

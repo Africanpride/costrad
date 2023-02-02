@@ -17,6 +17,10 @@ class RoleModal extends ModalComponent
         'description' => ['nullable', 'string', 'min:3', 'max:255','unique:roles'],
     ];
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function saveRole()
         {
 

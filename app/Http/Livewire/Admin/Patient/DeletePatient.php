@@ -20,6 +20,10 @@ class DeletePatient extends ModalComponent
         return redirect()->to('/patients');
     }
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
 
     public function render()
     {

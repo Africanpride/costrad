@@ -36,6 +36,10 @@ class UpdateInsurance extends ModalComponent
         $this->country = $insurance->country;
     }
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function updateInsurance()
     {
         $data = $this->validate([

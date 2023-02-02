@@ -13,6 +13,14 @@ class AddPermission extends ModalComponent
     public $name;
     public $description;
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
+    public static function closeModalOnClickAway(): bool
+{
+    return false;
+}
     protected $rules = [
         'name' => ['required', 'string', 'min:3', 'max:255', 'unique:permissions'],
         'description' => ['nullable', 'string', 'min:3', 'max:255'],

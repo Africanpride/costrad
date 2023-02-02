@@ -25,6 +25,14 @@ class UpdateStaff extends ModalComponent
     public $avatar;
     public array $staffRoles = [];
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
+    public static function closeModalOnClickAway(): bool
+{
+    return false;
+}
     public function mount(User $user)
     {
         $this->user         = $user;

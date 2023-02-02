@@ -17,6 +17,10 @@ class UpdatePermission extends ModalComponent
         $this->permission   = $permission;
     }
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function updatePermission()
     {
         $validated = $this->validate([

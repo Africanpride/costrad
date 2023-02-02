@@ -9,7 +9,10 @@
 
 
         <div class=" w-full text-sm dark:text-white space-y-3 ">
-
+            <div>
+                <x-jet-label for="dateOfBirth" value="{{ __('Date Of Birth') }}" class="text-[0.6rem] flex justify-start" />
+                <x-jet-input wire:model="dateOfBirth" id="dob" type="date" placeholder="Date-of-Birth" class="mt-1 block w-full" />
+            </div>
             {{-- <div class="italic ">{{__('Note: Staff would be sent an email to reset their password')}}</div> --}}
             <div class="grid space-y-3">
                 <div class="relative flex items-start">
@@ -48,17 +51,16 @@
                 @enderror
             </div>
 
-
-
             @if ($insured)
-                <div>
-                    <div class="relative" wire:ignore="">
+
+                <div class="space-y-3">
+                    <div class="relative" wire:model="insurance_id">
                         <select
                             class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                             id="select2">
                             <option selected>Select Insurance</option>
-                            @foreach ($insuranceOptions as $option)
-                                <option value="{{ $option->id }}">{{ $option->name }}</option>
+                            @foreach ($insuranceOptions as $insurance)
+                                <option value="{{ $insurance->id }}">{{ $insurance->name }}</option>
                             @endforeach
                         </select>
 
@@ -66,9 +68,13 @@
                             <x-lucide-umbrella class="w-5 h-5 text-gray-400 text-xs" />
                         </div>
                         </wire:ignore=>
-                        @error('title')
+                        @error('insurance_id')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
+                    </div>
+                    <div>
+                        <x-jet-label for="insuranceNumber" value="{{ __('Insurance Number') }}" class="text-[0.6rem] flex justify-start" />
+                        <x-jet-input wire:model="insuranceNumber" id="insuranceNumber" type="text" placeholder="{{ __('Insurance Number') }}" class="mt-1 block w-full" />
                     </div>
                 </div>
             @endif
@@ -114,18 +120,14 @@
             <div class="grid grid-cols-2 gap-x-2">
 
                 <div>
-                    <input wire:model="firstName" id="firstName" type="text"
-                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-firefly-500 focus:ring-firefly-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                        placeholder="First Name" required autocomplete="firstName">
+                    <x-jet-input wire:model="firstName" type="text" placeholder="First Name" class="" />
                     @error('firstName')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
 
                 </div>
                 <div>
-                    <input wire:model="lastName" id="lastName" type="text"
-                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-firefly-500 focus:ring-firefly-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                        placeholder="Last Name" required autocomplete="lastName">
+                    <x-jet-input wire:model="lastName" type="text" placeholder="Last Name" class="" />
                     @error('lastName')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
@@ -135,27 +137,22 @@
             </div>
             <div>
                 <div class="relative">
-                    <input wire:model="email" type="text" id="hs-leading-icon" name="hs-leading-icon"
-                        class="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                        placeholder="Patient email Address" required autocomplete="email">
-
+                    <x-jet-input wire:model="email" type="text" placeholder="Patient email Address"
+                        id="hs-leading-icon" name="hs-leading-icon" class="pl-11" />
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                        <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
-                        </svg>
+                        <x-lucide-at-sign class="w-4 h-4 text-gray-400 text-xs" />
                     </div>
+
                 </div>
                 @error('email')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
             <div>
                 <div class="relative">
-                    <input wire:model="address_1" type="text" id="hs-leading-icon" name="hs-leading-icon"
-                        class="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                        placeholder="Address Line 1" required autocomplete="address_1">
+                    <x-jet-input wire:model="address_1"  type="text" placeholder="Address " class="pl-11 block w-full" />
+
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
                         <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
@@ -166,33 +163,67 @@
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
+            <div  class="grid grid-cols-2 gap-2">
+                <div>
+                    <div class="relative">
+                        <x-jet-input wire:model="address_2"  type="text" placeholder="Apt#" class="pl-11 block w-full" />
+
+
+                        <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+                            <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                        </div>
+                    </div>
+                    @error('address_2')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div>
+                    <div>
+                        <x-jet-input wire:model="zipcode"  type="text" placeholder="zipcode" class=" block w-full" />
+                        <x-jet-input-error for="zipcode" class="mt-2" />
+
+                    </div>
+                </div>
+            </div>
             <div>
                 <div class="relative">
-                    <input wire:model="address_2" type="text" id="hs-leading-icon" name="hs-leading-icon"
-                        class="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                        placeholder="Address Line 2" required autocomplete="address_2">
+                    <x-jet-input wire:model="state"  type="text" placeholder="State " class="pl-11 block w-full" />
+
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
                         <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+
                     </div>
                 </div>
-                @error('address_2')
+                @error('state')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="grid grid-cols-2 gap-2">
 
+                <div>
+                    <x-jet-input wire:model="country"  type="text" placeholder="Country" class="mt-1 block w-full" />
+                    <x-jet-input-error for="country" class="mt-2" />
+
+                </div>
+                <div>
+                    <x-jet-input wire:model="city"  type="text" placeholder="city" class="mt-1 block w-full" />
+                    <x-jet-input-error for="city" class="mt-2" />
+
+                </div>
+            </div>
             <div class="grid grid-cols-2 gap-2">
 
                 <div>
                     <input wire:model="nationality" id="country" type="text"
                         class="py-2 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                         placeholder="Patient Nationality">
-                    @error('country')
-                        <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                        <x-jet-input-error for="firstName" class="mt-2" />
+
                 </div>
                 <div>
-                    <input wire:model="telephone" id="telephone" type="text"
+                    <input wire:model="telephone" id="telephone" type="tel"
                         class="py-2 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                         placeholder="Telephone">
                     @error('telephone')
@@ -245,10 +276,10 @@
 
             <div>
                 <div class="relative">
-                    <input wire:model="emergencyContactTelephone" type="text" id="hs-leading-icon"
+                    <input wire:model="emergencyContactTelephone" type="tel" id="hs-leading-icon"
                         name="hs-leading-icon"
                         class="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                        placeholder="Emergency Contact Number" required autocomplete="telephone">
+                        placeholder="Emergency Contact Number" required autocomplete="tel">
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
                         <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -277,17 +308,11 @@
             Create New Patient
         </button>
     </x-slot>
+
 </x-admin.patient-modal>
 
+<script>
+    flatpickr("#dob");
+</script>
 
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#select2').select2();
-            $('#select2').on('change', function(e) {
-                var data = $('#select2').select2("val");
-                @this.set('selected', data);
-            });
-        });
-    </script>
-@endpush
+

@@ -17,17 +17,22 @@ class Patient extends Model
     protected $fillable = [
         'title',
         'gender',
-        'DOB',
+        'dateOfBirth',
         'firstName',
         'lastName',
         'email',
         'address_1',
         'address_2',
+        'city',
+        'state',
+        'zipcode',
+        'country',
         'telephone',
         'emergencyContactName',
         'emergencyContactTelephone',
         'nationality',
         'insurance_id',
+        'insuranceNumber',
         'insured',
         'active',
         'avatar'
@@ -36,7 +41,7 @@ class Patient extends Model
     protected $casts = [
         'insured' => 'boolean',
         'active' => 'boolean',
-        'DOB' => 'date'
+        'dateOfBirth' => 'date'
     ];
 
     protected $append = [

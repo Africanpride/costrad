@@ -29,6 +29,14 @@ class AddStaff extends ModalComponent
         'password' => ['sometimes']
     ];
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
+    public static function closeModalOnClickAway(): bool
+{
+    return false;
+}
     public function addStaff()
     {
         $data = $this->validate();

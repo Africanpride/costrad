@@ -12,6 +12,10 @@ class DeletePermission extends ModalComponent
     public $name;
     public $description;
 
+    public static function closeModalOnEscape(): bool
+    {
+        return false;
+    }
     public function mount(Permission $permission) {
         $this->name         = $permission->name;
         $this->description  = $permission->description;
