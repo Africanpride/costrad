@@ -4,8 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "669008f19d1a5f3abfb2ec6692297d9a",
+    "content-hash": "0b40ca2b6e6844c23e35f56160ac0166",
     "packages": [
+        {
+            "name": "aristridely/slideover",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ariStridely/slideover.git",
+                "reference": "c0b3b8a0e6476f5b415ba33ba7979f2db5abd8fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ariStridely/slideover/zipball/c0b3b8a0e6476f5b415ba33ba7979f2db5abd8fd",
+                "reference": "c0b3b8a0e6476f5b415ba33ba7979f2db5abd8fd",
+                "shasum": ""
+            },
+            "require": {
+                "livewire/livewire": "^2.0",
+                "php": "^7.4|^8.0",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.15",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LivewireUI\\Slideover\\LivewireSlideoverServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LivewireUI\\Slideover\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aristotele Tufano",
+                    "email": "aristotele.tufano@evolutiongroup.digital"
+                }
+            ],
+            "description": "Laravel Livewire slideover component",
+            "keywords": [
+                "laravel",
+                "livewire",
+                "slideover"
+            ],
+            "support": {
+                "source": "https://github.com/ariStridely/slideover/tree/v1.0.1"
+            },
+            "time": "2023-01-19T17:04:30+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.8",

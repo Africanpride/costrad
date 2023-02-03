@@ -58,6 +58,7 @@ class Patient extends Model
                 return $this->avatar;
             }
             return url('/'). "/storage/" .  $this->avatar;
+
         }
 
         return 'https://www.gravatar.com/avatar/' . $hash;

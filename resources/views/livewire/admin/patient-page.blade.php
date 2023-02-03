@@ -26,9 +26,8 @@
                 class=" md:col-span-2 col-span-12  cursor-pointer md:w-auto px-2 py-2 bg-firefly-600 text-white
                 font-medium text-xs leading-tight capitalize rounded shadow-md hover:bg-firefly-700 hover:shadow-lg
                  focus:bg-firefly-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-firefly-800 active:shadow-lg transition duration-150 ease-in-out"
-                 data-mdb-ripple-color="light"
-                 onclick="Livewire.emit('openModal', 'admin.patient.add-patient')"
-                 data-mdb-ripple="false" >
+                data-mdb-ripple-color="light" onclick="Livewire.emit('openModal', 'admin.patient.add-patient')"
+                data-mdb-ripple="false">
 
                 <span class="flex items-center justify-center gap-2">
 
@@ -65,9 +64,11 @@
 
                         <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                             <div class="flex items-center gap-4 cursor-pointer"
+                                wire:click='$emit(
+                                "openSlideover",
+                                "admin.patient.update-patient",
+                                {{ json_encode([$patient->id]) }})'>
 
-                                onclick="Livewire.emit('openModal', 'admin.patient.test-patient', {{ json_encode([$patient->id]) }})"
-                                >
                                 <img class="inline-block w-12 aspect-square rounded-full ring-2 ring-white dark:ring-firefly-900"
                                     src="{{ $patient->patient_avatar }}" alt="{{ $patient->full_name }}">
                                 <div> {{ $patient->full_name }}<br> <span>{{ $patient->email }}</span>
@@ -107,7 +108,7 @@
                             class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800  hidden md:table-cell">
                             <div class="flex items-center">
                                 <div class="sm:flex hidden flex-col">
-                                    24.12.2020
+                                    {{ $patient->dateOfBirth }}
                                     <div class="text-gray-400 text-xs">11:16 AM</div>
                                 </div>
                             </div>
@@ -148,14 +149,14 @@
                         </td>
                     </tr>
                 @empty
-                <div class="my-6">
+                    <div class="my-6">
 
 
-                    <div class="gap-4 flex justify-start items-center">
-                        <x-admin.nothing-here />
-                        <div>Sorry Nothing Here. </div>
+                        <div class="gap-4 flex justify-start items-center">
+                            <x-admin.nothing-here />
+                            <div>Sorry Nothing Here. </div>
+                        </div>
                     </div>
-                </div>
                 @endforelse
 
             </tbody>
@@ -166,4 +167,3 @@
         </div>
 </div>
 
-<livewire:admin.patient.update-patient />

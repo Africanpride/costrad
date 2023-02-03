@@ -57,8 +57,8 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
     <livewire:layout.all-modals />
 
     <!-- ========== END MODALS CONTENT ========== -->
+    @livewire('livewire-ui-slideover')
     @livewire('livewire-ui-modal')
-
     @stack('modals')
     @livewireScripts
     {{-- @stack('scripts') --}}

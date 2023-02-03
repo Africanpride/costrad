@@ -53,6 +53,7 @@ class AddPatient extends ModalComponent
         'state' => ['nullable', 'string', 'min:2', 'max:255'],
         'zipcode' => ['nullable', 'string', 'min:2', 'max:255'],
         'country' => ['nullable', 'string', 'min:2', 'max:255'],
+        'telephone' => ['nullable', 'string', 'min:2', 'max:255'],
         'emergencyContactName' => ['nullable', 'string', 'min:3', 'max:255'],
         'emergencyContactTelephone' => ['nullable', 'string', 'min:3', 'max:255'],
         'nationality' => ['nullable', 'string', 'min:1', 'max:255'],
