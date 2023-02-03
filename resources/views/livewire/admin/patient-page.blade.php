@@ -108,7 +108,7 @@
                             class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800  hidden md:table-cell">
                             <div class="flex items-center">
                                 <div class="sm:flex hidden flex-col">
-                                    {{ $patient->dateOfBirth }}
+                                    {{ $patient->nice_date }}
                                     <div class="text-gray-400 text-xs">11:16 AM</div>
                                 </div>
                             </div>

@@ -94,7 +94,7 @@ class UpdatePatient extends SlideoverComponent
             'active' => 'required|boolean',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:1024',
         ]);
-
+        // dd($data);
         if (!is_null($this->avatar)) {
             $imageName = $this->avatar->store("avatar", 'public');
             $data['avatar'] = $imageName;

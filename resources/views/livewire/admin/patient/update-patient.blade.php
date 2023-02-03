@@ -23,12 +23,12 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                         <x-jet-label for="dateOfBirth" value="{{ __('Date Of Birth') }}"
                             class="text-[0.6rem] flex justify-start" />
 
-                        <x-jet-input wire:model="dateOfBirth" id="dob" type="date" value="{!! $dateOfBirth !!}"
-                            class="mt-1 block w-full dark:text-white" required />
+                        <x-jet-input wire:model="dateOfBirth" id="dob" type="date"
+                            value="{!! $dateOfBirth !!}" class="mt-1 block w-full dark:text-white" required />
                     </div>
                     @error('dateOfBirth')
-                    <span class="text-red-500">{{ $message }}</span>
-                @enderror
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                     {{-- <div class="italic ">{{__('Note: Staff would be sent an email to reset their password')}}</div> --}}
                     <div class="grid space-y-3">
                         <div class="relative flex items-start">
@@ -37,8 +37,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                                     wire:model='insured'
                                     class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                     aria-describedby="hs-checkbox-delete-description"
-                                    @if ($patient->insured) checked @endif
-                                    >
+                                    @if ($patient->insured) checked @endif>
                             </div>
                             <label for="hs-checkbox-delete" class="ml-3">
                                 <span class="block text-sm font-semibold text-gray-800 dark:text-white">
@@ -50,16 +49,16 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                             </label>
                         </div>
                         @error('insured')
-                        <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
 
                         <div class="relative flex items-start">
                             <div class="flex items-center h-5">
                                 <input id="hs-checkbox-archive" name="hs-checkbox-archive" type="checkbox"
-                                wire:model='active'
-                                class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                                aria-describedby="hs-checkbox-archive-description"
-                                @if ($patient->active) checked @endif>
+                                    wire:model='active'
+                                    class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                    aria-describedby="hs-checkbox-archive-description"
+                                    @if ($patient->active) checked @endif>
                             </div>
                             <label for="hs-checkbox-archive" class="ml-3">
                                 <span class="block text-sm font-semibold text-gray-800 dark:text-white">
@@ -75,37 +74,40 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                         @enderror
                     </div>
 
-                    @if ($insured)
+                    <div>
+                        @if ($insured)
 
-                        <div class="space-y-3">
-                            <div class="relative" wire:model="insurance_id">
-                                <select
-                                    class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                                    id="select2">
-                                    <option>Select Insurance</option>
-                                    @foreach ($insuranceOptions as $insurance)
-                                        <option {{ $patient->insurance_id == $insurance->id ? 'selected' : '' }}value="{{ $insurance->id }}" >
+                            <div class="space-y-3">
+                                <div class="relative" wire:model="insurance_id">
+                                    <select
+                                        class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                        id="select2">
+                                        <option>Select Insurance</option>
+                                    @foreach ($insuranceOptions as $key => $insurance)
+                                        <option @if ($patient->insurance_id == $insurance->id) @selected(true) @endif value="{{ $insurance->id }}">
                                             {{ $insurance->name }}
                                         </option>
                                     @endforeach
-                                </select>
+                                    </select>
 
-                                <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                    <x-lucide-umbrella class="w-5 h-5 text-gray-400 text-xs" />
+                                    <div
+                                        class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+                                        <x-lucide-umbrella class="w-5 h-5 text-gray-400 text-xs" />
+                                    </div>
                                 </div>
                                 {{-- </wire:ignore=> --}}
                                 @error('insurance_id')
                                     <span class="text-red-500">{{ $message }}</span>
                                 @enderror
+                                <div>
+                                    <x-jet-label for="insuranceNumber" value="{{ __('Insurance Number') }}"
+                                        class="text-[0.6rem] flex justify-start" />
+                                    <x-jet-input wire:model="insuranceNumber" id="insuranceNumber" type="text"
+                                        placeholder="{{ __('Insurance Number') }}" class="mt-1 block w-full" />
+                                </div>
                             </div>
-                            <div>
-                                <x-jet-label for="insuranceNumber" value="{{ __('Insurance Number') }}"
-                                    class="text-[0.6rem] flex justify-start" />
-                                <x-jet-input wire:model="insuranceNumber" id="insuranceNumber" type="text"
-                                    placeholder="{{ __('Insurance Number') }}" class="mt-1 block w-full" />
-                            </div>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
 
                     <div>
                         <div class="relative">
@@ -254,7 +256,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                             <input wire:model="nationality" id="country" type="text"
                                 class="py-2 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                                 placeholder="Patient Nationality">
-                                @error('nationality')
+                            @error('nationality')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
 
@@ -356,6 +358,6 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 <script>
     flatpickr("#dob", {
         altFormat: "DD-MM-YYYY",
-        defaultDate: {!!json_encode(Carbon\Carbon::parse($patient->dateOfBirth)->format('d/m/YYYY'))!!}
+        defaultDate: {!! json_encode(Carbon\Carbon::parse($patient->dateOfBirth)->format('d/m/YYYY')) !!}
     });
 </script>

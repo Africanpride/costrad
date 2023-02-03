@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DateTime;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Model;
@@ -41,14 +42,18 @@ class Patient extends Model
     protected $casts = [
         'insured' => 'boolean',
         'active' => 'boolean',
-        'dateOfBirth' => 'date'
+        'dateOfBirth' => 'date',
+        'insurance_id' => 'integer'
     ];
 
     protected $append = [
         'patient_avatar',
         'full_name'
     ];
-
+    public function getNiceDateAttribute()
+    {
+        return Carbon::parse($this->dateOfBirth)->format('d-M-Y');
+    }
     public function getPatientAvatarAttribute() : string
     {
         $email = strtolower(trim($this->email));
