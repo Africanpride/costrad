@@ -34,10 +34,10 @@ class UpdatePatient extends SlideoverComponent
     public $emergencyContactName;
     public $emergencyContactTelephone;
     public $nationality;
-    public int $insurance_id;
+    public ?int $insurance_id = 0;
     public $insuranceNumber;
-    public bool $insured = false;
-    public bool $active = false;
+    public ?bool $insured = false;
+    public ?bool $active = false;
     public $avatar;
 
     public Patient $patient;
@@ -94,19 +94,31 @@ class UpdatePatient extends SlideoverComponent
             'active' => 'required|boolean',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:1024',
         ]);
-        // dd($data);
+
+
         if (!is_null($this->avatar)) {
             $imageName = $this->avatar->store("avatar", 'public');
             $data['avatar'] = $imageName;
         }
+
         $this->patient->update(array_filter($data));
 
+// dd($this->insured);
         $this->patient->forceFill([
             'insured' => $this->insured,
-            'dateOfBirth' => $this->dateOfBirth
-            ])->save();
+            'dateOfBirth' => $this->dateOfBirth,
+            'insurance_id' => $this->checkInsuranceIDExists()
+        ])->save();
 
         return redirect()->to('patients');
+    }
+
+    public function checkInsuranceIDExists () : int
+     {
+        if(empty($this->insured)) {
+            return $this->insurance_id = 0;
+        }
+        return $this->insurance_id;
     }
 
     public static function closeModalOnEscape(): bool

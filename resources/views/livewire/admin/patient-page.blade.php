@@ -47,6 +47,9 @@
                         class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
                         Description</th>
                     <th
+                        class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
+                        Insurance </th>
+                    <th
                         class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800  hidden md:table-cell">
                         Insured</th>
                     <th
@@ -77,7 +80,15 @@
                             </div>
                         </td>
                         <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">
-                            Subscription renewal</td>
+                            Subscription renewal
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">
+                            @if ($patient->insurance)
+                               <img src="{{ $patient->insurance->company_logo }}" alt="" class="w-12 aspect-square rounded-full">
+                                @else
+                                {{ __('Patient has No insurance') }}
+                            @endif
+                        </td>
                         <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
 
                             @if ($patient->insured)
@@ -166,4 +177,3 @@
             {{ $patients->onEachSide(1)->links() }}
         </div>
 </div>
-

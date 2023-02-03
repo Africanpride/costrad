@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Insurance extends Model
 {
@@ -28,6 +30,11 @@ class Insurance extends Model
     protected $appends = [
         'company_logo'
     ];
+
+    public function patients(): HasMany
+    {
+        return $this->hasMany(Patient::class);
+    }
 
     public function getCompanyLogoAttribute()
     {

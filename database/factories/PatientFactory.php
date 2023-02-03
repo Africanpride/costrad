@@ -39,10 +39,10 @@ class PatientFactory extends Factory
             'emergencyContactName' => $this->faker->name(),
             'emergencyContactTelephone' => $this->faker->phoneNumber(),
             'nationality' => $this->faker->randomElement(['Nigeria', 'Ghana', 'South Africa', 'United States', 'United Kingdom']),
-            'insurance_id' => $this->faker->randomNumber(8),
+            'insurance_id' => $this->faker->numberBetween(0,2),
             'insuranceNumber' => $this->faker->randomNumber(8),
-            'insured' => $this->faker->boolean(),
-            'active' => $this->faker->boolean(),
+            'insured' => $this->faker->boolean(false),
+            'active' => $this->faker->boolean(false),
             'avatar' => $this->faker->imageUrl(640, 480),
         ];
     }
