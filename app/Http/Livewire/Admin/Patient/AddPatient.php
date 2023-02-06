@@ -46,7 +46,7 @@ class AddPatient extends ModalComponent
         'dateOfBirth' => ['nullable', 'string', 'min:3', 'max:255'],
         'firstName' => ['required', 'string', 'min:2', 'max:255'],
         'lastName' => ['required', 'string', 'min:2', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:patients'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:patients,email'],
         'address_1' => ['nullable', 'string', 'min:2', 'max:255'],
         'address_2' => ['nullable', 'string', 'min:2', 'max:255'],
         'city' => ['nullable', 'string', 'min:2', 'max:255'],

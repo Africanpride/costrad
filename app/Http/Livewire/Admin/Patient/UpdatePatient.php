@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Patient;
 
 use App\Models\Patient;
 use App\Models\Insurance;
+use DateTime;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -20,7 +21,7 @@ class UpdatePatient extends SlideoverComponent
     public $searchInsurance = '';
     public $title = '';
     public $gender;
-    public $dateOfBirth = '09-09-2000';
+    public ?string $dateOfBirth;
     public $firstName;
     public $lastName;
     public $email;
@@ -41,6 +42,7 @@ class UpdatePatient extends SlideoverComponent
     public $avatar;
 
     public Patient $patient;
+    protected $listeners = ['toggleActive'];
 
     public function mount(Patient $patient)
     {
@@ -93,6 +95,7 @@ class UpdatePatient extends SlideoverComponent
             'insured' => 'required|boolean',
             'active' => 'required|boolean',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:1024',
+
         ]);
 
 

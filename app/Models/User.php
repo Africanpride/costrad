@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
@@ -109,5 +110,10 @@ class User extends Authenticatable
         $address = strtolower(trim($this->email));
         $hash = md5($address);
         return 'https://www.gravatar.com/avatar/' . $hash;
+    }
+
+    public function treatments () : HasMany
+     {
+        return $this->hasMany(Treatment::class, 'author_id' , 'id');
     }
 }

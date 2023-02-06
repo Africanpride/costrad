@@ -38,25 +38,25 @@
 
         </div>
         {{-- <livewire:admin.patient.add-new-patient /> --}}
-        <table class="w-full text-left text-sm">
+        <table class="bg-white dark:bg-transparent p-4 shadow text-left text-sm w-full">
             <thead>
 
                 <tr class="text-gray-400 font-bold">
-                    <th class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Patient</th>
+                    <th class="font-bold px-3 py-3 capitalize  border-b border-gray-200 dark:border-gray-800">Patient</th>
                     <th
-                        class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
+                        class="font-bold px-3 py-3 capitalize rounded-t-lg  border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
                         Description</th>
                     <th
-                        class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
+                        class="font-bold px-3 py-3 capitalize  border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
                         Insurance </th>
                     <th
-                        class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800  hidden md:table-cell">
+                        class="font-bold px-3 py-3 capitalize  border-b border-gray-200 dark:border-gray-800  hidden md:table-cell">
                         Insured</th>
                     <th
-                        class="font-bold px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white  hidden md:table-cell">
+                        class="font-bold px-3 py-3 capitalize  border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white  hidden md:table-cell">
                         Last Visit</th>
                     <th
-                        class="font-bold text-right md:text-justify  px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
+                        class="font-bold text-right md:text-justify  px-3 py-3 capitalize  border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
                         Action</th>
 
                 </tr>

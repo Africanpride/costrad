@@ -4,7 +4,9 @@
 
 
 
-        {{-- <livewire:admin.patient.test-patient /> --}}
+        <x-test2comp />
+        <x-admin.swap-active :active="$active" :label="123456" />
+
 
 
 

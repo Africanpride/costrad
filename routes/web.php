@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Insurance;
+use App\Models\Treatment;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,10 @@ Route::middleware([
     Route::get('manage-roles', function () {
         $users = User::all();
         return view('manage-roles', compact('users'));
+    });
+    Route::get('manage-treatment', function () {
+        $treatments = Treatment::paginate(10);
+        return view('manage-treatment', compact('treatments'));
     });
 
     Route::get('staff', function () {

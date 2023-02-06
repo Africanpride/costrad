@@ -4,7 +4,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
     <div class="flex items-center justify-between border-b py-3 px-4 dark:border-gray-700/50">
         <div class="font-bold">
-            Edit Patient: <span class="">{{ $patient->full_name }}</span> {{ $dateOfBirth }}
+            Edit Patient: <span class="">{{ $patient->full_name }}</span> {!! $dateOfBirth !!}
         </div>
 
         <x-lucide-x-circle class="w-5 h-5 text-firefly-500 cursor-pointer " wire:click="$emit('closeSlideover')" />
@@ -24,7 +24,8 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                             class="text-[0.6rem] flex justify-start" />
 
                         <x-jet-input wire:model="dateOfBirth" id="dob" type="date"
-                            value="{!! $dateOfBirth !!}" class="mt-1 block w-full dark:text-white" required />
+                            value="{!! $dateOfBirth !!}" class="mt-1 block w-full dark:text-white"
+                            aria-placeholder="{!! $dateOfBirth !!}" />
                     </div>
                     @error('dateOfBirth')
                         <span class="text-red-500">{{ $message }}</span>
@@ -358,6 +359,6 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 <script>
     flatpickr("#dob", {
         altFormat: "DD-MM-YYYY",
-        defaultDate: {!! json_encode(Carbon\Carbon::parse($patient->dateOfBirth)->format('d/m/YYYY')) !!}
+        defaultDate: {!! json_encode(Carbon\Carbon::parse($patient->dateOfBirth)) !!}
     });
 </script>

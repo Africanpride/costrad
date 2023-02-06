@@ -46,7 +46,7 @@ class Patient extends Model
     protected $casts = [
         'insured' => 'boolean',
         'active' => 'boolean',
-        'dateOfBirth' => 'date',
+        'dateOfBirth' => 'datetime',
         'insurance_id' => 'integer'
     ];
 
@@ -72,7 +72,7 @@ class Patient extends Model
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
-    public function insurance()
+    public function insurance() :BelongsTo
     {
         return $this->belongsTo(Insurance::class);
     }

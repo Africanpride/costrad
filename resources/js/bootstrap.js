@@ -1,7 +1,7 @@
 import _ from 'lodash';
 window._ = _;
 
-import Datepicker from '@themesberg/tailwind-datepicker/Datepicker';
+// import Datepicker from '@themesberg/tailwind-datepicker/Datepicker';
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
