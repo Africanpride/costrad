@@ -52,7 +52,7 @@
             <div wire:ignore>
 
                 <select class="form-control" id="select2" style="width: 100%; border: 1px solid #cc0099">
-                    <option value="123">{{  __('Select Patient ...') }}</option>
+                    <option></option>
                     @foreach ($patientOptions as $patient)
                         <option value="{{ $patient->id }}" class="p-4">{{ $patient->full_name }}</option>
                     @endforeach
@@ -141,7 +141,7 @@
 
     $(document).ready(function() {
         $('#select2').select2({
-            placeholder: 'Select Patient ... ',
+            placeholder: 'Select a Patient ... ',
             allowClear: true
         });
         $('#select2').on('change', function(e) {

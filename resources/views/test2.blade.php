@@ -2,41 +2,119 @@
 
 
 
-    <div class="p-8">
+    <div class="p-8 grid grid-cols-2 gap-4">
+        {{-- @json($patients->toArray()) --}}
 
+        <select id="country-selector"></select>
 
-        <!-- component -->
-        {{-- <div x-data x-init="flatpickr($refs.datetimewidget, { wrap: true, enableTime: false, dateFormat: 'h:i' });" x-ref="datetimewidget"
-            class="flatpickr container mx-auto col-span-6 sm:col-span-6 mt-5">
-            <label for="datetime" class="flex-grow  block font-medium text-sm text-gray-700 mb-1">Date and Time</label>
-            <div class="flex align-middle align-content-center">
-                <input x-ref="datetime" type="text" id="datetime" data-input placeholder="Select"
-                    class="block w-full px-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md shadow-sm">
+        <div>
+            <select id="mySelect2" class="js-example-data-ajax" style="width: 100%;">
+                <option value=""></option>
+            </select>
+        </div>
 
-                <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent border-gray-300 border-t border-b border-r"
-                    title="clear" data-clear>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20"
-                        fill="#c53030">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
-
-        </div> --}}
-        {{-- <select id="ex-dropdown-input" autocomplete="off" placeholder="How cool is this?"                     class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-            <option>amazing</option>
-            <option>awesome</option>
-            <option>cool</option>
-            <option>excellent</option>
-            <option>great</option>
-            <option>neat</option>
-            <option>superb</option>
-            <option>wonderful</option>
-        </select> --}}
-        {{-- <select id="ex-dropdown-input" autocomplete="off" placeholder="How cool is this?"> --}}
 
     </div>
 
 </x-app-layout>
+
+<script>
+    $(document).ready(function() {
+        $("#country-selector").select2({
+            placeholder: "Select a country",
+            ajax: {
+                url: "https://restcountries.com/v2/all",
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        search: params.term
+                    };
+                },
+                processResults: function(data) {
+                    return {
+                        results: data.map(function(country) {
+                            return {
+                                id: country.alpha2Code,
+                                text: country.name
+                            };
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+    });
+
+
+    $(".js-example-data-ajax").select2({
+        ajax: {
+            url: "https://api.github.com/search/repositories",
+            dataType: 'json',
+            delay: 250,
+            data: function(params) {
+                return {
+                    q: params.term, // search term
+                    page: params.page
+                };
+            },
+            processResults: function(data, params) {
+                // parse the results into the format expected by Select2
+                // since we are using custom formatting functions we do not need to
+                // alter the remote JSON data, except to indicate that infinite
+                // scrolling can be used
+                params.page = params.page || 1;
+
+                return {
+                    results: data.items,
+                    pagination: {
+                        more: (params.page * 30) < data.total_count
+                    }
+                };
+            },
+            cache: true
+        },
+        placeholder: 'Search for a repository',
+        minimumInputLength: 1,
+        templateResult: formatRepo,
+        templateSelection: formatRepoSelection
+    });
+
+    function formatRepo(repo) {
+        if (repo.loading) {
+            return repo.text;
+        }
+
+        var $container = $(
+            "<div class='select2-result-repository clearfix'>" +
+            "<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
+            "<div class='select2-result-repository__meta'>" +
+            "<div class='select2-result-repository__title'></div>" +
+            "<div class='select2-result-repository__description'></div>" +
+            "<div class='select2-result-repository__statistics'>" +
+            "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> </div>" +
+            "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> </div>" +
+            "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> </div>" +
+            "</div>" +
+            "</div>" +
+            "</div>"
+        );
+
+        $container.find(".select2-result-repository__title").text(repo.full_name);
+        $container.find(".select2-result-repository__description").text(repo.description);
+        $container.find(".select2-result-repository__forks").append(repo.forks_count + " Forks");
+        $container.find(".select2-result-repository__stargazers").append(repo.stargazers_count + " Stars");
+        $container.find(".select2-result-repository__watchers").append(repo.watchers_count + " Watchers");
+
+        return $container;
+    }
+
+    function formatRepoSelection(repo) {
+        return repo.full_name || repo.text;
+    }
+    // $("#mySelect2").select2({
+    //     placeholder: "My Placeholder .... ",
+    //     data: @json($patients),
+    //     allowClear: true,
+    // })
+</script>

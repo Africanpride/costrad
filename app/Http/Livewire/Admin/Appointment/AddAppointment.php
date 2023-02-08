@@ -50,7 +50,7 @@ class AddAppointment extends ModalComponent
         ]);
 
 
-        // dd($validatedData);
+        dd($validatedData);
         Appointment::create([
             'appointment_date' => $this->appointment_date,
             'appointment_time' => $this->appointment_time,

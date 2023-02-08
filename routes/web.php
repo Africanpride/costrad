@@ -86,7 +86,14 @@ Route::middleware([
     Route::get('test2', function () {
         $roles = Role::paginate();
         $permissions = Permission::all();
-        return view('test2', compact('roles', 'permissions'));
+        $patients = Patient::all();
+        return view('test2', compact('roles', 'permissions', 'patients'));
+    });
+    Route::get('test', function () {
+        $roles = Role::paginate();
+        $permissions = Permission::all();
+        $appointments = Patient::all();
+        return view('test', compact('roles', 'permissions', 'appointments'));
     });
     Route::get('test3', function () {
         $roles = Role::paginate();
