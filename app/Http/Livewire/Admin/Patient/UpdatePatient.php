@@ -42,7 +42,7 @@ class UpdatePatient extends SlideoverComponent
     public $avatar;
 
     public Patient $patient;
-    protected $listeners = ['toggleActive'];
+    // protected $listeners = ['toggleActive'];
 
     public function mount(Patient $patient)
     {

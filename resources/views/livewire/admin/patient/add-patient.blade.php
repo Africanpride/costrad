@@ -10,8 +10,9 @@
 
         <div class=" w-full text-sm dark:text-white space-y-3 ">
             <div>
-                <x-jet-label for="dateOfBirth" value="{{ __('Date Of Birth') }}" class="text-[0.6rem] flex justify-start" />
-                <x-jet-input wire:model="dateOfBirth" id="dob" type="date" placeholder="Date-of-Birth" class="mt-1 block w-full" />
+                <x-jet-label for="dateOfBirth" value="{{ \Carbon\Carbon::create($dateOfBirth)->toFormattedDateString() ?? now() }}"
+                    class="text-[0.6rem] flex justify-start" />
+                <x-jet-input wire:model="dateOfBirth" id="dob" type="text" placeholder="Date-of-Birth" class="mt-1 block w-full" />
             </div>
             {{-- <div class="italic ">{{__('Note: Staff would be sent an email to reset their password')}}</div> --}}
             <div class="grid space-y-3">
@@ -65,7 +66,7 @@
                         </select>
 
                         <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                            <x-lucide-umbrella class="w-5 h-5 text-gray-400 text-xs" />
+                            <x-lucide-umbrella class="w-4 h-4  text-gray-400 text-xs" />
                         </div>
                         </wire:ignore=>
                         @error('insurance_id')
@@ -90,7 +91,7 @@
                     </select>
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                        <x-lucide-contact class="w-5 h-5 text-gray-400 text-xs" />
+                        <x-lucide-contact class="w-4 h-4  text-gray-400 text-xs" />
                     </div>
                 </div>
                 @error('title')
@@ -109,7 +110,7 @@
                     </select>
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                        <x-lucide-smile class="w-5 h-5 text-gray-400 text-xs" />
+                        <x-lucide-smile class="w-4 h-4  text-gray-400 text-xs" />
                     </div>
                 </div>
                 @error('gender')
@@ -155,7 +156,7 @@
 
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                        <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                        <x-lucide-map-pin class="w-4 h-4  text-gray-400 text-xs" />
 
                     </div>
                 </div>
@@ -171,7 +172,7 @@
 
 
                         <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                            <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                            <x-lucide-map-pin class="w-4 h-4  text-gray-400 text-xs" />
                         </div>
                     </div>
                     @error('address_2')
@@ -192,7 +193,7 @@
 
 
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                        <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                        <x-lucide-map-pin class="w-4 h-4  text-gray-400 text-xs" />
 
                     </div>
                 </div>

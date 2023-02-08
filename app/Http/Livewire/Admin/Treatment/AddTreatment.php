@@ -9,7 +9,7 @@ use LivewireUI\Modal\ModalComponent;
 
 class AddTreatment extends ModalComponent
 {
-    public string $name;
+    public ?string $name;
     public ?string $description;
     public ?string $price;
     public ?bool $active;

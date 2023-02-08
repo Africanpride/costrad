@@ -1,5 +1,7 @@
 import _ from 'lodash';
 window._ = _;
+// window.Pikaday = require('pikaday');
+
 
 // import Datepicker from '@themesberg/tailwind-datepicker/Datepicker';
 

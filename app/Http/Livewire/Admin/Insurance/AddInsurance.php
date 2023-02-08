@@ -29,9 +29,9 @@ class AddInsurance extends ModalComponent
         return false;
     }
     public static function closeModalOnClickAway(): bool
-{
-    return false;
-}
+    {
+        return false;
+    }
     public function addInsurance()
     {
         $validatedData = $this->validate();

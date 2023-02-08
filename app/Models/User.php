@@ -97,6 +97,10 @@ class User extends Authenticatable
         return Auth::check();
     }
 
+    public function appointments() :HasMany
+    {
+        return $this->hasMany(Appointment::class);
+    }
 
     public function isOnline()
     {

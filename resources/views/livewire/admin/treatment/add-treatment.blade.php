@@ -57,7 +57,7 @@
 
                     <span class="ml-5">
                         <span class="block font-medium text-gray-800 dark:text-gray-200">{{ __('Treatment Active') }}</span>
-                        <span class="block text-sm text-gray-500">{{ __('Make treatement active and available in clinic') }}</span>
+                        <span class="block text-sm text-gray-500">{{ __('Make treatment active and available in clinic') }}</span>
                     </span>
                 </span>
 

@@ -7,15 +7,17 @@ use App\Models\Treatment;
 
 class TreatmentSection extends Component
 {
-    public function toggleActive($treatmentId)
+
+
+    public function toggle(Treatment $treatment)
     {
-        // dd('Hello toggle');
-        $treatment = Treatment::findOrFail($treatmentId);
+        // dd($treatment);
         $treatment->update(['active' => !$treatment->active]);
-        return redirect('manage-treatment', ['treatments' => Treatment::paginate(7)]);
+        return redirect('manage-treatment');
     }
     public function render()
     {
-        return view('livewire.admin.treatment.treatment-section',['treatments' => Treatment::paginate(7)]);
+        $treatments = Treatment::paginate(7);
+        return view('livewire.admin.treatment.treatment-section', ['treatments' => $treatments]);
     }
 }

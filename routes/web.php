@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Patient;
 use App\Models\Insurance;
 use App\Models\Treatment;
+use App\Models\Appointment;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,11 @@ Route::middleware([
         $users = User::all();
         return view('manage-roles', compact('users'));
     });
+    Route::get('manage-appointment', function () {
+        $appointments = Appointment::paginate(10);
+        return view('manage-appointment', compact('appointments'));
+    });
+
     Route::get('manage-treatment', function () {
         $treatments = Treatment::paginate(10);
         return view('manage-treatment', compact('treatments'));
@@ -81,6 +87,11 @@ Route::middleware([
         $roles = Role::paginate();
         $permissions = Permission::all();
         return view('test2', compact('roles', 'permissions'));
+    });
+    Route::get('test3', function () {
+        $roles = Role::paginate();
+        $permissions = Permission::all();
+        return view('test3', compact('roles', 'permissions'));
     });
 
     Route::get('/inactive', function () {

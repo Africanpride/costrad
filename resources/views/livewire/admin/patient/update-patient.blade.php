@@ -4,10 +4,10 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
     <div class="flex items-center justify-between border-b py-3 px-4 dark:border-gray-700/50">
         <div class="font-bold">
-            Edit Patient: <span class="">{{ $patient->full_name }}</span> {!! $dateOfBirth !!}
+            Edit Patient: <span class="">{{ $patient->full_name }}</span>
         </div>
 
-        <x-lucide-x-circle class="w-5 h-5 text-firefly-500 cursor-pointer " wire:click="$emit('closeSlideover')" />
+        <x-lucide-x-circle class="w-5 h-5  text-red-500 cursor-pointer " wire:click="$emit('closeSlideover')" />
     </div>
 
     <form method="POST" wire:submit.prevent="updatePatient">
@@ -20,7 +20,8 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
                 <div class=" w-full text-sm dark:text-white space-y-3 p-4">
                     <div>
-                        <x-jet-label for="dateOfBirth" value="{{ __('Date Of Birth') }}"
+                        <x-jet-label for="dateOfBirth"
+                            value="{{ \Carbon\Carbon::create($dateOfBirth)->toFormattedDateString() ?? 'Date of Birth' }}"
                             class="text-[0.6rem] flex justify-start" />
 
                         <x-jet-input wire:model="dateOfBirth" id="dob" type="date"
@@ -84,16 +85,17 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                                         class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                         id="select2">
                                         <option>Select Insurance</option>
-                                    @foreach ($insuranceOptions as $key => $insurance)
-                                        <option @if ($patient->insurance_id == $insurance->id) @selected(true) @endif value="{{ $insurance->id }}">
-                                            {{ $insurance->name }}
-                                        </option>
-                                    @endforeach
+                                        @foreach ($insuranceOptions as $key => $insurance)
+                                            <option @if ($patient->insurance_id == $insurance->id) @selected(true) @endif
+                                                value="{{ $insurance->id }}">
+                                                {{ $insurance->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
 
                                     <div
                                         class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                        <x-lucide-umbrella class="w-5 h-5 text-gray-400 text-xs" />
+                                        <x-lucide-umbrella class="w-4 h-4  text-gray-400 text-xs" />
                                     </div>
                                 </div>
                                 {{-- </wire:ignore=> --}}
@@ -121,7 +123,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                             </select>
 
                             <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                <x-lucide-contact class="w-5 h-5 text-gray-400 text-xs" />
+                                <x-lucide-contact class="w-4 h-4  text-gray-400 text-xs" />
                             </div>
                         </div>
                         @error('title')
@@ -140,7 +142,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                             </select>
 
                             <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                <x-lucide-smile class="w-5 h-5 text-gray-400 text-xs" />
+                                <x-lucide-smile class="w-4 h-4  text-gray-400 text-xs" />
                             </div>
                         </div>
                         @error('gender')
@@ -188,7 +190,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
 
                             <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                                <x-lucide-map-pin class="w-4 h-4  text-gray-400 text-xs" />
 
                             </div>
                         </div>
@@ -205,7 +207,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
 
                                 <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                    <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                                    <x-lucide-map-pin class="w-4 h-4  text-gray-400 text-xs" />
                                 </div>
                             </div>
                             @error('address_2')
@@ -228,7 +230,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
 
                             <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                <x-lucide-map-pin class="w-5 h-5 text-gray-400 text-xs" />
+                                <x-lucide-map-pin class="w-4 h-4  text-gray-400 text-xs" />
 
                             </div>
                         </div>
@@ -343,8 +345,8 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                 </div>
                 <div class="border-t dark:border-gray-700/50 gap-4 grid grid-cols-2 mr-2 pr-2 py-2">
 
-                    <x-admin.submit-button type="cancel" class="bg-red-700 rounded"
-                        wire:click="$emit('closeSlideover')">Cancel</x-admin.submit-button>
+                    <x-admin.reset-button type="cancel" class="bg-red-700 rounded"
+                        wire:click="$emit('closeSlideover')">Cancel</x-admin.reset-button>
                     <x-admin.submit-button type="submit" wire:click="updatePatient" class="rounded">Save
                     </x-admin.submit-button>
 
@@ -358,7 +360,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
 <script>
     flatpickr("#dob", {
-        altFormat: "DD-MM-YYYY",
+        altFormat: "dd-mm-YYYY",
         defaultDate: {!! json_encode(Carbon\Carbon::parse($patient->dateOfBirth)) !!}
     });
 </script>
