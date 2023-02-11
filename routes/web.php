@@ -12,6 +12,8 @@ use Spatie\Permission\Models\Permission;
 
 
 Route::view('/', 'welcome');
+Route::view('test4', 'test4');
+Route::view('about', 'about');
 
 // Route::group(['middleware' => 'guest'], function () {
 
@@ -30,18 +32,22 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::middleware([])->prefix('admin')->group(function () {
+
+        Route::get('dashboard', function () {
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
+    });
+    Route::middleware(['password.confirm'])->get('/profile', function () {
+        return view('profile.show');
+    });
+
     Route::get('/doctor', function () {
         return view('doctor.index');
     })->name('doctor');
 
     Route::view('/powergrid', 'powergrid-demo');
 
-    Route::get('/profile', function () {
-        return view('profile.show');
-    });
 
     Route::get('invoice', function () {
         return view('invoice');
@@ -77,7 +83,7 @@ Route::middleware([
     })->name('insurance');
 
     Route::get('users', function () {
-        return User::all();
+        return User::all()->toJson();
     });
 
     Route::view('documentation', 'documentation');
@@ -104,9 +110,7 @@ Route::middleware([
     Route::get('/inactive', function () {
         return view('inactive');
     })->name('inactive');
-    Route::get('trim', function() {
+    Route::get('trim', function () {
         return Str::of('/Laravel/')->ltrim('/');
-
     });
-
 });

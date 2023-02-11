@@ -19,6 +19,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@preline/dropdown": "^1.3.0",
         "@preline/overlay": "^1.4.0",
         "@preline/remove-element": "^1.3.0",
         "preline": "^1.5.0",

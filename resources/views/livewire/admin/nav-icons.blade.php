@@ -1,5 +1,5 @@
 <div class="hs-tooltip inline-block">
-    <button type="button" class="hs-tooltip-toggle">
+    <button type="button" class="hs-tooltip-toggle"  data-hs-overlay="#setting-modal">
         <x-heroicon-o-cog-8-tooth
             class="w-6 h-6 dark:text-firefly-700 dark:hover:text-white text-current" />
         <span

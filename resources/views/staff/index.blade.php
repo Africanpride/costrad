@@ -83,7 +83,7 @@
                             </svg>
                         @endauth
                     </span>
-                    <div class="">{{ Auth::user()->full_name }}</div>
+                    <div class="">{{ Auth::user()->name }}</div>
                     <div class="text-xxs text-gray-400 mt-1 capitalize">{{ __('Roles:') }} {{ Auth::user()->user_role ?? 'None' }}</div>
                 </div>
 

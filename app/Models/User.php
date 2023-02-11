@@ -79,8 +79,20 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
-        'full_name'
+        'full_name',
+        'name'
     ];
+
+
+    public function scopeTrainees($query)
+    {
+        return $query->where('trainee', true);
+    }
+
+    public function scopeStaff($query)
+    {
+        return $query->where('staff', true);
+    }
 
     public function getUserRoleAttribute()
     {
@@ -91,13 +103,17 @@ class User extends Authenticatable
     {
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
     }
+    public function getNameAttribute()
+    {
+        return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
+    }
 
     public function isLoggedIn()
     {
         return Auth::check();
     }
 
-    public function appointments() :HasMany
+    public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
     }
@@ -116,8 +132,8 @@ class User extends Authenticatable
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
-    public function treatments () : HasMany
-     {
-        return $this->hasMany(Treatment::class, 'author_id' , 'id');
+    public function treatments(): HasMany
+    {
+        return $this->hasMany(Treatment::class, 'author_id', 'id');
     }
 }
