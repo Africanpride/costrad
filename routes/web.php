@@ -15,17 +15,10 @@ Route::view('/', 'welcome');
 Route::view('test4', 'test4');
 Route::view('about', 'about');
 
-// Route::group(['middleware' => 'guest'], function () {
 
-//     Route::get('login', function () {
-//         return view('auth.login');
-//     })->name('login');
-
-//     Route::get('register', function () {
-//         return view('auth.register');
-//     })->name('register');
-// });
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -33,6 +26,14 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::middleware([])->prefix('admin')->group(function () {
+
+        Route::get('settings', function () {
+            return view('admin.settings');
+        })->name('admin.settings');
+
+        Route::get('media', function () {
+            return view('admin.media');
+        })->name('admin.media');
 
         Route::get('dashboard', function () {
             return view('admin.dashboard');

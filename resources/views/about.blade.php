@@ -53,12 +53,15 @@
         <!-- Grid -->
         <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
             <div>
-                <img class="rounded-xl"
-                    src="https://images.unsplash.com/photo-1648737963503-1a26da876aca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=900&q=80"
-                    alt="Image Description">
-            </div>
-            <!-- End Col -->
 
+                <img class="rounded-xl" src="{{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/costrad_lecture.jpg')}}" alt="Costrad on leadership">
+
+                {{-- <img class="rounded-xl"
+                    src="https://images.unsplash.com/photo-1648737963503-1a26da876aca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=900&q=80"
+                    alt="Image Description"> --}}
+
+            <!-- End Col -->
+            </div>
             <div class="mt-5 sm:mt-10 lg:mt-0">
                 <div class="space-y-6 sm:space-y-8">
                     <!-- Title -->
