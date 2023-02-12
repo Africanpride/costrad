@@ -4,6 +4,9 @@
         <ul
             class="flex flex-wrap items-center mb-6 uppercase text-[9px] md:text-xs text-gray-700 sm:mb-0 dark:text-gray-400 space-x-4">
             <li>
+                <a href="{{ url('contact') }}/">Contact</a>
+            </li>
+            <li>
                 <a href="http://">Privacy</a>
             </li>
             <li>
