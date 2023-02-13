@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Insurance;
@@ -17,7 +18,7 @@ Route::view('about', 'about');
 Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes');
-
+Route::post('contact', ContactController::class)->name('contact-form');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

@@ -43,16 +43,20 @@
     <meta property="og:image" content="../../assets/img/og-image.png">
 
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../../favicon.ico">
-
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap"
+        rel="stylesheet">
 
-    <!-- Link your Tailwind CSS file -->
-    <link rel="stylesheet" href="your_file.css">
+        @stack('head-script')
+
+
+
+
+
+
 </head>
 
 <body
@@ -61,7 +65,7 @@ scrollbar-thumb-firefly-800 dark:scrollbar-thumb-firefly-900 scrollbar-track-gra
 
 
     <!-- ========== HEADER ========== -->
-<livewire:layout.main.header />
+    <livewire:layout.main.header />
     <!-- ========== END HEADER ========== -->
 
     <!-- ========== MAIN CONTENT ========== -->
@@ -76,7 +80,7 @@ scrollbar-thumb-firefly-800 dark:scrollbar-thumb-firefly-900 scrollbar-track-gra
     <!-- ========== END MAIN CONTENT ========== -->
 
     <!-- JS Implementing Plugins -->
-    <script src="./assets/vendor/preline/dist/preline.js"></script>
+    {{-- <script src="./assets/vendor/preline/dist/preline.js"></script> --}}
 </body>
 
 </html>
