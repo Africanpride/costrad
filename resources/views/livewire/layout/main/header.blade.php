@@ -16,7 +16,7 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
             <div
                 class="flex items-center relative z-10 before:w-px before:h-4 before:bg-gray-300 dark:before:bg-gray-700">
                 <div class="pl-3">
-                    <a class="-mr-1.5 inline-flex flex-shrink-0 justify-center items-center h-9 w-9 text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
+                    <a class="-mr-1.5 inline-flex flex-shrink-0 justify-center items-center h-9 w-9 text-gray-600 hover:text-firefly-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
                         href="https://www.figma.com/community/file/1179068859697769656" target="_blank">
                         <svg class="w-4 h-4" width="19" height="18" viewBox="0 0 19 18" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                 fill="#1ABCFE"></path>
                         </svg>
                     </a>
-                    <a class="inline-flex flex-shrink-0 justify-center items-center h-9 w-9 text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
+                    <a class="inline-flex flex-shrink-0 justify-center items-center h-9 w-9 text-gray-600 hover:text-firefly-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
                         href="https://github.com/htmlstreamofficial/preline" target="_blank">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16">
@@ -52,7 +52,7 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
 
             <div class="md:hidden">
                 <button type="button"
-                    class="hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 open"
+                    class="hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-firefly-600 transition text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 open"
                     data-hs-collapse="#docs-navbar" aria-controls="docs-navbar" aria-label="Toggle navigation">
                     <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor"
                         viewBox="0 0 16 16">
@@ -71,18 +71,17 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
         </div>
 
         <div id="docs-navbar"
-            class="hs-collapse overflow-hidden transition-all duration-300 basis-full grow ml-auto md:block md:w-auto md:basis-auto md:order-2 open"
+            class="hs-collapse overflow-hidden transition-all duration-300 basis-full grow ml-auto md:block md:w-auto md:basis-auto md:order-2 open  tracking-wide	"
             style="">
             <div
-                class="flex flex-col gap-6 mb-5 md:mb-0 md:flex-row md:items-center md:justify-end md:mt-0 md:pl-5 mt-5">
-{{--
-                      <a href="{{ url('about') }}" class="ml-6 font-medium hover:text-blue-600 {{ Request::is('about') ? 'text-blue-600 font-bold' : '' }}">About us</a>
-                      <a href="{{ url('contact') }}" class="ml-6 font-medium hover:text-blue-600 {{ Request::is('contact') ? 'text-blue-600 font-bold' : '' }}">Contact us</a> --}}
+                class="  font-bold flex flex-col gap-4 mb-5 md:mb-0 md:flex-row md:items-center md:justify-end md:mt-0 md:pl-5 mt-5">
+                {{--
+                      <a href="{{ url('about') }}" class="ml-6 font-medium hover:text-firefly-600 {{ Request::is('about') ? 'text-firefly-600 font-bold' : '' }}">About us</a>
+                      <a href="{{ url('contact') }}" class="ml-6 font-medium hover:text-firefly-600 {{ Request::is('contact') ? 'text-firefly-600 font-bold' : '' }}">Contact us</a> --}}
 
-                <a href="{{ url('about') }}"
-                    class="inline-flex items-center gap-x-3 text-black font-medium hover:text-gray-600 transition dark:text-gray-200 dark:hover:text-gray-400
-                    active-link text-blue-500
-                     hover:text-blue-500 dark:text-blue-500 dark:hover:text-blue-500">
+                <a href="{{ url('/') }}"
+                    class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+                    {{ Request::is('home') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
                     <svg class="block w-4 h-4 md:hidden" xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path
@@ -92,18 +91,32 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                             d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z">
                         </path>
                     </svg>
-                        About
-                    </span>
-                </a>
+                    Home
 
+                </a>
+                <a href="{{ url('about') }}"
+                    class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+                    {{ Request::is('about') ? 'font-bold text-gray-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+                    <svg class="block w-4 h-4 md:hidden" xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z">
+                        </path>
+                        <path
+                            d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z">
+                        </path>
+                    </svg>
+                    About
+
+                </a>
 
 
 
 
                 <div
                     class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4">
-                    <button type="button"
-                        class="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500">
+                    <span type="button"
+                        class=" flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500">
                         <svg class="block w-4 h-4 md:hidden mr-3 " xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path
@@ -113,17 +126,19 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                 d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z">
                             </path>
                         </svg>
-                        Institutes
+                        <span
+                            class="font-bold text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+                         ">Institutes</span>
                         <svg class="ml-2 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
                         </svg>
-                    </button>
+                    </span>
 
                     <div
                         class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 top-full right-0 md:w-[900px] min-w-[15rem] bg-white md:shadow-2xl md:px-4 dark:bg-gray-800 dark:divide-gray-700 before:absolute before:-top-5 before:left-0 before:w-full before:h-5">
-                        <div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-2">
+                        <div class="md:grid  md:grid-cols-3 gap-x-2">
 
                             <div class="flex flex-col mx-1 md:mx-0 py-2">
 
@@ -281,11 +296,11 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                             d="M12.8681 7.5C12.8681 8.59893 11.9651 9.5 10.8417 9.5C9.71841 9.5 8.81543 8.59894 8.81543 7.5C8.81543 6.40106 9.71841 5.5 10.8417 5.5C11.9651 5.5 12.8681 6.40107 12.8681 7.5Z"
                             stroke="currentColor"></path>
                     </svg>
-                    Costrad
+                    COSTrAD
                 </a>
                 <a href="">
                     <span
-                        class="inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4 uppercase rounded-full py-1 px-3 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">Admissions</span>
+                        class="inline bg-firefly-50 border border-firefly-300 text-firefly-600 text-[.6125rem] leading-4 uppercase rounded-full py-1 px-3 dark:bg-firefly-900/[.75] dark:border-firefly-700 dark:text-firefly-500">Admissions</span>
                 </a>
             </div>
         </div>

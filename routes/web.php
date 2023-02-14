@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
 Route::view('test4', 'test4');
 Route::view('about', 'about');
+Route::view('/', 'home');
 Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes');

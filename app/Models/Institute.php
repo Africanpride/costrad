@@ -4,18 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Treatment extends Model
+class Institute extends Model
 {
     use HasFactory;
 
     public $fillable = [
         'name',
-        'description',
+        'acronym',
+        'overview',
+        'icon',
+        'logo',
+        'banner',
+        'startDate',
+        'endDate',
+        'seo',
         'active',
-        'author_id',
+        'url',
         'price'
     ];
 
@@ -24,7 +29,4 @@ class Treatment extends Model
         'price' => 'float'
     ];
 
-    public function author() : BelongsTo {
-        return $this->belongsTo(User::class);
-    }
 }

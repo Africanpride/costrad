@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
             }
 
             \App\Models\User::factory()->create([
-                'firstName' => 'Kwame',
-                'lastName' => 'Opoku',
-                'email' => 'johnwelsh19@gmail.com',
+                'firstName' => 'Pius',
+                'lastName' => 'Opoku-Fofie',
+                'email' => 'webmaster@costrad.org',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123Ghana'),
                 'remember_token' => Str::random(10),

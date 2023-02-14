@@ -1,4 +1,63 @@
 <x-main-layout>
+
+    <!-- vision -->
+<div class="md:p-12 p-4">
+    <div class="relative overflow-hidden rounded-2xl">
+        <!-- Gradients -->
+        <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
+            <div
+                class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900">
+            </div>
+            <div
+                class="bg-gradient-to-tl from-firefly-50 via-firefly-100 to-firefly-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
+            </div>
+        </div>
+        <!-- End Gradients -->
+
+        <div class="relative z-10 py-8">
+            <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+                <div class="max-w-9xl text-center mx-auto">
+                    <p
+                        class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
+                        COSTrAD: Our Transformational Vision
+                    </p>
+
+                    <!-- Title -->
+                    <div class="mt-5 max-w-10xl">
+                        <h1
+                            class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
+                            Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
+                            imperceptible and doing the seemingly impossible.
+                        </h1>
+                    </div>
+                    <!-- End Title -->
+
+                    <!-- Buttons -->
+                    <div class="mt-8 grid gap-3 w-full sm:inline-flex sm:justify-center">
+                        <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+                            href="{{ url('our-process') }}">
+                            Start the Journey
+                            <svg class="w-3 h-3" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path
+                                    d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </a>
+                        <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-firefly-800 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:text-white dark:hover:bg-gray-800 dark:hover:border-gray-900 dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800"
+                            href="{{ url('/institutes') }}">
+                            <x-lucide-globe class="w-5 h-5 text-current " />
+                            Our Institutes
+                        </a>
+                    </div>
+                    <!-- End Buttons -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- End vision -->
+
+
     <!-- agenda -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-firefly-100 dark:bg-slate-900">
         <!-- Grid -->
@@ -290,65 +349,7 @@
     </div>
 
 
-    <!-- vision -->
-<div class="md:p-12 p-4">
-    <div class="relative overflow-hidden rounded-2xl">
-        <!-- Gradients -->
-        <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
-            <div
-                class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900">
-            </div>
-            <div
-                class="bg-gradient-to-tl from-firefly-50 via-firefly-100 to-firefly-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
-            </div>
-        </div>
-        <!-- End Gradients -->
 
-        <div class="relative z-10 py-8">
-            <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-                <div class="max-w-9xl text-center mx-auto">
-                    <p
-                        class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
-                        COSTrAD: Our Transformational Vision
-                    </p>
-
-                    <!-- Title -->
-                    <div class="mt-5 max-w-10xl">
-                        <h1
-                            class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
-                            Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
-                            imperceptible and doing the seemingly impossible.
-                        </h1>
-                    </div>
-                    <!-- End Title -->
-
-                    <!-- Buttons -->
-                    <div class="mt-8 grid gap-3 w-full sm:inline-flex sm:justify-center">
-                        <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-                            href="{{ url('our-process') }}">
-                            Start the Journey
-                            <svg class="w-3 h-3" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path
-                                    d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            </svg>
-                        </a>
-                        <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-firefly-800 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:text-white dark:hover:bg-gray-800 dark:hover:border-gray-900 dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800"
-                            href="{{ url('/institutes') }}">
-                            <x-lucide-globe class="w-5 h-5 text-current " />
-                            Our Institutes
-                        </a>
-                    </div>
-                    <!-- End Buttons -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- End vision -->
-
-
-
-
+    <livewire:subscribe />
 
 </x-main-layout>

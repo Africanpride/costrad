@@ -10,9 +10,10 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
@@ -37,7 +38,11 @@ class User extends Authenticatable
         'firstName',
         'lastName',
         'email',
+        'email_verified_at',
         'password',
+        'facultyMember',
+        'participant',
+        'staff',
         'active'
     ];
 
@@ -70,6 +75,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'facultyMember' =>'boolean',
+        'participant' =>'boolean',
+        'staff' =>'boolean',
     ];
 
     /**
@@ -84,9 +92,9 @@ class User extends Authenticatable
     ];
 
 
-    public function scopeTrainees($query)
+    public function scopeParticipant($query)
     {
-        return $query->where('trainee', true);
+        return $query->where('participant', true);
     }
 
     public function scopeStaff($query)
@@ -113,11 +121,6 @@ class User extends Authenticatable
         return Auth::check();
     }
 
-    public function appointments(): HasMany
-    {
-        return $this->hasMany(Appointment::class);
-    }
-
     public function isOnline()
     {
         $timestamp = Carbon::parse('2 minute ago');
@@ -132,8 +135,8 @@ class User extends Authenticatable
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
-    public function treatments(): HasMany
-    {
-        return $this->hasMany(Treatment::class, 'author_id', 'id');
+
+    public function profile() : HasOne {
+        return $this->hasOne(Profile::class);
     }
 }

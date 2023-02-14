@@ -4,13 +4,13 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
     <div class="flex items-center justify-between border-b py-3 px-4 dark:border-gray-700/50">
         <div class="font-bold">
-            Edit Patient: <span class="">{{ $patient->full_name }}</span>
+            Edit Participant: <span class="">{{ $participant->full_name }}</span>
         </div>
 
         <x-lucide-x-circle class="w-5 h-5  text-red-500 cursor-pointer " wire:click="$emit('closeSlideover')" />
     </div>
 
-    <form method="POST" wire:submit.prevent="updatePatient">
+    <form method="POST" wire:submit.prevent="updateParticipant">
         @csrf
         <div
             class="m-2 mr-4 p-2 overflow-x-hidden overflow-y-scroll max-h-screen scrollbar-thin
@@ -39,14 +39,14 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                                     wire:model='insured'
                                     class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                     aria-describedby="hs-checkbox-delete-description"
-                                    @if ($patient->insured) checked @endif>
+                                    @if ($participant->insured) checked @endif>
                             </div>
                             <label for="hs-checkbox-delete" class="ml-3">
                                 <span class="block text-sm font-semibold text-gray-800 dark:text-white">
-                                    Patient Has Insurance?</span>
+                                    Participant Has Insurance?</span>
                                 <span id="hs-checkbox-delete-description"
                                     class="block text-sm text-gray-600 dark:text-gray-500 italic ">
-                                    {{ $insured ? 'Patient is Insured' : 'Tick here to indicate Patient has insurance' }}
+                                    {{ $insured ? 'Participant is Insured' : 'Tick here to indicate Participant has insurance' }}
                                 </span>
                             </label>
                         </div>
@@ -60,15 +60,15 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                                     wire:model='active'
                                     class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                     aria-describedby="hs-checkbox-archive-description"
-                                    @if ($patient->active) checked @endif>
+                                    @if ($participant->active) checked @endif>
                             </div>
                             <label for="hs-checkbox-archive" class="ml-3">
                                 <span class="block text-sm font-semibold text-gray-800 dark:text-white">
-                                    Pre-Activate this Patient account
+                                    Pre-Activate this Participant account
                                 </span>
                                 <span id="hs-checkbox-archive-description"
                                     class="block text-sm text-gray-600 dark:text-gray-500 italic ">
-                                    {{ $active ? 'Patient Account would be pre-activated.' : 'Tick here to make Patient Account Active' }}</span>
+                                    {{ $active ? 'Participant Account would be pre-activated.' : 'Tick here to make Participant Account Active' }}</span>
                             </label>
                         </div>
                         @error('active')
@@ -86,7 +86,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                                         id="select2">
                                         <option>Select Insurance</option>
                                         @foreach ($insuranceOptions as $key => $insurance)
-                                            <option @if ($patient->insurance_id == $insurance->id) @selected(true) @endif
+                                            <option @if ($participant->insurance_id == $insurance->id) @selected(true) @endif
                                                 value="{{ $insurance->id }}">
                                                 {{ $insurance->name }}
                                             </option>
@@ -116,7 +116,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                         <div class="relative">
                             <select wire:model="title"
                                 class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-                                <option selected>Select Patient Title</option>
+                                <option selected>Select Participant Title</option>
                                 @foreach ($titleOptions as $option)
                                     <option value="{{ $option }}">{{ $option }}</option>
                                 @endforeach
@@ -135,7 +135,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                         <div class="relative">
                             <select wire:model="gender"
                                 class="py-2 px-10 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-                                <option selected>Select Patient Gender</option>
+                                <option selected>Select Participant Gender</option>
                                 @foreach ($genderOptions as $gender)
                                     <option value="{{ $gender }}">{{ $gender }}</option>
                                 @endforeach
@@ -171,7 +171,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                     </div>
                     <div>
                         <div class="relative">
-                            <x-jet-input wire:model="email" type="text" aria-placeholder="{{ $patient->email }}"
+                            <x-jet-input wire:model="email" type="text" aria-placeholder="{{ $participant->email }}"
                                 id="hs-leading-icon" name="hs-leading-icon" class="pl-11" />
                             <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
                                 <x-lucide-at-sign class="w-4 h-4 text-gray-400 text-xs" />
@@ -258,7 +258,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                         <div>
                             <input wire:model="nationality" id="country" type="text"
                                 class="py-2 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
-                                placeholder="Patient Nationality">
+                                placeholder="Participant Nationality">
                             @error('nationality')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -279,12 +279,12 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
                         @if ($avatar)
                             <div>
                                 <img class="inline-block aspect-square w-12 rounded-full ring-2 ring-white dark:ring-firefly-900"
-                                    src={{ $avatar->temporaryUrl() }} alt="{{ $patient->full_name }}">
+                                    src={{ $avatar->temporaryUrl() }} alt="{{ $participant->full_name }}">
                             </div>
                         @else
                             <div>
                                 <img class="inline-block aspect-square w-12 rounded-full ring-2 ring-white dark:ring-firefly-900"
-                                    src={{ $patient->patient_avatar }} alt="{{ $patient->full_name }}">
+                                    src={{ $participant->participant_avatar }} alt="{{ $participant->full_name }}">
                             </div>
                         @endif
 
@@ -347,7 +347,7 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 
                     <x-admin.reset-button type="cancel" class="bg-red-700 rounded"
                         wire:click="$emit('closeSlideover')">Cancel</x-admin.reset-button>
-                    <x-admin.submit-button type="submit" wire:click="updatePatient" class="rounded">Save
+                    <x-admin.submit-button type="submit" wire:click="updateParticipant" class="rounded">Save
                     </x-admin.submit-button>
 
                 </div>
@@ -361,6 +361,6 @@ transition-all duration-300 transform w-full md:max-w-lg h-screen">
 <script>
     flatpickr("#dob", {
         altFormat: "dd-mm-YYYY",
-        defaultDate: {!! json_encode(Carbon\Carbon::parse($patient->dateOfBirth)) !!}
+        defaultDate: {!! json_encode(Carbon\Carbon::parse($participant->dateOfBirth)) !!}
     });
 </script>

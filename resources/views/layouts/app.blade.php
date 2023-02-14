@@ -37,7 +37,8 @@
 
 <body class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 h-full scrollbar-thin
 scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll  ">
-    <div class="md:col-span-2 w-full">
+<div class="md:col-span-2 w-full">
+        <livewire:cookie />
 
         <!-- Navigation -->
         <livewire:layout.navigation />

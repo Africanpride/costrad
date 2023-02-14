@@ -51,26 +51,18 @@
         rel="stylesheet">
 
         @stack('head-script')
-
-
-
-
-
-
 </head>
 
 <body
     class="bg-firefly-100 dark:bg-slate-900 min-h-[75rem] scrollbar-thin
 scrollbar-thumb-firefly-800 dark:scrollbar-thumb-firefly-900 scrollbar-track-gray-300 overflow-y-scroll overflow-x-hidden">
-
-
+<livewire:cookie />
     <!-- ========== HEADER ========== -->
     <livewire:layout.main.header />
     <!-- ========== END HEADER ========== -->
 
     <!-- ========== MAIN CONTENT ========== -->
-    <main id="content" role="main" class="bg-gray-50 dark:bg-gray-900">
-
+    <main id="content" role="main" class="bg-gray-50 dark:bg-gray-900 dark:text-gray-50 md:min-h-screen">
         {{ $slot }}
     </main>
 
