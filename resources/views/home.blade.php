@@ -10,8 +10,13 @@
 
             <div class="mt-10 relative max-w-5xl mx-auto">
 
+                {{-- <div
+                    class="w-full object-cover h-96 sm:h-[480px]
+                     bg-[url({{ asset('/storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/quarterglobe.jpeg') }})] bg-no-repeat bg-center bg-cover rounded-xl"> --}}
                 <div
-                    class="w-full object-cover h-96 sm:h-[480px] bg-[url({{ asset('/storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/quarterglobe.jpeg') }})] bg-no-repeat bg-center bg-cover rounded-xl">
+                    class="w-full object-cover h-96 sm:h-[480px]
+                     bg-no-repeat bg-center bg-cover rounded-xl"
+                     style="background-image: url('{{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/quarterglobe.jpeg') }}');">
                 </div>
 
                 <div class="absolute inset-0 w-full h-full">

@@ -19,12 +19,15 @@ return new class extends Migration
             $table->string('lastName');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('password');
             $table->boolean('staff')->default(false)->nullable();
             $table->boolean('facultyMember')->default(false)->nullable();
             $table->boolean('participant')->default(true)->nullable();
             $table->boolean('active')->default(true)->nullable();
             $table->rememberToken();
+            $table->string('google_id')->nullable();
+            $table->string('apple_id')->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

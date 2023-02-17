@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ContactController;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Insurance;
@@ -9,11 +8,25 @@ use App\Models\Appointment;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
+use App\Http\Controllers\ContactController;
 
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('google')->user();
+
+    // $user->token
+});
+Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
 
 // Route::view('/', 'welcome');
 Route::view('test4', 'test4');
+Route::view('terms', 'terms');
 Route::view('about', 'about');
 Route::view('/', 'home');
 Route::view('contact', 'contact');
@@ -44,7 +57,7 @@ Route::middleware([
             return view('admin.dashboard');
         })->name('admin.dashboard');
     });
-    Route::middleware(['password.confirm'])->get('/profile', function () {
+    Route::get('/profile', function () {
         return view('profile.show');
     });
 
@@ -63,30 +76,12 @@ Route::middleware([
         $users = User::all();
         return view('manage-roles', compact('users'));
     });
-    Route::get('manage-appointment', function () {
-        $appointments = Appointment::paginate(10);
-        return view('manage-appointment', compact('appointments'));
-    });
-
-    Route::get('manage-treatment', function () {
-        $treatments = Treatment::paginate(10);
-        return view('manage-treatment', compact('treatments'));
-    });
 
     Route::get('staff', function () {
         $users = User::paginate(8);
         return view('staff.index', compact('users'));
     })->name('staff');
 
-    Route::get('patients', function () {
-        $patients = Patient::orderBy('id', 'DESC')->paginate(8);
-        return view('patients.index', compact('patients'));
-    })->name('patients');
-
-    Route::get('insurance', function () {
-        $insurances = Insurance::paginate(12);
-        return view('insurance.index', compact('insurances'));
-    })->name('insurance');
 
     Route::get('users', function () {
         return User::all()->toJson();
@@ -95,18 +90,7 @@ Route::middleware([
     Route::view('documentation', 'documentation');
     Route::view('logs', 'logs');
 
-    Route::get('test2', function () {
-        $roles = Role::paginate();
-        $permissions = Permission::all();
-        $patients = Patient::all();
-        return view('test2', compact('roles', 'permissions', 'patients'));
-    });
-    Route::get('test', function () {
-        $roles = Role::paginate();
-        $permissions = Permission::all();
-        $appointments = Patient::all();
-        return view('test', compact('roles', 'permissions', 'appointments'));
-    });
+
     Route::get('test3', function () {
         $roles = Role::paginate();
         $permissions = Permission::all();

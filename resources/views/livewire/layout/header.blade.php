@@ -2,8 +2,9 @@
     class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap  z-10 w-full bg-white border-b text-sm py-2.5 sm:py-4 dark:bg-black dark:border-slate-800 ">
     <nav class="flex basis-full justify-between items-center w-full mx-auto px-4 sm:px-6 md:px-8" aria-label="Global">
         <div class="mr-5 md:mr-8">
-            <a class="md:hidden  flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">{{ config('app.name') }}</a>
-          </div>
+            <a class="md:hidden  flex-none text-xl font-semibold dark:text-white" href="#"
+                aria-label="Brand">{{ config('app.name') }}</a>
+        </div>
 
         <div class="l flex items-center justify-end ml-auto  sm:gap-x-3 sm:order-3">
 
@@ -45,8 +46,8 @@
                     {{-- <x-heroicon-o-ellipsis-vertical class="w-5 h-5 text-current" /> --}}
                 </div>
                 <div
-                class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
-                <x-heroicon-o-magnifying-glass class="w-5 h-5 text-current cursor-pointer" />
+                    class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
+                    <x-heroicon-o-magnifying-glass class="w-5 h-5 text-current cursor-pointer" />
                 </div>
                 <div
                     class="inline-flex flex-shrink-0 justify-center items-center gap-2 h-[2.375rem] w-[2.375rem] rounded-full font-medium bg-white text-firefly-800 align-middle hover:bg-firefly-100 focus:outline-none focus:ring-2 focus:ring-firefly-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-xs dark:bg-black dark:hover:bg-slate-800 dark:text-firefly-700 dark:hover:text-white dark:focus:ring-firefly-700 dark:focus:ring-offset-firefly-900">
@@ -166,7 +167,8 @@
                                 </svg>
                                 Downloads
                             </a>
-                            <a id="open_preferences_center" class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
+                            <a id="open_preferences_center" data-hs-overlay="#hs-modal-upgrade-to-pro"
+                                class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                                 href="#">
                                 <svg class="flex-none" width="16" height="16" viewBox="0 0 16 16"
                                     fill="currentColor">
@@ -194,3 +196,5 @@
         </div>
     </nav>
 </header>
+
+<!-- End Announcement Banner -->

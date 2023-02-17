@@ -30,9 +30,9 @@
         @forelse ($users as $user)
             {{-- @if ($loop->first) @continue  @endif --}}
             {{-- Exclude Current user from Staff list --}}
-            @if ($user->id === Auth::user()->id)
+            {{-- @if ($user->id === Auth::user()->id)
                 @continue
-            @endif
+            @endif --}}
 
             <div
                 class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-900 text-gray-500 hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700 flex justify-center items-center flex-col text-accent-400 text-sm

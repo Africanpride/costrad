@@ -10,13 +10,10 @@
                 <a href="http://">Privacy</a>
             </li>
             <li>
-                <a href="http://">Terms</a>
+                <a href="{{  url('terms') }}">Terms</a>
             </li>
             <li>
                 <a href="http://">About </a>
-            </li>
-            <li>
-                <a href="http://">Faqs</a>
             </li>
             <li>
                 <a href="http://">About</a>
@@ -26,6 +23,9 @@
             </li>
             <li>
                 <a href="http://">Accessibility</a>
+            </li>
+            <li>
+                <p id="open_preferences_center" class="cursor-pointer">Cookies</p>
             </li>
 
         </ul>

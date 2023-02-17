@@ -36,19 +36,6 @@ class DatabaseSeeder extends Seeder
             ]);
             $this->command->info("Admin User Creation Done");
 
-            // How many users you need, defaulting to 20
-            $numberOfUser = $this->command->ask('How many users do you need ?', 20);
-            $this->command->info("Now creating {$numberOfUser} users ......");
-
-            \App\Models\User::factory($numberOfUser)->create();
-
-            $this->command->info(`{$numberOfUser} Users Created!`);
-
-            $this->command->info('Running Remaining Seeder jobs: Patient etc....');
-
-            $numberOfPatients = $this->command->ask('How many patients do you need?' , 50);
-
-            \App\Models\Patient::factory($numberOfPatients)->create();
         }
 
     }

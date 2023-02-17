@@ -1,4 +1,4 @@
-<div>
+<div class="transitiondelay-500  duration-700 ease-in-out"  id="hs-modal-upgrade-to-pro" >
 <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
 <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
 <script type="text/javascript" charset="UTF-8">

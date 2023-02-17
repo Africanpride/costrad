@@ -1,60 +1,60 @@
 <x-main-layout>
 
     <!-- vision -->
-<div class="md:p-12 p-4">
-    <div class="relative overflow-hidden rounded-2xl">
-        <!-- Gradients -->
-        <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
-            <div
-                class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900">
+    <div class="md:p-12 p-4">
+        <div class="relative overflow-hidden rounded-2xl">
+            <!-- Gradients -->
+            <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
+                <div
+                    class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900">
+                </div>
+                <div
+                    class="bg-gradient-to-tl from-firefly-50 via-firefly-100 to-firefly-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
+                </div>
             </div>
-            <div
-                class="bg-gradient-to-tl from-firefly-50 via-firefly-100 to-firefly-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
-            </div>
-        </div>
-        <!-- End Gradients -->
+            <!-- End Gradients -->
 
-        <div class="relative z-10 py-8">
-            <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-                <div class="max-w-9xl text-center mx-auto">
-                    <p
-                        class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
-                        COSTrAD: Our Transformational Vision
-                    </p>
+            <div class="relative z-10 py-8">
+                <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+                    <div class="max-w-9xl text-center mx-auto">
+                        <p
+                            class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
+                            COSTrAD: Our Transformational Vision
+                        </p>
 
-                    <!-- Title -->
-                    <div class="mt-5 max-w-10xl">
-                        <h1
-                            class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
-                            Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
-                            imperceptible and doing the seemingly impossible.
-                        </h1>
+                        <!-- Title -->
+                        <div class="mt-5 max-w-10xl">
+                            <h1
+                                class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
+                                Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
+                                imperceptible and doing the seemingly impossible.
+                            </h1>
+                        </div>
+                        <!-- End Title -->
+
+                        <!-- Buttons -->
+                        <div class="mt-8 grid gap-3 w-full sm:inline-flex sm:justify-center">
+                            <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+                                href="{{ url('our-process') }}">
+                                Start the Journey
+                                <svg class="w-3 h-3" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path
+                                        d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                            </a>
+                            <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-firefly-800 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:text-white dark:hover:bg-gray-800 dark:hover:border-gray-900 dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800"
+                                href="{{ url('/institutes') }}">
+                                <x-lucide-globe class="w-5 h-5 text-current " />
+                                Our Institutes
+                            </a>
+                        </div>
+                        <!-- End Buttons -->
                     </div>
-                    <!-- End Title -->
-
-                    <!-- Buttons -->
-                    <div class="mt-8 grid gap-3 w-full sm:inline-flex sm:justify-center">
-                        <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-                            href="{{ url('our-process') }}">
-                            Start the Journey
-                            <svg class="w-3 h-3" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path
-                                    d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            </svg>
-                        </a>
-                        <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-firefly-800 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:text-white dark:hover:bg-gray-800 dark:hover:border-gray-900 dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800"
-                            href="{{ url('/institutes') }}">
-                            <x-lucide-globe class="w-5 h-5 text-current " />
-                            Our Institutes
-                        </a>
-                    </div>
-                    <!-- End Buttons -->
                 </div>
             </div>
         </div>
     </div>
-</div>
     <!-- End vision -->
 
 
@@ -197,8 +197,8 @@
                             </li>
                             <li class="flex space-x-3">
                                 <!-- Solid Check -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-firefly-600 dark:text-firefly-500" width="16"
-                                    height="16" viewBox="0 0 16 16" fill="none"
+                                <svg class="flex-shrink-0 h-6 w-6 text-firefly-600 dark:text-firefly-500"
+                                    width="16" height="16" viewBox="0 0 16 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M15.1965 7.85999C15.1965 3.71785 11.8387 0.359985 7.69653 0.359985C3.5544 0.359985 0.196533 3.71785 0.196533 7.85999C0.196533 12.0021 3.5544 15.36 7.69653 15.36C11.8387 15.36 15.1965 12.0021 15.1965 7.85999Z"
@@ -298,9 +298,8 @@
     <!-- End Mission -->
 
 
-    <div
-        class="max-w-[85rem] md:h-[80vh] flex flex-col justify-center  px-4 sm:px-6 lg:px-8 dark:bg-black
-    relative bg-[url({{  asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/banner2.jpg') }})] bg-cover bg-center bg-no-repeat">
+    <div class="max-w-[85rem] md:h-[90vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8 dark:bg-black relative bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/banner2.jpg') }}');">
+
         <div class="absolute inset-0 bg-black/70 z-10"></div>
         <div class="z-20">
             <!-- Page Heading -->

@@ -1,4 +1,5 @@
 <x-app-layout>
+
     {{-- <x-admin.pageheader /> --}}
     <div class="grid md:grid-cols-12 gap-4 md:gap-2">
         <div class=" col-span-12 md:col-span-3 md:border-r border-gray-200 dark:border-gray-700  md:h-screen ">

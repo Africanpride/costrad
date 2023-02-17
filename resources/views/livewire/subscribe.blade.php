@@ -1,4 +1,4 @@
-<div class="max-w-7xl pt-16 pb-16 px-4 sm:px-6 lg:px-8 md:pt-20 lg:py-15 mx-auto">
+<section class="max-w-7xl pt-16 pb-16 px-4 sm:px-6 lg:px-8 md:pt-20 lg:py-15 mx-auto">
 
     <div
         class="bg-gray-100 relative rounded-xl p-5 sm:py-16 before:absolute before:top-0 before:left-0 before:bg-[url('../svg/component/banner-bg-gray.svg')] before:bg-no-repeat before:bg-top before:bg-contain before:w-2/3 before:h-full before:z-0 dark:bg-[#151c2f] dark:before:bg-[url('../svg/component/banner-bg-dark.svg')]">
@@ -369,4 +369,4 @@
             <!--End mc_embed_signup-->
         </div>
     </div>
-</div>
+</section>
