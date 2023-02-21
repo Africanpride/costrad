@@ -28,7 +28,7 @@
     <!-- FlatPickr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script> --}}
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 
@@ -38,6 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     @livewireStyles
+
 
 </head>
 {{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}
@@ -73,15 +74,18 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
 
 
     <!-- ========== MODALS ========== -->
+<div>
     <livewire:layout.all-modals />
+</div>
 
     <!-- ========== END MODALS CONTENT ========== -->
     @livewire('livewire-ui-slideover')
     @livewire('livewire-ui-modal')
     @stack('modals')
     @livewireScripts
-    @stack('scripts')
 
+
+    @stack('scripts')
 
 </body>
 </html>
