@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script> --}}
-
+    <script src="https://cdn.tiny.cloud/1/c5sr22drdl0nd8bowu0ulmfv099eqz9u5dgvs43lheth4hl7/tinymce/6/tinymce.min.js" referrerpolicy="origin">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 
 
@@ -39,6 +39,7 @@
 
     @livewireStyles
 
+    <x-head.tinymce-config/>
 
 </head>
 {{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}

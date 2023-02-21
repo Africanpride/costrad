@@ -55,6 +55,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'tinymce' => env('APP_TINYMCE', 'no-api-key'),
 
     'asset_url' => env('ASSET_URL'),
 

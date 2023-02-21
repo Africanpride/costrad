@@ -93,7 +93,7 @@
             </li>
         </ul>
     </nav>
-    <div class="absolute bottom-2 w-full flex justify-between items-center gap-4 overflow-hidden px-5">
+
         <livewire:admin.nav-icons />
-    </div>
+
 </div>

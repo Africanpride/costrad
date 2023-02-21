@@ -3,6 +3,7 @@
 {{ \Carbon\Carbon::now()->format('H:i:s') }}
 </div> --}}
 
+<div>
 
 <div id="clock">
     <h1 id="time">00:00:00</h1>
@@ -19,3 +20,5 @@
 
 
 </script>
+
+</div>

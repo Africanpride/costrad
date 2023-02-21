@@ -40,7 +40,7 @@ class AddInstitute extends ModalComponent
     public function store()
     {
 
-        dd('this is storing Institute');
+        // dd('this is storing Institute');
 
         $validatedData = $this->validate([
             'name' => 'required|min:2',
@@ -48,22 +48,29 @@ class AddInstitute extends ModalComponent
             'overview' => 'required|min:2',
             'about' => 'required|min:2',
             'icon' => 'nullable',
-            'logo' => 'nullable',
-            'banner' => 'required',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+            'banner' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:3048',
             'startDate' => 'required',
             'endDate' => 'required',
             'seo' => 'nullable',
-            'active' => 'required',
+            'active' => 'nullable',
             'url' => 'nullable',
             'price' => 'required',
         ]);
 
+        if ($this->logo) {
+            $imageName = $this->logo->store("logo", 'public');
+            $validatedData['logo'] = $imageName;
+        }
+
+        if ($this->banner) {
+            $imageName = $this->banner->store("banner", 'public');
+            $validatedData['banner'] = $imageName;
+        }
+
         Institute::create($validatedData);
 
-        session()->flash('message', 'Institute created successfully.');
-
-        $this->closeModal();
-        $this->resetInputFields();
+        return redirect('admin.institutes.index')->with('message', 'Institute created successfully.');
     }
 
     public function edit($id)
@@ -85,7 +92,6 @@ class AddInstitute extends ModalComponent
         $this->active = $institute->active;
         $this->url = $institute->url;
         $this->price = $institute->price;
-
         $this->openModal();
     }
 
