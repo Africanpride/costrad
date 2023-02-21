@@ -1,11 +1,11 @@
 @props(['formAction' => false])
 
-<div>
+<div class="sm:max-w-xl">
     <div class=" ease-out transition-all mx-auto">
 
         <div
             class="relative flex flex-col bg-white border shadow-sm overflow-hidden
-             dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+             dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] ">
             @if ($formAction)
                 <form wire:submit.prevent="{{ $formAction }}">
                     @csrf

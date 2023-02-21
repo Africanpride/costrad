@@ -14,7 +14,13 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', 'inter', 'anton', ...defaultTheme.fontFamily.sans],
+                sans: ['Open Sans', 'source sans pro', 'montserrat', 'inter', 'anton', ...defaultTheme.fontFamily.sans],
+            },
+            fontSize: {
+                sm: ['13px', '20px'],
+                base: ['16px', '20px'],
+                lg: ['16px', '20px'],
+                xl: ['24px', '32px'],
             },
             colors: {
                 light: {

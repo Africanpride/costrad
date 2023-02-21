@@ -24,11 +24,11 @@
 
                         <!-- Title -->
                         <div class="mt-5 max-w-10xl">
-                            <h1
-                                class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
+                            <p
+                            class="block  text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
                                 Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
                                 imperceptible and doing the seemingly impossible.
-                            </h1>
+                            </p>
                         </div>
                         <!-- End Title -->
 
@@ -59,7 +59,7 @@
 
 
     <!-- agenda -->
-    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-firefly-100 dark:bg-slate-900">
+    <div class="max-w-[85rem] w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-firefly-100 dark:bg-slate-900">
         <!-- Grid -->
         <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
             <div>
@@ -277,7 +277,7 @@
         </div>
 
         <p
-            class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
+            class="block font-thin text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
             Our Mission is to raise and develop generations of
             transformational leaders, equipped to bring systemic and sustainable change, to every sphere of society.
         </p>
@@ -304,7 +304,7 @@
         <div class="z-20">
             <!-- Page Heading -->
             <div class="max-w-5xl space-y-2 md:space-y-4 py-8">
-                <h4 class="text-firefly-700 dark:text-gray-200 font-semibold uppercase">
+                <h4 class="font-['open sans'] text-firefly-700 dark:text-gray-200 font-semibold uppercase">
                     A JOURNEY FOR NOW AND BEYOND
                 </h4>
                 <h1 class="uppercase font-['anton'] text-3xl md:text-4xl text-firefly-700 dark:text-firefly-700">

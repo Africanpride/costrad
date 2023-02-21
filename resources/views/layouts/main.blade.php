@@ -10,10 +10,18 @@
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon_io/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon_io/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{  asset('images/favicon_io/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{  asset('images/favicon_io/site.webmanifest') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon_io/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/favicon_io/site.webmanifest') }}">
+
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    {{-- <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
+    <!-- Font -->
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Open+Sans&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -26,12 +34,12 @@
     <!-- Required Meta Tags Always Come First -->
 
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://costrad.co/">
+    <link rel="canonical" href="https://costrad.org">
     <meta name="description"
         content="This example is a quick exercise to illustrate how fixed to top navbar works using Tailwind CSS. As you scroll, it will remain fixed to the top of your browser's viewport.">
 
-    <meta name="twitter:site" content="@costrad">
-    <meta name="twitter:creator" content="@htmlstream">
+    <meta name="twitter:site" content="@mycostrad">
+    <meta name="twitter:creator" content="@mycostrad">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sticky Header using Tailwind CSS | costrad UI, crafted with Tailwind CSS">
     <meta name="twitter:description"
@@ -48,12 +56,6 @@
     <meta property="og:image" content="../../assets/img/og-image.png">
 
 
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap"
-        rel="stylesheet">
 
     @stack('head-script')
 </head>

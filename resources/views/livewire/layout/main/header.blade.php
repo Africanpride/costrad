@@ -1,6 +1,6 @@
 <header
-    class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-4 bg-white backdrop-blur-md
-md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-start sm:flex-nowrap
+    class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-md  py-4 bg-white backdrop-blur-md
+md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:justify-start sm:flex-nowrap
  border-b  sm:py-0  dark:border-gray-700/50">
 
     <nav class="max-w-[85rem] flex flex-wrap basis-full items-center w-full mx-auto px-4 sm:px-6 lg:px-8 py-3"
@@ -11,50 +11,20 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
 
         <div class="flex items-center gap-x-3 ml-auto md:pl-3 md:order-3">
 
-            <div
-                class="flex items-center space-x-3 relative z-10 before:w-px before:h-4 before:bg-gray-300 dark:before:bg-gray-700">
-                <div class="pl-3">
-                    <a class="-mr-1.5 inline-flex flex-shrink-0 justify-center items-center h-9 w-9 text-gray-600 hover:text-firefly-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                        href="https://www.figma.com/community/file/1179068859697769656" target="_blank">
-                        <svg class="w-4 h-4" width="19" height="18" viewBox="0 0 19 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6.875 18C8.531 18 9.875 16.656 9.875 15V12H6.875C5.219 12 3.875 13.344 3.875 15C3.875 16.656 5.219 18 6.875 18Z"
-                                fill="#0ACF83"></path>
-                            <path d="M3.875 9C3.875 7.344 5.219 6 6.875 6H9.875V12H6.875C5.219 12 3.875 10.656 3.875 9Z"
-                                fill="#A259FF"></path>
-                            <path d="M3.875 3C3.875 1.344 5.219 0 6.875 0H9.875V6H6.875C5.219 6 3.875 4.656 3.875 3Z"
-                                fill="#F24E1E"></path>
-                            <path
-                                d="M9.87501 0H12.875C14.531 0 15.875 1.344 15.875 3C15.875 4.656 14.531 6 12.875 6H9.87501V0Z"
-                                fill="#FF7262"></path>
-                            <path
-                                d="M15.875 9C15.875 10.656 14.531 12 12.875 12C11.219 12 9.87501 10.656 9.87501 9C9.87501 7.344 11.219 6 12.875 6C14.531 6 15.875 7.344 15.875 9Z"
-                                fill="#1ABCFE"></path>
-                        </svg>
-                    </a>
-                    <a class=" inline-flex flex-shrink-0 justify-center items-center h-9 w-9 text-gray-600 hover:text-firefly-600 font-medium dark:text-gray-400 dark:hover:text-gray-500"
-                        href="https://github.com/htmlstreamofficial/preline" target="_blank">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-                            </path>
-                        </svg>
-                    </a>
 
+                <div class="pl-4 flex justify-between items-center gap-4   md:before:w-px md:before:h-4 before:bg-gray-300 dark:before:bg-gray-700">
+                   <a class="pl-3" href="https://www.youtube.com/@costrad6590" target="_blank">
+                    <img class="h-4" src="{{ asset('images/youtuber.png') }}" /></a>
+                    <x-admin.dark-switch />
+                    <livewire:main-auth-indicator />
                 </div>
 
 
-                <x-admin.dark-switch />
-                <livewire:main-auth-indicator />
 
-
-            </div>
 
             <div class="md:hidden">
                 <button type="button"
-                    class="hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-firefly-600 transition text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 open"
+                    class="hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-2 rounded-md border text-md  bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-firefly-600 transition text-md  dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 open"
                     data-hs-collapse="#docs-navbar" aria-controls="docs-navbar" aria-label="Toggle navigation">
 
                     <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor"
@@ -119,7 +89,7 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                 <div
                     class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4">
                     <span type="button"
-                        class=" flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500">
+                        class=" flex items-center w-full text-gray-500 hover:text-gray-400 text-md  dark:text-gray-400 dark:hover:text-gray-500">
                         <svg class="block w-4 h-4 md:hidden mr-3 " xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path
@@ -154,9 +124,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Support Docs</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Support Docs</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Explore advice and explanations for all of Preline's features.</p>
                                         </div>
                                     </a>
@@ -169,9 +139,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Integrations</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Integrations</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Discover the huge range of tools that Preline integrates with.</p>
                                         </div>
                                     </a>
@@ -183,9 +153,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Integrations</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Integrations</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Discover the huge range of tools that Preline integrates with.</p>
                                         </div>
                                     </a>
@@ -200,9 +170,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">API Reference</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">API Reference</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Build custom integrations with our first-class API.</p>
                                         </div>
                                     </a>
@@ -219,9 +189,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Help Center</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Help Center</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Learn how to install, set up, and use Preline.</p>
                                         </div>
                                     </a>
@@ -234,9 +204,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Developer Hub</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Developer Hub</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Learn how to integrate or build on top of Preline.</p>
                                         </div>
                                     </a>
@@ -248,9 +218,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Developer Hub</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Developer Hub</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Learn how to integrate or build on top of Preline.</p>
                                         </div>
                                     </a>
@@ -263,9 +233,9 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
                                                 d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
                                         </svg>
                                         <div class="grow">
-                                            <p class="font-medium text-gray-800 dark:text-gray-200">Community Forum</p>
+                                            <p class="text-md  text-gray-800 dark:text-gray-200">Community Forum</p>
                                             <p
-                                                class="text-sm text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                                class="text-md  text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                                                 Learn, share, and connect with other Preline users.</p>
                                         </div>
                                     </a>
@@ -282,7 +252,7 @@ md:backdrop-blur-none dark:bg-slate-900 123 sticky top-0 inset-x-0  sm:justify-s
 
                     </div>
                 </div>
-                <a class="inline-flex items-center gap-x-3 text-black font-medium hover:text-gray-600 transition dark:text-gray-200 dark:hover:text-gray-400 "
+                <a class="inline-flex items-center gap-x-3 text-black text-md  hover:text-gray-600 transition dark:text-gray-200 dark:hover:text-gray-400 "
                     href="./figma.html">
                     <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
                         fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -38,6 +38,7 @@ class LoginController extends Controller
             if ($existingUser) {
                 // If the user already exists, log them in and redirect to the homepage
                 Auth::login($existingUser);
+                // $existingUser->updateProfilePhoto($existingUser->getAvatar());
                 return redirect('/');
             } else {
 

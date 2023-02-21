@@ -14,8 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::create('institutes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            Schema::create('institutes', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('acronym');
+                $table->text('overview');
+                $table->text('about');
+                $table->string('icon');
+                $table->string('logo');
+                $table->string('banner');
+                $table->date('startDate');
+                $table->date('endDate');
+                $table->string('seo');
+                $table->boolean('active')->default(false);
+                $table->string('url');
+                $table->float('price');
+                $table->timestamps();
+            });
         });
     }
 

@@ -44,7 +44,7 @@
                         class=" flex-shrink-0 w-8 h-8 text-gray-800 mt-0.5 mr-6 dark:text-gray-200" />
                     <div>
                         <div>
-                            <h3 class="block font-bold text-gray-800 dark:text-white">Multifactor Authentication (2FA)
+                            <h3 class="block font-bold text-gray-800 dark:text-white">Multifactor Auth (2FA)
                             </h3>
                             <p class="text-gray-600 dark:text-gray-400 text-xs">Add additional security to your account
                                 using

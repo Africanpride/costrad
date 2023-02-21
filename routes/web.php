@@ -21,12 +21,14 @@ Route::get('/auth/callback', function () {
 
     // $user->token
 });
+
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
 
 // Route::view('/', 'welcome');
 Route::view('test4', 'test4');
 Route::view('terms', 'terms');
+Route::view('privacy', 'privacy');
 Route::view('about', 'about');
 Route::view('/', 'home');
 Route::view('contact', 'contact');
@@ -37,9 +39,17 @@ Route::post('contact', ContactController::class)->name('contact-form');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('admin/institutes/index', function() {
+        return view('admin/institutes/index');
+    });
+    Route::get('admin/participants/index', function() {
+        return view('admin/participants/index');
+    });
+});
 
 Route::middleware([
-    'auth:sanctum',
+    'auth',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {

@@ -13,6 +13,7 @@ class Institute extends Model
         'name',
         'acronym',
         'overview',
+        'about',
         'icon',
         'logo',
         'banner',

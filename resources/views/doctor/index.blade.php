@@ -19,7 +19,7 @@
                     <div class=" md:aspect-square flex flex-col justify-between rounded-lg bg-gray-200 dark:bg-gray-900 p-4 text-firefly-8 00 dark:text-white space-y-3">
                         <div class="flex items-center space-x-4">
                             <div class="avatar">
-                                <img class="rounded-full w-10 h-10 " src="{{ Auth::user()->avatar_url }}"
+                                <img class="rounded-full w-10 h-10 " src="{{ Auth::user()->profile_photo_url }}"
                                     alt="image">
                             </div>
                             <div>
@@ -69,7 +69,7 @@
                     <div class=" md:aspect-square flex flex-col justify-between rounded-lg bg-gray-200 dark:bg-gray-900 p-4 text-firefly-8 00 dark:text-white space-y-3">
                         <div class="flex items-center space-x-4">
                             <div class="avatar">
-                                <img class="rounded-full w-10 h-10 " src="{{ Auth::user()->avatar_url }}"
+                                <img class="rounded-full w-10 h-10 " src="{{ Auth::user()->profile_photo_url  }}"
                                     alt="image">
                             </div>
                             <div>
@@ -119,7 +119,7 @@
                     <div class=" md:aspect-square flex flex-col justify-between rounded-lg bg-gray-200 dark:bg-gray-900 p-4 text-firefly-8 00 dark:text-white space-y-3">
                         <div class="flex items-center space-x-4">
                             <div class="avatar">
-                                <img class="rounded-full w-10 h-10 " src="{{ Auth::user()->avatar_url }}"
+                                <img class="rounded-full w-10 h-10 " src="{{ Auth::user()->profile_photo_url  }}"
                                     alt="image">
                             </div>
                             <div>
@@ -201,7 +201,7 @@
                     </div>
 
                     <div class="flex justify-between items-center text-sm">
-                        <img src="{{ Auth::user()->avatar_url }}" alt="{{ Auth::user()->full_name }}"
+                        <img src="{{ Auth::user()->profile_photo_url  }}" alt="{{ Auth::user()->full_name }}"
                             class="w-10 h-10 rounded-full">
                         <div class="flex flex-col">
                             <span>Today</span>

@@ -1,8 +1,8 @@
 <x-main-layout>
     <div class=" ">
-        <div class="min-h-screen flex flex-col items-center py-6 sm:pt-0">
+        <div class="min-h-screen flex flex-col items-center p-8 ">
 
-            <div class="w-full md:m-8 p-8 dark:bg-gray-800  shadow-md overflow-hidden sm:rounded-lg prose-img:rounded-xl prose dark:prose-invert">
+            <div class="w-full  p-8 dark:bg-gray-800  shadow-md overflow-hidden sm:rounded-lg prose-img:rounded-xl max-w-max  prose dark:prose-invert">
                 <h1>Terms of Service</h1>
 
                 <p>Thank you for using COSTrAD, a website owned and operated by the College of Sustainable

@@ -156,7 +156,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Profile::class);
     }
 
-    protected function defaultProfilePhotoUrl()
+    public function defaultProfilePhotoUrl()
     {
         if(!empty($this->avatar)) {
             return $this->avatar;

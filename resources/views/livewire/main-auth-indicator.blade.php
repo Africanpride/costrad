@@ -50,6 +50,10 @@
     @endauth
 
     @guest
-        <a href="{{ url('login') }}" class="dark:text-white">login</a>
+        <a href="{{ url('login') }}" class="dark:text-white">
+            <img class="inline-block h-[1.475rem] aspect-square rounded-full"
+            src="{{ asset('images/login.png') }}"
+            alt="Image Description">
+        </a>
     @endguest
 </div>

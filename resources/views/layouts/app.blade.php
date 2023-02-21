@@ -8,8 +8,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     {{-- <script src="./node_modules/preline/dist/preline.js" /> --}}
+
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    {{-- <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
+    <!-- Font -->
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Open+Sans&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -35,9 +43,9 @@
 {{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}
 
 
-<body class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 h-full scrollbar-thin
-scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll  ">
-<div class="md:col-span-2 w-full">
+<body class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 scrollbar-thin
+scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll ">
+<div class="md:col-span-2 w-fullrelative">
         <livewire:cookie />
 
         <!-- Navigation -->

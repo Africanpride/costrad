@@ -1,4 +1,4 @@
-<footer class="p-4 bg-gray-100  shadow md:px-6 md:py-8 dark:bg-gradient-to-r from-slate-900 to-slate-900">
+<footer class="p-4 bg-gray-100  shadow md:px-6 md:py-8 dark:bg-gradient-to-r from-slate-900 to-slate-900 ">
     <div class="sm:flex sm:items-center sm:justify-between">
         <x-admin.branding />
         <ul
@@ -6,8 +6,9 @@
             <li>
                 <a href="{{ url('contact') }}/">Contact</a>
             </li>
+
             <li>
-                <a href="http://">Privacy</a>
+                <a href="{{  url('privacy') }}">Privacy</a>
             </li>
             <li>
                 <a href="{{  url('terms') }}">Terms</a>

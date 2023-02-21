@@ -1,6 +1,6 @@
 <div>
     <a href="https://costrad.org/" class="flex items-center mb-4 sm:mb-0">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="costrad Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">COSTrAD</span>
+        <img src="{{ asset('images/costrad.png') }}" class="h-16 aspect-square  mr-2" alt="costrad Logo" />
+        <span class="font-['lato'] self-center text-3xl font-semibold whitespace-nowrap dark:text-white">COSTrAD</span>
     </a>
 </div>
