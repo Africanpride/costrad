@@ -21,7 +21,7 @@ class Institute extends Model
         'endDate',
         'seo',
         'active',
-        'url',
+        'slug',
         'price'
     ];
 
@@ -29,5 +29,14 @@ class Institute extends Model
         'active' => 'boolean',
         'price' => 'float'
     ];
+
+    public function getInstituteLogoAttribute(): string
+    {
+
+            return url('/') . "/storage/" .  $this->logo;
+
+    }
+
+
 
 }

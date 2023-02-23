@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InstituteController;
 
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
@@ -39,11 +40,14 @@ Route::post('contact', ContactController::class)->name('contact-form');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
-Route::group(['middleware' => ['auth']], function() {
-    Route::get('admin/institutes/index', function() {
-        return view('admin/institutes/index');
-    });
-    Route::get('admin/participants/index', function() {
+
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
+    Route::resource('institutes', InstituteController::class);
+});
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('admin/participants/index', function () {
         return view('admin/participants/index');
     });
 });

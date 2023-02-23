@@ -21,7 +21,25 @@
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-
+                <div class="py-2 px-4 pl-6 pr-8 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
+                dark:text-gray-400">
+                    <div class="flex items-start py-2 relative">
+                        <div class="flex items-center h-5">
+                            <input id="hs-checkbox-archive" name="hs-checkbox-archive" type="checkbox"
+                                wire:model='active'
+                                class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                aria-describedby="hs-checkbox-archive-description">
+                        </div>
+                        <label for="hs-checkbox-archive" class="ml-3">
+                            <span class="block text-sm font-semibold text-gray-800 dark:text-white">Allow For Registration and Payment</span>
+                            <span id="hs-checkbox-archive-description"
+                                class="block text-sm text-gray-600 dark:text-gray-500 italic ">{{ $active ? 'Participants would be allowed to register and pay for institute/college.' : 'Tick here to make Institute active.' }}</span>
+                        </label>
+                    </div>
+                    @error('active')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
                 <div class="grid grid-cols-2 gap-4">
 
                     <div>
@@ -37,21 +55,21 @@
                     </div>
                     <div>
 
-                            <div class="relative">
-                                <input wire:model="price" type="text" id="hs-input-with-leading-and-trailing-icon"
-                                    name="hs-input-with-leading-and-trailing-icon"
-                                    class="py-2 px-4 pl-9 pr-16 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
+                        <div class="relative">
+                            <input wire:model="price" type="text" id="hs-input-with-leading-and-trailing-icon"
+                                name="hs-input-with-leading-and-trailing-icon"
+                                class="py-2 px-4 pl-9 pr-16 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
                                      dark:text-gray-400"
-                                    placeholder="0.00">
-                                <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                    <span class="text-gray-500">
-                                        <x-lucide-dollar-sign class="h-4 w-4 text-gray-400" />
-                                    </span>
-                                </div>
-                                <div class="absolute inset-y-0 right-0 flex items-center pointer-events-none z-20 pr-4">
-                                    <span class="text-gray-500">USD</span>
-                                </div>
+                                placeholder="0.00">
+                            <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+                                <span class="text-gray-500">
+                                    <x-lucide-dollar-sign class="h-4 w-4 text-gray-400" />
+                                </span>
                             </div>
+                            <div class="absolute inset-y-0 right-0 flex items-center pointer-events-none z-20 pr-4">
+                                <span class="text-gray-500">USD</span>
+                            </div>
+                        </div>
 
 
                         @error('price')

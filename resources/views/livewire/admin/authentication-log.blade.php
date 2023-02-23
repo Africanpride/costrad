@@ -1,3 +1,3 @@
 <div>
- Hello Authenktication log
+ Auth log
 </div>

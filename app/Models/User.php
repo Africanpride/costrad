@@ -55,7 +55,7 @@ class User extends Authenticatable implements MustVerifyEmail
     // public $incrementing = false;
     // protected $keyType = 'string';
 
-    public $guard_name = 'sanctum';
+    public $guard_name = 'web';
 
 
     public function getRouteKeyName()

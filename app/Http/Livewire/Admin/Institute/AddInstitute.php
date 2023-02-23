@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Institute;
 
 use Livewire\Component;
 use App\Models\Institute;
+use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
 
@@ -12,7 +13,8 @@ class AddInstitute extends ModalComponent
 {
     use WithFileUploads;
 
-    public $name, $acronym, $overview, $about, $icon, $logo, $banner, $startDate, $endDate, $seo, $active, $url, $price;
+    public $name, $acronym, $overview, $about, $icon, $logo, $banner, $startDate, $endDate, $seo,  $slug, $price;
+    public bool $active = true;
     public $instituteId;
     public $isOpen = 0;
 
@@ -43,8 +45,8 @@ class AddInstitute extends ModalComponent
         // dd('this is storing Institute');
 
         $validatedData = $this->validate([
-            'name' => 'required|min:2',
-            'acronym' => 'required|min:2',
+            'name' => 'required|min:2|unique:institutes,name',
+            'acronym' => 'required|min:2|unique:institutes,acronym',
             'overview' => 'required|min:2',
             'about' => 'required|min:2',
             'icon' => 'nullable',
@@ -54,7 +56,7 @@ class AddInstitute extends ModalComponent
             'endDate' => 'required',
             'seo' => 'nullable',
             'active' => 'nullable',
-            'url' => 'nullable',
+            'slug' => 'nullable',
             'price' => 'required',
         ]);
 
@@ -68,9 +70,15 @@ class AddInstitute extends ModalComponent
             $validatedData['banner'] = $imageName;
         }
 
+        if($this->name) {
+            $validatedData['slug'] = Str::slug($this->name);
+        }
+
+
+        // dd($validatedData);
         Institute::create($validatedData);
 
-        return redirect('admin.institutes.index')->with('message', 'Institute created successfully.');
+        return redirect('admin/institutes')->with('message', 'Institute created successfully.');
     }
 
     public function edit($id)
@@ -90,7 +98,7 @@ class AddInstitute extends ModalComponent
         $this->endDate = $institute->endDate;
         $this->seo = $institute->seo;
         $this->active = $institute->active;
-        $this->url = $institute->url;
+        $this->slug = $institute->slug;
         $this->price = $institute->price;
         $this->openModal();
     }
@@ -98,18 +106,18 @@ class AddInstitute extends ModalComponent
     public function update($institute)
     {
         $validatedData = $this->validate([
-            'name' => 'required|min:2',
-            'acronym' => 'required|min:2',
+            'name' => 'required|min:2|unique:institutes,name, $institute->id',
+            'acronym' => 'required|min:2|unique:institutes,acronym, $institute->id',
             'overview' => 'required|min:2',
             'about' => 'required|min:2',
             'icon' => 'nullable',
-            'logo' => 'nullable',
-            'banner' => 'required',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+            'banner' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:3048',
             'startDate' => 'required',
             'endDate' => 'required',
             'seo' => 'nullable',
-            'active' => 'required',
-            'url' => 'nullable',
+            'active' => 'nullable',
+            'slug' => 'nullable',
             'price' => 'required',
         ]);
 
@@ -140,7 +148,7 @@ class AddInstitute extends ModalComponent
         $this->endDate = '';
         $this->seo = '';
         $this->active = '';
-        $this->url = '';
+        $this->slug = '';
         $this->price = '';
     }
 
