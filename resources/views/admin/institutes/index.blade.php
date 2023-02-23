@@ -26,14 +26,21 @@
                                 </div>
                                 <div
                                     class="flex flex-col justify-between p-3 pl-10 md:col-span-9 col-span-12 space-y-3 rounded-r-xl relative ">
-                               @hasrole('admin')
+                                    @hasrole('admin')
+                                        <div class="absolute top-3 right-3">
+                                            <div class="flex justify-end items-center gap-2">
+                                                <a href="{{ route('institutes.edit', [$institute->slug]) }}"
+                                                    class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
+                                                    <x-lucide-clipboard-edit class="w-5 h-5 text-gray-500 cursor-pointer" />
+                                                </a>
+                                                <span class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
+                                                    <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
+                                                        onclick="Livewire.emit('openModal', 'admin.institute.delete-institute', {{ json_encode([$institute->id]) }})" />
+                                                </span>
+                                            </div>
 
-                               <span class="absolute top-3 right-3 text-gray-500 dark:text-white hover:text-accent-500 z-100">
-                                 <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
-                                     onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$institute->id]) }})" />
-
-                             </span>
-                               @endhasrole
+                                        </div>
+                                    @endhasrole
 
 
                                     <div
@@ -51,12 +58,8 @@
                                     <h1 class="text-xl font-semibold ">{{ $institute->name }} <span
                                             class="uppercase">({{ $institute->acronym }})</span></h1>
                                     <p class=" text-sm">
-                                        The family as the basic unity of society has far reaching
-                                        implications on
-                                        individual bent and ultimately on national stability in all respects.The family
-                                        as the basic
-                                        unity of society has far reaching implications on
-                                        individual bent and ultimately on national stability in all respects. <a
+                                        {{ $institute->overview }}
+                                        <a href="{{  url('/institutes/') }}"
                                             rel="noopener noreferrer" href="#"
                                             class="inline-flex items-center  space-x-2 text-sm text-orange-400">
                                             <span>Read more</span>
@@ -66,18 +69,21 @@
                                                     d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
                                                     clip-rule="evenodd"></path>
                                             </svg>
-                                        </a></p>
-                                    <div class="flex justify-end items-center">
-
-                                        <a rel="noopener noreferrer" href="#"
-                                            class="inline-flex items-center  space-x-2 text-sm text-orange-400">
-                                            <span href="#"
-                                                class="flex items-center justify-between rounded-full bg-gray-900 py-1 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 gap-2">Register
-                                                now <span aria-hidden="true">
-                                                    <x-lucide-arrow-right class="w-4 h-4" />
-                                                </span></span>
-
                                         </a>
+                                    </p>
+                                    <div class="invisible">
+                                        <div class="flex justify-end items-center">
+
+                                            <a rel="noopener noreferrer" href="#"
+                                                class="inline-flex items-center  space-x-2 text-sm text-orange-400">
+                                                <span href="#"
+                                                    class="flex items-center justify-between rounded-full bg-gray-900 py-1 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 gap-2">Register
+                                                    now <span aria-hidden="true">
+                                                        <x-lucide-arrow-right class="w-4 h-4" />
+                                                    </span></span>
+
+                                            </a>
+                                        </div>
                                     </div>
 
                                 </div>

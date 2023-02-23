@@ -221,6 +221,18 @@ p-10 md:p-14 shadow rounded-lg']) }}>
         </div>
     </div>
 
+@if (isset($action))
+<h2 class="text-lg font-bold md:text-xl lg:text-2xl
+inline-flex items-center gap-1.5 py-3 px-6  rounded-full  sm:text-sm bg-gray-200/50
+ text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-800 dark:text-gray-200
+">
+{{ $action ?? ' ' }}
+</h2>
+@else
+{{ $action ?? ' ' }}
+
+@endif
+
     <div class=" flex justify-between items-center">
         <span class="flex items-center gap-2 py-1.5 px-4 rounded-full text-xs font-medium
          bg-firefly-200 text-gray-800 dark:bg-black dark:text-white uppercase  tracking-wider	">

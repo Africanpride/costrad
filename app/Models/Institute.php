@@ -33,10 +33,11 @@ class Institute extends Model
     public function getInstituteLogoAttribute(): string
     {
 
-            return url('/') . "/storage/" .  $this->logo;
-
+        return url('/') . "/storage/" .  $this->logo;
     }
 
-
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

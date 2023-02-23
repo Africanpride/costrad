@@ -132,9 +132,20 @@ class User extends Authenticatable implements MustVerifyEmail
         $timestamp = Carbon::parse('2 minute ago');
         return $this->last_seen > $timestamp;
     }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->hasRole('super_admin');
+    }
+
     public function isAdmin(): bool
     {
         return $this->hasRole('admin');
+    }
+
+    public function isParticipant(): bool
+    {
+        return $this->hasRole('participant');
     }
 
     public function dashboard()

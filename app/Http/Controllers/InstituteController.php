@@ -57,9 +57,11 @@ class InstituteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+
+    public function edit(Institute $institute)
     {
-        dd($id);
+        // dd($institute);
+        return view('admin.institutes.edit', compact('institute'));
     }
 
     /**
@@ -69,9 +71,12 @@ class InstituteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Institute $institute)
     {
-        //
+        $institute->update($request->all());
+
+        return redirect('admin/institutes')->with('message', 'Institute Updated successfully.');
+
     }
 
     /**

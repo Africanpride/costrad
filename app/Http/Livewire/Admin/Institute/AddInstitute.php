@@ -103,7 +103,7 @@ class AddInstitute extends ModalComponent
         $this->openModal();
     }
 
-    public function update($institute)
+    public function update(Institute $institute)
     {
         $validatedData = $this->validate([
             'name' => 'required|min:2|unique:institutes,name, $institute->id',

@@ -1,5 +1,5 @@
 <div>
-    <x-admin.insurance-modal formAction="store">
+    <x-admin.institute-modal formAction="store">
 
         <x-slot name="title">
             <div class="absolute top-3 right-3 cursor-pointer">
@@ -220,7 +220,7 @@
 
         </x-slot>
 
-    </x-admin.insurance-modal>
+    </x-admin.institute-modal>
 
 
     <script type="text/javascript">

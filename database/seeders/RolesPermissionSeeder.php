@@ -41,14 +41,14 @@ class RolesPermissionSeeder extends Seeder
 
         // create roles and assign existing permissions
         $superAdminRole = Role::create([
-            'name' => 'Super_Admin',
+            'name' => 'super_admin',
             'guard_name' => 'web',
             'description' => 'Super admin role',
         ]);
         $superAdminRole->syncPermissions(Permission::all());
 
         $adminRole = Role::create([
-            'name' => 'Admin',
+            'name' => 'admin',
             'guard_name' => 'web',
             'description' => 'Admin role',
         ]);
@@ -60,7 +60,7 @@ class RolesPermissionSeeder extends Seeder
         ]);
 
         $participantRole = Role::create([
-            'name' => 'Participants',
+            'name' => 'participants',
             'guard_name' => 'web',
             'description' => 'Participants role',
         ]);
