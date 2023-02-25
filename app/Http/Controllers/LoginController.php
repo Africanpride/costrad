@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -42,31 +43,22 @@ class LoginController extends Controller
                 return redirect('/');
             } else {
 
-                $firstName = $user->user['given_name'];
-                $lastName = $user->user['family_name'];
-                $email = $user->user['email'];
-                $google_id = $user->user['id'];
-                $avatar = $user->user['picture'];
-
                 $newUser = User::create([
                     'firstName' => $user->user['given_name'],
                     'lastName' => $user->user['family_name'],
                     'email' => $user->user['email'],
                     'google_id' => $user->user['id'],
                     'participant' => true,
-                    'password' => Hash::make(Str::random(12))
+                    'email_verified_at' => now(),
+                    'password' => Hash::make(Str::random(12)),
+                    'avatar' => $user->getAvatar()
                 ]);
-
-                $newUser->forceFill([
-                    'avatar' => $user->avatar,
-                ])->save();
-
 
                 Auth::login($newUser);
                 return redirect('/');
             }
         } catch (Exception $e) {
-           dd($e);
+            dd($e);
             return redirect('login')->withErrors(['error' => 'Unable to authenticate with Google. Please try again later.']);
         }
     }

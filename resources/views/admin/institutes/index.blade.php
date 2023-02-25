@@ -26,7 +26,7 @@
                                 </div>
                                 <div
                                     class="flex flex-col justify-between p-3 pl-10 md:col-span-9 col-span-12 space-y-3 rounded-r-xl relative ">
-                                    @hasrole('admin')
+                                    @hasanyrole(['admin', 'super_admin'])
                                         <div class="absolute top-3 right-3">
                                             <div class="flex justify-end items-center gap-2">
                                                 <a href="{{ route('institutes.edit', [$institute->slug]) }}"

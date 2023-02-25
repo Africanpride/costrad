@@ -140,7 +140,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin(): bool
     {
-        return $this->hasRole('admin');
+        return $this->hasAnyRole('admin', 'super_admin');
     }
 
     public function isParticipant(): bool

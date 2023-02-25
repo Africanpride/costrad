@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-admin.pageheader model-name="Manage Institute " description="Instititues &<br /> College" action="Edit:
+    <x-admin.pageheader model-name="Manage Institute " description="Instititues &<br /> College" action="
     {{ $institute->name }}" add-button="false"
         class="mx-4" >
         <x-heroicon-o-user-group class="w-5 h-5 text-current" />

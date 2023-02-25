@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
@@ -26,7 +27,7 @@ class DatabaseSeeder extends Seeder
                 $this->command->line("Data cleared, starting from blank database.");
             }
 
-            \App\Models\User::factory()->create([
+            User::factory()->create([
                 'firstName' => 'Pius',
                 'lastName' => 'Opoku-Fofie',
                 'email' => 'webmaster@costrad.org',
@@ -35,6 +36,17 @@ class DatabaseSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ]);
             $this->command->info("Admin User Creation Done");
+
+            $this->call([
+                RolesPermissionSeeder::class
+            ]);
+            $this->command->info("Roles & Permissions Created!");
+
+            $this->call([
+                InstituteSeeder::class
+            ]);
+
+            $this->command->info("Institutes & College Created!");
 
         }
 
