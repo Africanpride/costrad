@@ -59,8 +59,8 @@
                                             class="uppercase">({{ $institute->acronym }})</span></h1>
                                     <p class=" text-sm">
                                         {{ $institute->overview }}
-                                        <a href="{{  url('/institutes/') }}"
-                                            rel="noopener noreferrer" href="#"
+                                        <a href="{{  route('institute.show', [$institute->slug]) }}"
+                                            rel="noopener noreferrer"
                                             class="inline-flex items-center  space-x-2 text-sm text-orange-400">
                                             <span>Read more</span>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"

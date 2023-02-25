@@ -7,13 +7,6 @@
 
     {{-- <iframe src="/laravel-filemanager" style="width: 100%; height: 500px; overflow: hidden; border: none;"></iframe> --}}
 
+{{ $institute->name ?? ' not Showing' }}
 
-    @php
-        $path_parts = pathinfo('/www/htdocs/inc/lib.inc.php');
-
-        echo $path_parts['dirname'], "\n";
-        echo $path_parts['basename'], "\n";
-        echo $path_parts['extension'], "\n";
-        echo $path_parts['filename'], "\n";
-    @endphp
 </x-main-layout>

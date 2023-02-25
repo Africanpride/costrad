@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Models\Patient;
+use App\Models\Institute;
 use App\Models\Insurance;
 use App\Models\Treatment;
 use App\Models\Appointment;
@@ -12,6 +13,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InstituteController;
+use App\Http\Controllers\DisplayInstituteController;
 
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
@@ -25,8 +27,6 @@ Route::get('/auth/callback', function () {
 
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
-
-// Route::view('/', 'welcome');
 Route::view('test4', 'test4');
 Route::view('terms', 'terms');
 Route::view('privacy', 'privacy');
@@ -34,7 +34,12 @@ Route::view('about', 'about');
 Route::view('/', 'home');
 Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
-Route::view('institutes', 'institutes');
+Route::view('institutes', 'institutes'); // front end institute
+
+// display a particular institute using slug as parameter for the flrontend
+Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->name('institute.show');
+
+
 Route::post('contact', ContactController::class)->name('contact-form');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
