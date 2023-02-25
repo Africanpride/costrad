@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-front-layout>
     <!-- Hero -->
     <div class="relative overflow-hidden">
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -264,4 +264,4 @@
 
 
     <livewire:subscribe />
-</x-main-layout>
+</x-front-layout>

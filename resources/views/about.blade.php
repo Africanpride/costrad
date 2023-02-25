@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-front-layout>
 
     <!-- vision -->
     <div class="md:p-12 p-4">
@@ -351,4 +351,4 @@
 
     <livewire:subscribe />
 
-</x-main-layout>
+</x-front-layout>

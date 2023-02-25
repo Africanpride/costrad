@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-front-layout>
     <div class=" ">
         <div class="min-h-screen flex flex-col items-center p-8 ">
 
@@ -42,4 +42,4 @@
             </div>
         </div>
     </div>
-</x-main-layout>
+</x-front-layout>

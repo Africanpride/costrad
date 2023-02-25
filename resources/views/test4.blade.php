@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-front-layout>
     @auth
 
         <img class="w-50 aspect-square" src="{{ Auth::user()->profile_photo_url }}" alt="">
@@ -9,4 +9,4 @@
 
 {{ $institute->name ?? ' not Showing' }}
 
-</x-main-layout>
+</x-front-layout>

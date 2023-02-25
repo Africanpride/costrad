@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-front-layout>
     <!-- contact -->
     <section class="min-h-screen bg-cover " {{-- style="background-image: {{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/costrad_lecture.jpg') }}" --}}
         style="background-image: url(' {{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/bg2.png') }}')">
@@ -210,4 +210,4 @@
         ]) !!}
     @endpush
 
-</x-main-layout>
+</x-front-layout>
