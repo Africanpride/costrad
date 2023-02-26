@@ -25,16 +25,16 @@
                                         src="{{ $institute->institute_logo }}" alt="{{ $institute->name }}">
                                 </div>
                                 <div
-                                    class="flex flex-col justify-between p-3 pl-10 md:col-span-9 col-span-12 space-y-3 rounded-r-xl relative ">
+                                    class="flex flex-col justify-between p-4 pt-8 pb-6 pl-12 md:col-span-9 col-span-12 space-y-3 rounded-r-xl relative ">
                                     @hasanyrole(['admin', 'super_admin'])
-                                        <div class="absolute top-3 right-3">
+                                        <div class="absolute top-2 right-3">
                                             <div class="flex justify-end items-center gap-2">
                                                 <a href="{{ route('institutes.edit', [$institute->slug]) }}"
                                                     class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
-                                                    <x-lucide-clipboard-edit class="w-5 h-5 text-gray-500 cursor-pointer" />
+                                                    <x-lucide-clipboard-edit class="w-4 h-4 text-gray-500 cursor-pointer" />
                                                 </a>
                                                 <span class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
-                                                    <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
+                                                    <x-heroicon-o-trash class="w-4 h-4 text-red-500 cursor-pointer"
                                                         onclick="Livewire.emit('openModal', 'admin.institute.delete-institute', {{ json_encode([$institute->id]) }})" />
                                                 </span>
                                             </div>
@@ -46,8 +46,8 @@
                                     <div
                                         class="bg-gray-300/80 dark:bg-black/50 rotate-180 p-2 [writing-mode:_vertical-lr] absolute left-0 bottom-0 h-full">
                                         <time datetime="2022-10-10"
-                                            class="flex items-center justify-between gap-4 text-xs font-bold uppercase
-                 text-gray-900 dark:text-white">
+                                            class="flex items-center justify-between gap-4 text-xs
+                                            font-bold uppercase  text-gray-900 dark:text-white">
 
                                             <span>{{ \Carbon\Carbon::parse($institute->startDate)->format('M jS') }}</span>
                                             <span class="w-px flex-1 bg-gray-900/50 dark:bg-white/10"></span>
@@ -55,24 +55,27 @@
                                         </time>
                                     </div>
 
-                                    <h1 class="text-xl font-semibold ">{{ $institute->name }} <span
-                                            class="uppercase">({{ $institute->acronym }})</span></h1>
-                                    <p class=" text-sm">
-                                        {{ $institute->overview }}
-                                        <a href="{{  route('institute.show', [$institute->slug]) }}"
-                                            rel="noopener noreferrer"
-                                            class="inline-flex items-center  space-x-2 text-sm text-orange-400">
-                                            <span>Read more</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" class="w-4 h-4">
-                                                <path fill-rule="evenodd"
-                                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </a>
-                                    </p>
-                                    <div class="invisible">
-                                        <div class="flex justify-end items-center">
+                                    <h1 class="text-lg font-bold ">{{ $institute->name }}
+                                        <span class="uppercase">({{ $institute->acronym }})</span>
+                                    </h1>
+                                    <div>
+                                        <p class=" text-sm line-clamp-5 text-justify">
+                                            {{ $institute->overview }}
+                                            <a href="{{ route('institute.show', [$institute->slug]) }}"
+                                                rel="noopener noreferrer"
+                                                class="inline-flex items-center  space-x-2 text-sm text-orange-400">
+                                                <span>Read more</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" class="w-4 h-4">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        <div class="flex justify-start items-center">
 
                                             <a rel="noopener noreferrer" href="#"
                                                 class="inline-flex items-center  space-x-2 text-sm text-orange-400">

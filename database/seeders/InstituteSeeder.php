@@ -34,7 +34,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Mindset Transformation Institute',
                 'slug' => 'mindset-transformation-institute',
-                'acronym' => 'MTI',
+                'acronym' => 'mti',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-04-01',
@@ -47,7 +47,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Institute of Governance & Public Policy',
                 'slug' => 'institute-of-governance-and-public-policy',
-                'acronym' => 'Igpp',
+                'acronym' => 'igpp',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-05-10',
@@ -60,7 +60,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Institute of Economic Affairs',
                 'slug' => 'institute-of-economic-affairs',
-                'acronym' => 'Iea',
+                'acronym' => 'iea',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-06-21',
@@ -72,7 +72,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'College of Sustainable Transformation & Development',
                 'slug' => 'college-of-sustainable-transformation-and-development',
-                'acronym' => 'Costrad',
+                'acronym' => 'costrad',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-07-14',
@@ -85,7 +85,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Education, Training & Development Institute',
                 'slug' => 'education-training-and-development-institute',
-                'acronym' => 'Etadi',
+                'acronym' => 'etadi',
                 'price' => '99.990',
                 'active' => 1,
                 'startDate' => '2023-08-09',
@@ -98,7 +98,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Futuristic Institute of Revolutionary Science & Technology',
                 'slug' => 'futuristic-institute-of-revolutionary-science-and-technology',
-                'acronym' => 'First',
+                'acronym' => 'first',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-09-27',
@@ -111,7 +111,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Media of Communication Institute',
                 'slug' => 'media-of-communication-institute',
-                'acronym' => 'Moci',
+                'acronym' => 'moci',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-11-15',
@@ -124,7 +124,7 @@ class InstituteSeeder extends Seeder
             [
                 'name' => 'Institute of Arts, Sports and Cultural Development',
                 'slug' => 'institute-of-arts-sports-and-cultural-development',
-                'acronym' => 'Ioasc',
+                'acronym' => 'ioasc',
                 'price' => '99.99',
                 'active' => 1,
                 'startDate' => '2023-12-06',

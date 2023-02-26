@@ -64,6 +64,7 @@
     class="bg-firefly-100 dark:bg-slate-900 min-h-[75rem] scrollbar-thin
 scrollbar-thumb-firefly-800 dark:scrollbar-thumb-firefly-900 scrollbar-track-gray-300 overflow-y-scroll overflow-x-hidden">
     <livewire:cookie />
+    <x-up-next />
     <!-- ========== HEADER ========== -->
     <livewire:layout.main.header />
     <!-- ========== END HEADER ========== -->

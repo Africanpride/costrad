@@ -3,8 +3,8 @@
     <div class="relative overflow-hidden">
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="max-w-2xl text-center mx-auto">
-                <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl dark:text-white">Designed for
-                    <span class="text-blue-600">simple</span>.
+                <h1 class="dark:title-gradient ">Designed for
+
                 </h1>
                 <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Build your business here. Take it anywhere.</p>
             </div>

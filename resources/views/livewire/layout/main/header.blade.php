@@ -85,6 +85,23 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                     </a>
                 </div>
+                <div class="text-firefly-700 dark:text-firefly-200 flex justify-start items-center gap-2">
+                    <svg class="block w-4 h-4 md:hidden" xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path
+                            d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z">
+                        </path>
+                        <path
+                            d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z">
+                        </path>
+                    </svg>
+                    <a href="{{ url('topics') }}"
+                        class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+    {{ Request::is('topics') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+                        Topics
+
+                    </a>
+                </div>
 
                 <div
                     class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4">
@@ -252,9 +269,10 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                     </div>
                 </div>
-                <a class="inline-flex items-center gap-x-3 text-black text-md  hover:text-gray-600 transition dark:text-gray-200 dark:hover:text-gray-400 "
-                    href="./figma.html">
-                    <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
+                <a href="{{ url('costrad') }}"
+                class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+{{ Request::is('costrad') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+                                    <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.81533 12.5C7.81533 13.5989 6.91234 14.5 5.78901 14.5C4.66568 14.5 3.7627 13.5989 3.7627 12.5C3.7627 11.4011 4.66568 10.5 5.78901 10.5H7.81533V12.5Z"

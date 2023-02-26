@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+
+
 .hide-overflow {
     overflow-y: hidden !important;
 }
@@ -12,14 +14,20 @@
     margin: 40px auto;
   }
 
-  .select2-dropdown {
-    @apply rounded-b-lg shadow-md;
-  }
-  .select2-search {
-    @apply border border-gray-300 rounded;
-  }
-  .select2-results__group {
-    @apply text-lg font-bold text-gray-900;
+  @layer base {
+    .title-gradient {
+        @apply bg-clip-text bg-gradient-to-l from-purple-400 to-blue-600 text-transparent text-7xl font-bold;
+    }
+      .select2-dropdown {
+        @apply rounded-b-lg shadow-md;
+      }
+      .select2-search {
+        @apply border border-gray-300 rounded;
+      }
+      .select2-results__group {
+        @apply text-lg font-bold text-gray-900;
+      }
+
   }
 
 
