@@ -62,7 +62,8 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
                         </path>
                     </svg>
                     <a href="{{ url('/') }}"
-                        class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+                        class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500
+                         hover:dark:text-firefly-300
     {{ Request::is('home') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
                         Home
 

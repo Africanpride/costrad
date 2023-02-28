@@ -7,11 +7,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }} | {{ $pageTitle ?? ' ' }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon_io/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon_io/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon_io/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/favicon_io/site.webmanifest') }}">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Open+Sans&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
 
     <!-- Scripts -->
@@ -25,21 +29,20 @@
 
 <body class="dark:bg-slate-900 bg-gray-100">
     <div class="grid grid-cols-1 md:grid-cols-3  h-screen">
-        <div class="col-span-1 min-h-[450px] md:min-h-screen relative px-8">
-            <img src="{{ asset('/images/hospital.jpg') }}" alt="Image Description"
+        <div class="col-span-1 min-h-[450px] md:min-h-screen relative px-8 ">
+            <img src="{{ asset('/images/login.jpg') }}" alt="Image Description"
                 class="absolute inset-0 h-full w-full object-cover">
-            <div class="flex flex-col justify-center items-start h-full relative  space-y-3">
+                <div class="absolute inset-0 bg-black/80 "></div>
+            <div class="flex flex-col justify-center items-start h-full relative  space-y-5 ">
                 <div>
                     <x-jet-authentication-card-logo />
                 </div>
-                <div class="z-10 text-primary-content">
-                    <article class="prose text-primary-content">
-                        <h1 class="text-white">Garlic bread with cheese: What the science tells us</h1>
-                        <h4 class="text-secondary">For years parents have espoused the health benefits of eating garlic
-                            bread with cheese to their
-                            children, with the food earning such an iconic status in our culture that kids will often
-                            dress up
-                            as warm, cheesy loaf for Halloween.</h4>
+                <div class="z-10 text-xl space-y-2 divide-y divide-slate-100">
+                    <article class="prose">
+                        <h2 class="text-white">College of Sustainable Transformation And Development</h2>
+                        <h3 class="text-firefly-300">
+                            Distinctively Global Sustainable Transformation Leadership Training.
+                        </h3>
 
                         <!-- ... -->
                     </article>

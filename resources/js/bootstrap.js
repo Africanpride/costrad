@@ -2,6 +2,8 @@ import _ from 'lodash';
 window._ = _;
 // window.Pikaday = require('pikaday');
 
+import interactionPlugin from '@fullcalendar/interaction'
+import dayGridPlugin from '@fullcalendar/daygrid'
 
 // import Datepicker from '@themesberg/tailwind-datepicker/Datepicker';
 

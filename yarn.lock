@@ -9,6 +9,23 @@
   dependencies:
     "focus-trap" "^6.6.1"
 
+"@fullcalendar/core@^6.1.4", "@fullcalendar/core@~6.1.4":
+  "integrity" "sha512-ZDD0Owv0LezAk14nsRNaOc9nbowItGmT0mnjOhEw+L6B8P5eads8yYaNA9itn70MWoOjiAG8xqD7Yk1iJGxqgQ=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/core/-/core-6.1.4.tgz"
+  "version" "6.1.4"
+  dependencies:
+    "preact" "^10.0.5"
+
+"@fullcalendar/daygrid@^6.1.4":
+  "integrity" "sha512-X0QWEiA/hT8GYiQzmXt9DlZTWaQbNtBHBXGtaMNcVXbGHDCzLoWTHrde/jABGfr/i2+d9sLUO4oTtwz2HVpNtQ=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.4.tgz"
+  "version" "6.1.4"
+
+"@fullcalendar/interaction@^6.1.4":
+  "integrity" "sha512-69G2B61bPiHy7VyTDiwU9l8yRHPUK9XxNxjIdm3N0nvWR6BaUIBDQe8dIWht+IZUf9qirFhnfcLWkRI0fOTWtw=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-6.1.4.tgz"
+  "version" "6.1.4"
+
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
   "resolved" "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -573,6 +590,11 @@
     "nanoid" "^3.3.4"
     "picocolors" "^1.0.0"
     "source-map-js" "^1.0.2"
+
+"preact@^10.0.5":
+  "integrity" "sha512-ERdIdUpR6doqdaSIh80hvzebHB7O6JxycOhyzAeLEchqOq/4yueslQbfnPwXaNhAYacFTyCclhwkEbOumT0tHw=="
+  "resolved" "https://registry.npmjs.org/preact/-/preact-10.13.0.tgz"
+  "version" "10.13.0"
 
 "preline@^1.5.0":
   "integrity" "sha512-H86+auVrHhzxN5aFf44wLLL0QOiMBkhSdGdoALpWP99efFdPhtTSeZrZamUYqi9DWg/J95wJciN7aJXk8Qk5vg=="

@@ -28,6 +28,7 @@ Route::get('/auth/callback', function () {
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
 Route::view('test4', 'test4');
+Route::view('test', 'test');
 Route::view('terms', 'terms');
 Route::view('privacy', 'privacy');
 Route::view('about', 'about');
@@ -63,6 +64,10 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::middleware([])->prefix('admin')->group(function () {
+
+        Route::get('calender', function () {
+            return view('admin.calender');
+        })->name('calender');
 
         Route::get('settings', function () {
             return view('admin.settings');

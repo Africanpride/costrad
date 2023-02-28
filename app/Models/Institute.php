@@ -41,7 +41,7 @@ class Institute extends Model implements HasMedia
     public function getInstituteLogoAttribute(): string
     {
 
-        return url('/') . "/storage/" .  $this->logo;
+        return url('/') .'/images/logo/'.  $this->logo;
     }
 
     public function getFrontendUrlAttribute() {
