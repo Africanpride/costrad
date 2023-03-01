@@ -4,7 +4,7 @@
     {{-- Fetch institute Components --}}
     @switch($institute->acronym)
         @case($institute->acronym = 'fdi')
-            FDI
+           <livewire:admin.institute.fdi />
         @break
 
         @case($institute->acronym = 'mti')
@@ -43,7 +43,6 @@
             Default case...
     @endswitch
 
-    <x-institute.stats price="{{ $institute->price }}" />
-    <x-institute.pricing price="{{ $institute->price }}" />
+
 
 </x-front-layout>

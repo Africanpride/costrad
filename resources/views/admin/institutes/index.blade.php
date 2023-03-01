@@ -63,14 +63,9 @@
                                             {{ $institute->overview }}
                                             <a href="{{ route('institute.show', [$institute->slug]) }}"
                                                 rel="noopener noreferrer"
-                                                class="inline-flex items-center  space-x-2 text-sm text-orange-400">
-                                                <span>Read more</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                    fill="currentColor" class="w-4 h-4">
-                                                    <path fill-rule="evenodd"
-                                                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
+                                                class="inline-flex justify-start items-center   text-sm text-orange-400">
+                                                <span class="pr-2">Read more</span>
+                                                <x-lucide-arrow-right class="w-4 h-4" />
                                             </a>
                                         </p>
                                     </div>
@@ -78,12 +73,15 @@
                                         <div class="flex justify-start items-center">
 
                                             <a rel="noopener noreferrer" href="#"
-                                                class="inline-flex items-center  space-x-2 text-sm text-orange-400">
+                                                class="inline-flex items-center  space-x-4 text-sm ">
+
                                                 <span href="#"
-                                                    class="flex items-center justify-between rounded-full bg-gray-900 py-1 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 gap-2">Register
-                                                    now <span aria-hidden="true">
+                                                    class="flex items-center justify-between rounded-full bg-firefly-800 py-1 px-4 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 gap-2">
+                                                    <span>Register now</span>
+                                                    <span aria-hidden="true">
                                                         <x-lucide-arrow-right class="w-4 h-4" />
-                                                    </span></span>
+                                                    </span>
+                                                </span>
 
                                             </a>
                                         </div>

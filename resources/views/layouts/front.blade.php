@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- front scripts --}}
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon_io/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon_io/favicon-32x32.png') }}">
@@ -32,32 +33,8 @@
     @livewireStyles
 
     <!-- Required Meta Tags Always Come First -->
+    @stack('scripts')
 
-    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://costrad.org">
-    <meta name="description"
-        content="This example is a quick exercise to illustrate how fixed to top navbar works using Tailwind CSS. As you scroll, it will remain fixed to the top of your browser's viewport.">
-
-    <meta name="twitter:site" content="@mycostrad">
-    <meta name="twitter:creator" content="@mycostrad">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sticky Header using Tailwind CSS | costrad UI, crafted with Tailwind CSS">
-    <meta name="twitter:description"
-        content="This example is a quick exercise to illustrate how fixed to top navbar works using Tailwind CSS. As you scroll, it will remain fixed to the top of your browser's viewport.">
-    <meta name="twitter:image" content="../../assets/img/og-image.png">
-
-    <meta property="og:url" content="https://costrad.org">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="costrad">
-    <meta property="og:title" content="Sticky Header using Tailwind CSS | costrad UI, crafted with Tailwind CSS">
-    <meta property="og:description"
-        content="This example is a quick exercise to illustrate how fixed to top navbar works using Tailwind CSS. As you scroll, it will remain fixed to the top of your browser's viewport.">
-    <meta property="og:image" content="../../assets/img/og-image.png">
-
-
-
-    @stack('head-script')
 </head>
 
 <body

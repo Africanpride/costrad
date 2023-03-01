@@ -124,7 +124,9 @@
                                 src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->full_name }}">
                         @endauth
                         <span
-                            class="text-gray-600 font-medium truncate max-w-[7.5rem] dark:text-gray-400">{{ Auth::user()->firstName }}</span>
+                            class="text-gray-600 font-medium truncate max-w-[7.5rem] dark:text-gray-400">
+                            {{ Auth::user()->firstName }}
+                        </span>
                         <svg class="hs-dropdown-open:rotate-180 w-2.5 h-2.5 text-gray-600" width="16" height="16"
                             viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"

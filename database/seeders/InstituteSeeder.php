@@ -29,7 +29,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-03-13',
                 'endDate' => '2023-03-18',
                 'about' => 'fdi',
-                'overview' => 'fdi',
+                'overview' => 'The family as the basic unit of society has far reaching implications on individual bent and ultimately on national stability in all respects. Social sciences have lost the primacy of the family as the building block for life',
                 'seo' => 'Family Development, Family Institute, Family Growth, Family Therapy, Family Counseling, Family Support,  Family Health Programs',
             ],
             [
@@ -42,7 +42,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-04-01',
                 'endDate' => '2023-04-05',
                 'about' => 'MTI',
-                'overview' => 'MTI',
+                'overview' => 'All behavior follows the dictates of the mind. As a person thinks so is he or she. This institute explores the pillars that govern beliefs systems, conditioning through cultural experiences and critical events. The brain',
                 'seo' => 'Mindset Transformation, Self-improvement, Personal Growth, Mental Health, Positive Thinking, Mindfulness',
             ],
 
@@ -56,7 +56,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-05-10',
                 'endDate' => '2023-05-15',
                 'about' => 'Igpp',
-                'overview' => 'Igpp',
+                'overview' => 'Are you interested in Government, Governance and Leadership within the private, public and NGO sectors? This institute is designed to develop leaders within these spheres of influence. At the heart of this program is a curriculum',
                 'seo' => 'Governance, Public Policy, Political Science, Public Administration, Civic Education, Democracy, Leadership',
             ],
 
@@ -70,7 +70,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-06-21',
                 'endDate' => '2023-06-26',
                 'about' => 'Iea',
-                'overview' => 'Iea',
+                'overview' => 'Resource management and allocation towards the thriving of everyone and everything is yet to be explored to its greatest possibility. This institute introduces the concept of theonomy which at best exploits the natural resources',
                 'seo' => 'Economic Affairs, Economics, Economic Development, Economic Policy, Macroeconomics, Microeconomics, Business Strategy',
             ],
             [
@@ -83,7 +83,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-07-14',
                 'endDate' => '2023-07-19',
                 'about' => 'Costrad',
-                'overview' => 'Costrad',
+                'overview' => 'Higher Education was primarily developed with theology as the queen of the sciences whereby students first studied theology and thereafter any other discipline. Almost all universities were Christian with the study of',
                 'seo' => 'Sustainable Development, Environmental Science, Green Technology, Renewable Energy, Climate Change, Circular Economy, Corporate Sustainability',
             ],
 
@@ -97,7 +97,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-08-09',
                 'endDate' => '2023-08-14',
                 'about' => 'Etadi',
-                'overview' => 'Etadi',
+                'overview' => 'Current educational modes are based on the Industrial revolution which has since been outmoded. A new educational paradigm that goes beyond literacy and numeracy is not only necessary but urgent in preparing citizens of a given',
                 'seo' => 'Education, Training, Development, Adult Learning, Instructional Design, Curriculum Development, E-learning',
             ],
 
@@ -111,7 +111,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-09-27',
                 'endDate' => '2023-10-02',
                 'about' => 'First',
-                'overview' => 'First',
+                'overview' => 'The Futuristic Institute of Science and Technology is a one-week intensive certificate training on  methodical, interdisciplinary, and comprehensive examination of social, technical, and other environmental trends in science and technology with an eye towards predicting future societal dynamics.',
                 'seo' => 'Science, Technology, Innovation, Futuristic, Robotics, Artificial Intelligence, Quantum Computing, Space Exploration',
             ],
 
@@ -125,7 +125,7 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-11-15',
                 'endDate' => '2023-11-20',
                 'about' => 'Moci',
-                'overview' => 'Moci',
+                'overview' => 'There are various medium through which information is disseminated. Together they are known as media of communication. In an information age, it is critical to be abreast with how this sphere of influence works.',
                 'seo' => 'Media, Communication, Journalism, Public Relations, Advertising, Digital Marketing, Mass Communication',
             ],
 
@@ -139,7 +139,8 @@ class InstituteSeeder extends Seeder
                 'startDate' => '2023-12-06',
                 'endDate' => '2023-12-11',
                 'about' => 'Ioasc',
-                'overview' => 'Ioasc',
+                'overview' => 'Arts, Sport and Culture have a massive economic contribution and general appeal that can be creatively employed for greater good.
+                The Arts are almost as old as human history and so would be sport. Every culture has both aspects of expression associated with most profound thoughts and existential realities. As such, understanding the artistry range; Strategic contribution of the Arts to development; Responsibility base in art education are critical to our identity.',
                 'seo' => 'Arts, Sports, Culture, Creativity, Performance, Music, Dance, Theater, Visual Arts',
             ]
 
