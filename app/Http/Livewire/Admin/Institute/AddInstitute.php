@@ -7,6 +7,7 @@ use App\Models\Institute;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
+use Illuminate\Support\Facades\Storage;
 
 
 class AddInstitute extends ModalComponent
@@ -61,16 +62,16 @@ class AddInstitute extends ModalComponent
         ]);
 
         if ($this->logo) {
-            $imageName = $this->logo->store("logo", 'public');
-            $validatedData['logo'] = $imageName;
+            $logoName = $this->logo->store("logo", 'public');
+            $validatedData['logo'] = $logoName;
         }
 
         if ($this->banner) {
-            $imageName = $this->banner->store("banner", 'public');
-            $validatedData['banner'] = $imageName;
+            $logoName = $this->banner->store("banner", 'public');
+            $validatedData['banner'] = $logoName;
         }
 
-        if($this->name) {
+        if ($this->name) {
             $validatedData['slug'] = Str::slug($this->name);
         }
 
@@ -161,6 +162,39 @@ class AddInstitute extends ModalComponent
     // {
     //     $this->isOpen = true;
     // }
+
+
+    public function images(Institute $institute)
+    {
+
+        $validatedData = $this->validate([
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+            'banner' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:3048',
+        ]);
+
+        if ($this->logo) {
+
+            if ($institute->logo) {
+                Storage::delete('/images/logo/' . $institute->logo);
+            }
+            $logoName = $this->logo->store("images/logo/", 'public');
+            $validatedData['logo'] = $logoName;
+        }
+
+        if ($this->banner) {
+
+            if ($institute->banner) {
+                Storage::delete('/images/banner/' . $institute->banner);
+            }
+            $bannerName = $this->banner->store("/images/banner/", 'public');
+            $validatedData['banner'] = $bannerName;
+        }
+
+        $institute->update($validatedData);
+
+        return redirect('admin/institutes')->with('message', 'Institute images updated successfully.');
+    }
+
 
     public function render()
     {

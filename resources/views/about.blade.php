@@ -24,8 +24,7 @@
 
                         <!-- Title -->
                         <div class="mt-5 max-w-10xl">
-                            <p
-                            class="block  text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
+                            <p class="block  text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
                                 Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
                                 imperceptible and doing the seemingly impossible.
                             </p>
@@ -64,8 +63,7 @@
         <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
             <div>
 
-                <img class="rounded-xl"
-                    src="{{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/costrad_lecture.jpg') }}"
+                <img class="rounded-xl h-auto" src="{{ asset('images/main/lecture_hall.jpg') }}"
                     alt="Costrad on leadership">
 
                 {{-- <img class="rounded-xl"
@@ -262,7 +260,7 @@
     </div>
     <!-- End agenda -->
 
-
+<div class="md:p-12 p-4">
     <!-- End Mission -->
     <div class="max-w-10xl md:max-w-6xl mx-auto relative text-center px-4 sm:px-6 lg:px-8 py-10 md:py-24 space-y-3">
         <div
@@ -276,8 +274,7 @@
             </div>
         </div>
 
-        <p
-            class="block font-thin text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
+        <p class="block font-thin text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
             Our Mission is to raise and develop generations of
             transformational leaders, equipped to bring systemic and sustainable change, to every sphere of society.
         </p>
@@ -296,56 +293,49 @@
         </div>
     </div>
     <!-- End Mission -->
+</div>
 
 
-    <div class="max-w-[85rem] md:h-[90vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8 dark:bg-black relative bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/banner2.jpg') }}');">
+    <!-- agenda -->
+    <div class="max-w-[85rem] w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-firefly-100 dark:bg-slate-900">
+        <!-- Grid -->
+        <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
 
-        <div class="absolute inset-0 bg-black/70 z-10"></div>
-        <div class="z-20">
-            <!-- Page Heading -->
-            <div class="max-w-5xl space-y-2 md:space-y-4 py-8">
-                <h4 class="font-['open sans'] text-firefly-700 dark:text-gray-200 font-semibold uppercase">
-                    A JOURNEY FOR NOW AND BEYOND
-                </h4>
-                <h1 class="uppercase font-['anton'] text-3xl md:text-4xl text-firefly-700 dark:text-firefly-700">
-                    Global Sustainable Transformation Leadership <br> Training with a Distinctive Approach.
-                </h1>
-                <p class="mt-2 text-lg text-gray-400 dark:text-gray-100">The College of Sustainable Transformation and
-                    Development (COSTrAD) and the various institutes are committed to the restoration, transformation
-                    and development of all spheres of society.</p>
+            <div class="mt-5 sm:mt-10 lg:mt-0">
+                <div class="space-y-6 sm:space-y-8">
+                    <!-- Title -->
+                    <div class="space-y-2 md:space-y-4">
+                        <h4 class="text-firefly-700 dark:text-gray-200 font-semibold uppercase  ">
+                            A Journey for Now and Beyond </h4>
+                        <h2 class="uppercase font-['anton'] text-3xl lg:text-4xl text-gray-700 dark:text-firefly-700">
+                            Global Sustainable Transformation Leadership
+                            Training With a Distinctive Approach.
+                        </h2>
+                        <p class="text-lg text-firefly-700 dark:text-white prose dark:prose-invert">
+                            The College of Sustainable Transformation and Development (COSTrAD) and the various
+                            institutes are committed to the restoration, transformation and development of all spheres
+                            of society.
 
-                <p class="mt-2 text-lg text-gray-400 dark:text-gray-100">These sustainable transformation educational
-                    platforms seek to do this by training and developing strategic transformational leaders, in a world
-                    characterized by increasing complexity and confronted by varied challenges, to harness the most
-                    strategic (qualitative and quantitative) resources within their environment to solve society’s
-                    challenges.
+                            These sustainable transformation educational platforms seek to do this by training and
+                            developing strategic transformational leaders, in a world characterized by increasing
+                            complexity and confronted by varied challenges, to harness the most strategic (qualitative
+                            and quantitative) resources within their environment to solve society’s challenges.
+                        </p>
+                    </div>
+                    <!-- End Title -->
 
-                </p>
-                <div class="mt-5 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 hidden">
-                    <a class="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-                        href="https://github.com/htmlstreamofficial/preline/tree/main/examples/html" target="_blank">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                        </svg>
-                        Get the source code
-                    </a>
-                    <a class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-firefly-500 hover:text-firefly-700 focus:outline-none focus:ring-2 ring-offset-white focus:ring-firefly-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 dark:ring-offset-slate-900"
-                        href="../../examples.html">
-                        <svg class="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path
-                                d="M11.2792 1.64001L5.63273 7.28646C5.43747 7.48172 5.43747 7.79831 5.63273 7.99357L11.2792 13.64"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                        Back to examples
-                    </a>
                 </div>
             </div>
-            <!-- End Page Heading -->
 
+            <div>
+                <img class="rounded-xl h-auto" src="{{ asset('images/main/lecture1.jpg') }}"
+                    alt="Costrad on leadership">
+            </div>
+            <!-- End Col -->
         </div>
+        <!-- End Grid -->
     </div>
+    <!-- End agenda -->
 
 
 

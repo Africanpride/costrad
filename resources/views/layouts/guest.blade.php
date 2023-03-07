@@ -30,7 +30,7 @@
 <body class="dark:bg-slate-900 bg-gray-100">
     <div class="grid grid-cols-1 md:grid-cols-3  h-screen">
         <div class="col-span-1 min-h-[450px] md:min-h-screen relative px-8 ">
-            <img src="{{ asset('/images/login.jpg') }}" alt="Image Description"
+            <img src="{{ asset('/images/main/login.jpg') }}" alt="Image Description"
                 class="absolute inset-0 h-full w-full object-cover">
                 <div class="absolute inset-0 bg-black/80 "></div>
             <div class="flex flex-col justify-center items-start h-full relative  space-y-5 ">

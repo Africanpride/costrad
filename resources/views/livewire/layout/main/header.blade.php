@@ -14,7 +14,7 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                 <div class="pl-4 flex justify-between items-center gap-4   md:before:w-px md:before:h-4 before:bg-gray-300 dark:before:bg-gray-700">
                    <a class="pl-3" href="https://www.youtube.com/@costrad6590" target="_blank">
-                    <img class="h-4" src="{{ asset('images/youtuber.png') }}" /></a>
+                    <img class="h-4" src="{{ asset('images/main/youtube.png') }}" /></a>
                     <x-admin.dark-switch />
                     <livewire:main-auth-indicator />
                 </div>
@@ -118,8 +118,9 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
                             </path>
                         </svg>
                         <span
-                            class="font-bold text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
-                         ">Institutes</span>
+                            class="font-bold text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300">
+                        <a href="{{  url('institutes') }}">Institutes</a>
+                        </span>
                         <svg class="ml-2 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"

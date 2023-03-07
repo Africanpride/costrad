@@ -94,7 +94,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
         'full_name',
-        'name'
+        'name',
     ];
 
 
@@ -105,7 +105,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function scopeStaff($query)
     {
-        return $query->where('staff', true);
+        return $query->where('staff', true) || $this->isAdmin();
     }
 
     public function getUserRoleAttribute()
@@ -113,7 +113,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->getRoleNames()->implode(' | ');
     }
 
-    public function getFullNameAttribute()
+    public function getFullNameAttribute() : string
     {
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
     }
@@ -122,7 +122,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
     }
 
-    public function isLoggedIn()
+    public function isLoggedIn() : bool
     {
         return Auth::check();
     }

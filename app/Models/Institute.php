@@ -36,12 +36,19 @@ class Institute extends Model implements HasMedia
         'price' => 'float'
     ];
 
-    protected $appends = ['frontend_url'];
+    protected $appends = [
+        'frontend_url',
+        'institute_logo',
+    ];
 
     public function getInstituteLogoAttribute(): string
     {
+        return asset("storage/{$this->logo}");
+    }
 
-        return url('/') .'/images/logo/'.  $this->logo;
+    public function getInstituteBannerUrlAttribute(): string
+    {
+        return url("storage/{$this->banner}");
     }
 
     public function getFrontendUrlAttribute() {

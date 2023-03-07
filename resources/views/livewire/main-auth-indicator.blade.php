@@ -52,7 +52,7 @@
     @guest
         <a href="{{ url('login') }}" class="dark:text-white">
             <img class="inline-block h-[1.475rem] aspect-square rounded-full"
-            src="{{ asset('images/login.png') }}"
+            src="{{ asset('images/main/login.png') }}"
             alt="Image Description">
         </a>
     @endguest

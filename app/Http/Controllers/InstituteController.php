@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InstituteRequest;
 use App\Models\Institute;
 use Illuminate\Http\Request;
 
@@ -71,8 +72,9 @@ class InstituteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Institute $institute)
+    public function update(InstituteRequest $request, Institute $institute)
     {
+        // dd($request->all());
         $institute->update($request->all());
 
         return redirect('admin/institutes')->with('message', 'Institute Updated successfully.');

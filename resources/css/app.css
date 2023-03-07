@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+.text-gradient1 {
+    background-image: linear-gradient(to right,var(--tw-gradient-stops));
+    --tw-gradient-from: #8d37d8;
+    --tw-gradient-to: #8d37d800;
+    --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to);
+    --tw-gradient-to: #4469f300;
+    --tw-gradient-stops: var(--tw-gradient-from),#4469f3,var(--tw-gradient-to);
+    --tw-gradient-to: #4469f3;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #fff0;
+}
 
 .hide-overflow {
     overflow-y: hidden !important;
