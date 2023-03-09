@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Profile extends Model
 {
-    use HasFactory;
+    use HasUuids,HasFactory;
+
 
     protected $fillable = [
         'title',
@@ -32,6 +34,10 @@ class Profile extends Model
         'marital_status',
         'avatar'
     ];
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
 
     protected $append = [
         'participant_avatar',

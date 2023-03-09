@@ -1,7 +1,7 @@
 <div>
 
     <div class="text-sm flex items-center justify-between w-full hidden">
-        <span class="font-semibold">Staff Members ({{ App\Models\User::count() }})</span>
+        <span class="font-semibold">Staff Members ({{ App\Models\User::staff()->count() }})</span>
         <a href="#" class="text-accent-400 font-medium text-sm">View all</a>
     </div>
 
@@ -27,10 +27,10 @@
         </div>
 
 
-        @forelse ($users as $user)
+        @forelse ($staffs as $staff)
             {{-- @if ($loop->first) @continue  @endif --}}
-            {{-- Exclude Current user from Staff list --}}
-            {{-- @if ($user->id === Auth::user()->id)
+            {{-- Exclude Current staff from Staff list --}}
+            {{-- @if ($staff->id === Auth::staff()->id)
                 @continue
             @endif --}}
 
@@ -40,15 +40,15 @@
 
                 <span class="absolute top-2 right-2 text-gray-500 dark:text-white hover:text-accent-500 z-100">
                     <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
-                        onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$user->id]) }})" />
+                        onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$staff->id]) }})" />
 
                 </span>
                 <span class="relative">
 
-                    <img src="{{ $user->profile_photo_url }}" class="w-14 h-14 rounded-full mb-3"
-                        alt="{{ $user->full_name }}" srcset="">
+                    <img src="{{ $staff->profile_photo_url }}" class="w-14 h-14 rounded-full mb-3"
+                        alt="{{ $staff->full_name }}" srcset="">
 
-                    @if ($user->isOnline())
+                    @if ($staff->isOnline())
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="h-3 w-3  fill-green-500 stroke-white stroke-2 absolute bottom-3 right-1"
                             viewBox="0 0 24 24">
@@ -65,16 +65,16 @@
                     @endif
                 </span>
 
-                <div class="text-gray-500 dark:text-white">{{ $user->full_name }}</div>
+                <div class="text-gray-500 dark:text-white">{{ $staff->full_name }}</div>
                 <div class="flex gap-2 items-center justify-center">
                     <div class="text-xxs text-firefly-400 mt-1  cursor-pointer "
-                        onclick="Livewire.emit('openModal', 'admin.staff.update-staff', {{ json_encode([$user->id]) }})">
+                        onclick="Livewire.emit('openModal', 'admin.staff.update-staff', {{ json_encode([$staff->id]) }})">
                         <span
                             class="inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-white">Edit
                             Staff</span>
                     </div>
                     <div class="text-xxs text-firefly-400 mt-1  ">
-                        @if ($user->active == 1)
+                        @if ($staff->active == 1)
                         <span
                         class="inline bg-green-50 border border-green-500 text-green-600 text-[.6125rem] leading-4  rounded-full py-0.5 px-2 dark:bg-green-900/[.75] dark:border-green-700 dark:text-white">Active
                         Active</span>
@@ -96,7 +96,7 @@
         @endforelse
     </div>
     <div class="py-5 ">
-        {{ $users->links() }}
+        {{ $staffs->links() }}
     </div>
 
 

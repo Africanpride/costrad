@@ -12,6 +12,6 @@ class StaffMembers extends Component
 
     public function render()
     {
-        return view('livewire.admin.staff.staff-members', ['users' => User::paginate(8)]);
+        return view('livewire.admin.staff.staff-members', ['staffs' => User::Staff()->paginate(8)]);
     }
 }

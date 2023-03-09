@@ -39,6 +39,7 @@ class Institute extends Model implements HasMedia
     protected $appends = [
         'frontend_url',
         'institute_logo',
+        'institute_banner_url'
     ];
 
     public function getInstituteLogoAttribute(): string
@@ -48,7 +49,7 @@ class Institute extends Model implements HasMedia
 
     public function getInstituteBannerUrlAttribute(): string
     {
-        return url("storage/{$this->banner}");
+        return asset("storage/{$this->banner}");
     }
 
     public function getFrontendUrlAttribute() {

@@ -1,12 +1,6 @@
 <?php
 
 use App\Models\User;
-use App\Models\Patient;
-use App\Models\Institute;
-use App\Models\Insurance;
-use App\Models\Treatment;
-use App\Models\Appointment;
-use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -21,8 +15,6 @@ Route::get('/auth/redirect', function () {
 
 Route::get('/auth/callback', function () {
     $user = Socialite::driver('google')->user();
-
-    // $user->token
 });
 
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
@@ -37,53 +29,81 @@ Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
 
+Route::get('start', function() {
+    return view('home');
+})->name('start');
+
+Route::get('test3', function () {
+    $roles = Role::paginate();
+    $permissions = Permission::all();
+    return view('test3', compact('roles', 'permissions'));
+});
+
 // display a particular institute using slug as parameter for the flrontend
 Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->name('institute.show');
-
-
 Route::post('contact', ContactController::class)->name('contact-form');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
-    Route::resource('institutes', InstituteController::class);
-});
 
-Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('admin/participants/index', function () {
-        return view('admin/participants/index');
-    });
-});
+// Participants and Everyone else  Routes
+Route::middleware(['auth', config('jetstream.auth_session')])->group(function () {
 
-Route::middleware([
-    'auth',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::middleware([])->prefix('admin')->group(function () {
+    Route::get('dashboard', function () {
+        return view('user.dashboard');
+    })->name('dashboard');
 
-        Route::get('calender', function () {
-            return view('admin.calender');
-        })->name('calender');
-
-        Route::get('settings', function () {
-            return view('admin.settings');
-        })->name('admin.settings');
-
-        Route::get('media', function () {
-            return view('admin.media');
-        })->name('admin.media');
-
-        Route::get('dashboard', function () {
-            return view('admin.dashboard');
-        })->name('admin.dashboard');
-    });
     Route::get('/profile', function () {
         return view('profile.show');
     });
+
+});
+
+
+// Admin Routes
+Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->group(function () {
+
+    Route::get('participants/', function () {
+        $participants = User::participant()->get();
+        return view('admin/participants/index', compact('participants'));
+    })->name('admin.participants');
+
+    Route::resource('institutes', InstituteController::class);
+
+    Route::get('calender', function () {
+        return view('admin.calender');
+    })->name('calender');
+
+    Route::get('settings', function () {
+        return view('admin.settings');
+    })->name('admin.settings');
+
+    Route::get('media', function () {
+        return view('admin.media');
+    })->name('admin.media');
+
+    Route::get('dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('manage-roles', function () {
+        $users = User::all();
+        return view('manage-roles', compact('users'));
+    })->name('admin.manage-roles');
+
+    Route::view('logs', 'logs');
+
+    Route::get('staff', function () {
+        $users = User::paginate(8);
+        return view('staff.index', compact('users'));
+    })->name('staff');
+
+});
+
+
 
     Route::get('/doctor', function () {
         return view('doctor.index');
@@ -96,35 +116,7 @@ Route::middleware([
         return view('invoice');
     });
 
-    Route::get('manage-roles', function () {
-        $users = User::all();
-        return view('manage-roles', compact('users'));
-    });
-
-    Route::get('staff', function () {
-        $users = User::paginate(8);
-        return view('staff.index', compact('users'));
-    })->name('staff');
 
 
-    Route::get('users', function () {
-        return User::all()->toJson();
-    });
-
-    Route::view('documentation', 'documentation');
-    Route::view('logs', 'logs');
 
 
-    Route::get('test3', function () {
-        $roles = Role::paginate();
-        $permissions = Permission::all();
-        return view('test3', compact('roles', 'permissions'));
-    });
-
-    Route::get('/inactive', function () {
-        return view('inactive');
-    })->name('inactive');
-    Route::get('trim', function () {
-        return Str::of('/Laravel/')->ltrim('/');
-    });
-});

@@ -10,6 +10,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -43,8 +44,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
         'password',
         'avatar',
+        'social_avatar',
         'facultyMember',
         'participant',
+        'must_create_password',
         'staff',
         'active',
         'google_id',
@@ -52,11 +55,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     ];
 
-    // public $incrementing = false;
-    // protected $keyType = 'string';
+    public $incrementing = false;
 
-    public $guard_name = 'web';
-
+    protected $keyType = 'string';
 
     public function getRouteKeyName()
     {
@@ -98,22 +99,37 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
-    public function scopeParticipant($query)
+    // Scopes
+
+    public function scopeStaff(Builder $query): void
     {
-        return $query->where('participant', true);
+        $query->where(function ($q) {
+            $q->where('staff', true)
+                ->orWhereHas('roles', function ($q) {
+                    $q->whereIn('name', ['super_admin', 'admin']);
+                });
+        })->where('active', 1);
     }
 
-    public function scopeStaff($query)
+    public function scopeParticipant(Builder $query): void
     {
-        return $query->where('staff', true) || $this->isAdmin();
+        $query->where(function ($q) {
+            $q->where('participant', true)
+                ->orWhereHas('roles', function ($q) {
+                    $q->whereIn('name', ['participant']);
+                });
+        })->where('active', 1);
     }
+
+    // end scopes
+
 
     public function getUserRoleAttribute()
     {
         return $this->getRoleNames()->implode(' | ');
     }
 
-    public function getFullNameAttribute() : string
+    public function getFullNameAttribute(): string
     {
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
     }
@@ -122,7 +138,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return ucfirst($this->firstName) . ' ' . ucfirst($this->lastName);
     }
 
-    public function isLoggedIn() : bool
+    public function isLoggedIn(): bool
     {
         return Auth::check();
     }
@@ -143,12 +159,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasAnyRole('admin', 'super_admin');
     }
 
-    public function isParticipant(): bool
-    {
-        return $this->hasRole('participant');
-    }
 
-    public function dashboard()
+    public function dashboard() : string
     {
         return $this->isAdmin() ? 'admin/dashboard' :  'dashboard';
     }
@@ -161,15 +173,21 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
+public function whois() {
+    return Auth::user()->firstName;
+}
 
-    public function profile(): HasOne
-    {
-        return $this->hasOne(Profile::class);
-    }
-
+public function profile()
+{
+    return $this->hasOne(Profile::class);
+}
     public function defaultProfilePhotoUrl()
     {
-        if(!empty($this->avatar)) {
+        if (empty($this->avatar) && !empty($this->social_avatar)) {
+            return asset("storage/{$this->social_avatar}");
+        }
+
+        if (!empty($this->avatar)) {
             return $this->avatar;
         } else {
 
@@ -180,4 +198,6 @@ class User extends Authenticatable implements MustVerifyEmail
             return 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&color=7F9CF5&background=EBF4FF';
         }
     }
+
+
 }

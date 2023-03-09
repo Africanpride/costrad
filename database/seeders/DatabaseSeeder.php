@@ -8,9 +8,12 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+use Rappasoft\LaravelLivewireTables\Traits\WithEvents;
 
 class DatabaseSeeder extends Seeder
 {
+
+
     /**
      * Seed the application's database.
      *
@@ -27,26 +30,36 @@ class DatabaseSeeder extends Seeder
                 $this->command->line("Data cleared, starting from blank database.");
             }
 
-            User::factory()->create([
+            $this->call([
+                RolesPermissionSeeder::class
+            ]);
+            $this->command->info("Roles & Permissions Created!");
+
+            $super_admin = User::factory()->create([
                 'firstName' => 'Pius',
                 'lastName' => 'Opoku-Fofie',
                 'email' => 'webmaster@costrad.org',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123Ghana'),
                 'remember_token' => Str::random(10),
+                'staff' => true
             ]);
+            $super_admin->profile()->create([
+                'bio' => 'Update Admin bio'
+            ]);
+
+            $super_admin->assignRole('super_admin');
             $this->command->info("Admin User Creation Done");
 
-            $this->call([
-                RolesPermissionSeeder::class
-            ]);
-            $this->command->info("Roles & Permissions Created!");
+            User::factory()->count(12)->hasProfile()->create();
+            $this->command->info("User Accounts Seeded");
+
 
             $this->call([
                 InstituteSeeder::class
             ]);
 
-            $this->command->info("Institutes & College Created!");
+            $this->command->info("Institutes & College Seeded!");
 
         }
 

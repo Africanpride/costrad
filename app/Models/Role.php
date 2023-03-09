@@ -12,6 +12,8 @@ class Role extends SpatieRole
 {
     use HasFactory;
     // use HasUuids;
+    protected $guard_name = 'web';
+
     protected $guarded = [];
 
 

@@ -60,7 +60,7 @@ class RolesPermissionSeeder extends Seeder
         ]);
 
         $participantRole = Role::create([
-            'name' => 'participants',
+            'name' => 'participant',
             'guard_name' => 'web',
             'description' => 'Participants role',
         ]);

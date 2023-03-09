@@ -1,4 +1,6 @@
 <div>
+
+<img class="w-full h-[750px] relative" src="{{ $institute->institute_banner_url }}" alt="{{ $institute->name }}">
     <x-institute.stats price="{{ $institute->price }}" />
         <div class="bg-white dark:bg-gray-800 py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">

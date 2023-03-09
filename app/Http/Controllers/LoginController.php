@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Models\Profile;
+use Illuminate\Http\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Password;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -33,15 +36,18 @@ class LoginController extends Controller
         $user = Socialite::driver('google')->user();
         try {
             // Get the authenticated user from the Google OAuth provider
-            // $familyName = $user->getRaw()['family_name'];
-            // dd($user->user['given_name']);
             $existingUser = User::where('google_id', $user->id)->first();
             if ($existingUser) {
                 // If the user already exists, log them in and redirect to the homepage
                 Auth::login($existingUser);
-                // $existingUser->updateProfilePhoto($existingUser->getAvatar());
-                return redirect('/');
+                return redirect()->route('start');
             } else {
+
+                if (!empty($user->getAvatar()) && $user->getAvatar() != '' && $user->getAvatar() != null) {
+                    $fileContents = file_get_contents($user->getAvatar());
+                    $avatar_file_name = uniqid('social_avatar_') . ".jpg";
+                    Storage::disk('public')->put($avatar_file_name, $fileContents);
+                }
 
                 $newUser = User::create([
                     'firstName' => $user->user['given_name'],
@@ -51,15 +57,27 @@ class LoginController extends Controller
                     'participant' => true,
                     'email_verified_at' => now(),
                     'password' => Hash::make(Str::random(12)),
-                    'avatar' => $user->getAvatar()
+                    'must_create_password' => true, // Add flag to indicate that the user must reset password
+                    'social_avatar' => $avatar_file_name
                 ]);
 
+                // Generate new profile
+                $newUser->profile()->create([
+                    'bio' => 'Update bio'
+                ]);
+
+                // Give User role as participant
+                $newUser->assignRole('participant');
+
+                // login User
                 Auth::login($newUser);
-                return redirect('/');
+
+                return redirect()->route('start');
+
             }
         } catch (Exception $e) {
             dd($e);
-            return redirect('login')->withErrors(['error' => 'Unable to authenticate with Google. Please try again later.']);
+            // return redirect('login')->withErrors(['error' => 'Unable to authenticate with Google. Please try again later.']);
         }
     }
 }

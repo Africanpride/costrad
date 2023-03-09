@@ -14,10 +14,31 @@ return new class extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('title')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('dateOfBirth')->nullable();
+            $table->string('address_1')->nullable();
+            $table->string('address_2')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('country')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('emergencyContactName')->nullable();
+            $table->string('emergencyContactTelephone')->nullable();
+            $table->string('nationality')->nullable();
+            $table->boolean('active')->nullable();
+            $table->text('bio')->nullable();
+            $table->text('resume')->nullable();
+            $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('disabled')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

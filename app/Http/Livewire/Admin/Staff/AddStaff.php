@@ -46,6 +46,8 @@ class AddStaff extends ModalComponent
         // set password
         $user->forceFill([
             'password' => Hash::make($this->password),
+            'must_reset_password' => false,
+            'staff' => true
         ])->save();
 
         // send reset password

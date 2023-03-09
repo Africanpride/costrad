@@ -16,9 +16,7 @@
 
                 @if ($institutes->count() > 0)
                     @foreach ($institutes as $institute)
-                    <div>
-                        <img src="{{ $institute->institute_banner_url }}" alt="">
-                    </div>
+
                         <!-- End Card Section -->
                         <div class="bg-gray-200 dark:bg-gray-900 dark:text-gray-100  max-w-3xl mx-auto !rounded-xl ">
                             <div class="container grid grid-cols-12 mx-auto ">

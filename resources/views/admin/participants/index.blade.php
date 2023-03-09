@@ -1,53 +1,12 @@
 <x-app-layout>
-    <x-admin.pageheader model-name="RBAC / ACL" description="Roles &<br /> Permissions" add-button="false" class="mx-4">
+    <x-admin.pageheader model-name="PARTICIPANTS LIST" description="Participants &<br /> Management" add-button="false" class="mx-4">
         <x-heroicon-o-user-group class="w-5 h-5 text-current" />
         </x-admin-pageheader>
 
         <div class="p-4 space-y-3">
 
             <!-- Jumbotron -->
-            <div class="p-6 shadow rounded-lg bg-firefly-50 dark:bg-slate-900 dark:text-white ">
-
-                <div class="space-y-3">
-                    <p class="max-w-7xl">
-                        These are the Roles already in <b>{{ config('app.name') }}</b> with their
-                        associated roles. You can assign new roles to existing member here. A role provides access to
-                        predefined menus and features so that depending on the assigned role and permissions a user can
-                        have access to what they need.
-                    </p>
-                    <p class="max-w-7xl">
-                        Roles would be assigned available Permissions.
-                    </p>
-
-
-
-
-                    <div class="gap-4 grid grid-cols-1 md:flex justify-start items-center">
-                        <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.role.add-role')">
-                            <span class="flex items-center justify-center gap-2">
-                                <x-admin.green-shield-icon class="w-6 h-6 text-green-500 " />
-                                Add New Role
-                            </span>
-                        </x-admin.generic-button>
-                        <x-admin.generic-button
-                            onclick="Livewire.emit('openModal', 'admin.permissions.add-permission')">
-                            <span class="flex items-center justify-center gap-2">
-                                <x-heroicon-o-adjustments-horizontal class="w-6 h-6 text-yellow-400 " />
-                                Add New Permission
-                            </span>
-                        </x-admin.generic-button>
-                    </div>
-
-                </div>
-                <hr class="my-6 dark:border-gray-600 border-firefly-200" />
-                <livewire:admin.available-roles />
-                <hr class="my-6 dark:border-gray-600 border-firefly-200" />
-                <livewire:admin.available-permissions />
-            </div>
-            <!-- Jumbotron -->
-
-            <!-- Jumbotron -->
-            <div class="p-6 shadow  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
+            <div class="p-6 shadow rounded-lg  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
                 <div class="flex flex-row justify-between my-2">
                     <h2 class="font-semibold text-3xl">Administrator Privileges</h2>
                 </div>
@@ -76,7 +35,19 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3  uppercase tracking-wider  hidden md:table-cell text-left text-xs leading-4 font-medium ">
+                                            Account Verified
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3  uppercase tracking-wider  hidden md:table-cell text-left text-xs leading-4 font-medium ">
+                                            Account Verified
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3  uppercase tracking-wider  hidden md:table-cell text-left text-xs leading-4 font-medium ">
                                             Role
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs leading-4 font-medium  uppercase tracking-wider  hidden md:table-cell text-left">
+                                            Ban/Remove Access
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-xs leading-4 font-medium  uppercase tracking-wider  hidden md:table-cell text-left">
@@ -164,10 +135,7 @@
             </div>
             <!-- Jumbotron -->
 
-
-
-
         </div>
 
 
-</x-app-layout>
+    </x-admin.pageheader>

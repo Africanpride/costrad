@@ -12,7 +12,7 @@
 
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
-                    href="{{ route('admin.dashboard') }}">
+                    href="{{ url(Auth::user()?->dashboard()) }}">
                     <span class="flex ">
                         <x-heroicon-o-building-office-2 class="w-6 h-6 text-current" />
                     </span>
@@ -55,7 +55,7 @@
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                     href="{{ route('calender') }}">
                     <span class="flex ">
-                        <x-lucide-book-open-check class="w-6 h-6 text-current" />
+                        <x-lucide-calendar-days class="w-6 h-6 text-current" />
 
                     </span>
                     <span class=" capitalize">{{ __('Calender') }}</span>
@@ -64,7 +64,7 @@
 
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
-                    href="{{ url('admin/participants/index') }}">
+                    href="{{ route('admin.participants') }}">
                     <span class="flex ">
                         <x-lucide-scan-face class="w-6 h-6 text-current" />
 
@@ -81,7 +81,7 @@
         <ul>
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
-                    href="{{ url('manage-roles') }}">
+                    href="{{ url('admin/manage-roles') }}">
                     <span class="flex ">
                         <x-heroicon-o-document-check class="w-6 h-6 text-current" />
 
@@ -92,7 +92,7 @@
             </li>
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-700 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
-                    href="{{ url('logs') }}">
+                    href="{{ url('admin/logs') }}">
                     <span class="flex ">
                         <x-heroicon-o-finger-print class="w-6 h-6 text-current" />
 
