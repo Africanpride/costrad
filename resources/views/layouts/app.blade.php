@@ -43,7 +43,7 @@
 
     @livewireStyles
 
-    <x-head.tinymce-config/>
+    <x-head.tinymce-config />
 
 </head>
 {{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}

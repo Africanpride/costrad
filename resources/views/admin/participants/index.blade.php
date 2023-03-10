@@ -8,11 +8,11 @@
             <!-- Jumbotron -->
             <div class="p-6 shadow rounded-lg  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
                 <div class="flex flex-row justify-between my-2">
-                    <h2 class="font-semibold text-3xl">Administrator Privileges</h2>
+                    <h2 class="font-semibold text-3xl">Participant List & Privileges ({{ $participants->count() }})</h2>
                 </div>
                 <div class="space-y-3">
                     <p class="max-w-2xl">
-                        These are members of <b>{{ config('app.name') }}</b> with Administrator Privileges in the
+                        These are participants of <b>{{ config('app.name') }}</b> with Administrator Privileges in the
                         organization. You may create new roles and permissions here.
                     </p>
                 </div>

@@ -20,7 +20,7 @@
                 <a href="http://">About</a>
             </li>
             <li>
-                <a href="http://">Help</a>
+                <a href="{{  url('help') }}">Help</a>
             </li>
             <li>
                 <a href="http://">Accessibility</a>

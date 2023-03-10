@@ -38,6 +38,11 @@
         @apply text-lg font-bold text-gray-900;
       }
 
+      .card-top-text {
+        @apply flex  justify-center items-center space-x-2 px-5 py-2 rounded-2xl w-auto  bg-firefly-200/50 dark:bg-firefly-900  mb-2
+        text-sm font-semibold text-firefly-900 dark:text-white ;
+      }
+
   }
 
 

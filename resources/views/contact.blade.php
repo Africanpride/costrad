@@ -1,15 +1,117 @@
 <x-front-layout>
-    <!-- contact -->
-    <section class="min-h-screen bg-cover " {{-- style="background-image: {{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/costrad_lecture.jpg') }}" --}}
-        style="background-image: url(' {{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/bg2.png') }}')">
-        <div class="flex flex-col min-h-screen bg-black/60">
+
+
+    <section class="min-h-screen ">
+        <div class="flex flex-col min-h-screen ">
             <div class="container flex flex-col flex-1 px-6 py-12 mx-auto">
                 <div class="flex-1 lg:flex lg:items-center lg:-mx-6">
-                    <div class="text-white lg:w-1/2 lg:mx-6">
-                        <h1 class="text-xl text-firefly-300 font-semibold capitalize lg:text-xl">We look forward to
-                            hearing from you soon!</h1>
+                    <div class="text-white lg:w-1/2 lg:mx-6 space-y-6">
+                        <!-- Grid -->
+                        <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
+                            <!-- Card -->
+                            <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
+                                href="#">
+                                <div class="p-4 md:p-5">
+                                    <div class="flex">
+                                        <svg class="mt-1 shrink-0 w-5 h-5 text-gray-800 dark:text-gray-200"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" />
+                                        </svg>
 
-                        <p class="max-w-xl mt-6 text-xl">
+                                        <div class="grow ml-5">
+                                            <h3
+                                                class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+                                                Ask our community
+                                            </h3>
+                                            <p class="text-sm text-gray-500">
+                                                Get help from 40k+ Preline users
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- End Card -->
+
+                            <!-- Card -->
+                            <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
+                                href="#">
+                                <div class="p-4 md:p-5">
+                                    <div class="flex">
+                                        <svg class="mt-1 shrink-0 w-5 h-5 text-gray-800 dark:text-gray-200"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z" />
+                                            <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        </svg>
+
+                                        <div class="grow ml-5">
+                                            <h3
+                                                class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+                                                Get help in the app
+                                            </h3>
+                                            <p class="text-sm text-gray-500">
+                                                Just head to «FAQS» section
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- End Card -->
+
+                            <!-- Card -->
+                            <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
+                                href="#">
+                                <div class="p-4 md:p-5">
+                                    <div class="flex">
+                                        <x-lucide-phone-incoming class="w-5 h-5 text-current" />
+
+
+                                        <div class="grow ml-5">
+                                            <h3
+                                                class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+                                                Hotline
+                                            </h3>
+                                            <p class="text-sm text-gray-500">
+                                                Call us at <span
+                                                    class="text-blue-600 font-medium dark:text-blue-500">+233</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- End Card -->
+                            <!-- Card -->
+                            <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
+                                href="#">
+                                <div class="p-4 md:p-5">
+                                    <div class="flex">
+                                        <svg class="mt-1 shrink-0 w-5 h-5 text-gray-800 dark:text-gray-200"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z" />
+                                        </svg>
+
+                                        <div class="grow ml-5">
+                                            <h3
+                                                class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+                                                Email us
+                                            </h3>
+                                            <p class="text-sm text-gray-500">
+                                                Reach us at <span
+                                                    class="text-blue-600 font-medium dark:text-blue-500">info@costrad.org</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- End Card -->
+                        </div>
+
+                        <p class="max-w-xl mt-6 text-medium text-justify text-gray-900 dark:text-white">
                             we've made it easy for you to reach out to us whenever you need to. Our form is available
                             24/7 and our team is always ready to assist you. So if you have any questions, concerns, or
                             just want to chat, we encourage you to reach out to us today.
@@ -40,7 +142,7 @@
                                 Whether you have a question, concern, or simply want to provide feedback, our team is
                                 here to help.
                             </p>
-                            <div class="flex justify-start items-center gap-x-2" >
+                            <div class="flex justify-start items-center gap-x-2">
                                 @error('g-recaptcha-score')
                                     <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
 
@@ -68,7 +170,7 @@
                                                 placeholder="Dr. Kwame Prince"
                                                 class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring" />
                                         </div>
-                                        <div class="flex justify-start items-center gap-x-2" >
+                                        <div class="flex justify-start items-center gap-x-2">
                                             @error('name')
                                                 <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
 
@@ -85,7 +187,7 @@
                                                 placeholder="kwame.prince@costrad.org"
                                                 class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring" />
                                         </div>
-                                        <div class="flex justify-start items-center gap-x-2" >
+                                        <div class="flex justify-start items-center gap-x-2">
                                             @error('email')
                                                 <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
 
@@ -97,7 +199,7 @@
                                 </div>
                                 <div class="w-full mt-6">
                                     <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
-                                    <div class="flex justify-start items-center gap-x-2" >
+                                    <div class="flex justify-start items-center gap-x-2">
                                         @error('message')
                                             <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
 
@@ -125,64 +227,6 @@
         </div>
     </section>
     <!-- End contact -->
-
-
-    <!-- vision -->
-    <div class="md:p-12 p-4 hidden">
-        <div class="relative overflow-hidden rounded-2xl">
-            <!-- Gradients -->
-            <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
-                <div
-                    class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900">
-                </div>
-                <div
-                    class="bg-gradient-to-tl from-firefly-50 via-firefly-100 to-firefly-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
-                </div>
-            </div>
-            <!-- End Gradients -->
-
-            <div class="relative z-10 py-8">
-                <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-                    <div class="max-w-9xl text-center mx-auto">
-                        <p
-                            class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
-                            COSTrAD: Our Transformational Vision
-                        </p>
-
-                        <!-- Title -->
-                        <div class="mt-5 max-w-10xl">
-                            <h1
-                                class="block font-semibold text-firefly-800 text-xl md:text-3xl  dark:text-gray-200 font-['roboto'] uppercase">
-                                Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
-                                imperceptible and doing the seemingly impossible.
-                            </h1>
-                        </div>
-                        <!-- End Title -->
-
-                        <!-- Buttons -->
-                        <div class="mt-8 grid gap-3 w-full sm:inline-flex sm:justify-center">
-                            <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-                                href="{{ url('our-process') }}">
-                                Start the Journey
-                                <svg class="w-3 h-3" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path
-                                        d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                                </svg>
-                            </a>
-                            <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-firefly-800 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:text-white dark:hover:bg-gray-800 dark:hover:border-gray-900 dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800"
-                                href="{{ url('/institutes') }}">
-                                <x-lucide-globe class="w-5 h-5 text-current " />
-                                Our Institutes
-                            </a>
-                        </div>
-                        <!-- End Buttons -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End vision -->
 
 
     @push('head-script')

@@ -6,7 +6,7 @@
 
         <div class="shadow-md w-full md:col-span-8 bg-firefly-100 dark:bg-firefly-800 py-6 px-6 rounded-3xl text-firefly-800 dark:text-white">
             <div class="flex justify-between  items-center mb-8">
-                <p class="text-2xl font-bold">Participants Dashboard</p>
+                <p class="text-2xl font-bold">Admin Dashboard</p>
                 <p class="">{{ now()->format('F, Y') }}</p>
             </div>
             <div class="flex flex-wrap justify-between items-center pb-8">
@@ -271,12 +271,14 @@
                 </button>
                 </div>
                 <div>
+
+                    @forelse ($latest as $registrant)
                     <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
+                        <img src="{{ $registrant->profile_photo_url }}"
                             alt="profile image" class="object-cover w-10 h-10 rounded-full">
                         <div class="pl-4 w-full">
                             <div class="flex items-center justify-between w-full">
-                                <div class="text-white font-medium">Stephanie</div>
+                                <div class="text-white font-medium">{{ $registrant->name }}</div>
                                 <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -287,74 +289,18 @@
                                         </polygon>
                                     </svg></div>
                             </div>
-                            <p class="my-2 text-sm text-gray-400">I got your first assignment. It was quite good.
-                                🥳 We can continue with the next assignment.</p>
-                            <p class="text-right text-gray-400 text-sm">Dec, 12</p>
+                            <p class="my-2 text-sm text-gray-400">{{ $registrant->profile->bio}}</p>
+                            <p class="text-right text-gray-400 text-sm">{{ $registrant->created_at->format('F d, Y') }}</p>
                         </div>
                     </div>
-                    <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                        <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
-                            alt="profile image2" class="object-cover w-10 h-10 rounded-full">
-                        <div class="pl-4 w-full">
-                            <div class="flex items-center justify-between w-full">
-                                <div class="text-white font-medium">Mark</div>
-                                <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        class="text-white">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                        </polygon>
-                                    </svg></div>
-                            </div>
-                            <p class="my-2 text-sm text-gray-400">Hey, can tell me about progress of project? I'm
-                                waiting for your response.</p>
-                            <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                        </div>
+
+                    @empty
+
+                    <div>
+                        No Dahta
                     </div>
-                    <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                        <img src="https://images.unsplash.com/photo-1543965170-4c01a586684e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fG1hbnxlbnwwfDB8MHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                            alt="profile image" class="object-cover w-10 h-10 rounded-full">
-                        <div class="pl-4 w-full">
-                            <div class="flex items-center justify-between w-full">
-                                <div class="text-white font-medium">David</div>
-                                <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        class="text-white">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                        </polygon>
-                                    </svg></div>
-                            </div>
-                            <p class="my-2 text-sm text-gray-400">Hey, can tell me about progress of project? I'm
-                                waiting for your response.</p>
-                            <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                        </div>
-                    </div>
-                    <div class="border-t solid border-gray-700 p-4 flex 2xl:items-start w-full hover:bg-gray-700">
-                        <img src="https://images.unsplash.com/photo-1533993192821-2cce3a8267d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvbWFuJTIwbW9kZXJufGVufDB8fDB8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                            alt="profile image3" class="object-cover w-10 h-10 rounded-full">
-                        <div class="pl-4 w-full">
-                            <div class="flex items-center justify-between w-full">
-                                <div class="text-white font-medium">Mark</div>
-                                <div class="flex justify-center items-center cursor-pointer h-7 w-7"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        class="text-white">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                        </polygon>
-                                    </svg></div>
-                            </div>
-                            <p class="my-2 text-sm text-gray-400">I am really impressed! Can't wait to see the
-                                final result.</p>
-                            <p class="text-right text-gray-400 text-sm">Dec, 12</p>
-                        </div>
-                    </div>
+
+                    @endforelse
                 </div>
             </div>
         </div>

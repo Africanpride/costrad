@@ -37,7 +37,7 @@ class ProfileFactory extends Factory
             'emergencyContactTelephone' => $this->faker->phoneNumber(),
             'nationality' => $this->faker->randomElement(['Nigeria', 'Ghana', 'South Africa', 'United States', 'United Kingdom']),
             'active' => $this->faker->boolean(false),
-            'bio' => $this->faker->paragraph(),
+            'bio' => 'We want to know more about you - update your bio once and showcase your unique story.',
             'resume' => $this->faker->url(),
             'disabled' => $this->faker->boolean(false),
             'marital_status' => $this->faker->randomElement(['single', 'married', 'divorced', 'widowed']),

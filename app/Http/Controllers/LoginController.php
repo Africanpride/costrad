@@ -40,7 +40,7 @@ class LoginController extends Controller
             if ($existingUser) {
                 // If the user already exists, log them in and redirect to the homepage
                 Auth::login($existingUser);
-                return redirect()->route('start');
+                return redirect()->route('home');
             } else {
 
                 if (!empty($user->getAvatar()) && $user->getAvatar() != '' && $user->getAvatar() != null) {
@@ -63,7 +63,7 @@ class LoginController extends Controller
 
                 // Generate new profile
                 $newUser->profile()->create([
-                    'bio' => 'Update bio'
+                    'bio' => 'We want to know more about you - update your bio once and showcase your unique story.'
                 ]);
 
                 // Give User role as participant
@@ -72,12 +72,12 @@ class LoginController extends Controller
                 // login User
                 Auth::login($newUser);
 
-                return redirect()->route('start');
+                return redirect()->route('home');
 
             }
         } catch (Exception $e) {
-            dd($e);
-            // return redirect('login')->withErrors(['error' => 'Unable to authenticate with Google. Please try again later.']);
+            // dd($e);
+            return redirect('login')->withErrors(['error' => 'Unable to authenticate with Google. Please try again later.']);
         }
     }
 }

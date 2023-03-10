@@ -39,9 +39,9 @@
                 </div>
                 <div class="z-10 text-xl space-y-2 divide-y divide-slate-100">
                     <article class="prose">
-                        <h2 class="text-white">College of Sustainable Transformation And Development</h2>
-                        <h3 class="text-firefly-300">
-                            Distinctively Global Sustainable Transformation Leadership Training.
+                        <h2 class="text-white font-[inter] text-3xl ">College of Sustainable Transformation And Development</h2>
+                        <h3 class="text-firefly-200">
+                            By signing in to your COSTrAD account, you can fully utilize all of our services and enhance your experience with COSTrAD by personalizing it and accessing your most important information from anywhere.
                         </h3>
 
                         <!-- ... -->

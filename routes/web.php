@@ -22,16 +22,16 @@ Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class,
 Route::view('test4', 'test4');
 Route::view('test', 'test');
 Route::view('terms', 'terms');
+Route::view('help', 'help');
 Route::view('privacy', 'privacy');
 Route::view('about', 'about');
-Route::view('/', 'home');
 Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
 
-Route::get('start', function() {
+Route::get('/', function() {
     return view('home');
-})->name('start');
+})->name('home');
 
 Route::get('test3', function () {
     $roles = Role::paginate();
@@ -86,7 +86,8 @@ Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->
     })->name('admin.media');
 
     Route::get('dashboard', function () {
-        return view('admin.dashboard');
+        $latest = User::take(4)->orderBy('created_at', 'desc')->get();
+        return view('admin.dashboard', compact('latest'));
     })->name('admin.dashboard');
 
     Route::get('manage-roles', function () {
