@@ -33,6 +33,13 @@ Route::get('/', function() {
     return view('home');
 })->name('home');
 
+
+// Route::get('test5', function() {
+//     $response = Http::get("https://restcountries.com/v3.1/name/peru");
+//     $data = $response->json();
+//    return $flagUrl = $data[0]['flag'];
+// });
+
 Route::get('test3', function () {
     $roles = Role::paginate();
     $permissions = Permission::all();

@@ -1,86 +1,64 @@
 <x-front-layout>
 
-    <section class="px-4 py-20 mx-auto max-w-7xl">
-        <div class="grid items-center grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-32 gap-x-10 lg:gap-x-24">
-          <div>
-            <h2 class="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-center text-black sm:text-left md:text-4xl">Become a Partner</h2>
-            <p class="mb-6 text-lg text-center text-gray-600 dark:text-white sm:text-left md:text-xl">Let's put our heads together to build a successful partnership to benefit both your customers and your business.</p>
-            <a href="#" class="w-full btn btn-primary btn-lg sm:w-auto">Become a Partner</a>
-          </div>
-          <div class="flex flex-col flex-grow space-y-5">
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">Email APIs, SMTP Relay, and Webhooks</p>
+    <section class="max-w-8xl px-4 py-5 lg:px-8 lg:py-8 mx-auto ">
+        <div style="background-image: url('{{ asset('images/main/un2.jpg') }}');"
+            class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative rounded-xl md:min-h-[85vh] ">
+            <div
+                class="absolute bottom-0 left-0 right-0 max-w-xs text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
+                <!-- Card -->
+                <div class="px-5 py-4 inline-block bg-white rounded-lg md:p-7 dark:bg-gray-900">
+                    <div class="hidden md:block">
+                        <h3 class=" font-bold text-gray-800 text-sm dark:text-gray-200"> COSTrAD: A Critical Mandate.
+                        </h3>
+                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-left">The College of Sustainable
+                            Transformation and Development (COSTrAD) and the various institutes are committed to the
+                            restoration, transformation and development of all spheres of society.</p>
+                    </div>
+
+                    <div class="md:mt-6">
+                        <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
+                            href="#">
+                            <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                <path
+                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z">
+                                </path>
+                            </svg>
+                            Watch our AudioVisual
+                        </a>
+                    </div>
+                </div>
+                <!-- End Card -->
             </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">Suppression Management</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">Email Tracking and Analytics</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">99.99% Guaranteed Uptime SLA</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">5 Days of Log Retention</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">Limited 24/7 Ticket Support</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">1 Dedicated IP (Foundation 100k and up)</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">1,000 Email Address Validations</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">Host events together or get your event sponsored</p>
-            </div>
-            <div class="flex items-start">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="flex-none w-5 h-5 mt-1 mr-2 text-primary">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-lg text-gray-700 dark:text-white ">Reach 90,000 customers via our integration page</p>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
+
+    <div class="lg:px-8 max-w-8xl md:mb-32 mx-auto px-4 space-y-4">
+        <p class="text-sm leading-6 font-semibold text-sky-500">New York Times Events</p>
+        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white">Live
+            events by The New York Times.</h2>
+        <div class="mt-4 max-w-3xl prose prose-slate dark:prose-dark">
+            <p>The New York Times Events website is an online collection of virtual gatherings and live-streamed events
+                by the 171-year-old newspaper. The Events website was built using Tailwind CSS.</p>
+        </div>
+    </div>
+
+
+
+
+
+
 
     <!-- Hero -->
     <div class="relative overflow-hidden">
-        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="max-w-2xl text-center mx-auto">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            {{-- <div class="max-w-2xl text-center mx-auto">
                 <h1 class="dark:title-gradient ">Designed for
 
                 </h1>
                 <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Build your business here. Take it anywhere.</p>
-            </div>
+            </div> --}}
 
             <div class="mt-10 relative max-w-5xl mx-auto">
 
@@ -89,7 +67,7 @@
                      bg-[url({{ asset('/storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/quarterglobe.jpeg') }})] bg-no-repeat bg-center bg-cover rounded-xl"> --}}
                 <div class="w-full object-cover h-96 sm:h-[480px]
                      bg-no-repeat bg-center bg-cover rounded-xl"
-                    style="background-image: url('{{ asset('storage/files/986bcb09-ec3c-4975-8302-d979b4f28608/quarterglobe.jpeg') }}');">
+                    style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
                 </div>
 
                 <div class="absolute inset-0 w-full h-full">
@@ -129,8 +107,8 @@
             <path fill="url(#10724532-9d81-43d2-bb94-866e98dd6e42)" fill-opacity=".2"
                 d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
             <defs>
-                <linearGradient id="10724532-9d81-43d2-bb94-866e98dd6e42" x1="1097.04" x2="-141.165"
-                    y1=".22" y2="363.075" gradientUnits="userSpaceOnUse">
+                <linearGradient id="10724532-9d81-43d2-bb94-866e98dd6e42" x1="1097.04" x2="-141.165" y1=".22"
+                    y2="363.075" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#776FFF" />
                     <stop offset="1" stop-color="#FF4694" />
                 </linearGradient>
@@ -141,8 +119,8 @@
             <path fill="url(#8ddc7edb-8983-4cd7-bccb-79ad21097d70)" fill-opacity=".2"
                 d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
             <defs>
-                <linearGradient id="8ddc7edb-8983-4cd7-bccb-79ad21097d70" x1="1097.04" x2="-141.165"
-                    y1=".22" y2="363.075" gradientUnits="userSpaceOnUse">
+                <linearGradient id="8ddc7edb-8983-4cd7-bccb-79ad21097d70" x1="1097.04" x2="-141.165" y1=".22"
+                    y2="363.075" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#776FFF" />
                     <stop offset="1" stop-color="#FF4694" />
                 </linearGradient>
@@ -229,8 +207,8 @@
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-firefly-100">
                             <svg class="w-8 h-8 text-firefly-600 sm:w-10 sm:h-10" stroke="currentColor"
                                 viewBox="0 0 52 52">
-                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                    points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                    fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                             </svg>
                         </div>
                     </div>
@@ -246,8 +224,8 @@
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-firefly-100">
                             <svg class="w-8 h-8 text-firefly-600 sm:w-10 sm:h-10" stroke="currentColor"
                                 viewBox="0 0 52 52">
-                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                    points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                    fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                             </svg>
                         </div>
                     </div>
@@ -264,8 +242,8 @@
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-firefly-100">
                             <svg class="w-8 h-8 text-firefly-600 sm:w-10 sm:h-10" stroke="currentColor"
                                 viewBox="0 0 52 52">
-                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                    points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                    fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                             </svg>
                         </div>
                     </div>
@@ -283,8 +261,8 @@
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-firefly-100">
                             <svg class="w-8 h-8 text-firefly-600 sm:w-10 sm:h-10" stroke="currentColor"
                                 viewBox="0 0 52 52">
-                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                    points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                    fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                             </svg>
                         </div>
                     </div>
@@ -301,8 +279,8 @@
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-firefly-100">
                             <svg class="w-8 h-8 text-firefly-600 sm:w-10 sm:h-10" stroke="currentColor"
                                 viewBox="0 0 52 52">
-                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                    points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                    fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                             </svg>
                         </div>
                     </div>

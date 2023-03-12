@@ -23,8 +23,8 @@
         <tr>
 
             <td class="flex justify-start px-4 items-center py-4 whitespace-nowrap  ">
-                <img class="w-10 rounded-full" src="{{ Auth::user()->profile_photo_url  }}" alt="">
-                <span class="ml-2">{{ Auth::user()->full_name }}</span>
+                <img class="w-10 rounded-full" src="{{  Auth::user()?->profile_photo_url  }}" alt="">
+                <span class="ml-2">{{  Auth::user()?->full_name }}</span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 h-5 w-5" fill="none" viewBox="0 0 24 24"

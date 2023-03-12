@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,8 +43,22 @@ class Profile extends Model
 
     protected $append = [
         'participant_avatar',
-        'full_name'
+        'full_name',
+        'country_flag'
     ];
+
+    public function getCountryFlagAttribute()
+    {
+
+        if(empty($this->country)) {
+            $this->country = 'ghana';
+        }
+
+        $response = Http::get("https://restcountries.com/v3.1/name/{$this->country}");
+        $data = $response->json();
+        $flagUrl = $data[0]['flag'];
+        return $flagUrl;
+    }
 
     protected $casts = [
         'disabled' => 'boolean',

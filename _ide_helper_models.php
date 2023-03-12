@@ -133,6 +133,7 @@ namespace App\Models{
  * @property string|null $avatar
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $country_flag
  * @property-read mixed $nice_date
  * @property-read string $participant_avatar
  * @property-read \App\Models\User $user
@@ -239,8 +240,8 @@ namespace App\Models{
  * @property bool|null $staff
  * @property bool|null $facultyMember
  * @property bool|null $participant
- * @property int|null $must_reset_password
- * @property int|null $active
+ * @property int|null $must_create_password
+ * @property bool|null $active
  * @property string|null $remember_token
  * @property string|null $timezone
  * @property string|null $google_id
@@ -289,7 +290,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLastSeen($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereMustResetPassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereMustCreatePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereParticipant($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)

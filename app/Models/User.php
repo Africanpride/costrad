@@ -85,6 +85,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'facultyMember' => 'boolean',
         'participant' => 'boolean',
         'staff' => 'boolean',
+        'active' => 'boolean',
     ];
 
     /**
@@ -98,7 +99,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
     ];
 
-
+    public static function search($search)
+    {
+        return empty($search) ? static::query()
+            : static::query()->where('id', 'like', '%'.$search.'%')
+                ->orWhere('firstName', 'like', '%'.$search.'%')
+                ->orWhere('lastName', 'like', '%'.$search.'%')
+                ->orWhere('email', 'like', '%'.$search.'%');
+    }
     // Scopes
 
     public function scopeStaff(Builder $query): void

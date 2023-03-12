@@ -268,7 +268,7 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                                 <div class="aspect-w-16 aspect-h-9 md:relative">
                                     <img class="w-full object-cover md:absolute h-full"
-                                        src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
+                                        src="{{  asset('images/main/lecture.jpg') }}"
                                         alt="Image Description">
                                 </div>
 

@@ -106,9 +106,9 @@
                 </div>
                 <h3 class="text-2xl font-extrabold text-indigo-50 leading-snug">
                     Good Morning <span class="text-firefly-100">
-                        @if (str_contains(strtolower(Auth::user()->user_role), 'doctor'))
+                        @if (str_contains(strtolower(Auth::user()?->user_role), 'doctor'))
                             Doctor
-                        @endif {{ Auth::user()->firstName }}!
+                        @endif {{ Auth::user()?->firstName }}!
                     </span>
                 </h3>
                 <p class="text-indigo-200 mb-2">Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod.</p>

@@ -4,7 +4,13 @@
         <ul
             class="flex flex-wrap items-center mb-6 uppercase text-[9px] md:text-xs text-gray-700 sm:mb-0 dark:text-gray-400 space-x-4">
             <li>
-                <a href="{{ url('contact') }}/">Contact</a>
+                <a href="{{ url('contact') }}">Contact</a>
+            </li>
+            <li>
+                <a href="{{  url('about') }}">About </a>
+            </li>
+            <li>
+                <a href="{{  url('help') }}">Help</a>
             </li>
 
             <li>
@@ -13,17 +19,9 @@
             <li>
                 <a href="{{  url('terms') }}">Terms</a>
             </li>
+
             <li>
-                <a href="http://">About </a>
-            </li>
-            <li>
-                <a href="http://">About</a>
-            </li>
-            <li>
-                <a href="{{  url('help') }}">Help</a>
-            </li>
-            <li>
-                <a href="http://">Accessibility</a>
+                <a href=" {{ url('accessibility') }}">Accessibility</a>
             </li>
             <li>
                 <p id="open_preferences_center" class="cursor-pointer">Cookies</p>

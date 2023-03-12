@@ -309,7 +309,7 @@
                             A Journey for Now and Beyond </h4>
                         <h2 class="uppercase font-['anton'] text-3xl lg:text-4xl text-gray-700 dark:text-firefly-700">
                             Global Sustainable Transformation Leadership
-                            Training With a Distinctive Approach.
+                            Training.
                         </h2>
                         <p class="text-lg text-firefly-700 dark:text-white prose dark:prose-invert">
                             The College of Sustainable Transformation and Development (COSTrAD) and the various

@@ -29,9 +29,9 @@ return new class extends Migration
             $table->string('emergencyContactTelephone')->nullable();
             $table->string('nationality')->nullable();
             $table->boolean('active')->nullable();
-            $table->text('bio')->nullable();
-            $table->text('resume')->nullable();
-            $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->longText('bio')->nullable();
+            $table->longText('resume')->nullable();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
             $table->boolean('disabled')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('avatar')->nullable();
