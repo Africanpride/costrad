@@ -105,11 +105,8 @@
                 <div class="text-xs font-bold uppercase text-firefly-400 tracking-widest mb-2">Progress is excellent!
                 </div>
                 <h3 class="text-2xl font-extrabold text-indigo-50 leading-snug">
-                    Good Morning <span class="text-firefly-100">
-                        @if (str_contains(strtolower(Auth::user()?->user_role), 'doctor'))
-                            Doctor
-                        @endif {{ Auth::user()?->firstName }}!
-                    </span>
+                    {{ Auth::user()->user_greetings . ' ' . Auth::user()->firstName . '.' }}
+
                 </h3>
                 <p class="text-indigo-200 mb-2">Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod.</p>
                 <x-admin.generic-button class="py px-3 bg-indigo-600"
@@ -123,7 +120,7 @@
             <!-- Card footer -->
             <div class="relative text-right">
                 <a class="inline-flex w-10 h-10 justify-center items-center bg-firefly-600 hover:bg-firefly-500 text-firefly-100 hover:text-firefly-100 rounded-full transition duration-350"
-                    href="/profile#profile"><span class="sr-only">Read more</span> <span class="font-bold -mt-px">
+                    href="/profile"><span class="sr-only">Read more</span> <span class="font-bold -mt-px">
                         <x-heroicon-o-chevron-right class="w-5 h-5" />
                     </span></a>
             </div>
@@ -132,7 +129,7 @@
 
 
     <!-- More components -->
-    {{-- <div x-show="open" class="fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-60" x-data="{ open: true }">
+    {{-- <div x-show="open" class="fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-[600]" x-data="{ open: true }">
     <div class="bg-gray-800 text-gray-50 text-sm p-3 md:rounded shadow-lg flex justify-between">
         <div>👉 <a class="hover:underline ml-1" href="https://cruip.com/?ref=codepen-cruip-snippet-8" target="_blank">More components on Cruip.com</a></div>
         <button class="text-gray-500 hover:text-gray-400 ml-5" @click="open = false">

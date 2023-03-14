@@ -123,8 +123,7 @@
                             <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white dark:ring-firefly-900"
                                 src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->full_name }}">
                         @endauth
-                        <span
-                            class="text-gray-600 font-medium truncate max-w-[7.5rem] dark:text-gray-400">
+                        <span class="text-gray-600 font-medium truncate max-w-[7.5rem] dark:text-gray-400">
                             {{ Auth::user()->firstName }}
                         </span>
                         <svg class="hs-dropdown-open:rotate-180 w-2.5 h-2.5 text-gray-600" width="16" height="16"
@@ -134,44 +133,45 @@
                         </svg>
                     </button>
                     <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] z-10 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700"
-                    aria-labelledby="hs-dropdown-with-header">
-                    <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-gray-700">
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Signed in as</p>
-                        <p class="text-sm font-medium text-gray-800 dark:text-gray-300">{{ Auth::user()->email }}</p>
-                    </div>
-                    <div class="mt-2 py-2 first:pt-0 last:pb-0">
+                        aria-labelledby="hs-dropdown-with-header">
+                        <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-gray-700">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Signed in as</p>
+                            <p class="text-sm font-medium text-gray-800 dark:text-gray-300">{{ Auth::user()->email }}
+                            </p>
+                        </div>
+                        <div class="mt-2 py-2 first:pt-0 last:pb-0">
 
-                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                            href="{{ url('profile') }}">
-
-                            <x-lucide-contact class="w-5 h-5 text-current" />
-
-                            Manage Profile
-                        </a>
-                        <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                            href="{{ url(Auth::user()->dashboard()) }}">
-
-                            <x-lucide-layout-dashboard class="w-5 h-5 text-current" />
-
-                            My Dashboard
-                        </a>
-                        <a id="open_preferences_center"
-                            class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                            href="#">
-                            <x-lucide-cookie class="w-5 h-5 text-current" />
-                            Manage Cookies
-                        </a>
-                        <form method="POST" action="{{ route('logout') }}" x-data>
-                            @csrf
                             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                                href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                <x-lucide-log-out class="w-5 h-5 text-current" />
-                                Sign Out
-                            </a>
-                        </form>
+                                href="{{ url('profile') }}">
 
+                                <x-lucide-contact class="w-5 h-5 text-current" />
+
+                                Manage Profile
+                            </a>
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                                href="{{ url(Auth::user()->dashboard()) }}">
+
+                                <x-lucide-layout-dashboard class="w-5 h-5 text-current" />
+
+                                My Dashboard
+                            </a>
+                            <a id="open_preferences_center"
+                                class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                                href="#">
+                                <x-lucide-cookie class="w-5 h-5 text-current" />
+                                Manage Cookies
+                            </a>
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                                    href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                    <x-lucide-log-out class="w-5 h-5 text-current" />
+                                    Sign Out
+                                </a>
+                            </form>
+
+                        </div>
                     </div>
-                </div>
 
                 </div>
 
@@ -179,6 +179,22 @@
         </div>
     </nav>
 </header>
-
-  <!-- End Announcement Banner -->
+<!-- Announcement Banner -->
+@if (Auth::check() && Auth::user()->must_create_password)
+    <div
+        class="group block bg-gray-100 hover:bg-gray-200 p-4 rounded-md text-center transition-all duration-300 dark:bg-white/[.05] dark:hover:bg-white/[.075]">
+        <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+            <p class="inline-block text-sm text-gray-800 dark:text-gray-200">
+                Please create a password for your Account.
+            </p>
+            <span
+                class=" cursor-pointer group-hover:underline decoration-2 inline-flex justify-center items-center px-2 font-semibold text-blue-600 text-sm dark:text-blue-500">
+                Set Password
+                <x-lucide-arrow-right class="w-4 h-4 text-current" />
+            </span>
+        </div>
+    </div>
+@endif
+<!-- End Announcement Banner -->
+<!-- End Announcement Banner -->
 <!-- End Announcement Banner -->

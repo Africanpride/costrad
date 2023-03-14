@@ -44,6 +44,13 @@
     </div>
     <x-jet-authentication-card>
         <x-slot name="title">Login</x-slot>
+        <div class="space-y-4">
+            @if (session('banned'))
+                <div class="mb-4 font-medium text-sm text-red-600">
+                    {{ session('banned') }}
+                </div>
+            @endif
+        </div>
 
         <div
             class=" hidden mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
@@ -53,6 +60,11 @@
                     <div class="w-auto text-center">
                         {{-- <x-jet-validation-errors class="" /> --}}
 
+                        @if (session('status'))
+                            <div class="mb-4 font-medium text-sm text-red-600">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         {{-- @if (session('status'))
                             <div class="mb-4 font-medium text-sm text-green-600">
                                 {{ session('status') }}
@@ -98,6 +110,7 @@
                         class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:border-gray-200 before:mr-6 after:flex-[1_1_0%] after:border-t after:border-gray-200 after:ml-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">
                         Or
                     </div>
+
                 </div>
                 <div class="">
 
@@ -105,6 +118,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- Form -->
         <form method="POST" action="{{ route('login') }}">

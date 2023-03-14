@@ -39,6 +39,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\ActivityByUser::class,
             \App\Http\Middleware\CheckUserActive::class,
+
         ],
 
         'api' => [
@@ -69,5 +70,7 @@ class Kernel extends HttpKernel
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+        'setNewPassword' => \App\Http\Middleware\setNewPassword::class,
+        'banned' => \App\Http\Middleware\Banned::class,
     ];
 }

@@ -3,7 +3,7 @@
         <x-heroicon-o-finger-print class="w-6 h-6 text-current" />
         </x-admin-pageheader>
 
-        <div class="p-4 space-y-3">
+        <div class="p-4 space-y-4">
             <livewire:admin.authentication-log />
         </div>
 </x-app-layout>

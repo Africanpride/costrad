@@ -10,13 +10,17 @@ use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-});
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('google')->redirect();
+// });
 
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('google')->user();
-});
+// Route::get('/auth/callback', function () {
+//     $user = Socialite::driver('google')->user();
+// });
+
+Route::get('banned' , function() {
+    return view('auth.banned');
+})->name('banned')->middleware('auth');
 
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
@@ -26,6 +30,7 @@ Route::view('terms', 'terms');
 Route::view('help', 'help');
 Route::view('privacy', 'privacy');
 Route::view('about', 'about');
+Route::view('documentation', 'documentation');
 Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
@@ -33,13 +38,6 @@ Route::view('institutes', 'institutes'); // front end institute
 Route::get('/', function() {
     return view('home');
 })->name('home');
-
-
-// Route::get('test5', function() {
-//     $response = Http::get("https://restcountries.com/v3.1/name/peru");
-//     $data = $response->json();
-//    return $flagUrl = $data[0]['flag'];
-// });
 
 Route::get('test3', function () {
     $roles = Role::paginate();
@@ -58,7 +56,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 
 // Participants and Everyone else  Routes
-Route::middleware(['auth', config('jetstream.auth_session')])->group(function () {
+Route::middleware(['auth', config('jetstream.auth_session'), 'setNewPassword'])->group(function () {
 
     Route::get('dashboard', function () {
         return view('user.dashboard');
@@ -70,6 +68,9 @@ Route::middleware(['auth', config('jetstream.auth_session')])->group(function ()
 
 });
 
+Route::get('set_password', function () {
+    return view('auth.set_password');
+})->name('set_password')->middleware('auth', config('jetstream.auth_session'));
 
 // Admin Routes
 Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->group(function () {

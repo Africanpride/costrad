@@ -14,11 +14,27 @@ namespace App\Models{
 /**
  * App\Models\Announcement
  *
+ * @property int $id
+ * @property string $title
+ * @property string $slug
+ * @property string $body
+ * @property string $image
+ * @property string|null $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $author
  * @method static \Database\Factories\AnnouncementFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Announcement newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Announcement newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Announcement query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement whereUserId($value)
  */
 	class Announcement extends \Eloquent {}
 }
@@ -253,7 +269,7 @@ namespace App\Models{
  * @property bool|null $staff
  * @property bool|null $facultyMember
  * @property bool|null $participant
- * @property int|null $must_create_password
+ * @property bool|null $must_create_password
  * @property bool|null $active
  * @property int|null $ban
  * @property string|null $remember_token

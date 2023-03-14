@@ -3,7 +3,7 @@
         class="mx-4">
         <x-heroicon-o-user-group class="w-5 h-5 text-current" />
         </x-admin-pageheader>
-        <div class="p-4 space-y-3">
+        <div class="p-4 space-y-4">
             Welcome to Announcements
         </div>
 

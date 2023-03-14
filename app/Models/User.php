@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use phpDocumentor\Reflection\Types\Boolean;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -87,6 +88,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'participant' => 'boolean',
         'staff' => 'boolean',
         'active' => 'boolean',
+        'must_create_password' => 'boolean',
     ];
 
     /**
@@ -98,14 +100,38 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_url',
         'full_name',
         'name',
+        'user_greetings'
     ];
+
+    public function GetUserGreetingsAttribute() : string
+    {
+        // Create a new Carbon instance using the current date and time
+        $now = Carbon::now();
+
+        // Get the hour of the day as a number (0-23)
+        $hour = $now->hour;
+
+        // Determine whether it is morning, afternoon, or evening based on the hour
+        if ($hour >= 5 && $hour < 12) {
+            $greeting = "Good morning";
+        } elseif ($hour >= 12 && $hour < 18) {
+            $greeting = "Good afternoon";
+        } else {
+            $greeting = "Good evening";
+        }
+
+        // Output the greeting
+        return $greeting;
+    }
+
+
     public static function search($search)
     {
         return empty($search) ? static::query()
-            : static::query()->where('id', 'like', '%'.$search.'%')
-                ->orWhere('firstName', 'like', '%'.$search.'%')
-                ->orWhere('lastName', 'like', '%'.$search.'%')
-                ->orWhere('email', 'like', '%'.$search.'%');
+            : static::query()->where('id', 'like', '%' . $search . '%')
+            ->orWhere('firstName', 'like', '%' . $search . '%')
+            ->orWhere('lastName', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%');
     }
 
     // Scopes
@@ -169,7 +195,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
-    public function dashboard() : string
+    public function dashboard(): string
     {
         return $this->isAdmin() ? 'admin/dashboard' :  'dashboard';
     }
@@ -182,14 +208,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
-public function whois() {
-    return Auth::user()->firstName;
-}
+    public function whois()
+    {
+        return Auth::user()->firstName;
+    }
 
-public function profile()
-{
-    return $this->hasOne(Profile::class);
-}
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
     public function defaultProfilePhotoUrl()
     {
         if (empty($this->avatar) && !empty($this->social_avatar)) {
@@ -207,6 +234,4 @@ public function profile()
             return 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&color=7F9CF5&background=EBF4FF';
         }
     }
-
-
 }
