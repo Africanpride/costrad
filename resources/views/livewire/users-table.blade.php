@@ -50,7 +50,7 @@
     </div>
 
 
-    <table class="min-w-full border-secondary-300 rounded-md dark:border-secondary-900">
+    <table class="min-w-full border-white rounded-md dark:border-secondary-900">
         <thead>
             <tr
                 class=" bg-gray-200 dark:border-secondary-900 dark:bg-secondary-900 text-secondary-900  dark:text-secondary-400">
@@ -113,7 +113,10 @@
                                     <path fill-rule="evenodd"
                                         d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                         clip-rule="evenodd"></path>
-                                </svg> <span class="px-2 inline-flex leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400 text-[11px]">{{ $user->email }}</span>
+                                </svg>
+                                <span class="px-2 inline-flex leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400 text-[11px]">
+                                    {{ $user->email }}
+                                </span>
                             </div>
                         </td>
                         <td class="hidden md:table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-left">
@@ -155,9 +158,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-8 col-lg-6  d-flex align-items-center p-3">
-                                {{ __('Sorry, there are no Users currently
-                                                                                                                                                                                available. Please Add Users and try again later.
-                                                                                                                                                                                Thank you.') }}
+                                {{ __('Sorry, no such record currently available. Try again later.') }}
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-6 d-flex align-items-center p-3">

@@ -5,53 +5,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon_io/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon_io/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon_io/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/favicon_io/site.webmanifest') }}">
-    {{-- <script src="./node_modules/preline/dist/preline.js" /> --}}
-
-    <!-- Fonts -->
-    {{-- <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
-    <!-- Font -->
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Open+Sans&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,900;1,400;1,900&family=Montserrat:wght@100;400&family=Open+Sans&family=Roboto:wght@300&family=Source+Sans+Pro&display=swap"
+        rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
-
-
     <!-- FlatPickr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script> --}}
-    <script src="https://cdn.tiny.cloud/1/c5sr22drdl0nd8bowu0ulmfv099eqz9u5dgvs43lheth4hl7/tinymce/6/tinymce.min.js" referrerpolicy="origin">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-
-
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/c5sr22drdl0nd8bowu0ulmfv099eqz9u5dgvs43lheth4hl7/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
     @livewireStyles
-
     <x-head.tinymce-config />
-
 </head>
-{{-- <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen  overflow-hidden text-sm first-letter: grid md:grid-cols-12  scrollbar-thin scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full "> --}}
 
-
-<body class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 scrollbar-thin
+<body
+    class="bg-gray-100 dark:bg-gray-900 grid md:grid-cols-12 scrollbar-thin
 scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll ">
-<div class="md:col-span-2 w-fullrelative">
+    <div class="md:col-span-2 w-full relative">
         <livewire:cookie />
 
         <!-- Navigation -->
@@ -79,9 +61,9 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
 
 
     <!-- ========== MODALS ========== -->
-<div>
-    <livewire:layout.all-modals />
-</div>
+    <div>
+        <livewire:layout.all-modals />
+    </div>
 
     <!-- ========== END MODALS CONTENT ========== -->
     @livewire('livewire-ui-slideover')
@@ -93,4 +75,5 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
     @stack('scripts')
 
 </body>
+
 </html>

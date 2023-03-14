@@ -7,7 +7,7 @@
         <div class="p-4 space-y-3">
 
             <!-- Jumbotron -->
-            <div class="p-6 shadow rounded-lg  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
+            <div class="p-6 shadow rounded-lg  bg-slate-300/30 dark:bg-slate-900/10 dark:text-white ">
                 <div class="flex flex-row justify-between my-2">
                     <h2 class="font-semibold text-3xl">Participant List & CRM ({{ $participants->count() }})</h2>
                 </div>
@@ -19,7 +19,10 @@
                 </div>
 
                 <div class="py-8 space-y-2">
-                    <livewire:admin.participant.participant-table />
+                    {{-- <livewire:admin.participant.participant-table /> --}}
+
+                    {{-- @livewire('admin.participant.participant-table'); --}}
+                    @livewire('users-table')
                 </div>
 
 

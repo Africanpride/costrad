@@ -50,6 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'must_create_password',
         'staff',
         'active',
+        'ban',
         'google_id',
         'apple_id'
 
@@ -98,7 +99,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'full_name',
         'name',
     ];
-
     public static function search($search)
     {
         return empty($search) ? static::query()
@@ -107,6 +107,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 ->orWhere('lastName', 'like', '%'.$search.'%')
                 ->orWhere('email', 'like', '%'.$search.'%');
     }
+
     // Scopes
 
     public function scopeStaff(Builder $query): void

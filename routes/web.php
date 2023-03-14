@@ -7,6 +7,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InstituteController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
 
 Route::get('/auth/redirect', function () {
@@ -79,6 +80,7 @@ Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->
     })->name('admin.participants');
 
     Route::resource('institutes', InstituteController::class);
+    Route::resource('announcements', AnnouncementController::class);
 
     Route::get('calender', function () {
         return view('admin.calender');

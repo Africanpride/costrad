@@ -13,7 +13,7 @@
     </svg>
     <div class="flex flex-wrap items-center gap-y-2 gap-x-4">
       <p class="text-sm leading-6 text-gray-900 dark:text-white">
-        <strong class="font-semibold">Family Development Institute (FDI) 2023</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Join us in <b>Accra</b> from March 13 – 18 this Special edition.
+        <strong class="font-semibold">Family Development Institute (FDI) 2023</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Join us in <b>Accra</b> from March 13 – 18 for this Special edition.
       </p>
       <a href="#" class="flex gap-1 justify-center items-center rounded-full bg-gray-900 py-1 px-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"><span>About FDI</span>
         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

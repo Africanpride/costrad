@@ -7,7 +7,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ParticipantTable extends Component
+class UsersTable extends Component
 {
 
     use WithPagination;
@@ -93,7 +93,7 @@ class ParticipantTable extends Component
         ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
         ->paginate($this->perPage);
 
-        return view('livewire.admin.participant.participant-table', [
+        return view('livewire.users-table', [
                 'users' => $users,
         ]);
     }

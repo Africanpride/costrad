@@ -12,6 +12,19 @@
 
 namespace App\Models{
 /**
+ * App\Models\Announcement
+ *
+ * @property-read \App\Models\User|null $author
+ * @method static \Database\Factories\AnnouncementFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Announcement query()
+ */
+	class Announcement extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Faculty
  *
  * @property int $id
@@ -242,6 +255,7 @@ namespace App\Models{
  * @property bool|null $participant
  * @property int|null $must_create_password
  * @property bool|null $active
+ * @property int|null $ban
  * @property string|null $remember_token
  * @property string|null $timezone
  * @property string|null $google_id
@@ -280,6 +294,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereAppleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereBan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)

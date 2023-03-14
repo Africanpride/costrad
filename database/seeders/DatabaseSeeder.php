@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if (App::environment(['local', 'staging']) ){
+        if (App::environment(['local', 'staging'])) {
             if ($this->command->confirm('Do you wish to refresh migration before seeding, it will clear all old data ?')) {
 
                 // Call the php artisan migrate:fresh using Artisan
@@ -61,7 +61,11 @@ class DatabaseSeeder extends Seeder
 
             $this->command->info("Institutes & College Seeded!");
 
-        }
+            $this->call([
+                AnnouncementSeeder::class
+            ]);
 
+            $this->command->info("Announcements Seeded!");
+        }
     }
 }

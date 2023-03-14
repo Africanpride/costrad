@@ -27,6 +27,7 @@ return new class extends Migration
             $table->boolean('participant')->default(true)->nullable();
             $table->boolean('must_create_password')->nullable();
             $table->boolean('active')->default(true)->nullable();
+            $table->boolean('ban')->default(false)->nullable();
             $table->rememberToken();
             $table->string('google_id')->nullable();
             $table->string('apple_id')->nullable();
