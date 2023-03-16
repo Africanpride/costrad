@@ -52,7 +52,8 @@
                                 <p class="text-right m-0 text-sm font-bold">60%</p>
                             </div>
                             <div class="flex justify-between pt-4 relative">
-                                <div class="flex items-center"><img
+                                <div class="flex items-center">
+                                    <img
                                         class="w-5 h-5 rounded-full overflow-hidden object-cover"
                                         src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80"
                                         alt="participant1"><img

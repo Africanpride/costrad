@@ -26,6 +26,7 @@ class AnnouncementFactory extends Factory
             'body' => $this->faker->text(),
             'user_id' => User::all()->random()->id,
             'image' => $this->faker->imageUrl(300, 300),
+            'icon' => $this->faker->imageUrl(100, 100),
             //
         ];
     }

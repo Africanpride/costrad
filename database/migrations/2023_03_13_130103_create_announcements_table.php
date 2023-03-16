@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('body');
             $table->string('image');
+            $table->string('icon');
             $table->foreignUuid('user_id')->onDelete('cascade')->nullable();
             $table->timestamps();
         });

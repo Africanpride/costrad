@@ -266,12 +266,12 @@ namespace App\Models{
  * @property string|null $two_factor_secret
  * @property string|null $two_factor_recovery_codes
  * @property string|null $two_factor_confirmed_at
- * @property bool|null $staff
- * @property bool|null $facultyMember
- * @property bool|null $participant
- * @property bool|null $must_create_password
- * @property bool|null $active
- * @property int|null $ban
+ * @property bool $staff
+ * @property bool $facultyMember
+ * @property bool $participant
+ * @property bool $must_create_password
+ * @property bool $active
+ * @property int $ban
  * @property string|null $remember_token
  * @property string|null $timezone
  * @property string|null $google_id

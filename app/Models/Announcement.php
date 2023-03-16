@@ -16,6 +16,7 @@ class Announcement extends Model
         'slug',
         'body',
         'image',
+        'icon',
         'user_id',
     ];
 

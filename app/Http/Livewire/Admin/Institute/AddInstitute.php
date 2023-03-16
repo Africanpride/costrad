@@ -61,22 +61,35 @@ class AddInstitute extends ModalComponent
             'price' => 'required',
         ]);
 
+
         if ($this->logo) {
-            $logoName = $this->logo->store("logo", 'public');
+
+            // if ($this->institute->logo) {
+            //     Storage::delete('images/logos/' . $this->institute->logo);
+            // }
+            $logoName = $this->logo->storeAs('images/logos', $this->acronym . "." . $this->logo->getClientOriginalExtension(), 'public');
+
             $validatedData['logo'] = $logoName;
         }
 
+
         if ($this->banner) {
-            $logoName = $this->banner->store("banner", 'public');
-            $validatedData['banner'] = $logoName;
+
+            // if ($this->institute->banner) {
+            //     Storage::delete('images/banners/' . $this->institute->banner);
+            // }
+
+            $bannerName = $this->banner->storeAs('images/banners', $this->acronym . "." . $this->banner->getClientOriginalExtension(), 'public');
+
+            $validatedData['banner'] = $bannerName;
         }
 
         if ($this->name) {
             $validatedData['slug'] = Str::slug($this->name);
         }
 
+        dd($validatedData);
 
-        // dd($validatedData);
         Institute::create($validatedData);
 
         return redirect('admin/institutes')->with('message', 'Institute created successfully.');
