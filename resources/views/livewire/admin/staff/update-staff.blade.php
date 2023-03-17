@@ -1,5 +1,11 @@
 <x-admin.user-modal formAction="updateStaff">
     <x-slot name="title">
+        <div class="absolute top-2 right-2 cursor-pointer" wire:click="$emit('closeModal')">
+            <div
+                class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-8">
+                <x-heroicon-o-x-circle class="w-6 h-6 text-red-500"  />
+            </div>
+        </div>
         <div class="absolute top-3 right-3 cursor-pointer">
             <x-heroicon-o-x-circle class="w-6 h-6 text-red-500" wire:click="$emit('closeModal')" />
         </div>

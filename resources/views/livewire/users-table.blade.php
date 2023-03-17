@@ -81,7 +81,8 @@
                 </th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-secondary-100 bg-secondary-50/10 dark:bg-secondary-900/50 dark:divide-secondary-900"
+        <tbody
+            class="divide-y divide-secondary-100 bg-secondary-50/10 dark:bg-secondary-900/50 dark:divide-secondary-900"
             x-max="1">
 
             @if ($users->count() > 0)
@@ -114,7 +115,8 @@
                                         d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <span class="px-2 inline-flex leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400 text-[11px]">
+                                <span
+                                    class="px-2 inline-flex leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400 text-[11px]">
                                     {{ $user->email }}
                                 </span>
                             </div>
@@ -147,29 +149,37 @@
                             class="hidden md:table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-secondary-700 dark:text-secondary-400 text-center">
 
                             <div>
-                                <input type="checkbox" id="hs-basic-usage" class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200  ring-1 ring-transparent focus:border-blue-600 focus:ring-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200" {{ $user->ban ? 'checked' : ' ' }}>
-                                <label for="hs-basic-usage" class="sr-only">switch</label>
 
-                                </div>
+                                    {{-- <div>
+                                        <x-jet-button class=" {{ $user->ban ? '!bg-red-600' : ' ' }}"  wire:click="toggleBan({{ $user }})">
+                                            {{ $user->id }}
+                                        </x-jet-button>
+                                    </div> --}}
+
+                                    <input wire:click="toggleBan({{ $user }})"  type="checkbox" id="{{ $user->id }}" name="toggle" class="relative w-[3.25rem] h-7 bg-gray-300 checked:bg-none checked:bg-red-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200  ring-1 ring-transparent focus:border-red-600 focus:ring-red-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-red-600 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-red-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-red-200" {{ $user->ban ? 'checked' : ' ' }}>
+
+                                <label for="toggle{{ $user->id }}" for="hs-basic-usage" class="sr-only">switch</label>
+
+                            </div>
 
                     </tr>
-                    @endforeach
-                @else
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-8 col-lg-6  d-flex align-items-center p-3">
-                                {{ __('Sorry, no such record currently available. Try again later.') }}
-                            </div>
+                @endforeach
+            @else
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 col-lg-6  d-flex align-items-center p-3">
+                            {{ __('Sorry, no such record currently available. Try again later.') }}
+                        </div>
 
-                            <div class="col-sm-12 col-md-4 col-lg-6 d-flex align-items-center p-3">
-                                <button class="btn btn-light flex-1">
-                                    {{ __('Add Users') }}
-                                </button>
-                            </div>
+                        <div class="col-sm-12 col-md-4 col-lg-6 d-flex align-items-center p-3">
+                            <button class="btn btn-light flex-1">
+                                {{ __('Add Users') }}
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    @endif
+            @endif
         </tbody>
 
 

@@ -38,11 +38,12 @@
                 class="aspect-square rounded-2xl  bg-gray-200 dark:bg-slate-900 text-gray-500 hover:ring-2 hover:ring-gray-300 hover:dark:ring-gray-700 flex justify-center items-center flex-col text-accent-400 text-sm
                 hover:shadow hover:text-accent-500 hover:font-medium group relative ">
 
-                <span class="absolute top-2 right-2 text-gray-500 dark:text-white hover:text-accent-500 z-100">
-                    <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
-                        onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$staff->id]) }})" />
-
-                </span>
+                <div class="absolute top-2 right-2 cursor-pointer" onclick="Livewire.emit('openModal', 'admin.staff.delete-staff', {{ json_encode([$staff->id]) }})">
+                    <div
+                        class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-8">
+                        <x-heroicon-o-x-circle class="w-6 h-6 text-red-500"  />
+                    </div>
+                </div>
                 <span class="relative">
 
                     <img src="{{ $staff->profile_photo_url }}" class="w-14 h-14 rounded-full mb-3"

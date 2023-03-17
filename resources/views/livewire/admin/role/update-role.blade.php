@@ -1,5 +1,11 @@
 <x-admin.roles-modal formAction="updateRole">
     <x-slot name="title">
+        <div class="absolute top-2 right-2 cursor-pointer"   wire:click="$emit('closeModal')" >
+            <div
+                class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-8">
+                <x-heroicon-o-x-circle class="w-6 h-6 text-red-500"  />
+            </div>
+        </div>
         Update <span class="text-red-500 capitalize">{{ $role->name }}</span>
     </x-slot>
 
@@ -48,7 +54,10 @@
     <x-slot name="buttons">
 
 
-        <x-admin.reset-button wire:click="$emit('closeModal')">Cancel</x-admin.reset-button>
+        <button type="reset" wire:click="$emit('closeModal')"
+            class="py-2.5 px-4 inline-flex w-full justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+            Cancel
+        </button>
 
         <x-admin.submit-button>Submit</x-admin.submit-button>
 

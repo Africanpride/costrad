@@ -17,7 +17,7 @@
                             class="flex justify-between items-center text-xs sm:text-sm text-gray-800 dark:text-gray-200 my-8 space-y-3">
 
                             <a class="inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-2 px-4 dark:focus:ring-offset-gray-800"
-                                href="{{  url('admin/institutes/') }}">
+                                href="{{ url('admin/institutes/') }}">
 
                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
@@ -173,7 +173,7 @@
                                     <label
                                         class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
                                         Institute Overview</label>
-                                    <textarea name="overview"
+                                    <textarea name="overview" id="institutesOverview"
                                         class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                         rows="3">{{ old('overview', optional($institute)->overview) }}</textarea>
                                     @error('overview')
@@ -251,7 +251,8 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 py-4">
-                            <button type="reset" class="py-2 px-3 my-3 w-full inline-flex justify-center items-center gap-2  border border-transparent font-semibold bg-slate-500 text-white hover:bg-slate-600 focus:outline-none focus:ring-2  rounded">Cancel</button>
+                            <button type="reset"
+                                class="py-2 px-3 my-3 w-full inline-flex justify-center items-center gap-2  border border-transparent font-semibold bg-slate-500 text-white hover:bg-slate-600 focus:outline-none focus:ring-2  rounded">Cancel</button>
                             <x-admin.submit-button class="rounded">Submit</x-admin.submit-button>
                         </div>
 
@@ -259,15 +260,6 @@
 
                 </form>
                 <script type="text/javascript">
-                    // tinymce.init({
-                    //     selector: 'textarea.tinymce-editor',
-                    //     height: 200,
-                    //     menubar: false,
-                    //     // plugins: 'powerpaste advcode table lists checklist',
-                    //     // toolbar: 'undo redo | blocks| bold italic | bullist numlist checklist | code | table',
-
-                    // });
-
                     flatpickr("#startDate", {
                         altFormat: "DD-MM-YYYY",
                         defaultDate: {!! json_encode(\Carbon\Carbon::create($institute->startDate)) !!},
@@ -276,6 +268,28 @@
                     flatpickr("#endDate", {
                         altFormat: "DD-MM-YYYY",
                         defaultDate: {!! json_encode(\Carbon\Carbon::create($institute->endDate)) !!},
+                    });
+
+                    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+
+                    tinymce.init({
+                        skin: 'oxide-dark',
+                        content_css: 'dark',
+                        selector: 'textarea#institutesOverview',
+                        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+                        editimage_cors_hosts: ['picsum.photos'],
+                        menubar: 'file edit view insert format tools table help',
+                        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+                        toolbar_sticky: false,
+                        toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+                        autosave_ask_before_unload: true,
+                        autosave_interval: '30s',
+                        autosave_prefix: '{path}{query}-{id}-',
+                        autosave_restore_when_empty: false,
+                        autosave_retention: '2m',
+                        image_advtab: true,
+
                     });
                 </script>
 

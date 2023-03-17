@@ -41,7 +41,7 @@ class UpdateStaff extends ModalComponent
         $this->email        = $user->email;
         $this->avatar       = $user->avatar_url;
         $this->staffRoles   = $user->roles->pluck('id')->toArray();
-        $this->active = $user->active;
+        $this->active       = $user->active;
         $this->roles = Role::all(); // we shall check against this
     }
 

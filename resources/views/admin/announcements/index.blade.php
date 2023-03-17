@@ -17,8 +17,24 @@
                 @forelse ($announcements as $announcement)
 
                 <article
-                    class="rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:shadow-sm space-y-4">
-                    <div class="rounded-[10px] bg-white dark:bg-black p-4  !pt-20  sm:p-6">
+                    class="rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:shadow-sm space-y-4 relative">
+
+
+                    <div class="rounded-[10px] bg-white dark:bg-black p-4  !pt-20  sm:p-6 relative">
+                        <div class="absolute top-2 left-2 cursor-pointer" onclick="Livewire.emit('openModal', 'admin.announcement.update-announcement', {{ json_encode([$announcement->id]) }})">
+                            <div
+                                class="cursor-pointer delay-200  duration-500 bg-gray-50 dark:bg-gray-500/10 transition-colors dark:hover:bg-gray-500/20  hover:bg-gray-100  grid h-8 place-items-center rounded-full w-8">
+                                <x-lucide-file-signature class="w-6 h-6 text-gray-500"  />
+                            </div>
+
+                        </div>
+                        <div class="absolute top-2 right-2 cursor-pointer" onclick="Livewire.emit('openModal', 'admin.announcement.delete-announcement', {{ json_encode([$announcement->id]) }})">
+                            <div
+                                class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-8">
+                                <x-heroicon-o-x-circle class="w-6 h-6 text-red-500"  />
+                            </div>
+                        </div>
+
                         <span class="block text-[10px] !pb-3 text-gray-500 dark:text-white line-clamp-1">
                             {{ substr($announcement->title, 0, 35) . (strlen($announcement->title) > 35 ? "..." : "") }}
                         </span>
@@ -32,7 +48,10 @@
                         <div class="mt-4 flex flex-wrap gap-1">
                             <span
                                 class="whitespace-nowrap rounded-full bg-purple-100 dark:bg-purple-900 dark:text-white px-2.5 py-0.5 text-[11px] text-purple-600">
-                                {{ $announcement->created_at->diffForHumans() }}
+
+                                {{ $closest_time = ($announcement->updated_at && $announcement->created_at) ? (now()->diffInSeconds($announcement->updated_at) < now()->diffInSeconds($announcement->created_at) ? "Updated " . $announcement->updated_at->diffforhumans()   : "Created " . $announcement->created_at->diffforhumans()) : ($announcement->updated_at ? "Updated $announcement->updated_at" : "Created ($announcement->created_at)");
+                            }}
+
 
                             </span>
 

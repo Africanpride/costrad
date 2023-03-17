@@ -100,12 +100,14 @@ Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->
         return view('admin.dashboard', compact('latest'));
     })->name('admin.dashboard');
 
-    Route::get('manage-roles', function () {
+    Route::get('/roles/manage-roles', function () {
         $users = User::all();
-        return view('manage-roles', compact('users'));
-    })->name('admin.manage-roles');
+        return view('admin/roles/manage-roles', compact('users'));
+    })->name('roles');
 
-    Route::view('logs', 'logs');
+    Route::get('logs', function() {
+        return view('admin.logs');
+    })->name('logs');
 
     Route::get('staff', function () {
         $users = User::paginate(8);

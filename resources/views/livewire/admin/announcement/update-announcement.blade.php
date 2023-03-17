@@ -1,5 +1,5 @@
 <div>
-    <x-admin.institute-modal formAction="storeAnnouncement">
+    <x-admin.institute-modal formAction="updateAnnouncement">
 
         <x-slot name="title">
             <div class="absolute top-3 right-3 cursor-pointer">
@@ -10,8 +10,8 @@
             </div>
             <div class=" text-md ">Add New Announcement </div>
         </x-slot>
-
         <x-slot name="content">
+
 
             <div class="space-y-4">
 
@@ -24,27 +24,26 @@
                 </div>
 
                 <div class="">
-                    <textarea wire:model="body"
-                    id="accouncementBody"
-                    class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                    rows="3" placeholder="Announcement content"></textarea>
+                    <textarea wire:model="body" id="accouncementBody"
+                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                        rows="3" placeholder="Announcement content"></textarea>
 
 
                     <x-jet-input-error for="body" class="mt-2" />
                 </div>
 
                 <div class="flex justify-between items-center gap-4">
-                    @if ($image)
+                    {{-- @if ($image)
                         <div>
                             <img class="block  w-[3.375rem] aspect-square rounded-full ring-2 ring-white dark:ring-firefly-900"
                                 src={{ $image->temporaryUrl() }} alt="{{ __('temporary file name') }}">
                         </div>
-                    @endif
+                    @endif --}}
 
                     <div class="block w-full">
                         <label for="small-file-input"
                             class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">Add
-                            Announcement image</label>
+                            Announcement Image</label>
                         <input wire:model="image" type="file"
                             class="flex-auto block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
                                 file:bg-transparent file:border-0
@@ -59,17 +58,17 @@
 
                 </div>
                 <div class="flex flex-col  space-y-4">
-                    @if ($icon)
+                    {{-- @if ($icon)
                         <div class="block w-full">
                             <img class=" aspect-auto w-full ring-2 ring-white dark:ring-firefly-900"
                                 src={{ $icon->temporaryUrl() }} alt="{{ __('temporary file name') }}">
                         </div>
-                    @endif
+                    @endif --}}
 
                     <div class="block w-full">
                         <label for="small-file-input"
                             class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">Add
-                            Announcement Icon</label>
+                            Announcement icon</label>
 
                         <input wire:model="icon" type="file"
                             class="flex-auto block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
@@ -92,12 +91,13 @@
             </x-admin.reset-button>
 
 
-            <x-admin.submit-button class="rounded">Submit</x-admin.submit-button>
+            <button type="submit"
+                class="py-2.5 px-4 inline-flex w-full justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                {{ __('Update Announcement') }}
+            </button>
 
         </x-slot>
 
     </x-admin.institute-modal>
 
 </div>
-
-

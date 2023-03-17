@@ -1,8 +1,13 @@
 <x-admin.permission-modal formAction="updatePermission">
     <x-slot name="title">
-        <div class="absolute top-3 right-3 cursor-pointer">
-            <x-heroicon-o-x-circle class="w-6 h-6 text-red-500"  wire:click="$emit('closeModal')" />
+
+        <div class="absolute top-2 right-2 cursor-pointer"   wire:click="$emit('closeModal')" >
+            <div
+                class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-8">
+                <x-heroicon-o-x-circle class="w-6 h-6 text-red-500"  />
+            </div>
         </div>
+
         <div class="uppercase pb-2">Update or delete </div>
         <hr class="pb-2">
         <span class="text-gray-400 capitalize">"{{ $name }}"</span>
@@ -31,7 +36,11 @@
 
     <x-slot name="buttons">
 
-        <x-admin.delete-button wire:click="deletePermission">Delete Permission</x-admin.delete-button>
+        <button type="reset" wire:click="$emit('closeModal')"
+            class="py-2.5 px-4 inline-flex w-full justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+            Cancel
+        </button>
+
         <x-admin.submit-button>Save Permission</x-admin.submit-button>
 
     </x-slot>

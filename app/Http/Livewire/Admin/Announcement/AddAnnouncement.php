@@ -7,9 +7,12 @@ use Illuminate\Support\Str;
 use App\Models\Announcement;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Support\Facades\Storage;
+use Livewire\WithFileUploads;
 
 class AddAnnouncement extends ModalComponent
 {
+
+    use WithFileUploads;
     public $title, $body, $icon, $image;
 
     public static function modalMaxWidth(): string
@@ -27,7 +30,7 @@ class AddAnnouncement extends ModalComponent
         return false;
     }
 
-    public function store()
+    public function storeAnnouncement()
     {
 
         // dd('this is storing Institute');
@@ -43,7 +46,7 @@ class AddAnnouncement extends ModalComponent
             // if ($this->announcement->logo) {
             //     Storage::delete('images/announcements/' . $this->institute->logo);
             // }
-            $imageName = $this->image->storeAs('images/announcements', random_int(1,600) . "." . $this->image->getClientOriginalExtension(), 'public');
+            $imageName = $this->image->storeAs('images/announcements', rand(1, 20) . "." . $this->image->getClientOriginalExtension(), 'public');
 
             $validatedData['image'] = $imageName;
         }
@@ -53,7 +56,7 @@ class AddAnnouncement extends ModalComponent
             // if ($this->announcement->icon) {
             //     Storage::delete('icons/announcements/' . $this->institute->icon);
             // }
-            $iconName = $this->icon->storeAs('icons/announcements', random_int(1,600) . "." . $this->icon->getClientOriginalExtension(), 'public');
+            $iconName = $this->icon->storeAs('icons/announcements', rand(1, 20) . "." . $this->icon->getClientOriginalExtension(), 'public');
 
             $validatedData['icon'] = $iconName;
         }

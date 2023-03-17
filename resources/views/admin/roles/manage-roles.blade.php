@@ -23,7 +23,9 @@
 
 
                     <div class="gap-4 grid grid-cols-1 md:flex justify-start items-center">
+
                         <x-admin.generic-button onclick="Livewire.emit('openModal', 'admin.role.add-role')">
+
                             <span class="flex items-center justify-center gap-2">
                                 <x-admin.green-shield-icon class="w-6 h-6 text-green-500 " />
                                 Add New Role
