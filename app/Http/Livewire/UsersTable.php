@@ -13,7 +13,7 @@ class UsersTable extends Component
 
     use WithPagination;
 
-    public $perPage = 10;
+    public $perPage = 5;
     public $search = '';
     public $orderBy = 'id';
     public $orderAsc = true;
@@ -88,6 +88,20 @@ class UsersTable extends Component
         $this->selected = [];
     }
 
+    // public function paginationView()
+    // {
+    //     return 'custom-pagination-links-view';
+    // }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
 
     public function resetFilters()
     {
@@ -96,10 +110,20 @@ class UsersTable extends Component
 
         $this->search = '';
     }
+    // public function render()
+    // {
+    //     $users = User::search($this->search)
+    //         ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+    //         ->paginate($this->perPage);
+
+    //     return view('livewire.users-table', [
+    //         'users' => $users,
+    //     ]);
+    // }
     public function render()
     {
         $users = User::search($this->search)
-            ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+        ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
 
         return view('livewire.users-table', [

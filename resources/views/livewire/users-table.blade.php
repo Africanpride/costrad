@@ -2,9 +2,17 @@
 
 
     <div class="my-6  overflow-hidden ">
-
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 ">
-            <div class="w-full md:col-span-6 ">
+            <div class="w-full md:col-span-6 relative">
+                <div class="absolute top-2 right-2 cursor-pointer">
+                    @if ($search !== '')
+                        <div wire:click="resetFilters" class="cursor-pointer delay-200 duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20 hover:bg-red-100 grid h-6 place-items-center rounded-full w-6">
+                            <x-heroicon-o-x-circle class="w-5 h-5 text-red-500" />
+                        </div>
+                    @endif
+                    {{-- {{ ($search !== '') ? 'Not null' : 'null' }} --}}
+                </div>
+
                 <input wire:model.debounce.200ms="search" wire:keydown.escape="resetFilters"
                     wire:keydown.tab="resetFilters" type="text" placeholder="Search by First Name, Last Name, Email ..."
                     class="py px-3 pr-9 block w-full border focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border dark:text-gray-400">
@@ -35,10 +43,12 @@
                 <select wire:model="perPage"
                     class="py px-3 pr-9 block w-full border focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border dark:text-gray-400"
                     id="grid-state">
-                    <option>10</option>
-                    <option>25</option>
-                    <option>50</option>
-                    <option>100</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
 
@@ -185,7 +195,7 @@
 
     </table>
     <div class="pt-20">
-        {!! $users->links() !!}
+        {!! $users->links('pagination') !!}
     </div>
 
 

@@ -72,8 +72,9 @@ Route::get('set_password', function () {
     return view('auth.set_password');
 })->name('set_password')->middleware('auth', config('jetstream.auth_session'));
 
+
 // Admin Routes
-Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix('admin')->group(function () {
 
     Route::get('participants/', function () {
         $participants = User::participant()->get();
@@ -130,6 +131,43 @@ Route::middleware(['auth', config('jetstream.auth_session')])->prefix('admin')->
     });
 
 
+    Route::get('search', function() {
+        $query = ''; // <-- Change the query for testing.
+
+        $users = App\Models\User::search($query)->get();
+
+        return $users;
+    });
 
 
 
+
+
+
+//     <?php
+
+// namespace App\Http\View\Composers;
+
+// use Illuminate\View\View;
+// use App\Models\Institute;
+// use Carbon\Carbon;
+
+// class InstituteComposer
+// {
+//     public function compose(View $view)
+//     {
+//         $institutes = Institute::all();
+//         $totalInstitutes = count($institutes);
+//         $now = Carbon::now();
+//         $endOfYear = Carbon::create($now->year, 12, 31);
+
+//         $remainingInstitutes = $institutes->filter(function($institute) use ($now, $endOfYear) {
+//             $startDate = Carbon::create($institute->startDate);
+//             return $startDate->greaterThanOrEqualTo($now) && $startDate->lessThanOrEqualTo($endOfYear);
+//         });
+
+//         $remainingPercentage = ($remainingInstitutes->count() / $totalInstitutes) * 100;
+
+//         $view->with('remainingPercentage', $remainingPercentage);
+//     }
+// }

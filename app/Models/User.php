@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Laravel\Scout\Searchable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -18,8 +19,8 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use phpDocumentor\Reflection\Types\Boolean;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -30,7 +31,8 @@ class User extends Authenticatable implements MustVerifyEmail
         TwoFactorAuthenticatable,
         HasRoles,
         HasUuids,
-        AuthenticationLoggable;
+        AuthenticationLoggable,
+        Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -96,12 +98,32 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
+
     protected $appends = [
         'profile_photo_url',
         'full_name',
         'name',
         'user_greetings'
     ];
+
+    // public function searchableAs(): string
+    // {
+    //     return 'users_index';
+    // }
+
+    public function toSearchableArray()
+    {
+        return [
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'email' => $this->email,
+        ];
+    }
+
+    public function getScoutKeyName(): mixed
+    {
+        return 'email';
+    }
 
     public function GetUserGreetingsAttribute() : string
     {
