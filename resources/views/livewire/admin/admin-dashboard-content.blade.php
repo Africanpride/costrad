@@ -3,7 +3,7 @@
     <div class="shadow-md w-full md:col-span-8 bg-firefly-100 dark:bg-firefly-800 py-6 px-6 rounded-3xl text-firefly-800 dark:text-white">
         <div class="flex justify-between  items-center mb-8">
             <p class="text-2xl font-bold">Admin Dashboard</p>
-            <p class="">{{ now()->format('F, Y') }}</p>
+            <p class="">{{ now()->format('D, d, F, Y') }}</p>
         </div>
         <div class="flex flex-wrap justify-between items-center pb-8">
             <div class="flex flex-wrap ">
@@ -12,12 +12,12 @@
                     <div class="">In Progress</div>
                 </div>
                 <div class="pr-10">
-                    <div class="text-2xl font-bold">{{ $this->InstitutePercentage() . '%' }}</div>
+                    <div class="text-2xl font-bold font-['lato']">{{ $this->InstitutePercentage() . '%' }}</div>
                     <div class="">Outstanding Institutes</div>
                 </div>
                 <div>
-                    <div class="text-2xl font-bold">62</div>
-                    <div class="">Total Consultations</div>
+                    <div class="text-2xl font-bold">{{ App\Models\Institute::count() }}</div>
+                    <div class="">Institutes & College</div>
                 </div>
             </div>
             <div class="flex items-center mt-4 md:mt-0">
@@ -261,7 +261,7 @@
     <div class=" w-full md:col-span-4 ">
         <div class="shadow-md dark:bg-gray-900 bg-gray-800 rounded-3xl px-6 pt-6 pb-6 h-full">
             <div class="flex justify-between items-center text-white text-2xl pb-6 font-bold">
-                <p>Latest Registration</p>
+                <p>New User Registration</p>
                 <button class="text-white dark:bg-slate-900 bg-gray-700 p-2 ml-2" title="Grid View">
                     <x-heroicon-o-queue-list
                     class=" flex-shrink-0 w-6 h-6 text-white dark:text-white" />
