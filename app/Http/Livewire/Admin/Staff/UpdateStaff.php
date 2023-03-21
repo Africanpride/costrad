@@ -75,7 +75,7 @@ class UpdateStaff extends ModalComponent
         // alert/Toast to show success
 
         // return to staff page
-        return redirect()->to('/staff/');
+        return redirect()->to('admin/staff');
     }
 
     // protected function broker(): PasswordBroker
@@ -96,7 +96,7 @@ class UpdateStaff extends ModalComponent
     {
         $this->user->delete();
         // alert/Toast to show success
-        return redirect()->to('/staff');
+        return redirect()->to('admin/staff');
     }
 
     public function render()

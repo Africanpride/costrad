@@ -165,7 +165,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 ->orWhereHas('roles', function ($q) {
                     $q->whereIn('name', ['super_admin', 'admin']);
                 });
-        })->where('active', 1);
+        });
     }
 
     public function scopeParticipant(Builder $query): void

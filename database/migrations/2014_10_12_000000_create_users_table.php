@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('avatar')->nullable();
             $table->string('social_avatar')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('staff')->default(false);
             $table->boolean('facultyMember')->default(false);
             $table->boolean('participant')->default(true);

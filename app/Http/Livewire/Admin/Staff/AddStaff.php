@@ -34,29 +34,34 @@ class AddStaff extends ModalComponent
         return false;
     }
     public static function closeModalOnClickAway(): bool
-{
-    return false;
-}
+    {
+        return false;
+    }
     public function addStaff()
     {
         $data = $this->validate();
 
         // persist data
+
         $user = User::create($data);
         // set password
         $user->forceFill([
             'password' => Hash::make($this->password),
-            'must_reset_password' => false,
+            'must_create_password' => false,
             'staff' => true
         ])->save();
 
         // send reset password
-        if($this->resetPassword) {
+        if ($this->resetPassword) {
             $this->sendPasswordResetLink($this->email);
         }
 
+        $user->profile()->create([
+            'bio' => 'We want to know more about you - update your bio once and showcase your unique story.'
+        ]);
+
         $user->syncRoles($this->roles);
-        return redirect()->to('/staff');
+        return redirect()->to('admin/staff');
     }
 
     public function render()

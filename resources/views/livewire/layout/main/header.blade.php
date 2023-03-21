@@ -96,12 +96,6 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
                             d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z">
                         </path>
                     </svg>
-                    <a href="{{ url('test4') }}"
-                        class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
-    {{ Request::is('topics') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
-                        test4
-
-                    </a>
                     <a href="{{ url('topics') }}"
                         class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
     {{ Request::is('topics') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
@@ -277,7 +271,7 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                     </div>
                 </div>
-                <a href="{{ url('costrad') }}"
+                <a href="{{ route('institute.show', [$costrad->slug]) }}"
                 class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
 {{ Request::is('costrad') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
                                     <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"

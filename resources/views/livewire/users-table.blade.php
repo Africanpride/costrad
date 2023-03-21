@@ -87,7 +87,7 @@
                 </th>
                 <th scope="col"
                     class="px-6 py-3 text-xs leading-4 font-medium  uppercase tracking-wider  hidden md:table-cell text-left">
-                    Ban/Remove Access
+                    Ban/Deny Access
                 </th>
             </tr>
         </thead>
@@ -142,17 +142,17 @@
                         </td>
                         <td class="hidden md:table-cell px-2 py-2 whitespace-no-wrap text-sm leading-5 text-left">
                             <div class="flex justify-start items-end gap-2 ">
-                                {{-- <span>{{ $user->profile->country_flag }}</span> --}}
+                                <span>{{ $user->profile?->country_flag }}</span>
 
                                 <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400 text-[10px]">{{ $user->profile->country }}</span>
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400 text-[10px]">{{ $user->profile?->country }}</span>
                             </div>
 
                         </td>
                         <td class="hidden md:table-cell whitespace-no-wrap text-sm leading-5 text-left">
                             <span
                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-secondary-200 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-400">
-                                {{ $user->profile->telephone }}
+                                {{ $user->profile?->telephone }}
                             </span>
                         </td>
                         <td

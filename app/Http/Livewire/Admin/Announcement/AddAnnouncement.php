@@ -66,7 +66,7 @@ class AddAnnouncement extends ModalComponent
         }
 
         // dd($validatedData);
-        Announcement::create($validatedData);
+        Announcement::create(array_filter($validatedData));
 
         return redirect('admin/announcements')->with('message', 'Announcement created successfully.');
     }

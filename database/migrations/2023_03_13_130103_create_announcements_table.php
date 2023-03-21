@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->longText('body');
-            $table->string('image');
-            $table->string('icon');
+            $table->string('image')->nullable();
+            $table->string('icon')->nullable();
             $table->foreignUuid('user_id')->onDelete('cascade')->nullable();
             $table->timestamps();
         });

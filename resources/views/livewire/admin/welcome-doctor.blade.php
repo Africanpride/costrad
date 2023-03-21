@@ -105,7 +105,7 @@
                 <div class="text-xs font-bold uppercase text-firefly-400 tracking-widest mb-2">Progress is excellent!
                 </div>
                 <h3 class="text-2xl font-extrabold text-indigo-50 leading-snug">
-                    {{ Auth::user()->user_greetings . ' ' . Auth::user()->firstName . '.' }}
+                    {{ Auth::user()?->user_greetings . ' ' . Auth::user()?->firstName . '.' }}
 
                 </h3>
                 <p class="text-indigo-200 mb-2">Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod.</p>

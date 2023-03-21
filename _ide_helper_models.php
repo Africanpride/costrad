@@ -18,8 +18,8 @@ namespace App\Models{
  * @property string $title
  * @property string $slug
  * @property string $body
- * @property string $image
- * @property string $icon
+ * @property string|null $image
+ * @property string|null $icon
  * @property string|null $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -264,7 +264,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string|null $avatar
  * @property string|null $social_avatar
- * @property string $password
+ * @property string|null $password
  * @property string|null $two_factor_secret
  * @property string|null $two_factor_recovery_codes
  * @property string|null $two_factor_confirmed_at

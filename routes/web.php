@@ -111,17 +111,18 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
     })->name('logs');
 
     Route::get('staff', function () {
-        $users = User::paginate(8);
+        $users = User::staff()->paginate(8);
         return view('staff.index', compact('users'));
     })->name('staff');
 
 });
 
+Route::get('/doctor', function () {
+    return view('doctor.index');
+})->name('doctor')->middleware(['auth', 'banned', config('jetstream.auth_session')]);
 
 
-    Route::get('/doctor', function () {
-        return view('doctor.index');
-    })->name('doctor');
+
 
     Route::view('/powergrid', 'powergrid-demo');
 
@@ -140,34 +141,3 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
     });
 
 
-
-
-
-
-//     <?php
-
-// namespace App\Http\View\Composers;
-
-// use Illuminate\View\View;
-// use App\Models\Institute;
-// use Carbon\Carbon;
-
-// class InstituteComposer
-// {
-//     public function compose(View $view)
-//     {
-//         $institutes = Institute::all();
-//         $totalInstitutes = count($institutes);
-//         $now = Carbon::now();
-//         $endOfYear = Carbon::create($now->year, 12, 31);
-
-//         $remainingInstitutes = $institutes->filter(function($institute) use ($now, $endOfYear) {
-//             $startDate = Carbon::create($institute->startDate);
-//             return $startDate->greaterThanOrEqualTo($now) && $startDate->lessThanOrEqualTo($endOfYear);
-//         });
-
-//         $remainingPercentage = ($remainingInstitutes->count() / $totalInstitutes) * 100;
-
-//         $view->with('remainingPercentage', $remainingPercentage);
-//     }
-// }
