@@ -36,28 +36,73 @@
 
     <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5">
         <p class="text-lg leading-6 font-semibold text-sky-500 ">New York Times Events</p>
-        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white">Live
+        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white delay-500 "
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);">Live
             events by The New York Times.</h2>
         <div class="mt-4 max-w-3xl prose prose-slate dark:prose-dark">
             <p class="text-gradient-copilot">The New York Times Events website is an online collection of virtual
                 gatherings and live-streamed events
                 by the 171-year-old newspaper. The Events website was built using Tailwind CSS.</p>
         </div>
+
     </div>
 
 
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
 
-        <div class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
+        <div
+            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
          bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
           from-slate-900 to-gray-900">
             <livewire:what-is-costrad />
 
         </div>
     </section>
+
+    <section class=" mx-auto bg-cover"  style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
+        <div
+            class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">
+            <h1 class=" max-w-6xl text-4xl tracking-normal font-extrabold  text-white px-8">
+                We invite you to partner with us in developing leaders who have the capacity and vision to create lasting and positive change in all domains of life.
+.
+
+
+            </h1>
+            <div
+                class="absolute bottom-0 left-0 right-0 max-w-md text-center mx-auto p-6 md:left-auto md:text-left md:mx-0 hidden">
+                <!-- Card -->
+                <div class="px-5 py-4 inline-block bg-white rounded-lg md:p-7 dark:bg-gray-900">
+
+                    <div class="hidden md:block">
+                        <h3 class=" font-bold text-gray-800 text-sm dark:text-gray-200"> COSTrAD: Our Objective.
+                        </h3>
+                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-left">The goal is to train and transform leaders who can effectively influence and impact their various organisations and nations holistically, and to create a forum where they can identify and propose solutions to systemic or structural challenges in their respective nations.</p>
+                    </div>
+
+                    <div class="md:mt-6 hidden">
+                        <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
+                            href="#">
+                            <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                <path
+                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z">
+                                </path>
+                            </svg>
+                            Watch our AudioVisual
+                        </a>
+                    </div>
+                </div>
+                <!-- End Card -->
+            </div>
+        </div>
+    </section>
+
+
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
 
-        <div class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
+        <div
+            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
          bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
           from-slate-900 to-gray-900">
             <livewire:institutes-card />
@@ -65,7 +110,7 @@
         </div>
     </section>
 
-{{-- <div class=" dark:border-gray-300/20 text-center space-y-5 bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 to-gray-900">
+    {{-- <div class=" dark:border-gray-300/20 text-center space-y-5 bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 to-gray-900">
 
 </div> --}}
 
@@ -128,8 +173,8 @@
                 <path fill="url(#10724532-9d81-43d2-bb94-866e98dd6e42)" fill-opacity=".2"
                     d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
                 <defs>
-                    <linearGradient id="10724532-9d81-43d2-bb94-866e98dd6e42" x1="1097.04" x2="-141.165" y1=".22"
-                        y2="363.075" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="10724532-9d81-43d2-bb94-866e98dd6e42" x1="1097.04" x2="-141.165"
+                        y1=".22" y2="363.075" gradientUnits="userSpaceOnUse">
                         <stop stop-color="#776FFF" />
                         <stop offset="1" stop-color="#FF4694" />
                     </linearGradient>
@@ -140,8 +185,8 @@
                 <path fill="url(#8ddc7edb-8983-4cd7-bccb-79ad21097d70)" fill-opacity=".2"
                     d="M301.174 646.641 193.541 844.786 0 546.172l301.174 100.469 193.845-356.855c1.241 164.891 42.802 431.935 199.124 180.978 195.402-313.696 143.295-588.18 284.729-419.266 113.148 135.13 124.068 367.989 115.378 467.527L811.753 372.553l20.102 451.119-530.681-177.031Z" />
                 <defs>
-                    <linearGradient id="8ddc7edb-8983-4cd7-bccb-79ad21097d70" x1="1097.04" x2="-141.165" y1=".22"
-                        y2="363.075" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="8ddc7edb-8983-4cd7-bccb-79ad21097d70" x1="1097.04" x2="-141.165"
+                        y1=".22" y2="363.075" gradientUnits="userSpaceOnUse">
                         <stop stop-color="#776FFF" />
                         <stop offset="1" stop-color="#FF4694" />
                     </linearGradient>
@@ -150,7 +195,8 @@
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:mx-0">
                     <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Work with us</h2>
-                    <p class="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui
+                    <p class="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt.
+                        Qui
                         irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
                 </div>
                 <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -164,7 +210,7 @@
 
                         <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
                     </div>
-                    <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                    <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 md:grid-cols-4">
                         <div class="flex flex-col-reverse">
                             <dt class="text-base leading-7 text-gray-300">Offices worldwide</dt>
                             <dd class="text-2xl font-bold leading-9 tracking-tight text-white">12</dd>
@@ -335,7 +381,22 @@
         </div>
     </div>
 
-
+    <div class="absolute bottom-0 right-0 z-[-1]">
+        <svg width="1440" height="886" viewBox="0 0 1440 886" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.5"
+                d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
+                fill="url(#paint0_linear)"></path>
+            <defs>
+                <linearGradient id="paint0_linear" x1="1308.65" y1="1142.58" x2="602.827" y2="-418.681"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#3056D3" stop-opacity="0.36"></stop>
+                    <stop offset="1" stop-color="#F5F2FD" stop-opacity="0"></stop>
+                    <stop offset="1" stop-color="#F5F2FD" stop-opacity="0.096144"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
 
     <livewire:subscribe />
 </x-front-layout>

@@ -1,4 +1,29 @@
 <x-front-layout>
+
+    <section class="relative z-20 overflow-hidden p-6  pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+        <div class="container mx-auto">
+            <div class="-mx-4 flex flex-wrap">
+                <div class="w-full px-4">
+                    <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
+                        <div class="inline-block">
+                            <div class="card-top-text">
+                                <span>COSTrAD: Begin the Journey in Earnest</span>
+                                <x-lucide-trending-up class="text-current w-5 h-5 " />
+
+                            </div>
+                        </div>
+
+                        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
+                            The College of Sustainable Transformation and Development (<a href="{{ url('costrad') }}"
+                                class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
+                            is an initiative of the Logos-Rhema Foundation for Leadership Resource Development, a
+                            Non-Governmental Foundation registered in Ghana.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- vision -->
     <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div class="grid gap-6 row-gap-10 lg:grid-cols-2">
             <div class="lg:py-6 lg:pr-16">
@@ -66,7 +91,7 @@
                     <div class="pt-1 pb-8">
                         <p class="mb-2 text-lg font-bold">Step 3: Apply to Institute</p>
                         <p class="text-gray-700 dark:text-gray-300 ">
-                            With your profile completed, you then apply to any of the institutes availbale. We can only
+                            With your profile completed, you then apply to any of the institutes available\. We can only
                             accommodate a certain number of participants at a time. Therefore, you are encouraged to
                             apply early.
                         </p>
@@ -107,8 +132,8 @@
                         </div>
                     </div>
                     <div class="pt-1">
-                        <p class="mb-2 text-lg font-bold">Success</p>
-                        <p class="text-gray-700 dark:text-gray-300 "> </p>
+                        <p class="mb-2 text-lg font-bold">Success: Notification</p>
+                        <p class="text-gray-700 dark:text-gray-300 ">Successful applicants shall be notified appropriately. </p>
                     </div>
                 </div>
             </div>
@@ -119,6 +144,26 @@
             </div>
         </div>
     </div>
+    <!-- End vision -->
+
+        <div class="absolute bottom-0 right-0 z-[-1] opacity-10">
+            <svg width="1440" height="886" viewBox="0 0 1440 886" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.5"
+                    d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
+                    fill="url(#paint0_linear)"></path>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="1308.65" y1="1142.58" x2="602.827" y2="-418.681"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#3056D3" stop-opacity="0.36"></stop>
+                        <stop offset="1" stop-color="#F5F2FD" stop-opacity="0"></stop>
+                        <stop offset="1" stop-color="#F5F2FD" stop-opacity="0.096144"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+
 
 <livewire:subscribe />
 </x-front-layout>
