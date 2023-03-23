@@ -49,6 +49,7 @@ scrollbar-thumb-firefly-800 dark:scrollbar-thumb-firefly-900 scrollbar-track-gra
     <!-- ========== MAIN CONTENT ========== -->
     <main id="content" role="main" class="bg-gray-50 dark:bg-gray-900 dark:text-gray-50 md:min-h-screen">
         {{ $slot }}
+
     </main>
 
     <!-- Footer -->

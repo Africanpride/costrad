@@ -28,6 +28,7 @@ Route::view('test4', 'test4');
 Route::view('test', 'test');
 Route::view('terms', 'terms');
 Route::view('help', 'help');
+Route::view('topics', 'topics');
 Route::view('privacy', 'privacy');
 Route::view('about', 'about');
 Route::view('documentation', 'documentation');

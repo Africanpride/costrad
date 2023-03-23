@@ -3,26 +3,30 @@
 
     <section class="relative z-20 overflow-hidden p-6  pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
         <div class="container mx-auto">
-            <div class="-mx-4 flex flex-wrap">
-                <div class="w-full px-4">
-                    <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
-                        <div class="inline-block">
-                            <div class="card-top-text">
-                                <span>FAQ: Any Questions? Answered</span>
-                                <x-lucide-arrow-right-circle class="text-current w-5 h-5 " />
-                            </div>
-                        </div>
 
-                        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
-                            Get answers to your questions anytime, anywhere about <a href="{{ url('costrad') }}"
-                                class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400">COSTrAD</a>.
-                            Browse our comprehensive FAQs for valuable insights and solutions, available around the
-                            clock to help you out.
-                        </p>
+            <div class="container mx-auto">
+                <div class="-mx-4 flex flex-wrap">
+                    <div class="w-full px-4">
+                        <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
+                            <x-top-title>
+                                <span>FAQ: Any Questions? Answered</span>
+                                <x-slot name="icon">
+                                    <x-lucide-info class="text-current w-5 h-5 " />
+                                </x-slot>
+
+
+                                <x-slot name="paragraph">
+                                    Get answers to your questions anytime, anywhere about <a href="{{ url('costrad') }}"
+                                    class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400">COSTrAD</a>.
+                                Browse our comprehensive FAQs for valuable insights and solutions, available around the
+                                clock to help you out.
+                                </x-slot>
+
+                            </x-top-title>
+                        </div>
                     </div>
                 </div>
             </div>
-
 
 
             <!-- FAQ -->

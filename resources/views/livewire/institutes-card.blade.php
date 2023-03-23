@@ -19,7 +19,7 @@
             <a href="{{ route('institute.show', [$institute->slug]) }}"
                 class="relative  p-4 sm:py-8 sm:px-6 transition duration-300 z-10 before:absolute rounded-md hover:bg-gray-100/50 dark:bg-slate-900 dark:hover:bg-slate-800">
                 <div class="flex text-left">
-                    <img class="object-cover w-20 h-20 mr-4 rounded-full shadow-md"
+                    <img class="object-cover w-20 h-20 mr-4 rounded-full shadow-md "
                         src="{{ asset($institute->institute_logo) }}" alt="Person" />
                     <div class="flex flex-col justify-center">
                         <p class="text-lg font-bold uppercase">{{ $institute->acronym }}</p>

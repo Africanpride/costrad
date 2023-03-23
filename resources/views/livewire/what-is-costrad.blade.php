@@ -1,6 +1,10 @@
 <div class="text-center grid place-items-center space-y-6 py-16">
     {{-- Image --}}
-    <img class="w-[126px] aspect-square" src="{{ asset( 'storage/' . $costrad->logo) }}" alt="{{ $costrad->name }}">
+    <div class="w-[126px] rounded-full aspect-square relative ">
+
+        <div class=" w-[126px] blur hidden dark:inline-block absolute inset-0 rounded-full  bg-gradient-to-r from-purple-600 to-pink-600 z-10"></div>
+        <img class="w-[126px] aspect-square absolute inset-0 z-20  " src="{{ asset( 'storage/' . $costrad->logo) }}" alt="{{ $costrad->name }}">
+    </div>
 
     {{-- Title --}}
     <div class="max-w-5xl space-y-4 ">

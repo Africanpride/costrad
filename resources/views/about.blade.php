@@ -7,28 +7,21 @@
                     <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
 
 
-                        <div class="mx-auto ">
-                            <div class="inline-block m-2 p-1 rounded-full bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
-                                <span class=" text-black px-4 py-2 font-semibold rounded-full bg-white dark:bg-slate-900
-                                flex justify-center items-center gap-2 dark:text-white">
-                                    COSTrAD:
-                                    A Leadership Initiative
-                                    <x-lucide-arrow-right-circle class="dark:text-white  w-5 h-5 " />
+                        <x-top-title>
+                            COSTrAD: A Leadership Initiative
+                            <x-slot name="icon">
+                                <x-lucide-globe class="dark:text-white  w-5 h-5 " />
+                            </x-slot>
 
-                                </span>
-                              </div>
+                            <x-slot name="paragraph">
+                                The College of Sustainable Transformation and Development (<a
+                                    href="{{ route('institute.show', [\App\Models\Institute::whereAcronym('costrad')->first()->slug]) }}"
+                                    class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
+                                is an initiative of the Logos-Rhema Foundation for Leadership Resource Development,
+                                a Non-Governmental Foundation registered in Ghana.
+                            </x-slot>
 
-                        </div>
-
-
-
-
-                        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
-                            The College of Sustainable Transformation and Development (<a href="{{ url('costrad') }}"
-                                class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
-                            is an initiative of the Logos-Rhema Foundation for Leadership Resource Development, a
-                            Non-Governmental Foundation registered in Ghana.
-                        </p>
+                        </x-top-title>
                     </div>
                 </div>
             </div>
@@ -47,11 +40,11 @@
                 </div>
                 <!-- End Gradients -->
 
-                <div class="relative z-10 py-8">
+                <div class="relative z-10 py-8 shadow-2xl">
                     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
                         <div class="max-w-9xl text-center mx-auto ">
                             <span
-                                class="inline-block text-md font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
+                                class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
                                 COSTrAD: Our Transformational Vision
                             </span>
 
@@ -193,8 +186,8 @@
                             </li>
                             <li class="flex space-x-3">
                                 <!-- Solid Check -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-firefly-600 dark:text-firefly-500"
-                                    width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                <svg class="flex-shrink-0 h-6 w-6 text-firefly-600 dark:text-firefly-500" width="16"
+                                    height="16" viewBox="0 0 16 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M15.1965 7.85999C15.1965 3.71785 11.8387 0.359985 7.69653 0.359985C3.5544 0.359985 0.196533 3.71785 0.196533 7.85999C0.196533 12.0021 3.5544 15.36 7.69653 15.36C11.8387 15.36 15.1965 12.0021 15.1965 7.85999Z"

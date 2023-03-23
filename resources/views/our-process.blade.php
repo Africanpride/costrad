@@ -5,20 +5,21 @@
             <div class="-mx-4 flex flex-wrap">
                 <div class="w-full px-4">
                     <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
-                        <div class="inline-block">
-                            <div class="card-top-text">
-                                <span>COSTrAD: Begin the Journey in Earnest</span>
-                                <x-lucide-trending-up class="text-current w-5 h-5 " />
+                        <x-top-title>
+                            COSTrAD: Begin the Journey in Earnest
+                            <x-slot name="icon">
+                                <x-lucide-trending-up class="dark:text-white  w-5 h-5 " />
+                            </x-slot>
 
-                            </div>
-                        </div>
 
-                        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
-                            The College of Sustainable Transformation and Development (<a href="{{ url('costrad') }}"
+                            <x-slot name="paragraph">
+                                The College of Sustainable Transformation and Development (<a href="{{ url('costrad') }}"
                                 class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
                             is an initiative of the Logos-Rhema Foundation for Leadership Resource Development, a
                             Non-Governmental Foundation registered in Ghana.
-                        </p>
+                                </x-slot>
+
+                        </x-top-title>
                     </div>
                 </div>
             </div>
