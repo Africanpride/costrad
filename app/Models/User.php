@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Newsroom;
 use Laravel\Scout\Searchable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
 
@@ -239,6 +241,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function news() : hasMany
+    {
+        return $this->hasMany(Newsroom::class);
+    }
+
     public function defaultProfilePhotoUrl()
     {
         if (empty($this->avatar) && !empty($this->social_avatar)) {

@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsroomController;
 use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
+use App\Models\Institute;
 
 // Route::get('/auth/redirect', function () {
 //     return Socialite::driver('google')->redirect();
@@ -48,6 +50,12 @@ Route::get('test3', function () {
 
 // display a particular institute using slug as parameter for the flrontend
 Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->name('institute.show');
+Route::get('institutes', function() {
+    $institutes = Institute::get();
+    return view('institutes.index', compact('institutes'));
+})->name('institutes');
+
+Route::get('/news/{slug}', [NewsroomController::class, 'show'])->name('news.show');
 Route::post('contact', ContactController::class)->name('contact-form');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
@@ -84,6 +92,7 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
 
     Route::resource('institutes', InstituteController::class);
     Route::resource('announcements', AnnouncementController::class);
+    Route::resource('newsroom', NewsroomController::class);
 
     Route::get('calender', function () {
         return view('admin.calender');
