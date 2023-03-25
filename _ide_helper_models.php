@@ -150,11 +150,11 @@ namespace App\Models{
  * @property string|null $featured_image
  * @property bool $active
  * @property string|null $user_id
+ * @property int|null $category_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $author
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Category> $categories
- * @property-read int|null $categories_count
+ * @property-read \App\Models\Category|null $category
  * @property-read mixed $frontend_url
  * @property-read string $newsroom_image
  * @method static \Database\Factories\NewsroomFactory factory($count = null, $state = [])
@@ -163,6 +163,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom query()
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereFeaturedImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereId($value)
@@ -231,11 +232,13 @@ namespace App\Models{
  * @property bool|null $disabled
  * @property string|null $marital_status
  * @property string|null $avatar
+ * @property int|null $lc_country_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read mixed $country_flag
  * @property-read mixed $nice_date
  * @property-read string $participant_avatar
+ * @property-read mixed $profile_country
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\ProfileFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
@@ -255,6 +258,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereEmergencyContactTelephone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereLcCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereMaritalStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereNationality($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereResume($value)

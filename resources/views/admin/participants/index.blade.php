@@ -21,7 +21,7 @@
                 <div class="py-8 space-y-2">
                     <livewire:users-table />
 
-                    {{-- @livewire('admin.participant.participant-table'); --}}
+                    {{-- @livewire('admin.participant.participant-table') --}}
                     {{-- @livewire('users-table') --}}
                 </div>
 

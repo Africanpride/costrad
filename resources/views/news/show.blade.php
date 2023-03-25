@@ -1,7 +1,8 @@
 <x-front-layout>
 
 <div class="p-4 ">
-   {{ $news->slug }}
+   {{ $news->slug }} <br />
+   {{$news->category->slug }}
 </div>
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Participant;
 
 use App\Models\Article;
 use App\Models\User;
@@ -9,7 +9,6 @@ use Livewire\WithPagination;
 
 class ParticipantTable extends Component
 {
-
     use WithPagination;
 
     public $perPage = 10;
@@ -17,16 +16,31 @@ class ParticipantTable extends Component
     public $orderBy = 'id';
     public $orderAsc = true;
     public $selected = [];
-    public $message ='Delete';
+    public $message = 'Delete';
     public $selectAllCheckboxes = false;
     public $selectPage = false;
     public User $user;
+    public string $param;
     public $checked = "";
     public $selectCheckbox = [];
     public $selectAllVisible = false;
 
 
-    public function selectedValue(){
+    public function toggleBan($param)
+    {
+        // dd($param['firstName']);
+        $user = User::find($param['id']);
+        $user->ban = !$user->ban;
+        $user->save();
+    }
+
+    // public function deletePost($param)
+    // {
+    //    dd($param);
+    // }
+
+    public function selectedValue()
+    {
         // Get the selected values to display in delete-confirmation modal
 
         if (!empty($this->selected)) {
@@ -37,17 +51,16 @@ class ParticipantTable extends Component
                 // return $deleting;
                 dd($deleting);
             }
-
         }
-
     }
-    public function updatedselectAllVisible($value) {
+    public function updatedselectAllVisible($value)
+    {
         // dd($value);
         if ($value) {
             # code...
             $selected = User::search($this->search)
-            ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-            ->simplePaginate($this->perPage);
+                ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                ->simplePaginate($this->perPage);
             dd($selected);
         }
     }
@@ -58,11 +71,11 @@ class ParticipantTable extends Component
         $this->message = "You clicked on button";
     }
 
-    public function deleteUser() {
+    public function deleteUser()
+    {
 
-        if(count($this->selected) > 0) {
-            foreach($this->selected as $id)
-            {
+        if (count($this->selected) > 0) {
+            foreach ($this->selected as $id) {
                 $user = User::where('id', $id)->first();
                 $user->articles->each->delete();
                 $user->profile->delete();
@@ -71,12 +84,21 @@ class ParticipantTable extends Component
             $this->selected = [];
         }
         $this->selected = [];
-
     }
 
-    public function mount() {
-        // $this->search = '';
-        // $this->users = '';
+    // public function paginationView()
+    // {
+    //     return 'custom-pagination-links-view';
+    // }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
     }
 
     public function resetFilters()
@@ -85,17 +107,25 @@ class ParticipantTable extends Component
         // $this->reset(['search', 'users', 'selected']);
 
         $this->search = '';
-
     }
+    // public function render()
+    // {
+    //     $users = User::search($this->search)
+    //         ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+    //         ->paginate($this->perPage);
+
+    //     return view('livewire.users-table', [
+    //         'users' => $users,
+    //     ]);
+    // }
     public function render()
     {
         $users = User::search($this->search)
         ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-        ->paginate($this->perPage);
+            ->paginate($this->perPage);
 
         return view('livewire.admin.participant.participant-table', [
-                'users' => $users,
+            'users' => $users,
         ]);
     }
-
 }

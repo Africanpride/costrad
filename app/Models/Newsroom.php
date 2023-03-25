@@ -15,7 +15,7 @@ class Newsroom extends Model
 
     use HasFactory, HasUuids;
 
-    protected $fillable = ['title','slug', 'active' ,'overview', 'body', 'featured_image', 'user_id'];
+    protected $fillable = ['title', 'slug', 'active', 'overview', 'body', 'featured_image', 'user_id'];
 
 
     public function getRouteKeyName()
@@ -33,9 +33,9 @@ class Newsroom extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function categories(): BelongsToMany
+    public function category(): BelongsTo
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     protected $casts = [

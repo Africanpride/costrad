@@ -20,6 +20,7 @@
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
+        "lwwcas/laravel-countries": "^3.3",
         "mallardduck/blade-lucide-icons": "^1.10",
         "power-components/livewire-powergrid": "^3.6",
         "rappasoft/laravel-authentication-log": "^2.0",

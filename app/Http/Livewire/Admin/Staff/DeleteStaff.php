@@ -22,7 +22,7 @@ class DeleteStaff extends ModalComponent
     public function deleteStaff()
     {
         $this->user->delete();
-        return redirect()->to('/staff');
+        return redirect()->to('admin/staff');
     }
 
     public function render()

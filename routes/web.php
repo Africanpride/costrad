@@ -1,16 +1,18 @@
 <?php
 
 use App\Models\User;
+use App\Models\Institute;
+use Illuminate\Support\HtmlString;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ContactController;
+use Lwwcas\LaravelCountries\Models\Country;
 use App\Http\Controllers\NewsroomController;
 use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
-use App\Models\Institute;
 
 // Route::get('/auth/redirect', function () {
 //     return Socialite::driver('google')->redirect();
@@ -20,7 +22,7 @@ use App\Models\Institute;
 //     $user = Socialite::driver('google')->user();
 // });
 
-Route::get('banned' , function() {
+Route::get('banned', function () {
     return view('auth.banned');
 })->name('banned')->middleware('auth');
 
@@ -38,7 +40,7 @@ Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
@@ -50,7 +52,7 @@ Route::get('test3', function () {
 
 // display a particular institute using slug as parameter for the flrontend
 Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->name('institute.show');
-Route::get('institutes', function() {
+Route::get('institutes', function () {
     $institutes = Institute::get();
     return view('institutes.index', compact('institutes'));
 })->name('institutes');
@@ -74,7 +76,6 @@ Route::middleware(['auth', config('jetstream.auth_session'), 'setNewPassword'])-
     Route::get('/profile', function () {
         return view('profile.show');
     });
-
 });
 
 Route::get('set_password', function () {
@@ -116,7 +117,7 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
         return view('admin/roles/manage-roles', compact('users'));
     })->name('roles');
 
-    Route::get('logs', function() {
+    Route::get('logs', function () {
         return view('admin.logs');
     })->name('logs');
 
@@ -124,7 +125,6 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
         $users = User::staff()->paginate(8);
         return view('staff.index', compact('users'));
     })->name('staff');
-
 });
 
 Route::get('/doctor', function () {
@@ -134,20 +134,45 @@ Route::get('/doctor', function () {
 
 
 
-    Route::view('/powergrid', 'powergrid-demo');
+Route::view('/powergrid', 'powergrid-demo');
 
 
-    Route::get('invoice', function () {
-        return view('invoice');
-    });
+Route::get('invoice', function () {
+    return view('invoice');
+});
 
 
-    Route::get('search', function() {
-        $query = ''; // <-- Change the query for testing.
+Route::get('search', function () {
+    $query = ''; // <-- Change the query for testing.
 
-        $users = App\Models\User::search($query)->get();
+    $users = App\Models\User::search($query)->get();
 
-        return $users;
-    });
+    return $users;
+});
 
+Route::get('flags', function () {
+    $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
 
+    $random_country = $countries[array_rand($countries)];
+    echo $random_country;
+    // $country = 'ghana';
+    // $response = Http::get("https://restcountries.com/v3.1/name/{$country}");
+    // $data = $response->json();
+    // dd($data);
+    // dd($data[0]['flag']);
+    // $flagUrl = $data['flags']['png'];
+    // return $flagUrl;
+})->name('flags');
+
+Route::get('nations', function () {
+    $nation = Country::whereId('5')->first();
+    $imgObj = $nation->emoji;
+
+    $codepoints = array_map(function ($char) {
+        return dechex(mb_ord($char));
+    }, preg_split('//u', $imgObj, -1, PREG_SPLIT_NO_EMPTY));
+
+    $url = "https://twemoji.maxcdn.com/v/13.4.0/72x72/" . implode('-', $codepoints) . ".png";
+    $altText = "Image of a flag";
+    return '<img src="'.$url.'" alt="'.$altText.'">';
+})->name('nations');

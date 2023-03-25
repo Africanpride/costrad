@@ -20314,6 +20314,18 @@
      
 }
 
+    namespace Lwwcas\LaravelCountries { 
+            /**
+     * 
+     *
+     * @see \Lwwcas\LaravelCountries\Skeleton\SkeletonClass
+     */ 
+        class LaravelCountriesFacade {
+         
+    }
+     
+}
+
     namespace Spatie\LaravelIgnition\Facades { 
             /**
      * 
@@ -24875,6 +24887,7 @@ namespace  {
             class Agent extends \Jenssegers\Agent\Facades\Agent {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Livewire extends \Livewire\Livewire {}
+            class LaravelCountries extends \Lwwcas\LaravelCountries\LaravelCountriesFacade {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
             class Timezone extends \JamesMills\LaravelTimezone\Facades\Timezone {}
      

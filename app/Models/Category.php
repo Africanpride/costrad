@@ -13,7 +13,7 @@ class Category extends Model
     use HasFactory;
     protected $fillable = ['title', 'slug','overview', 'body','description', 'featured_image' ];
 
-    public function news() : HasMany
+    public function news()
     {
         return $this->hasMany(Newsroom::class);
     }

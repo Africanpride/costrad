@@ -36,7 +36,7 @@
 
     <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5">
         <p class="text-lg leading-6 font-semibold text-sky-500 ">New York Times Events</p>
-        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white delay-500 "
+        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white delay-500 font-['inter']"
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);">Live
             events by The New York Times.</h2>
         <div class="mt-4 max-w-3xl prose prose-slate dark:prose-dark">
@@ -62,9 +62,8 @@
     <section class=" mx-auto bg-cover"  style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
         <div
             class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">
-            <h1 class=" max-w-6xl text-4xl tracking-normal font-extrabold  text-white px-8">
+            <h1 class=" max-w-7xl text-2xl tracking-normal leading-snug font-bold  text-white px-8 font-['inter'] uppercase">
                 We invite you to partner with us in developing leaders who have the capacity and vision to create lasting and positive change in all domains of life.
-.
 
 
             </h1>

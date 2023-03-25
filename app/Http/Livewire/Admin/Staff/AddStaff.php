@@ -4,11 +4,13 @@ namespace App\Http\Livewire\Admin\Staff;
 
 use App\Models\Role;
 use App\Models\User;
+use Torann\GeoIP\GeoIP;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
 use App\Traits\PasswordResetNotification;
-use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 
 class AddStaff extends ModalComponent
@@ -37,9 +39,12 @@ class AddStaff extends ModalComponent
     {
         return false;
     }
+
+
     public function addStaff()
     {
         $data = $this->validate();
+
 
         // persist data
 
@@ -48,16 +53,25 @@ class AddStaff extends ModalComponent
         $user->forceFill([
             'password' => Hash::make($this->password),
             'must_create_password' => false,
-            'staff' => true
+            'staff' => true,
+            'participant' => false,
         ])->save();
 
         // send reset password
         if ($this->resetPassword) {
             $this->sendPasswordResetLink($this->email);
         }
+        if ($this->active) {
+            $user->forceFill([
+                'active' => true
+            ])->save();
+        }
 
         $user->profile()->create([
-            'bio' => 'We want to know more about you - update your bio once and showcase your unique story.'
+            'bio' => 'We want to know more about you - update your bio once and showcase your unique story.',
+            'lc_country_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         $user->syncRoles($this->roles);

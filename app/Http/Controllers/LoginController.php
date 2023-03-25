@@ -63,7 +63,8 @@ class LoginController extends Controller
 
                 // Generate new profile
                 $newUser->profile()->create([
-                    'bio' => 'We want to know more about you - update your bio once and showcase your unique story.'
+                    'bio' => 'We want to know more about you - update your bio once and showcase your unique story.',
+                    'country' => 'ghana'
                 ]);
 
                 // Give User role as participant

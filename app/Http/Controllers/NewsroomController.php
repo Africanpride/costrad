@@ -57,7 +57,7 @@ class NewsroomController extends Controller
     {
             // returns institute according to slug on the front-end
             $news = Newsroom::where('slug', $slug)->firstOrFail();
-            // dd($news);
+            // dd($news->category->title);
             return view('news.show', compact('news'));
     }
 

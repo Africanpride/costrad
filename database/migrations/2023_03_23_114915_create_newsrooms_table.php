@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('featured_image')->nullable();
             $table->boolean('active')->default(true);
             $table->foreignUuid('user_id')->onDelete('cascade')->nullable();
+            $table->foreignId('category_id')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

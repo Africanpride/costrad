@@ -144,6 +144,8 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'unsplash_key' => env('UNSPLASH_KEY'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

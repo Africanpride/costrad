@@ -35,7 +35,9 @@ return new class extends Migration
             $table->boolean('disabled')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('avatar')->nullable();
+            $table->integer('lc_country_id')->unsigned()->nullable();
             $table->timestamps();
+            $table->foreign('lc_country_id')->references('id')->on('lc_countries');
         });
     }
 

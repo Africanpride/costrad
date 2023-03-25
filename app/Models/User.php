@@ -23,7 +23,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
-
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens,
@@ -149,13 +148,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
-    public static function search($search)
+    public static function searchParticipants($search)
     {
         return empty($search) ? static::query()
-            : static::query()->where('id', 'like', '%' . $search . '%')
-            ->orWhere('firstName', 'like', '%' . $search . '%')
-            ->orWhere('lastName', 'like', '%' . $search . '%')
-            ->orWhere('email', 'like', '%' . $search . '%');
+        : static::query()->where('participant', true)
+        ->where(function ($query) use ($search) {
+            $query->where('id', 'like', '%' . $search . '%')
+                ->orWhere('firstName', 'like', '%' . $search . '%')
+                ->orWhere('lastName', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%');
+        });
     }
 
     // Scopes

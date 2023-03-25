@@ -2,10 +2,10 @@
 
     {{-- Title --}}
     <div class="max-w-5xl space-y-6 ">
-        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white ">Our
+        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">Our
             Training Institutes</h2>
         <p class=" text-3xl font-bold
-         text-slate-800 px-5 text-gradient1">
+         text-slate-800 px-5 dark:text-white">
             Join us in raising champions with the wherewithal to effect systematic and sustainable transformation in
             every sphere of society.
         </p>

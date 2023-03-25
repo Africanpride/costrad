@@ -13,7 +13,7 @@ class UsersTable extends Component
 
     use WithPagination;
 
-    public $perPage = 5;
+    public $perPage = 10;
     public $search = '';
     public $orderBy = 'id';
     public $orderAsc = true;
@@ -122,7 +122,7 @@ class UsersTable extends Component
     // }
     public function render()
     {
-        $users = User::search($this->search)
+        $users = User::searchParticipants($this->search)
         ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
 

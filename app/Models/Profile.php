@@ -6,13 +6,15 @@ use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
+use Lwwcas\LaravelCountries\Models\Country;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Profile extends Model
 {
-    use HasUuids,HasFactory;
+    use HasUuids, HasFactory;
 
 
     protected $fillable = [
@@ -50,19 +52,38 @@ class Profile extends Model
     public function getCountryFlagAttribute()
     {
 
-        if(empty($this->country)) {
-            $this->country = 'ghana';
-        }
 
-        $response = Http::get("https://restcountries.com/v3.1/name/{$this->country}");
+        $country = $this->country ?? 'ghana'; // use null coalescing operator to set default value
+
+        $response = Http::get("https://restcountries.com/v3.1/name/{$country}");
         $data = $response->json();
-        $flagUrl = $data[0]['flag'];
-        return $flagUrl;
+
+        if (!empty($data) && isset($data[0]['flag'])) {
+            return $data[0]['flag'];
+        } else {
+            return null; // handle case where no flag is found
+        }
     }
+
+    // public function getCountryFlagAttribute()
+    // {
+
+    //     if(empty($this->country) || is_null($this->country)) {
+    //         $this->country = 'ghana';
+    //     }
+
+    //     $response = Http::get("https://restcountries.com/v3.1/name/{$this->country}");
+    //     $data = $response->json();
+    //     return $data[0]['flag'];
+    // }
 
     protected $casts = [
         'disabled' => 'boolean',
         'active' => 'boolean',
+    ];
+
+    protected $appends = [
+        'profile_country'
     ];
 
     public function getNiceDateAttribute()
@@ -84,10 +105,21 @@ class Profile extends Model
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
-    public function user() : BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    public function getProfileCountryAttribute () {
+        $country = Country::whereId($this->lc_country_id)->first();
+        if($this->lc_country_id) {
+            return $country->name;
+        }
+        return 'ghana';
+    }
 
+    // public function nation() : BelongsTo
+    // {
+    //     return $this->belongsTo(Country::class, 'lc_country_id', 'id');
+    // }
 }
