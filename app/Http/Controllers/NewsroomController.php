@@ -9,6 +9,7 @@ use App\Models\Newsroom;
 
 class NewsroomController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -57,11 +58,11 @@ class NewsroomController extends Controller
     {
             // returns institute according to slug on the front-end
             $news = Newsroom::where('slug', $slug)->firstOrFail();
-            // dd($news->category->title);
-            return view('news.show', compact('news'));
+            $latestNews = Newsroom::orderBy('created_at', 'desc')->where('id', '!=', $news->id)->take(3)->get();
+            return view('news.show', compact('news', 'latestNews'));
     }
 
-    /**
+    /*
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Newsroom  $newsroom
@@ -69,8 +70,8 @@ class NewsroomController extends Controller
      */
     public function edit(Newsroom $newsroom)
     {
-
-            return view('admin.newsroom.edit', compact('newsroom'));
+            $categories = Category::all();
+            return view('admin.newsroom.edit', compact('newsroom', 'categories'));
 
     }
 

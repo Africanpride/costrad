@@ -42,7 +42,7 @@
                                 {{-- <img class="md:w-22 md:p-6 p-24 aspect-square relative rounded-full" src="{{ $news->featured_image }}"
                                 alt="{{ $news->title }}"> --}}
                                 <span class="absolute top-3 right-3 cursor-pointer"
-                                    onclick="Livewire.emit('openModal', 'admin.news.update-images', {{ json_encode([$news->slug]) }})">
+                                    onclick="Livewire.emit('openModal', 'admin.newsroom.update-images', {{ json_encode([$news->slug]) }})">
                                     <x-lucide-image-plus class="w-4 h-4 text-firefly-500" />
                                 </span>
                             </div>
@@ -58,7 +58,7 @@
                                             </a>
                                             <span class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
                                                 <x-heroicon-o-trash class="w-4 h-4 text-red-500 cursor-pointer"
-                                                    onclick="Livewire.emit('openModal', 'admin.news.delete-news', {{ json_encode([$news->slug]) }})" />
+                                                    onclick="Livewire.emit('openModal', 'admin.newsroom.delete-newsroom', {{ json_encode([$news->slug]) }})" />
                                             </span>
                                         </div>
 

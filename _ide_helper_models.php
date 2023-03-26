@@ -45,30 +45,12 @@ namespace App\Models{
 /**
  * App\Models\Category
  *
- * @property int $id
- * @property string $title
- * @property string $slug
- * @property string|null $overview
- * @property string|null $body
- * @property string|null $description
- * @property string|null $featured_image
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Newsroom> $news
  * @property-read int|null $news_count
  * @method static \Database\Factories\CategoryFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category query()
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereFeaturedImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereOverview($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
  */
 	class Category extends \Eloquent {}
 }
@@ -148,12 +130,13 @@ namespace App\Models{
  * @property string|null $overview
  * @property string $body
  * @property string|null $featured_image
+ * @property int $like
  * @property bool $active
- * @property string|null $user_id
- * @property int|null $category_id
+ * @property string $user_id
+ * @property int $category_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\User|null $author
+ * @property-read \App\Models\User $author
  * @property-read \App\Models\Category|null $category
  * @property-read mixed $frontend_url
  * @property-read string $newsroom_image
@@ -167,6 +150,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereFeaturedImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereLike($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereOverview($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereTitle($value)

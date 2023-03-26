@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateNewsroomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('newsrooms', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->text('overview')->nullable();
             $table->longText('body');
             $table->string('featured_image')->nullable();
+            $table->unsignedBigInteger('like')->default(0);
             $table->boolean('active')->default(true);
-            $table->foreignUuid('user_id')->onDelete('cascade')->nullable();
-            $table->foreignId('category_id')->onDelete('cascade')->nullable();
+            $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('category_id')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -36,4 +37,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('newsrooms');
     }
-};
+}

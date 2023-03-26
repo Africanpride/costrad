@@ -131,9 +131,6 @@ Route::get('/doctor', function () {
     return view('doctor.index');
 })->name('doctor')->middleware(['auth', 'banned', config('jetstream.auth_session')]);
 
-
-
-
 Route::view('/powergrid', 'powergrid-demo');
 
 

@@ -23,16 +23,25 @@ class UserFactory extends Factory
      *
      * @return array
      */
+
+    public static function getRandomDateOrNull()
+    {
+        // Generate a random number between 0 and 1
+        $randNum = mt_rand(0, 1);
+
+        // Return now() or null based on the random number
+        return $randNum ? now() : null;
+    }
     public function definition()
     {
         return [
             'firstName' => $this->faker->firstName(),
             'lastName' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'email_verified_at' => self::getRandomDateOrNull(),
             'password' => Hash::make('password'), // password
             'remember_token' => Str::random(10),
-            'ban' => random_int(0,1),
+            'ban' => random_int(0, 1),
         ];
     }
 
@@ -41,14 +50,14 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => now(),
-            ];
-        });
-    }
+    // public function unverified()
+    // {
+    //     return $this->state(function (array $attributes) {
+    //         return [
+    //             'email_verified_at' => self::getRandomDateOrNull()
+    //         ];
+    //     });
+    // }
 
     /**
      * Indicate that the user should have a personal team.

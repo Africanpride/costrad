@@ -34,18 +34,18 @@
         </div>
     </section>
 
-    <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5">
+    {{-- <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5 hidden">
         <p class="text-lg leading-6 font-semibold text-sky-500 ">New York Times Events</p>
-        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white delay-500 font-['inter']"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);">Live
-            events by The New York Times.</h2>
+        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-5xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+        Live events by The New York Times.</h2>
         <div class="mt-4 max-w-3xl prose prose-slate dark:prose-dark">
-            <p class="text-gradient-copilot">The New York Times Events website is an online collection of virtual
+            <p class="text-gray-500">The New York Times Events website is an online collection of virtual
                 gatherings and live-streamed events
                 by the 171-year-old newspaper. The Events website was built using Tailwind CSS.</p>
         </div>
 
-    </div>
+    </div> --}}
 
 
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
@@ -59,11 +59,25 @@
         </div>
     </section>
 
-    <section class=" mx-auto bg-cover"  style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
+    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+
+        <div
+            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
+         bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+          from-slate-900 to-gray-900">
+            <livewire:institutes-card />
+
+        </div>
+
+    </section>
+
+    <section class=" mx-auto bg-cover" style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
         <div
             class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">
-            <h1 class=" max-w-7xl text-2xl tracking-normal leading-snug font-bold  text-white px-8 font-['inter'] uppercase">
-                We invite you to partner with us in developing leaders who have the capacity and vision to create lasting and positive change in all domains of life.
+            <h1
+                class=" max-w-7xl text-2xl tracking-normal leading-snug font-bold  text-white px-8 font-['inter'] uppercase">
+                We invite you to partner with us in developing leaders who have the capacity and vision to create
+                lasting and positive change in all domains of life.
 
 
             </h1>
@@ -75,7 +89,10 @@
                     <div class="hidden md:block">
                         <h3 class=" font-bold text-gray-800 text-sm dark:text-gray-200"> COSTrAD: Our Objective.
                         </h3>
-                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-left">The goal is to train and transform leaders who can effectively influence and impact their various organisations and nations holistically, and to create a forum where they can identify and propose solutions to systemic or structural challenges in their respective nations.</p>
+                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-left">The goal is to train and
+                            transform leaders who can effectively influence and impact their various organisations and
+                            nations holistically, and to create a forum where they can identify and propose solutions to
+                            systemic or structural challenges in their respective nations.</p>
                     </div>
 
                     <div class="md:mt-6 hidden">
@@ -98,16 +115,7 @@
     </section>
 
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
 
-        <div
-            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
-         bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
-          from-slate-900 to-gray-900">
-            <livewire:institutes-card />
-
-        </div>
-    </section>
 
     {{-- <div class=" dark:border-gray-300/20 text-center space-y-5 bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 to-gray-900">
 

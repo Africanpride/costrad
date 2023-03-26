@@ -15,7 +15,7 @@ class Newsroom extends Model
 
     use HasFactory, HasUuids;
 
-    protected $fillable = ['title', 'slug', 'active', 'overview', 'body', 'featured_image', 'user_id'];
+    protected $fillable = ['title', 'slug', 'active', 'overview', 'body','like', 'featured_image', 'user_id'];
 
 
     public function getRouteKeyName()
@@ -35,8 +35,9 @@ class Newsroom extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
 
     protected $casts = [
         'active' => 'boolean',
@@ -45,8 +46,17 @@ class Newsroom extends Model
     protected $appends = [
         'frontend_url',
         'newsroom_image',
+        'estimated_read_time'
     ];
 
+    public function GetEstimatedReadTimeAttribute()
+    {
+        // Assume $articleContent contains the text of the article
+        $wordCount = str_word_count(strip_tags($this->body)); // Count the number of words
+        $readingTime = ceil($wordCount / 200); // Estimate reading time based on average reading speed
+        return $readingTime . ' min read'; // Display estimated reading time in minutes
+
+    }
     public function getNewsroomImageAttribute(): string
     {
         return asset("storage/{$this->featured_image}");
