@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Staff;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use LivewireUI\Modal\ModalComponent;
 
 class DeleteStaff extends ModalComponent
@@ -21,7 +22,10 @@ class DeleteStaff extends ModalComponent
 
     public function deleteStaff()
     {
-        $this->user->delete();
+        if(Auth::check() && Auth::user()->id !== $this->user->id ) {
+            $this->user->delete();
+            return redirect()->to('admin/staff');
+        }
         return redirect()->to('admin/staff');
     }
 

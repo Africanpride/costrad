@@ -45,12 +45,30 @@ namespace App\Models{
 /**
  * App\Models\Category
  *
+ * @property int $id
+ * @property string $title
+ * @property string $slug
+ * @property string|null $overview
+ * @property string|null $body
+ * @property string|null $description
+ * @property string|null $featured_image
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Newsroom> $news
  * @property-read int|null $news_count
  * @method static \Database\Factories\CategoryFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereFeaturedImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereOverview($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
  */
 	class Category extends \Eloquent {}
 }
@@ -140,6 +158,8 @@ namespace App\Models{
  * @property-read \App\Models\Category|null $category
  * @property-read mixed $frontend_url
  * @property-read string $newsroom_image
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property-read int|null $media_count
  * @method static \Database\Factories\NewsroomFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom newQuery()
@@ -157,7 +177,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsroom whereUserId($value)
  */
-	class Newsroom extends \Eloquent {}
+	class Newsroom extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
 
 namespace App\Models{

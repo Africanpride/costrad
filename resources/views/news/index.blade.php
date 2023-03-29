@@ -4,5 +4,4 @@
        {{ $news->slug }}
     </div>
 
-
-    </x-front-layout>
+</x-front-layout>

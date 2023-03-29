@@ -38,13 +38,14 @@ class DatabaseSeeder extends Seeder
                 $this->command->line("Data cleared, starting from blank database.");
             }
 
+            $this->call(\Lwwcas\LaravelCountries\Database\Seeders\LcDatabaseSeeder::class);
+            $this->command->info("Countries Seeding Done!");
+
             $this->call([
                 RolesPermissionSeeder::class
             ]);
             $this->command->info("Roles & Permissions Created!");
 
-            $this->call(\Lwwcas\LaravelCountries\Database\Seeders\LcDatabaseSeeder::class);
-            $this->command->info("Countries Seeding Done!");
 
             $super_admin = User::factory()->create([
                 'firstName' => 'Pius',

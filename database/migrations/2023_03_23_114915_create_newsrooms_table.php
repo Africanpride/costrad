@@ -23,7 +23,7 @@ class CreateNewsroomsTable extends Migration
             $table->unsignedBigInteger('like')->default(0);
             $table->boolean('active')->default(true);
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('category_id')->onDelete('cascade');
+            $table->foreignId('category_id')->onDelete('cascade')->default(1);
             $table->timestamps();
         });
     }

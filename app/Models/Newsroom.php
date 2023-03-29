@@ -3,17 +3,19 @@
 namespace App\Models;
 
 use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Newsroom extends Model
+class Newsroom extends Model implements HasMedia
 {
 
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, InteractsWithMedia;
 
     protected $fillable = ['title', 'slug', 'active', 'overview', 'body','like', 'featured_image', 'user_id'];
 
@@ -73,6 +75,11 @@ class Newsroom extends Model
     }
     public function registerMediaCollections(): void
     {
+        $this->addMediaConversion('featured_image')
+            ->width(1024)
+            ->height(500)
+            ->sharpen(10);
+
         $this->addMediaConversion('banner')
             ->width(1024)
             ->height(500)

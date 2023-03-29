@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNewsroomRequest;
-use App\Http\Requests\UpdateNewsroomRequest;
 use App\Models\Category;
 use App\Models\Newsroom;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\NewsroomRequest;
+use App\Http\Requests\StoreNewsroomRequest;
 
 class NewsroomController extends Controller
 {
@@ -17,10 +20,7 @@ class NewsroomController extends Controller
      */
     public function index()
     {
-        //
-
-        // $news = Newsroom::with('author')->orderBy('created_at', 'DESC')->paginate(8);
-        $newsroom = Newsroom::paginate(5);
+        $newsroom = Newsroom::with('author')->orderBy('created_at', 'DESC')->paginate(8);
 
         return view('admin.newsroom.index', compact('newsroom'));
     }
@@ -43,9 +43,28 @@ class NewsroomController extends Controller
      * @param  \App\Http\Requests\StoreNewsroomRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewsroomRequest $request)
+    public function store(NewsroomRequest $request): RedirectResponse
     {
-        //
+        $request->validated();
+
+        $newsroom = Newsroom::create([
+            'title' => $request->input('title'),
+            'slug' => Str::slug($request->input('title')),
+            'overview' => $request->input('overview'),
+            'body' => $request->input('body'),
+            'active' => $request->input('active'),
+            'user_id' => Auth::user()->id
+        ]);
+        if (!is_null($request->input('category_id'))) {
+            $newsroom->forceFill([
+                'category_id' => $request->input('category_id')
+            ])->save();
+        }
+
+        if ($request->hasfile('featured_image')) {
+            $newsroom->addMediaFromRequest('featured_image')->toMediaCollection('featured_image');
+        }
+        return redirect(route('newsroom.index'));
     }
 
     /**
@@ -56,10 +75,9 @@ class NewsroomController extends Controller
      */
     public function show($slug)
     {
-            // returns institute according to slug on the front-end
-            $news = Newsroom::where('slug', $slug)->firstOrFail();
-            $latestNews = Newsroom::orderBy('created_at', 'desc')->where('id', '!=', $news->id)->take(3)->get();
-            return view('news.show', compact('news', 'latestNews'));
+        $news = Newsroom::where('slug', $slug)->firstOrFail();
+        $latestNews = Newsroom::with('author')->with('media')->orderBy('created_at', 'DESC')->where('id', '!=', $news->id)->take(3)->get();
+        return view('news.show', compact('news', 'latestNews'));
     }
 
     /*
@@ -70,9 +88,8 @@ class NewsroomController extends Controller
      */
     public function edit(Newsroom $newsroom)
     {
-            $categories = Category::all();
-            return view('admin.newsroom.edit', compact('newsroom', 'categories'));
-
+        $categories = Category::all();
+        return view('admin.newsroom.edit', compact('newsroom', 'categories'));
     }
 
     /**
@@ -82,10 +99,31 @@ class NewsroomController extends Controller
      * @param  \App\Models\Newsroom  $newsroom
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNewsroomRequest $request, Newsroom $newsroom)
+    public function update(NewsroomRequest $request, Newsroom $newsroom)
     {
-        //
+        $request->validated();
+
+        $newsroom->update([
+            'title' => $request->input('title'),
+            'slug' => Str::slug($request->input('title')),
+            'overview' => $request->input('overview'),
+            'body' => $request->input('body'),
+            'active' => $request->input('active'),
+        ]);
+        if (!is_null($request->input('category_id'))) {
+            $newsroom->forceFill([
+                'category_id' => $request->input('category_id')
+            ])->save();
+        }
+
+        if ($request->hasfile('featured_image')) {
+            $newsroom->clearMediaCollection('featured_image');
+            $newsroom->addMediaFromRequest('featured_image')->toMediaCollection('featured_image');
+        }
+
+        return redirect()->route('newsroom.index');
     }
+
 
     /**
      * Remove the specified resource from storage.
