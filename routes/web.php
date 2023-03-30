@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Newsroom;
 use App\Models\Institute;
 use Illuminate\Support\HtmlString;
 use Spatie\Permission\Models\Role;
@@ -29,6 +30,7 @@ Route::get('banned', function () {
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
 Route::view('test4', 'test4');
+Route::view('test5', 'test5');
 Route::view('test', 'test');
 Route::view('terms', 'terms');
 Route::view('help', 'help');
@@ -43,6 +45,12 @@ Route::view('institutes', 'institutes'); // front end institute
 Route::get('/', function () {
     return view('home');
 })->name('home');
+Route::get('news', function () {
+    $news = Newsroom::latest()->paginate(8);
+    $latest = Newsroom::latest()->first();
+    // dd($latest);
+    return view('news', compact('news', 'latest'));
+})->name('news');
 
 Route::get('test3', function () {
     $roles = Role::paginate();

@@ -271,6 +271,29 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                     </div>
                 </div>
+                <a href="{{ route('news') }}"
+                class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+{{ Request::is('news') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+                                    <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7.81533 12.5C7.81533 13.5989 6.91234 14.5 5.78901 14.5C4.66568 14.5 3.7627 13.5989 3.7627 12.5C3.7627 11.4011 4.66568 10.5 5.78901 10.5H7.81533V12.5Z"
+                            stroke="currentColor"></path>
+                        <path
+                            d="M3.7627 7.5C3.7627 6.40107 4.66568 5.5 5.78901 5.5H7.81533V9.5H5.78901C4.66568 9.5 3.7627 8.59893 3.7627 7.5Z"
+                            stroke="currentColor"></path>
+                        <path
+                            d="M3.7627 2.5C3.7627 1.40107 4.66568 0.5 5.78901 0.5H7.81533V4.5H5.78901C4.66568 4.5 3.7627 3.59893 3.7627 2.5Z"
+                            stroke="currentColor"></path>
+                        <path
+                            d="M8.81543 0.5H10.8417C11.9651 0.5 12.8681 1.40107 12.8681 2.5C12.8681 3.59893 11.9651 4.5 10.8417 4.5H8.81543V0.5Z"
+                            stroke="currentColor"></path>
+                        <path
+                            d="M12.8681 7.5C12.8681 8.59893 11.9651 9.5 10.8417 9.5C9.71841 9.5 8.81543 8.59894 8.81543 7.5C8.81543 6.40106 9.71841 5.5 10.8417 5.5C11.9651 5.5 12.8681 6.40107 12.8681 7.5Z"
+                            stroke="currentColor"></path>
+                    </svg>
+                    News
+                </a>
                 <a href="{{ route('institute.show', [$costrad->slug]) }}"
                 class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
 {{ Request::is('costrad') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">

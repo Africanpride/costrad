@@ -123,18 +123,14 @@
             <!-- Overview -->
             <div class="space-y-3">
                 <h2 class="text-2xl font-bold md:text-3xl dark:text-white">{{ $newsroom->title }}</h2>
-
-                <p class="text-lg text-gray-800 dark:text-gray-200">
-                    {{ $newsroom->overview }}
-                </p>
             </div>
             <!-- Overview -->
             <figure>
                 <img class="w-full object-cover rounded-xl h-96 aspect-video"
                     src="{{ ($newsroom->getFirstMediaUrl('featured_image')) ? $newsroom->getFirstMediaUrl('featured_image') : $newsroom->featured_image }}"
                     alt="Image Description">
-                <figcaption class="mt-3 text-sm text-center text-gray-500">
-                    A woman sitting at a table.
+                <figcaption class="mt-3 text-sm text-left text-gray-500">
+                        {{ $newsroom->overview }}
                 </figcaption>
             </figure>
 
@@ -168,9 +164,16 @@
 <div class="sticky bottom-6 inset-x-0 text-center">
     <div class="inline-block bg-white shadow-md rounded-full py-3 px-4 dark:bg-gray-800">
         <div class="flex items-center gap-x-1.5">
-            <!-- Button -->
+
             <div class="hs-tooltip inline-block">
-                <button type="button" wire:click="increment"
+            <a href="{{ route('news') }}" type="button" wire:click="increment"
+                    class=" flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+                    <x-lucide-corner-up-left class="text-current w-5 h-5 " /> back
+                </a>
+            </div>
+            <div class="block h-3 border-r border-gray-300 mx-3 dark:border-gray-600"></div>
+            <div class="hs-tooltip inline-block">
+            <button type="button" wire:click="increment"
                     class="hs-tooltip-toggle flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" viewBox="0 0 16 16">
@@ -203,6 +206,7 @@
                         class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-sm dark:bg-black"
                         role="tooltip">
                         Comment
+
                     </span>
                 </button>
             </div>
