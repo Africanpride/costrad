@@ -46,11 +46,13 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('news', function () {
-    $news = Newsroom::latest()->paginate(8);
-    $latest = Newsroom::latest()->first();
-    // dd($latest);
-    return view('news', compact('news', 'latest'));
+    $latest = Newsroom::latest()->take(2)->get();
+    $news = Newsroom::whereNotIn('id', $latest->pluck('id'))->latest()->paginate(8);
+    $firstLatest = $latest->first();
+    $secondLatest = $latest->skip(1)->first();
+    return view('news', compact('news', 'latest', 'firstLatest', 'secondLatest'));
 })->name('news');
+
 
 Route::get('test3', function () {
     $roles = Role::paginate();

@@ -1,6 +1,6 @@
 <x-front-layout>
 
-    <section class="relative z-20 overflow-hidden p-6 pt-24 pb-12 ">
+    <section class="isolate relative z-20 overflow-hidden p-6 pt-24 pb-12 ">
         <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
                 <x-top-title>
@@ -42,45 +42,45 @@
         <div class="max-w-7xl mx-auto space-y-6 ">
             <div class="block md:flex md:space-x-2 px-2 lg:p-0">
                 <a class="mb-4 md:mb-0 w-full md:w-2/3 relative rounded inline-block" style="height: 24em;"
-                    href="{{  route('news.show', [$latest]) }}" target="_blank">
+                    href="{{  route('news.show', [$firstLatest]) }}" target="_blank">
                     <div class="absolute left-0 bottom-0 w-full h-full z-10"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
-                    <img src="{{ $latest->getFirstMediaUrl('featured_image') ? $latest->getFirstMediaUrl('featured_image') : $latest->featured_image }}&auto=format&fit=crop&w=900&q=60"
+                    <img src="{{ $firstLatest->getFirstMediaUrl('featured_image') ? $firstLatest->getFirstMediaUrl('featured_image') : $firstLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
                         class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover">
                     <div class="p-4 absolute bottom-0 left-0 z-20">
                         <span
-                            class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ $latest->category->title }}</span>
+                            class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ $firstLatest->category->title }}</span>
                         <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
-                            {{ $latest->title }}
+                            {{ $firstLatest->title }}
                         </h2>
                         <div class="flex mt-3">
-                            <img src="{{ $latest->author->profile_photo_url }}"
+                            <img src="{{ $firstLatest->author->profile_photo_url }}"
                                 class="h-10 w-10 rounded-full mr-2 object-cover">
                             <div>
-                                <p class="font-semibold text-gray-200 text-sm"> {{$latest->author->full_name }} </p>
-                                <p class="font-semibold text-gray-400 text-xs"> {{ $latest->updated_at->format('d-M') }} </p>
+                                <p class="font-semibold text-gray-200 text-sm"> {{$firstLatest->author->full_name }} </p>
+                                <p class="font-semibold text-gray-400 text-xs"> {{ $firstLatest->updated_at->format('d-M') }} </p>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <a class="w-full md:w-1/3 relative rounded" style="height: 24em;" href="./blog.html" target="_blank">
+                <a class="w-full md:w-1/3 relative rounded" style="height: 24em;" href="{{  route('news.show', $secondLatest) }}" >
                     <div class="absolute left-0 top-0 w-full h-full z-10"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
-                    <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1301&amp;q=80"
+                        <img src="{{ $secondLatest->getFirstMediaUrl('featured_image') ? $secondLatest->getFirstMediaUrl('featured_image') : $secondLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
                         class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover">
                     <div class="p-4 absolute bottom-0 left-0 z-20">
                         <span
-                            class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">Science</span>
-                        <h2 class="text-3xl font-semibold text-gray-100 leading-tight">Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipisicing elit.</h2>
+                            class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ $secondLatest->category->title }}</span>
+                        <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
+                            {{ $secondLatest->title }}
+                        </h2>
                         <div class="flex mt-3">
-                            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BODFjZTkwMjItYzRhMS00OWYxLWI3YTUtNWIzOWQ4Yjg4NGZiXkEyXkFqcGdeQXVyMTQ0ODAxNzE@._V1_UX172_CR0,0,172,256_AL_.jpg"
+                            <img src="{{ $secondLatest->author->profile_photo_url }}"
                                 class="h-10 w-10 rounded-full mr-2 object-cover">
                             <div>
-                                <p class="font-semibold text-gray-200 text-sm"> Chrishell Staus </p>
-                                <p class="font-semibold text-gray-400 text-xs"> 15 Aug </p>
+                                <p class="font-semibold text-gray-200 text-sm"> {{$secondLatest->author->full_name }} </p>
+                                <p class="font-semibold text-gray-400 text-xs"> {{ $secondLatest->updated_at->format('d-M') }} </p>
                             </div>
                         </div>
                     </div>
