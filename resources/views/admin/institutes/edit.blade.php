@@ -173,8 +173,8 @@
                                     <label
                                         class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
                                         Institute Overview</label>
-                                    <textarea name="overview" id="institutesOverview"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                    <textarea name="overview"
+                                        class=" placeholder:py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                         rows="3">{{ old('overview', optional($institute)->overview) }}</textarea>
                                     @error('overview')
                                         <span class="text-red-500">{{ $message }}</span>
@@ -186,7 +186,7 @@
                                         class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
                                         Institute about</label>
                                     <textarea name="about"
-                                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                        class="tinyText py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                         rows="3">{{ old('about', optional($institute)->about) }}</textarea>
                                     @error('about')
                                         <span class="text-red-500">{{ $message }}</span>
@@ -250,6 +250,10 @@
 
                             </div>
                         </div>
+                        <div class="py-6">
+                            <input type="file"  name="filepond" multiple />
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 py-4">
                             <button type="reset"
                                 class="py-2 px-3 my-3 w-full inline-flex justify-center items-center gap-2  border border-transparent font-semibold bg-slate-500 text-white hover:bg-slate-600 focus:outline-none focus:ring-2  rounded">Cancel</button>
@@ -276,7 +280,7 @@
                     tinymce.init({
                         skin: 'oxide-dark',
                         content_css: 'dark',
-                        selector: 'textarea#institutesOverview',
+                        selector: 'textarea.tinyText',
                         plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
                         editimage_cors_hosts: ['picsum.photos'],
                         menubar: 'file edit view insert format tools table help',
@@ -290,6 +294,14 @@
                         autosave_retention: '2m',
                         image_advtab: true,
 
+                    });
+
+                    $(document).ready(function() {
+                        // executes when HTML-Document is loaded and DOM is ready
+                        console.log("Hi 👀");
+
+                        const inputElement = document.querySelector('input[type="file"]');
+                        const pond = FilePond.create(inputElement);
                     });
                 </script>
 

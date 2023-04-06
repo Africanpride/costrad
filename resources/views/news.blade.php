@@ -41,8 +41,8 @@
 
         <div class="max-w-7xl mx-auto space-y-6 ">
             <div class="block md:flex md:space-x-2 px-2 lg:p-0">
-                <a class="mb-4 md:mb-0 w-full md:w-2/3 relative rounded inline-block" style="height: 24em;"
-                    href="{{  route('news.show', [$firstLatest]) }}" target="_blank">
+                <a class="mb-4 md:mb-0 w-full md:w-2/3 relative rounded-2xl inline-block" style="height: 24em;"
+                    href="{{ route('news.show', [$firstLatest]) }}" target="_blank">
                     <div class="absolute left-0 bottom-0 w-full h-full z-10"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
                     <img src="{{ $firstLatest->getFirstMediaUrl('featured_image') ? $firstLatest->getFirstMediaUrl('featured_image') : $firstLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
@@ -57,17 +57,20 @@
                             <img src="{{ $firstLatest->author->profile_photo_url }}"
                                 class="h-10 w-10 rounded-full mr-2 object-cover">
                             <div>
-                                <p class="font-semibold text-gray-200 text-sm"> {{$firstLatest->author->full_name }} </p>
-                                <p class="font-semibold text-gray-400 text-xs"> {{ $firstLatest->updated_at->format('d-M') }} </p>
+                                <p class="font-semibold text-gray-200 text-sm"> {{ $firstLatest->author->full_name }}
+                                </p>
+                                <p class="font-semibold text-gray-400 text-xs">
+                                    {{ $firstLatest->updated_at->format('d-M') }} </p>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <a class="w-full md:w-1/3 relative rounded" style="height: 24em;" href="{{  route('news.show', $secondLatest) }}" >
+                <a class="w-full md:w-1/3 relative rounded" style="height: 24em;"
+                    href="{{ route('news.show', $secondLatest) }}">
                     <div class="absolute left-0 top-0 w-full h-full z-10"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
-                        <img src="{{ $secondLatest->getFirstMediaUrl('featured_image') ? $secondLatest->getFirstMediaUrl('featured_image') : $secondLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
+                    <img src="{{ $secondLatest->getFirstMediaUrl('featured_image') ? $secondLatest->getFirstMediaUrl('featured_image') : $secondLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
                         class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover">
                     <div class="p-4 absolute bottom-0 left-0 z-20">
                         <span
@@ -79,65 +82,62 @@
                             <img src="{{ $secondLatest->author->profile_photo_url }}"
                                 class="h-10 w-10 rounded-full mr-2 object-cover">
                             <div>
-                                <p class="font-semibold text-gray-200 text-sm"> {{$secondLatest->author->full_name }} </p>
-                                <p class="font-semibold text-gray-400 text-xs"> {{ $secondLatest->updated_at->format('d-M') }} </p>
+                                <p class="font-semibold text-gray-200 text-sm"> {{ $secondLatest->author->full_name }}
+                                </p>
+                                <p class="font-semibold text-gray-400 text-xs">
+                                    {{ $secondLatest->updated_at->format('d-M') }} </p>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @forelse ($news as $article)
-                    <article class=" overflow-hidden rounded-lg border border-gray-100/20 shadow-md relative">
-                        <div class="relative">
-                            <a href=" {{ route('news.show', [$article]) }}">
-                                <img alt="Office"
-                                    src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}&auto=format&fit=crop&w=900&q=60"
-                                    class="h-48 w-full object-cover" />
-                            </a>
-                            {{-- <span class="absolute left-0 bottom-0 bg-firefly-800 text-white" >123</span> --}}
+                    <article class="flex bg-white transition hover:shadow-xl dark:bg-gray-800 dark:shadow-gray-800/25 shadow-lg">
+                        <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+                            <time datetime="{{ $article->created_at }}"
+                                class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900 dark:text-white">
+                                <span class=" text-gray-500/70">{{ __('Published ') }}</span>
+                                <span class="w-px flex-1 bg-gray-900/10 dark:bg-white/10"></span>
+                                <span>{{ $article->created_at->format('M d, Y') }}</span>
+                            </time>
                         </div>
 
-                        <div class="p-4 sm:p-6 space-y-3">
-                            <div class="uppercase text-[8px] py-5">{{ $article->created_at->diffForHumans() }}</div>
-                            <a href=" {{ route('news.show', [$article]) }}">
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 uppercase">
-                                    {{ $article->title }}
-                                </h3>
-                            </a>
-
-                            <p class="mt-2 !text-[14px] leading-relaxed text-gray-500 !line-clamp-5">
-                                {!! $article->body !!}
-
-                            </p>
-
-                            <a href=" {{ route('news.show', [$article]) }}"
-                                class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
-                                Find out more
-
-                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
+                        <div class="hidden sm:block sm:basis-1/3">
+                            <img alt="Guitar"
+                            src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}&auto=format&fit=crop&w=1740&q=80"
+                                class="aspect-square h-full w-full object-cover" />
                         </div>
-                        <div
-                            class="bg-firefly-600 px-2 py-1 absolute right-0 bottom-0 rounded-tl-lg text-xs text-white inline-flex justify-center items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                            </svg>
-                            <span class="px-1"> {{ $article->category->title }}</span>
+
+                        <div class="flex flex-1 flex-col justify-between">
+                            <div
+                                class="border-l border-gray-900/10 p-4 dark:border-white/10 sm:!border-l-transparent ">
+                                <a href="{{ route('news.show', [$article]) }}">
+                                    <h3 class="font-bold uppercase text-gray-900 dark:text-white">
+                                        {{ $article->title }}
+                                    </h3>
+                                </a>
+
+                                <p class="mt-2 text-sm leading-relaxed text-gray-700 line-clamp-4 dark:text-gray-200">
+                                    {!! $article->body !!}
+                                </p>
+                            </div>
+
+                            <div class="sm:flex sm:items-end sm:justify-end">
+                                <a href="{{ route('news.show', [$article]) }}"
+                                    class="block bg-yellow-400 px-5 py-2 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-500">
+                                    Read Article
+                                </a>
+                            </div>
                         </div>
                     </article>
+
                 @empty
                 @endforelse
             </div>
             <div class="py-6">{{ $news->links() }}</div>
+
         </div>
 
     </section>

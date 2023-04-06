@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Newsroom;
+use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -73,7 +74,7 @@ class NewsroomController extends Controller
      * @param  \App\Models\Newsroom  $newsroom
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($slug) : View
     {
         $news = Newsroom::where('slug', $slug)->firstOrFail();
         $latestNews = Newsroom::with('author')->with('media')->orderBy('created_at', 'DESC')->where('id', '!=', $news->id)->take(3)->get();

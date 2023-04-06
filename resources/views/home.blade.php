@@ -71,6 +71,41 @@
 
     </section>
 
+    <section>
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="grid gap-6 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+                @if ($latest->count() > 0)
+
+                    @foreach ($latest as $article)
+                        <div
+                            class=" border  border-gray-300/50 dark:border-gray-200/20 overflow-hidden transition-shadow duration-300 bg-white dark:bg-gray-900/50 rounded shadow-md">
+                            <img src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+                                class="object-cover w-full h-44 " alt="" />
+                            <div class="p-5 ">
+                                <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
+                                    <a href="{{ route('news.show', [$article]) }}"
+                                        class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
+                                        aria-label="Category" title="traveling">{{ $article->category->title }}</a>
+                                    <span class="text-gray-600 dark:text-gray-200">— {{ $article->created_at->format('d M Y') }}</span>
+                                </p>
+                                <a href="{{ route('news.show', [$article]) }}" aria-label="{{ $article->category->title }}" title="{{ $article->title }}"
+                                    class="inline-block mb-3 text-md font-bold leading-6 transition-colors duration-200 hover:text-yellow-500">
+                                   {{ $article->title }}</a>
+                                <p class="mb-2 text-gray-500 text-sm line-clamp-2 ">
+                                    {{ $article->overview}}
+                                </p>
+                                <a href="{{ route('news.show', [$article]) }}" aria-label=""
+                                    class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn
+                                    more</a>
+                            </div>
+                        </div>
+                    @endforeach
+
+                @endif
+
+            </div>
+        </div>
+    </section>
     <section class=" mx-auto bg-cover" style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
         <div
             class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">

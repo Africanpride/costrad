@@ -43,11 +43,16 @@ Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
 
 Route::get('/', function () {
-    return view('home');
+    $latest = Newsroom::latest()->take(3)->get();
+    // $news = Newsroom::whereNotIn('id', $latest->pluck('id'))->latest()->paginate(4);
+    // $firstLatest = $latest->first();
+    // $secondLatest = $latest->skip(1)->first();
+    return view('home', compact('latest'));
 })->name('home');
+
 Route::get('news', function () {
     $latest = Newsroom::latest()->take(2)->get();
-    $news = Newsroom::whereNotIn('id', $latest->pluck('id'))->latest()->paginate(8);
+    $news = Newsroom::whereNotIn('id', $latest->pluck('id'))->latest()->paginate(4);
     $firstLatest = $latest->first();
     $secondLatest = $latest->skip(1)->first();
     return view('news', compact('news', 'latest', 'firstLatest', 'secondLatest'));
@@ -62,6 +67,7 @@ Route::get('test3', function () {
 
 // display a particular institute using slug as parameter for the flrontend
 Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->name('institute.show');
+
 Route::get('institutes', function () {
     $institutes = Institute::get();
     return view('institutes.index', compact('institutes'));

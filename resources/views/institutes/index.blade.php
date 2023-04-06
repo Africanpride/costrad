@@ -22,62 +22,75 @@
         </div>
 
 
-<div>
-    <section class="">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-wrap -mx-4 -my-8">
-            <div class="py-8 px-4 md:w-1/4">
-              <div class="h-full flex items-start">
-                <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
-                  <span class="text-gray-500 pb-2 mb-2 border-b-2 border-gray-700">Jul</span>
-                  <span class="font-medium text-lg leading-none text-gray-300 title-font">18</span>
-                </div>
-                <div class="flex-grow pl-6">
-                  <h2 class="tracking-widest text-xs title-font font-medium text-yellow-400 mb-1">CATEGORY</h2>
-                  <h1 class="title-font text-xl font-medium dark:text-white mb-3">The 400 Blows</h1>
-                  <p class="leading-tight mb-5 text-sm">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-                  <a class="inline-flex items-center">
-                    <img alt="blog" src="https://dummyimage.com/103x103" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
-                    <span class="flex-grow flex flex-col pl-3">
-                      <span class="title-font font-medium dark:text-white">Alper Kamu</span>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div>
+            <section class="">
+                <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                    <div class="grid gap-8 md:grid-cols-2">
+                        @forelse ($institutes as $institute)
+                            <div
+                                class="p-6 flex flex-col text-left items-start bg-gray-300/20 dark:bg-transparent border border-gray-500/20 rounded-r-2xl relative pl-12 shadow-sm">
+                                <div
+                                    class="rotate-180 p-2 [writing-mode:_vertical-lr] absolute left-0 bg-gray-800 bg-gray-500/20 h-full top-0">
+                                    <time datetime="{{ $institute->startDate }}"
+                                        class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900 dark:text-white">
+                                        <span>{{ \Carbon\Carbon::parse($institute->startDate)->format('M d, Y') }}</span>
+                                        <span class="w-px flex-1 bg-gray-900/10 dark:bg-white/10"></span>
+                                        <span> To </span>
+                                        <span class="w-px flex-1 bg-gray-900/10 dark:bg-white/10"></span>
+                                        <span>{{ \Carbon\Carbon::parse($institute->endDate)->format('M d, Y') }} </span>
+                                    </time>
+                                </div>
+                                <a href="{{ route('institute.show', [$institute]) }}">
 
-          </div>
-        </div>
-      </section>
-</div>
+                                    <img src="{{ $institute->institute_logo }}"
+                                        class="w-20 h-20 inline-flex items-center justify-center rounded-full  mb-5 flex-shrink-0"
+                                        alt="">
+                                </a>
 
 
+                                <div class="">
+                                    <a href="{{ route('institute.show', [$institute]) }}"
+                                        class="dark:text-white text-md title-font font-bold mb-3 uppercase">
+                                        {{ $institute->name }} <span
+                                            class="uppercase">({{ $institute->acronym }})</span></a>
 
-        <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-            <div
-                class="relative isolate overflow-hidden  px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+                                    <div class="leading-normal text-[13px]">{!! $institute->overview !!}</div>
 
-                <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Boost your
-                        productivity.<br>Start
-                        using our app today.</h2>
-                    <p class="mt-6 text-lg leading-8 text-gray-300">Ac euismod vel sit maecenas id pellentesque eu sed
-                        consectetur. Malesuada adipiscing sagittis vel nulla.</p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                        <a href="#"
-                            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 dark:text-white  shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get
-                            started</a>
-                        <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span
-                                aria-hidden="true">→</span></a>
+                                    <div class="flex justify-between items-center mt-4">
+                                        <a href="{{ route('institute.show', [$institute]) }}"
+                                            class=" dark:text-yellow-400 text-yellow-500 inline-flex items-center">Learn
+                                            More
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                        <a href="{{ route('institute.show', [$institute]) }}"
+                                            class="  text-firefly-100 inline-flex items-center bg-firefly-800
+                                            px-3 py-1.5 text-[12px] ">
+                                            Register For <span class="uppercase space-x-2 pl-2"> {{ $institute->acronym . ' ' . now()->format('Y') }}</span>
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
+                                                viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @empty
+                        @endforelse
+
+
                     </div>
                 </div>
-                <div class="relative mt-16 h-80 lg:mt-8">
-                    <img class="absolute top-0 left-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-                        src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-                        alt="App screenshot" width="1824" height="1080">
-                </div>
-            </div>
+            </section>
         </div>
+
+
+
         <div
             class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
             <svg class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
@@ -99,8 +112,6 @@
 
 
     <section>
-
-
         <div class="w-full bg-center bg-cover h-[38rem]"
             style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');">
             <div class="flex items-center justify-center w-full h-full bg-gray-900/40">
@@ -108,7 +119,8 @@
                     <h1 class="text-3xl font-semibold text-white lg:text-4xl">Build your new <span
                             class="text-blue-400">Saas</span> Project</h1>
                     <button
-                        class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Start
+                        class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                        Start
                         project</button>
                 </div>
             </div>
