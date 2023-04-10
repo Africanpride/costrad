@@ -43,10 +43,7 @@ Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
 
 Route::get('/', function () {
-    $latest = Newsroom::latest()->take(3)->get();
-    // $news = Newsroom::whereNotIn('id', $latest->pluck('id'))->latest()->paginate(4);
-    // $firstLatest = $latest->first();
-    // $secondLatest = $latest->skip(1)->first();
+    $latest = Newsroom::latest()->take(4)->get();
     return view('home', compact('latest'));
 })->name('home');
 

@@ -49,6 +49,7 @@ class InstituteRequest extends FormRequest
             'active' => 'nullable',
             'slug' => 'nullable',
             'price' => 'required',
+            'images' => 'nullable'
 
         ];
     }

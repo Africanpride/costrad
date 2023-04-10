@@ -20326,6 +20326,29 @@
      
 }
 
+    namespace Rawilk\FormComponents\Facades { 
+            /**
+     * 
+     *
+     * @see \Rawilk\FormComponents\FormComponents
+     */ 
+        class FormComponents {
+                    /**
+         * This will output the JavaScript necessary to run some components
+         * such as CustomSelect.
+         *
+         * @static 
+         */ 
+        public static function javaScript($options = [])
+        {
+                        /** @var \Rawilk\FormComponents\FormComponents $instance */
+                        return $instance->javaScript($options);
+        }
+         
+    }
+     
+}
+
     namespace Spatie\LaravelIgnition\Facades { 
             /**
      * 
@@ -20961,6 +20984,17 @@
         public static function wire($name)
         {
                         return \Illuminate\View\ComponentAttributeBag::wire($name);
+        }
+                    /**
+         * 
+         *
+         * @see \Rawilk\FormComponents\FormComponentsServiceProvider::bootMacros()
+         * @param mixed $key
+         * @static 
+         */ 
+        public static function hasStartsWith($key)
+        {
+                        return \Illuminate\View\ComponentAttributeBag::hasStartsWith($key);
         }
          
     }
@@ -24888,6 +24922,7 @@ namespace  {
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Livewire extends \Livewire\Livewire {}
             class LaravelCountries extends \Lwwcas\LaravelCountries\LaravelCountriesFacade {}
+            class FormComponents extends \Rawilk\FormComponents\Facades\FormComponents {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
             class Timezone extends \JamesMills\LaravelTimezone\Facades\Timezone {}
      

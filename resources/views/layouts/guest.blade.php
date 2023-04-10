@@ -68,6 +68,7 @@
 
     </div>
 
+    <fc:scripts />
 
 </body>
 

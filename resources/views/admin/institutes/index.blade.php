@@ -61,12 +61,11 @@
                                         </time>
                                     </div>
 
-                                    <h1 class="text-lg font-bold ">{{ $institute->name }}
-                                        <span class="uppercase">({{ $institute->acronym }})</span>
+                                    <h1 class="text-lg font-bold ">{{ $institute->name }}<span class="uppercase">({{ $institute->acronym }})</span>
                                     </h1>
-                                    <div>
-                                        <p class=" text-sm line-clamp-4 text-justify">
-                                            {{ $institute->overview }}
+                                    <div class="institute-overview">
+                                        <p class=" text-[12px] line-clamp-4 text-justify">
+                                            {!! $institute->overview !!}
                                             <a href="{{ route('institute.show', [$institute->slug]) }}"
                                                 rel="noopener noreferrer"
                                                 class="inline-flex justify-start items-center   text-sm text-orange-400">

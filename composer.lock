@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64f4ea2b137c4ed90ced613c0c8b2fb2",
+    "content-hash": "1aaabfe9f9ebc7e8429fbb1e9173b70c",
     "packages": [
         {
             "name": "aristridely/slideover",
@@ -5497,6 +5497,97 @@
                 }
             ],
             "time": "2023-02-16T18:32:49+00:00"
+        },
+        {
+            "name": "rawilk/laravel-form-components",
+            "version": "v8.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rawilk/laravel-form-components.git",
+                "reference": "7c4bd8712c0926dfbd90d5745eea3a2638671991"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rawilk/laravel-form-components/zipball/7c4bd8712c0926dfbd90d5745eea3a2638671991",
+                "reference": "7c4bd8712c0926dfbd90d5745eea3a2638671991",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "^9.0|^10.0",
+                "illuminate/support": "^9.0|^10.0",
+                "illuminate/view": "^9.0|^10.0",
+                "php": "^8.0|^8.1|^8.2",
+                "spatie/laravel-package-tools": "^1.14"
+            },
+            "require-dev": {
+                "blade-ui-kit/blade-heroicons": "^2.0",
+                "laravel/pint": "^1.5",
+                "livewire/livewire": "^2.8",
+                "orchestra/testbench": "^7.0|^8.0",
+                "pestphp/pest": "^1.22",
+                "pestphp/pest-plugin-laravel": "^1.4",
+                "pestphp/pest-plugin-parallel": "^1.2",
+                "sinnbeck/laravel-dom-assertions": "^1.3",
+                "spatie/laravel-ray": "^1.25"
+            },
+            "suggest": {
+                "blade-ui-kit/blade-heroicons": "Required for the default icons used in this package",
+                "livewire/livewire": "Consider livewire for handling your form submissions"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rawilk\\FormComponents\\FormComponentsServiceProvider"
+                    ],
+                    "aliases": {
+                        "FormComponents": "Rawilk\\FormComponents\\Facades\\FormComponents"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rawilk\\FormComponents\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Randall Wilk",
+                    "email": "randall@randallwilk.dev",
+                    "homepage": "https://randallwilk.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Set of Blade components for TailwindCSS forms.",
+            "homepage": "https://github.com/rawilk/laravel-form-components",
+            "keywords": [
+                "blade",
+                "custom-select",
+                "date picker",
+                "filepond",
+                "flatpickr",
+                "form",
+                "laravel",
+                "laravel-form-components",
+                "rawilk",
+                "tailwind",
+                "toggle"
+            ],
+            "support": {
+                "issues": "https://github.com/rawilk/laravel-form-components/issues",
+                "source": "https://github.com/rawilk/laravel-form-components/tree/v8.1.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/rawilk",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-03-31T14:45:58+00:00"
         },
         {
             "name": "spatie/browsershot",

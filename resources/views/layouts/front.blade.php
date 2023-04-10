@@ -59,6 +59,9 @@ scrollbar-thumb-firefly-800 dark:scrollbar-thumb-firefly-900 scrollbar-track-gra
 
     <!-- JS Implementing Plugins -->
     {{-- <script src="./assets/vendor/preline/dist/preline.js"></script> --}}
+    <fc:scripts />
+    @livewireScripts
+
 </body>
 
 </html>

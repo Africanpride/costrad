@@ -1,7 +1,6 @@
 <div class="py-16 md:py-24 border-t dark:border-gray-500/10 border-gray-200/50 ">
 
 
-
     <div
         class="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-12 text-gray-900 dark:text-white">
         <div class="max-w-10xl md:max-w-6xl mx-auto relative text-center px-4  space-y-3">

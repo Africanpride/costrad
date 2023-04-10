@@ -34,19 +34,6 @@
         </div>
     </section>
 
-    {{-- <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5 hidden">
-        <p class="text-lg leading-6 font-semibold text-sky-500 ">New York Times Events</p>
-        <h2 class="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-5xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
-        Live events by The New York Times.</h2>
-        <div class="mt-4 max-w-3xl prose prose-slate dark:prose-dark">
-            <p class="text-gray-500">The New York Times Events website is an online collection of virtual
-                gatherings and live-streamed events
-                by the 171-year-old newspaper. The Events website was built using Tailwind CSS.</p>
-        </div>
-
-    </div> --}}
-
 
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
 
@@ -72,33 +59,72 @@
     </section>
 
     <section>
-        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div class="grid gap-6 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-4xl md:px-24 lg:px-8 ">
+            <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5 text-center">
+                <h2
+                class="  text-slate-900 text-3xl sm:text-5xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
+                News & Publications</h2>
+                <p class="my-2 text-2xl font-bold
+                text-slate-800 px-5 dark:text-white">
+                Providing valuable resources for researchers and analysts keen on staying up-to-date with the latest
+                developments in the 8-spheres of society.
+            </p>
+            <p class="text-lg leading-6 font-semibold text-sky-500 "><span>
+                <a href="{{ route('news') }}">More News & Publications</a></span> </p>
+            </div>
+
+            <div class="grid gap-4 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full">
                 @if ($latest->count() > 0)
 
                     @foreach ($latest as $article)
-                        <div
+                        <!-- Card -->
+                        <a class="group block" href="{{ route('news.show', [$article]) }}">
+                            <div class="flex-shrink-0 relative w-full rounded-xl overflow-hidden h-[200px] before:absolute before:inset-x-0 before:w-full before:h-full before:bg-gradient-to-t before:from-gray-900/[.7] before:z-[1]">
+                                <img class="w-full h-full absolute top-0 left-0 object-cover" src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}&auto=format&fit=crop&w=1062&q=80" alt="{{ $article->title }}">
+                              </div>
+
+                            <h3
+                                class="mt-2 text-lg font-medium text-gray-800 group-hover:text-blue-600 dark:text-gray-300 dark:group-hover:text-white">
+                                {{ $article->title }}
+                            </h3>
+                            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                                {{ $article->created_at->format('d M Y') }}
+                            </p>
+                        </a>
+                        <!-- End Card -->
+                        {{-- <div
                             class=" border  border-gray-300/50 dark:border-gray-200/20 overflow-hidden transition-shadow duration-300 bg-white dark:bg-gray-900/50 rounded shadow-md">
-                            <img src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-                                class="object-cover w-full h-44 " alt="" />
+                            <div>
+                                <img src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}"
+                                    class="object-cover w-full h-44 " alt="" />
+                            </div>
                             <div class="p-5 ">
                                 <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
                                     <a href="{{ route('news.show', [$article]) }}"
                                         class="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
                                         aria-label="Category" title="traveling">{{ $article->category->title }}</a>
-                                    <span class="text-gray-600 dark:text-gray-200">— {{ $article->created_at->format('d M Y') }}</span>
+                                    <span class="text-gray-600 dark:text-gray-200">—
+                                        {{ $article->created_at->format('d M Y') }}</span>
                                 </p>
-                                <a href="{{ route('news.show', [$article]) }}" aria-label="{{ $article->category->title }}" title="{{ $article->title }}"
+                                <a href="{{ route('news.show', [$article]) }}"
+                                    aria-label="{{ $article->category->title }}" title="{{ $article->title }}"
                                     class="inline-block mb-3 text-md font-bold leading-6 transition-colors duration-200 hover:text-yellow-500">
-                                   {{ $article->title }}</a>
+                                    {{ $article->title }}</a>
                                 <p class="mb-2 text-gray-500 text-sm line-clamp-2 ">
-                                    {{ $article->overview}}
+                                    {{ $article->overview }}
                                 </p>
                                 <a href="{{ route('news.show', [$article]) }}" aria-label=""
-                                    class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn
-                                    more</a>
+                                    class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
+                                    <span class="pr-2"> Learn more</span>
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
                             </div>
-                        </div>
+                        </div> --}}
                     @endforeach
 
                 @endif

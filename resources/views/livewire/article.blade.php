@@ -166,27 +166,29 @@
         <div class="flex items-center gap-x-1.5">
 
             <div class="hs-tooltip inline-block">
-            <a href="{{ route('news') }}" type="button" wire:click="increment"
+            <a href="{{ url()->previous() }}" type="button"
                     class=" flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
                     <x-lucide-corner-up-left class="text-current w-5 h-5 " /> back
                 </a>
             </div>
             <div class="block h-3 border-r border-gray-300 mx-3 dark:border-gray-600"></div>
-            <div class="hs-tooltip inline-block">
-            <button type="button" wire:click="increment"
+            <div class="hs-tooltip inline-block cursor-pointer " >
+            <a  wire:click="increment"
                     class="hs-tooltip-toggle flex items-center gap-x-2 text-sm text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" viewBox="0 0 16 16">
                         <path
                             d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
                     </svg>
-                    {{ $newsroom->like }}
+                    <div>
+                        <h1>{{ $likeCount }}</h1>
+                    </div>
                     <span
                         class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-sm dark:bg-black"
                         role="tooltip">
                         Like
                     </span>
-                </button>
+                </a>
             </div>
             <!-- Button -->
 
@@ -281,3 +283,4 @@
 <!-- End Sticky Share Group -->
 
 </div>
+

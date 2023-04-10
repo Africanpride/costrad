@@ -73,7 +73,7 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
 
 
     @stack('scripts')
-
+    <fc:scripts />
 </body>
 
 </html>

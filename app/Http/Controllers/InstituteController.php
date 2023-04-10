@@ -74,7 +74,7 @@ class InstituteController extends Controller
      */
     public function update(InstituteRequest $request, Institute $institute)
     {
-        // dd($request->all());
+        dd($request->all());
         $institute->update($request->all());
 
         return redirect('admin/institutes')->with('message', 'Institute Updated successfully.');

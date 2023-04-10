@@ -34,8 +34,8 @@
                     <div class="bg-gray-400 w-9 h-0.5"></div>
                 </div>
                 <div class="mt-5">
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Responsive</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">Responsive, and mobile-first project on the web</p>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Life Changing</h3>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">A window to reboot and rediscover your life purpose.</p>
                 </div>
             </div>
             <!-- End Icon Block -->
@@ -54,8 +54,8 @@
                     <div class="bg-gray-400 w-9 h-0.5"></div>
                 </div>
                 <div class="mt-5">
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Customizable</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">Components are easily customized and extendable</p>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Speed & Accuracy</h3>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">Accellerated learning and Skills Acquisition.</p>
                 </div>
             </div>
             <!-- End Icon Block -->
@@ -74,8 +74,8 @@
                     <div class="bg-gray-400 w-9 h-0.5"></div>
                 </div>
                 <div class="mt-5">
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Documentation</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">Every component and plugin is well documented</p>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Intensive</h3>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">5-weeks of total immersion in an intensive program.</p>
                 </div>
             </div>
             <!-- End Icon Block -->
@@ -94,8 +94,8 @@
                     <div class="bg-gray-400 w-9 h-0.5"></div>
                 </div>
                 <div class="mt-5">
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">24/7 Support</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">Contact us 24 hours a day, 7 days a week</p>
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">All-Encompassing</h3>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">COSTrAD curriculum spans all subjects taught in all 8 institutes.</p>
                 </div>
             </div>
             <!-- End Icon Block -->
