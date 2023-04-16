@@ -16,7 +16,6 @@
 
                 @if ($institutes->count() > 0)
                     @foreach ($institutes as $institute)
-
                         <!-- End Card Section -->
                         <div class="bg-gray-200 dark:bg-gray-900 dark:text-gray-100  max-w-3xl mx-auto !rounded-xl ">
                             <div class="container grid grid-cols-12 mx-auto ">
@@ -35,14 +34,29 @@
                                     @hasanyrole(['admin', 'super_admin'])
                                         <div class="absolute top-2 right-3">
                                             <div class="flex justify-end items-center gap-2">
-                                                <a href="{{ route('institutes.edit', [$institute->slug]) }}"
-                                                    class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
-                                                    <x-lucide-clipboard-edit class="w-4 h-4 text-gray-500 cursor-pointer" />
-                                                </a>
-                                                <span class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
-                                                    <x-heroicon-o-trash class="w-4 h-4 text-red-500 cursor-pointer"
-                                                        onclick="Livewire.emit('openModal', 'admin.institute.delete-institute', {{ json_encode([$institute->slug]) }})" />
-                                                </span>
+                                                <div class="hs-tooltip">
+                                                    <a href="{{ route('institutes.edit', [$institute->slug]) }}"
+                                                        class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
+                                                        <x-lucide-clipboard-edit
+                                                            class="w-5 h-5 text-gray-500 cursor-pointer" />
+                                                    </a>
+                                                    <span
+                                                        class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-sm dark:bg-black"
+                                                        role="tooltip">
+                                                        Edit
+                                                    </span>
+                                                </div>
+                                                <div class="hs-tooltip">
+                                                    <div class=" text-gray-500 dark:text-white hover:text-accent-500 z-100">
+                                                        <x-heroicon-o-trash class="w-5 h-5 text-red-500 cursor-pointer"
+                                                            onclick="Livewire.emit('openModal', 'admin.institute.delete-institute', {{ json_encode([$institute->slug]) }})" />
+                                                    </div>
+                                                    <span
+                                                        class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-sm dark:bg-black"
+                                                        role="tooltip">
+                                                        Delete
+                                                    </span>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -61,7 +75,8 @@
                                         </time>
                                     </div>
 
-                                    <h1 class="text-lg font-bold ">{{ $institute->name }}<span class="uppercase">({{ $institute->acronym }})</span>
+                                    <h1 class="text-lg font-bold ">{{ $institute->name }} <span
+                                            class="uppercase">({{ $institute->acronym }})</span>
                                     </h1>
                                     <div class="institute-overview">
                                         <p class=" text-[12px] line-clamp-4 text-justify">
@@ -75,7 +90,7 @@
                                         </p>
                                     </div>
                                     <div class="">
-                                        <div class="flex justify-start items-center">
+                                        <div class="flex justify-between items-center">
 
                                             <a rel="noopener noreferrer"
                                                 href="{{ route('institute.show', [$institute->slug]) }}"
@@ -91,6 +106,27 @@
                                                 </span>
 
                                             </a>
+
+                                            <div rel="noopener noreferrer"
+                                            onclick="Livewire.emit('openModal', 'admin.institute.feature-update', {{ json_encode([$institute->slug]) }})"
+                                                class="inline-flex items-center  space-x-4 text-sm cursor-pointer hs-tooltip ">
+
+                                                <span
+                                                    class="flex items-center justify-between rounded-full bg-firefly-800 py-1 px-4 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 gap-2">
+                                                    <span>Add Features/Services to <span
+                                                            class="uppercase">{{ $institute->acronym }}</span></span>
+                                                    <span aria-hidden="true">
+                                                        <x-lucide-plus class="w-4 h-4" />
+                                                    </span>
+                                                </span>
+                                                {{-- <span
+                                                class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-sm dark:bg-black"
+                                                role="tooltip">
+                                                Add Features, Services or Atributes to this Institute.
+                                            </span> --}}
+
+                                            </div>
+
                                         </div>
                                     </div>
 

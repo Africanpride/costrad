@@ -13,7 +13,7 @@ class UpdateImages extends ModalComponent
 {
     use WithFileUploads;
 
-    public $logo, $banner;
+    public $logo, $banner = [];
     public Institute $institute;
 
     public function mount(Institute $institute)
@@ -23,12 +23,12 @@ class UpdateImages extends ModalComponent
 
     public function InstituteImages()
     {
-
+        // dd($this->banner);
         // dd($this->institute->slug);
 
         $validatedData = $this->validate([
             'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'banner' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:3048',
+            'banner.*' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:3048',
         ]);
 
 
@@ -46,13 +46,9 @@ class UpdateImages extends ModalComponent
 
         if ($this->banner) {
 
-            if ($this->institute->banner) {
-                Storage::delete('images/banners/' . $this->institute->banner);
+            foreach($this->banner as $image) {
+                $this->institute->addMedia($image)->toMediaCollection('banner');
             }
-
-            $bannerName = $this->banner->storeAs('images/banners', $this->institute->acronym . "." . $this->banner->getClientOriginalExtension(), 'public');
-
-            $validatedData['banner'] = $bannerName;
         }
 
         // dd($validatedData);

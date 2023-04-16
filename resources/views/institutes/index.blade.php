@@ -28,9 +28,9 @@
                     <div class="grid gap-8 md:grid-cols-2">
                         @forelse ($institutes as $institute)
                             <div
-                                class="p-6 flex flex-col text-left items-start bg-gray-300/20 dark:bg-transparent border border-gray-500/20 rounded-r-2xl relative pl-12 shadow-sm">
+                                class="p-6 flex flex-col text-left items-start bg-gray-100 dark:bg-transparent border border-gray-500/20 rounded-r-2xl relative pl-12 shadow-sm">
                                 <div
-                                    class="rotate-180 p-2 [writing-mode:_vertical-lr] absolute left-0 bg-gray-800 bg-gray-500/20 h-full top-0">
+                                    class="rotate-180 p-2 [writing-mode:_vertical-lr] absolute left-0 bg-gray-500/20 h-full top-0">
                                     <time datetime="{{ $institute->startDate }}"
                                         class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900 dark:text-white">
                                         <span>{{ \Carbon\Carbon::parse($institute->startDate)->format('M d, Y') }}</span>

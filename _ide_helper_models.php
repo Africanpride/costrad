@@ -92,6 +92,18 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Feature
+ *
+ * @property-read \App\Models\Institute|null $institute
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature query()
+ */
+	class Feature extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Institute
  *
  * @property int $id
@@ -110,9 +122,12 @@ namespace App\Models{
  * @property float $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feature> $features
+ * @property-read int|null $features_count
  * @property-read mixed $frontend_url
  * @property-read string $institute_banner_url
  * @property-read string $institute_logo
+ * @property-read mixed $services
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count
  * @method static \Illuminate\Database\Eloquent\Builder|Institute newModelQuery()
@@ -381,6 +396,7 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|User faculty()
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User participant()

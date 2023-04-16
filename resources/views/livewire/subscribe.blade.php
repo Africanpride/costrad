@@ -1,7 +1,7 @@
-<section class="max-w-7xl pt-16 pb-16 px-4 sm:px-6 lg:px-8 md:pt-20 lg:py-15 mx-auto">
+<section class="max-w-7xl pt-16 pb-16 px-4 sm:px-6 lg:px-8 md:pt-16 lg:py-15 mx-auto">
 
     <div
-        class="bg-gray-200/60 relative rounded-xl p-5 sm:py-16 before:absolute before:top-0 before:left-0  before:bg-no-repeat before:bg-top before:bg-contain before:w-2/3 before:h-full before:z-0 dark:bg-[#151c2f] dark:before:bg-[url('../banner-bg-dark.svg')]">
+        class="ring-1 ring-gray-200 dark:ring-gray-700 shadow bg-gray-200/60 relative rounded-2xl p-5 sm:py-16 before:absolute before:top-0 before:left-0  before:bg-no-repeat before:bg-top before:bg-contain before:w-2/3 before:h-full before:z-0 dark:bg-[#151c2f] dark:before:bg-[url('../banner-bg-dark.svg')]">
         <svg class="absolute inset-0 opacity-10 dark:opacity-90 left-0 z-0 " width="585" height="176"
             viewBox="0 0 585 176" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_755_12)">

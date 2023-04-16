@@ -18,6 +18,7 @@ class InstituteController extends Controller
         // dd('trying');
         $institutes = Institute::paginate(9);
         return view('admin.institutes.index', compact('institutes'));
+
     }
 
     /**
@@ -74,11 +75,19 @@ class InstituteController extends Controller
      */
     public function update(InstituteRequest $request, Institute $institute)
     {
-        dd($request->all());
+        // dd($request->all());
         $institute->update($request->all());
+        if ($request->file('logo')) {
+            $institute->addMedia('logo')->toMediaCollection('logo');
+        }
+
+        if ($request->file('banners')) {
+            foreach ($request->file('banners') as $banner) {
+                $institute->addMedia($banner)->toMediaCollection('banner');
+            }
+        }
 
         return redirect('admin/institutes')->with('message', 'Institute Updated successfully.');
-
     }
 
     /**

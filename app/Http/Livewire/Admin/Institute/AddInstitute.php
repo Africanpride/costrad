@@ -88,7 +88,7 @@ class AddInstitute extends ModalComponent
             $validatedData['slug'] = Str::slug($this->name);
         }
 
-        dd($validatedData);
+        // dd($validatedData);
 
         Institute::create($validatedData);
 

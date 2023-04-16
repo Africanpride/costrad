@@ -103,7 +103,11 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
         $participants = User::participant()->get();
         return view('admin/participants/index', compact('participants'));
     })->name('admin.participants');
-
+    // Route::resources([
+    //     'institutes' => 'InstituteController',
+    //     'announcements' => 'AnnouncementController',
+    //     'newsroom' => 'NewsroomController',
+    // ]);
     Route::resource('institutes', InstituteController::class);
     Route::resource('announcements', AnnouncementController::class);
     Route::resource('newsroom', NewsroomController::class);
@@ -140,9 +144,9 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
     })->name('staff');
 });
 
-Route::get('/doctor', function () {
-    return view('doctor.index');
-})->name('doctor')->middleware(['auth', 'banned', config('jetstream.auth_session')]);
+Route::get('/faculty', function () {
+    return view('faculty.index');
+})->name('faculty')->middleware(['auth', 'banned', config('jetstream.auth_session')]);
 
 Route::view('/powergrid', 'powergrid-demo');
 
@@ -174,15 +178,39 @@ Route::get('flags', function () {
     // return $flagUrl;
 })->name('flags');
 
+// Route::get('nations', function () {
+//     $nation = Country::whereId('5')->first();
+//     $imgObj = $nation->emoji;
+
+//     $codepoints = array_map(function ($char) {
+//         return dechex(mb_ord($char));
+//     }, preg_split('//u', $imgObj, -1, PREG_SPLIT_NO_EMPTY));
+
+//     $url = "https://twemoji.maxcdn.com/v/13.4.0/72x72/" . implode('-', $codepoints) . ".png";
+//     $altText = "Image of a flag";
+//     return '<img src="' . $url . '" alt="' . $altText . '">';
+// })->name('nations');
+
+
 Route::get('nations', function () {
-    $nation = Country::whereId('5')->first();
-    $imgObj = $nation->emoji;
 
-    $codepoints = array_map(function ($char) {
-        return dechex(mb_ord($char));
-    }, preg_split('//u', $imgObj, -1, PREG_SPLIT_NO_EMPTY));
 
-    $url = "https://twemoji.maxcdn.com/v/13.4.0/72x72/" . implode('-', $codepoints) . ".png";
-    $altText = "Image of a flag";
-    return '<img src="'.$url.'" alt="'.$altText.'">';
+        // Get the current date
+        $today = date('Y-m-d');
+
+        // Find the first instance of an institute where startDate is greater than today's date
+        $upcomingInstitute = Institute::where('startDate', '>', $today)
+            ->orderBy('startDate', 'asc')
+            ->first();
+
+        // If no upcoming institute was found, return null
+        if (!$upcomingInstitute) {
+            return null;
+        }
+
+        // return $upcomingInstitute;
+
+        dd($upcomingInstitute);
+
+
 })->name('nations');

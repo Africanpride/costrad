@@ -42,8 +42,8 @@
 
                                 <div>
                                     <label
-                                    class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
-                                    Institute Name</label>
+                                        class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                        Institute Name</label>
                                     <input name="name" id="name" type="text"
                                         class="py-2 px-4 pl-9 pr-16 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
                                         dark:text-gray-400"
@@ -57,8 +57,8 @@
                                     class="py-2 px-4 pl-6 pr-8 block w-full border border-gray-200/80 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
                                     dark:text-gray-400">
                                     <label
-                                    class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
-                                    Enable/Disable Registration</label>
+                                        class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                        Enable/Disable Registration</label>
                                     <div class="flex items-start py-2 relative">
                                         <div class="flex items-center h-5">
                                             <input id="hs-checkbox-archive" name="active" type="checkbox"
@@ -85,8 +85,8 @@
 
                                     <div>
                                         <label
-                                        class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
-                                        Acronym</label>
+                                            class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                            Acronym</label>
                                         <input name="acronym" id="acronym" type="text"
                                             class="py-2 px-4 pl-9 pr-16 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
                                             dark:text-gray-400"
@@ -100,8 +100,8 @@
 
                                         <div class="relative">
                                             <label
-                                            class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
-                                            Amount</label>
+                                                class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                                Amount</label>
                                             <input name="price" type="text"
                                                 id="hs-input-with-leading-and-trailing-icon"
                                                 name="hs-input-with-leading-and-trailing-icon"
@@ -208,19 +208,61 @@
                             </div>
                         </div>
 
-                        <div class="py-6 ">
-                            <label
-                            class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
-                            Upload Banner Images</label>
-                            <input type="file" name="images[]" id="small-file-input" class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400
-                              file:bg-transparent file:border-0
-                              file:bg-gray-100 file:mr-4
-                              file:py-2 file:px-4
-                              dark:file:bg-gray-700 dark:file:text-gray-400" multiple>
+                        <div class="space-y-3">
+                            <div class="py-6 ">
+                                <label
+                                    class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                    Upload Logo</label>
+                                <input type="file" name="logo" id="small-file-input"
+                                    class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400
+          file:bg-transparent file:border-0
+          file:bg-gray-100 file:mr-4
+          file:py-2 file:px-4
+          dark:file:bg-gray-700 dark:file:text-gray-400"
+                                    multiple>
 
-                            @error('images')
-                                <span class="text-red-500">{{ $message }}</span>
-                            @enderror
+                                @error('logo')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="py-2 space-y-4">
+                                <div>
+                                    <label
+                                        class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                        Upload Banner Images</label>
+                                    <input type="file" name="banners[]" id="small-file-input"
+                                        class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400
+file:bg-transparent file:border-0
+file:bg-gray-100 file:mr-4
+file:py-2 file:px-4
+dark:file:bg-gray-700 dark:file:text-gray-400"
+                                        multiple>
+                                </div>
+                                <div>
+                                    <div class="grid grid-cols-5 gap-3">
+                                        @foreach ($institute->getMedia('banner') as $image)
+                                            <div class="relative">
+                                               {{ $image->id }} <img src="{{ $image->getUrl() }}" alt="{{ $image->getUrl() }}"
+                                                    class="rounded shadow aspect-video h-28"> {{  $institute->id }}
+
+                                                <span class="absolute top-1 right-2 cursor-pointer"
+                                                    onclick="Livewire.emit('openModal', 'admin.institute.delete-media', {{ json_encode([$image->id]) }})">
+                                                    <div
+                                                        class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-7">
+                                                        <x-heroicon-o-x-circle class="w-6 h-6 text-red-500" />
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div>
+                                    @error('banners')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4 py-4">
@@ -239,63 +281,62 @@
 
 
         </div>
-                <script type="text/javascript">
-                    flatpickr("#startDate", {
-                        altFormat: "DD-MM-YYYY",
-                        defaultDate: {!! json_encode(\Carbon\Carbon::create($institute->startDate)) !!},
-                    });
+        <script type="text/javascript">
+            flatpickr("#startDate", {
+                altFormat: "DD-MM-YYYY",
+                defaultDate: {!! json_encode(\Carbon\Carbon::create($institute->startDate)) !!},
+            });
 
-                    flatpickr("#endDate", {
-                        altFormat: "DD-MM-YYYY",
-                        defaultDate: {!! json_encode(\Carbon\Carbon::create($institute->endDate)) !!},
-                    });
+            flatpickr("#endDate", {
+                altFormat: "DD-MM-YYYY",
+                defaultDate: {!! json_encode(\Carbon\Carbon::create($institute->endDate)) !!},
+            });
 
-                    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+            const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
-                    tinymce.init({
-                        skin: 'oxide-dark',
-                        content_css: 'dark',
-                        selector: 'textarea.tinyText',
-                        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-                        editimage_cors_hosts: ['picsum.photos'],
-                        menubar: 'file edit view insert format tools table help',
-                        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-                        toolbar_sticky: false,
-                        toolbar_sticky_offset: isSmallScreen ? 102 : 108,
-                        autosave_ask_before_unload: true,
-                        autosave_interval: '30s',
-                        autosave_prefix: '{path}{query}-{id}-',
-                        autosave_restore_when_empty: false,
-                        autosave_retention: '2m',
-                        image_advtab: true,
+            tinymce.init({
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                selector: 'textarea.tinyText',
+                plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+                editimage_cors_hosts: ['picsum.photos'],
+                menubar: 'file edit view insert format tools table help',
+                toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+                toolbar_sticky: false,
+                toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+                autosave_ask_before_unload: true,
+                autosave_interval: '30s',
+                autosave_prefix: '{path}{query}-{id}-',
+                autosave_restore_when_empty: false,
+                autosave_retention: '2m',
+                image_advtab: true,
 
-                    });
+            });
 
-                    $(document).ready(function() {
-                        // executes when HTML-Document is loaded and DOM is ready
-                        console.log("Hi 👀");
+            $(document).ready(function() {
+                // executes when HTML-Document is loaded and DOM is ready
+                console.log("Hi 👀");
 
-                        const inputElement = document.querySelector('input[type="file"]');
-                        const pond = FilePond.create(inputElement);
-                    });
+                const inputElement = document.querySelector('input[type="file"]');
+                const pond = FilePond.create(inputElement);
+            });
 
-                    FilePond.setOptions({
-                        server: {
-                            url: "{{ config('filepond.server.url') }}",
-                            headers: {
-                                'X-CSRF-TOKEN': "{{ @csrf_token() }}",
-                            }
-                        }
-                    });
+            FilePond.setOptions({
+                server: {
+                    url: "{{ config('filepond.server.url') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ @csrf_token() }}",
+                    }
+                }
+            });
 
-                    // Create the FilePond instance
-                    FilePond.create(document.querySelector('input[name="images[]"]'), {
-                        chunkUploads: true
-                    });
-                </script>
+            // Create the FilePond instance
+            FilePond.create(document.querySelector('input[name="images[]"]'), {
+                chunkUploads: true
+            });
+        </script>
 
 
 
 </x-app-layout>
-

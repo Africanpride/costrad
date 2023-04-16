@@ -38,12 +38,12 @@
 
                 </div>
                 <div class="flex flex-col  space-y-4">
-                    @if ($banner)
+                    {{-- @if ($banner)
                         <div class="block w-full">
                             <img class=" aspect-auto w-full ring-2 ring-white dark:ring-firefly-900"
                                 src={{ $banner->temporaryUrl() }} alt="{{ __('temporary file name') }}">
                         </div>
-                    @endif
+                    @endif --}}
 
                     <div class="block w-full">
                         <label for="small-file-input"
@@ -55,7 +55,7 @@
                                 file:bg-transparent file:border-0
                                 file:bg-gray-100 file:mr-4
                                 file:py-2 file:px-4
-                                dark:file:bg-gray-700 dark:file:text-gray-400">
+                                dark:file:bg-gray-700 dark:file:text-gray-400" multiple>
                         @error('banner')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror

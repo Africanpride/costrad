@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 
-class WelcomeDoctor extends Component
+class WelcomeFaculty extends Component
 {
     public function render()
     {
-        return view('livewire.admin.welcome-doctor');
+        return view('livewire.admin.welcome-faculty');
     }
 }

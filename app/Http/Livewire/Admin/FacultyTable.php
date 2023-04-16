@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 
-class PatientTableOne extends Component
+class FacultyTable extends Component
 {
     public function render()
     {
-        return view('livewire.admin.patient-table-one');
+        return view('livewire.admin.faculty-table');
     }
 }

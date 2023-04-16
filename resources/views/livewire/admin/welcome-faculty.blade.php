@@ -119,13 +119,13 @@
             </div>
             <!-- Card footer -->
             <div class="relative text-right">
-                <a class="inline-flex w-10 h-10 justify-center items-center bg-firefly-600 hover:bg-firefly-500 text-firefly-100 hover:text-firefly-100 rounded-full transition duration-350"
-                    href="/profile">
+                <div class=" cursor-pointer inline-flex w-10 h-10 justify-center items-center bg-firefly-600 hover:bg-firefly-500 text-firefly-100 hover:text-firefly-100 rounded-full transition duration-350"
+                onclick="Livewire.emit('openModal', 'admin.faculty.add-faculty')">
                     <span class="sr-only">Read more</span>
                     <span class="font-bold -mt-px">
                         <x-lucide-plus-circle class="w-5 h-5 text-current" />
                     </span>
-                </a>
+                </div>
             </div>
         </div>
     </div>

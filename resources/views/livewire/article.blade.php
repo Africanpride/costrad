@@ -1,11 +1,11 @@
 <div>
 <!-- Blog Article -->
-<div class="max-w-3xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
+<div class="max-w-4xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
 
     <div class="mb-24">
         <span class="bg-firefly-700 w-auto px-2 text-white text-sm uppercase">{{ $newsroom->category->title }}</span>
     </div>
-    <div class="max-w-2xl">
+    <div class="max-w-4xl">
 
         <!-- Avatar Media -->
         <div class="flex justify-between items-center mb-6">
@@ -117,8 +117,6 @@
         </div>
         <!-- End Avatar Media -->
 
-
-
         <div class="space-y-5 md:space-y-8">
             <!-- Overview -->
             <div class="space-y-3">
@@ -126,7 +124,7 @@
             </div>
             <!-- Overview -->
             <figure>
-                <img class="w-full object-cover rounded-xl h-96 aspect-video"
+                <img class=" object-cover rounded-xl w-full aspect-video"
                     src="{{ ($newsroom->getFirstMediaUrl('featured_image')) ? $newsroom->getFirstMediaUrl('featured_image') : $newsroom->featured_image }}"
                     alt="Image Description">
                 <figcaption class="mt-3 text-sm text-left text-gray-500">

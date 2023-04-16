@@ -49,7 +49,8 @@ class InstituteRequest extends FormRequest
             'active' => 'nullable',
             'slug' => 'nullable',
             'price' => 'required',
-            'images' => 'nullable'
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'banner.*' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:3048',
 
         ];
     }

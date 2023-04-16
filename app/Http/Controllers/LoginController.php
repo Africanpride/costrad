@@ -37,10 +37,13 @@ class LoginController extends Controller
         try {
             // Get the authenticated user from the Google OAuth provider
             $existingUser = User::where('google_id', $user->id)->first();
+            $existingEmail = User::where('email', $user->email)->first();
             if ($existingUser) {
                 // If the user already exists, log them in and redirect to the homepage
                 Auth::login($existingUser);
                 return redirect()->route('home');
+            } elseif ($existingEmail) {
+                return redirect()->route('login')->with('status', 'User exist with this Email');
             } else {
 
                 if (!empty($user->getAvatar()) && $user->getAvatar() != '' && $user->getAvatar() != null) {
@@ -74,7 +77,6 @@ class LoginController extends Controller
                 Auth::login($newUser);
 
                 return redirect()->route('home');
-
             }
         } catch (Exception $e) {
             // dd($e);

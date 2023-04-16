@@ -17,6 +17,8 @@ class InstituteDetails extends Component
 
     public function render()
     {
-        return view('livewire.institute-details');
+        $images = $this->institute->getMedia('banner')->take(6)->skip(1);
+
+        return view('livewire.institute-details', compact('images'));
     }
 }
