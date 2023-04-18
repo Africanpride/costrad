@@ -5,8 +5,25 @@
         <x-heroicon-o-user-group class="w-5 h-5 text-current" />
         </x-admin-pageheader>
 
-        <div>
+        <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
             <div class=" space-y-4 pb-12 m-8 p-5 border border-gray-300/80 dark:border-gray-800/80 rounded-xl ">
+                <div>
+                    <div class="grid grid-cols-5 gap-3">
+                        @foreach ($institute->getMedia('banner') as $media)
+                            <div class="relative">
+                                <img src="{{ $media->getUrl() }}" alt="{{ $media->getUrl() }}"
+                                    class="rounded shadow aspect-video h-28">
+
+                                <button
+                                    onclick="Livewire.emit('openModal', 'admin.institute.delete-media', {{ json_encode([$institute->slug, $media->id]) }})"
+                                    class="absolute top-1 right-2 cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid place-items-center rounded-full w-7 h-7">
+                                    <x-heroicon-o-x-circle class="w-6 h-6 text-red-500" />
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
 
                 <form method="POST" action="{{ route('institutes.update', [$institute->slug]) }}" id=""
                     accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
@@ -238,24 +255,7 @@ file:py-2 file:px-4
 dark:file:bg-gray-700 dark:file:text-gray-400"
                                         multiple>
                                 </div>
-                                <div>
-                                    <div class="grid grid-cols-5 gap-3">
-                                        @foreach ($institute->getMedia('banner') as $image)
-                                            <div class="relative">
-                                               {{ $image->id }} <img src="{{ $image->getUrl() }}" alt="{{ $image->getUrl() }}"
-                                                    class="rounded shadow aspect-video h-28"> {{  $institute->id }}
 
-                                                <span class="absolute top-1 right-2 cursor-pointer"
-                                                    onclick="Livewire.emit('openModal', 'admin.institute.delete-media', {{ json_encode([$image->id]) }})">
-                                                    <div
-                                                        class="cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid h-8 place-items-center rounded-full w-7">
-                                                        <x-heroicon-o-x-circle class="w-6 h-6 text-red-500" />
-                                                    </div>
-                                                </span>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
 
                                 <div>
                                     @error('banners')
@@ -278,9 +278,21 @@ dark:file:bg-gray-700 dark:file:text-gray-400"
 
             </div>
 
+            {{-- <div class=" space-y-4 pb-12 m-8 p-5 border border-gray-300/80 dark:border-gray-800/80 rounded-xl ">
+                <form method="POST" action="{{ route('institutes.update', [$institute->slug]) }}" id=""
+                    accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="PUT">
+                    @csrf
 
+                    <div class="grid grid-cols-2 gap-4 py-4">
+                        <button type="reset"
+                            class="py-2 px-3 my-3 w-full inline-flex justify-center items-center gap-2  border border-transparent font-semibold bg-slate-500 text-white hover:bg-slate-600 focus:outline-none focus:ring-2  rounded">Cancel</button>
+                        <x-admin.submit-button class="rounded">Submit</x-admin.submit-button>
+                    </div>
+                </form>
+            </div> --}}
 
-        </div>
+        </section>
         <script type="text/javascript">
             flatpickr("#startDate", {
                 altFormat: "DD-MM-YYYY",
@@ -312,28 +324,6 @@ dark:file:bg-gray-700 dark:file:text-gray-400"
                 autosave_retention: '2m',
                 image_advtab: true,
 
-            });
-
-            $(document).ready(function() {
-                // executes when HTML-Document is loaded and DOM is ready
-                console.log("Hi 👀");
-
-                const inputElement = document.querySelector('input[type="file"]');
-                const pond = FilePond.create(inputElement);
-            });
-
-            FilePond.setOptions({
-                server: {
-                    url: "{{ config('filepond.server.url') }}",
-                    headers: {
-                        'X-CSRF-TOKEN': "{{ @csrf_token() }}",
-                    }
-                }
-            });
-
-            // Create the FilePond instance
-            FilePond.create(document.querySelector('input[name="images[]"]'), {
-                chunkUploads: true
             });
         </script>
 

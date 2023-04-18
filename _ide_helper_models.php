@@ -124,9 +124,11 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feature> $features
  * @property-read int|null $features_count
+ * @property-read string $duration
  * @property-read mixed $frontend_url
  * @property-read string $institute_banner_url
  * @property-read string $institute_logo
+ * @property-read int $progress
  * @property-read mixed $services
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count

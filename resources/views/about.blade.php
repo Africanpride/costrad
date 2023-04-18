@@ -27,7 +27,7 @@
             </div>
         </div>
         <!-- vision -->
-        <div class="md:p-12 p-4">
+        <div class="">
             <div class="relative overflow-hidden rounded-3xl">
                 <!-- Gradients -->
                 <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
@@ -40,9 +40,9 @@
                 </div>
                 <!-- End Gradients -->
 
-                <div class="relative z-10 py-8 shadow-2xl">
-                    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-                        <div class="max-w-9xl text-center mx-auto ">
+                <div class="relative z-10 py-8 shadow-2xl max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+                    <div class="py-10">
+                        <div class="text-center mx-auto ">
                             <span
                                 class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase ">
                                 COSTrAD: Our Transformational Vision
@@ -50,7 +50,7 @@
 
                             <!-- Title -->
                             <div class="mt-5 max-w-10xl">
-                                <p class="block  text-firefly-800 text-xl md:text-3xl  dark:text-gray-100  uppercase">
+                                <p class="block  text-firefly-800 text-lg md:text-3xl  dark:text-gray-100  uppercase">
                                     Seeing the invisible, hearing the inaudible, touching the intangible, perceiving the
                                     imperceptible and doing the seemingly impossible.
                                 </p>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\Feature;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
@@ -56,8 +57,59 @@ class Institute extends Model implements HasMedia
         'frontend_url',
         'institute_logo',
         'institute_banner_url',
-        'services'
+        'services',
+        'progress',
+        'duration'
     ];
+
+    function getDurationAttribute(): string
+    {
+        $startDate = Carbon::parse($this->startDate);
+        $endDate = Carbon::parse($this->endDate);
+        $startMonth = $startDate->format('M');
+        $startDay = $startDate->format('d');
+        $endMonth = $endDate->format('M');
+        $endDay = $endDate->format('d');
+        return "{$startMonth} {$startDay} – {$endMonth} {$endDay}";
+    }
+
+    function getProgressAttribute(): int
+    {
+
+        $startYear = Carbon::parse($this->startDate)->year;
+        $currentYear = Carbon::now()->year;
+
+        // Create Carbon instances from the date strings
+        $start = Carbon::parse($this->startDate);
+        $end = Carbon::parse($this->endDate);
+
+        // Get the start and end dates for the current year
+        // $currentYearStart = Carbon::create($currentYear, 1, 1);
+        // $currentYearEnd = Carbon::create($currentYear, 12, 31);
+
+        // Calculate the total number of days between the two dates
+        $totalDays = $start->diffInDays($end);
+
+        // Calculate the number of days elapsed since the start date
+        $elapsedDays = $start->diffInDays($end);
+
+        // Calculate the progress as a percentage
+        $progress = round(($elapsedDays / $totalDays) * 100);
+
+        // Check if the start and end dates fall within the current year
+        //We evaluate further: if todays date  is greater than the end of institute, return zero (0)
+        if ($startYear == $currentYear && Carbon::now() > $end ) {
+            return 100;
+        }
+
+        if($startYear == $currentYear && Carbon::now() > $start && Carbon::now() > $end){
+
+            return $progress;
+        }
+
+        return 0;
+
+    }
 
     public function features(): HasMany
     {

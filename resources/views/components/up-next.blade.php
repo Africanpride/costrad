@@ -1,5 +1,6 @@
 <div id="dismiss-alert"
-    class="hs-removing:easeOut hs-removing:opacity-0 transition duration-500 relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 dark:bg-black py-2.5 px-6 sm:px-3.5 sm:before:flex-1">
+    class="hs-removing:easeOut hs-removing:opacity-0 transition duration-500 relative isolate flex items-center gap-x-4
+     overflow-hidden bg-gray-50 dark:bg-black py-2.5 px-6 sm:px-3.5 sm:before:flex-1">
     <svg viewBox="0 0 577 310" aria-hidden="true"
         class="absolute top-1/2 left-[max(-7rem,calc(50%-52rem))] -z-10 w-[36.0625rem] -translate-y-1/2 transform-gpu blur-2xl">
         <path id="1d77c128-3ec1-4660-a7f6-26c7006705ad" fill="url(#49a52b64-16c6-4eb9-931b-8e24bf34e053)" fill-opacity=".3"
@@ -20,24 +21,26 @@
         <p class="text-sm leading-6 text-gray-900 dark:text-white">
             <strong class="font-semibold">{{ $upcomingInstitute->name }} <span
                     class="uppercase">({{ $upcomingInstitute->acronym }} )</span>
-                {{ Carbon\Carbon::parse($upcomingInstitute->startDate)->year }}</strong><svg viewBox="0 0 2 2"
-                class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+                {{ Carbon\Carbon::parse($upcomingInstitute->startDate)->year }}</strong>
+            <svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
                 <circle cx="1" cy="1" r="1" />
-            </svg>Join us in <b>Accra</b> from <span
+            </svg>
+            <span class="md:hidden "><br /></span> Join us in <b>Accra</b> from <span
                 class="font-bold">{{ Carbon\Carbon::parse($upcomingInstitute->startDate)->format('M d') }} –
                 {{ Carbon\Carbon::parse($upcomingInstitute->endDate)->format('M d') }}</span> for this Special edition.
+
+            <a href="{{ route('institute.show', $upcomingInstitute) }}"
+                class="inline-flex gap-2 justify-center items-center rounded-full bg-firefly-800 ml-2 py px-3 text-[10px] font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"><span>About
+                    <span class="uppercase">({{ $upcomingInstitute->acronym }} )</span></span>
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
         </p>
-        <a href="{{ route('institute.show', $upcomingInstitute) }}"
-            class="flex gap-1 justify-center items-center rounded-full bg-gray-900 py-1 px-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"><span>About
-                <span class="uppercase">({{ $upcomingInstitute->acronym }} )</span></span>
-            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-        </a>
     </div>
-    <div class="flex flex-1 justify-end">
+    <div class="flex flex-1 justify-end ">
         <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]"
             data-hs-remove-element="#dismiss-alert">
             <span class="sr-only">Dismiss</span>

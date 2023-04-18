@@ -2,19 +2,7 @@
 <x-front-layout>
 
 <div class="p-8">
-    <div class="px-4 py-16 mx-auto">
-        <div class="grid grid-cols-2  lg:grid-cols-6 gap-4">
-            <div class="inline-flex justify-start rounded-2xl items-center gap-2 p-4
-            w-auto border bg-slate-900/10 dark:border-slate-500/20  ">
-                <span>
-                    <x-lucide-globe class="text-slate-400 w-8 h-8" />
-                </span>
-                <div><span class="text-xs">Title</span>
-                    <p class="text-[9px]">Details</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="container mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -61,6 +49,3 @@
 
 </x-front-layout>
 
-<script>
-
-</script>

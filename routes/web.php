@@ -148,7 +148,7 @@ Route::get('/faculty', function () {
     return view('faculty.index');
 })->name('faculty')->middleware(['auth', 'banned', config('jetstream.auth_session')]);
 
-Route::view('/powergrid', 'powergrid-demo');
+
 
 
 Route::get('invoice', function () {

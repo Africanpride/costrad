@@ -5,18 +5,22 @@
             style="background-image: url('{{ $institute->getFirstMediaUrl('banner') }}');">
 
             <div
-                class="absolute bottom-0 left-0 right-0 max-w-md text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
+                class="absolute bottom-0 left-0 right-0 max-w-xl text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
-                <div class="px-5 py-4 inline-block bg-white rounded-2xl md:p-7 dark:bg-gray-900">
-                    <div class="hidden md:block">
-                        <h3 class=" font-bold text-gray-800 text-sm dark:text-gray-200"> <span
-                                class="uppercase">{{ $institute->acronym }}</span>: A Critical Mandate.
-                        </h3>
-                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-left">
+                <div class="px-5 py-4 flex bg-white rounded-2xl md:p-7 dark:bg-gray-900 flex-col justify-between gap-4 ">
+                    <div class="block">
+                        <div class="flex justify-between items-center dark:text-gray-200 font-bold text-gray-800 text-left text-sm">
+                            <h3 class=" "> <span
+                                    class="uppercase">{{ $institute->acronym }}</span>: A Critical Mandate.
+                            </h3>
+                            <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}</div>
+                        </div>
+                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-justify">
                             <span class="text-xs">{!! $institute->overview !!}</span>
+
                     </div>
 
-                    <div class="md:mt-6">
+                    <div class="flex justify-between items-center">
                         <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
                             href="#">
                             <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -28,6 +32,22 @@
                             </svg>
                             Watch our AudioVisual
                         </a>
+
+                        <div x-data="{ progress: {{ $institute->progress }} }" class="w-2/5">
+                            <span x-show="progress > 0">
+                                <div
+                                    class="flex w-full h-6.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+                                    <div class="flex flex-col justify-center overflow-hidden bg-firefly-800 text-[9px] text-white text-center"
+                                        role="progressbar" style="width: {{ $institute->progress }}%"
+                                        aria-valuenow="{{ $institute->progress }}" aria-valuemin="0"
+                                        aria-valuemax="100">Progress: {{ $institute->progress }}%</div>
+                                </div>
+                            </span>
+                        </div>
+
+
+
+
                     </div>
                 </div>
                 <!-- End Card -->
@@ -35,14 +55,12 @@
         </div>
     </section>
 
-    {{-- <img class="w-full h-[750px] relative" src="{{ $institute->institute_banner_url }}" alt="{{ $institute->name }}"> --}}
-    {{-- <x-institute.stats price="{{ $institute->price }}" /> --}}
-    <div class="bg-white dark:bg-gray-900 py-8">
-        <div class="mx-auto max-w-7xl px-4 lg:px-5 space-y-5">
+    <div class="bg-white dark:bg-gray-900">
+        <div class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto space-y-5">
 
             <div class="mb-5">
                 <div class="mx-auto max-w-4xl sm:text-center pb-10">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl text-gradient__teal">
                         Other Key Subjects Treated at <span class="uppercase">{{ $institute->acronym }}</span>
                     </h2>
                     <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -126,15 +144,13 @@
 
 </div>
 
-<div class="relative  mx-auto max-w-7xl h-42 pt-8 ">
+<div class="relativemax-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
     <!-- Overview -->
-<figure>
-    <img class=" rounded-2xl"
-        src="{{ asset('images/main/training.jpg') }}"
-        alt="Image Description">
-    {{-- <figcaption class="mt-3 text-sm text-left text-gray-500">
+    <figure>
+        <img class=" rounded-2xl" src="{{ asset('images/main/training.jpg') }}" alt="Image Description">
+        {{-- <figcaption class="mt-3 text-sm text-left text-gray-500">
         {{ $newsroom->overview }}
     </figcaption> --}}
-</figure>
+    </figure>
 
 </div>
