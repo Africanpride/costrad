@@ -35,6 +35,7 @@ Route::view('test', 'test');
 Route::view('terms', 'terms');
 Route::view('help', 'help');
 Route::view('topics', 'topics');
+Route::view('donate', 'donate');
 Route::view('privacy', 'privacy');
 Route::view('about', 'about');
 Route::view('documentation', 'documentation');

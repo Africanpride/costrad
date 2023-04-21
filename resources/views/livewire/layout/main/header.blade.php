@@ -317,9 +317,10 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
                     </svg>
                     COSTrAD
                 </a>
-                <a href="">
+
+                <a href="{{ url('donate') }}">
                     <span
-                        class="inline bg-firefly-50 border border-firefly-300 text-firefly-600 text-[.6125rem] leading-4 uppercase rounded-full py-1 px-3 dark:bg-firefly-900/[.75] dark:border-firefly-700 dark:text-firefly-500">Admissions</span>
+                        class="inline bg-firefly-50 border border-firefly-300 text-firefly-600 text-[.6125rem] leading-4 uppercase rounded-full py-1 px-3 dark:bg-firefly-900/[.75] dark:border-firefly-700 dark:text-firefly-500">Donate</span>
                 </a>
             </div>
         </div>

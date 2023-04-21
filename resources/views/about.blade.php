@@ -14,11 +14,13 @@
                             </x-slot>
 
                             <x-slot name="paragraph">
-                                The College of Sustainable Transformation and Development (<a
-                                    href="{{ route('institute.show', [\App\Models\Institute::whereAcronym('costrad')->first()->slug]) }}"
-                                    class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
-                                is an initiative of the Logos-Rhema Foundation for Leadership Resource Development,
-                                a Non-Governmental Foundation registered in Ghana.
+
+                                    The College of Sustainable Transformation and Development (<a
+                                        href="{{ route('institute.show', [\App\Models\Institute::whereAcronym('costrad')->first()->slug]) }}"
+                                        class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
+                                    is an initiative of the Logos-Rhema Foundation for Leadership Resource Development,
+                                    a Non-Governmental Foundation registered in Ghana.
+
                             </x-slot>
 
                         </x-top-title>

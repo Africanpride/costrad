@@ -19,8 +19,8 @@
         </div>
 
         @if (isset($paragraph))
-            <p class="text-md leading-relaxed text-body-color sm:text-md sm:leading-relaxed">
-                {{ $paragraph }}
+        <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed">
+            {{ $paragraph }}
             </p>
         @else
             <div></div>

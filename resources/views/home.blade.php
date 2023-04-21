@@ -58,30 +58,36 @@
 
     </section>
 
-    <section>
-        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-4xl md:px-24 lg:px-8 ">
+    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+        <div
+            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5 p-8
+         bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+          from-slate-900 to-gray-900">
             <div class="lg:px-8 max-w-8xl md:my-16 mx-auto px-4 space-y-5 text-center">
                 <h2
-                class="  text-slate-900 text-3xl sm:text-5xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
-                News & Publications</h2>
+                    class="  text-slate-900 text-3xl sm:text-5xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
+                    News & Publications</h2>
                 <p class="my-2 text-2xl font-bold
                 text-slate-800 px-5 dark:text-white">
-                Providing valuable resources for researchers and analysts keen on staying up-to-date with the latest
-                developments in the 8-spheres of society.
-            </p>
-            <p class="text-lg leading-6 font-semibold text-sky-500 "><span>
-                <a href="{{ route('news') }}">More News & Publications</a></span> </p>
+                    Providing valuable resources for researchers and analysts keen on staying up-to-date with the latest
+                    developments in the 8-spheres of society.
+                </p>
+                <p class="text-lg leading-6 font-semibold text-sky-500 "><span>
+                        <a href="{{ route('news') }}">More News & Publications</a></span> </p>
             </div>
 
-            <div class="grid gap-4 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full">
+            <div class="grid gap-4 md:grid-cols-4 sm:mx-auto md:max-w-full">
                 @if ($latest->count() > 0)
 
                     @foreach ($latest as $article)
                         <!-- Card -->
                         <a class="group block" href="{{ route('news.show', [$article]) }}">
-                            <div class="flex-shrink-0 relative w-full rounded-xl overflow-hidden h-[200px] before:absolute before:inset-x-0 before:w-full before:h-full before:bg-gradient-to-t before:from-gray-900/[.7] before:z-[1]">
-                                <img class="w-full h-full absolute top-0 left-0 object-cover" src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}&auto=format&fit=crop&w=1062&q=80" alt="{{ $article->title }}">
-                              </div>
+                            <div
+                                class="flex-shrink-0 relative w-full rounded-xl overflow-hidden h-[200px] before:absolute before:inset-x-0 before:w-full before:h-full before:bg-gradient-to-t before:from-gray-900/[.7] before:z-[1]">
+                                <img class="w-full h-full absolute top-0 left-0 object-cover"
+                                    src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}&auto=format&fit=crop&w=1062&q=80"
+                                    alt="{{ $article->title }}">
+                            </div>
 
                             <h3
                                 class="mt-2 text-lg font-medium text-gray-800 group-hover:text-blue-600 dark:text-gray-300 dark:group-hover:text-white">
