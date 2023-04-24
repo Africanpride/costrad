@@ -23,7 +23,7 @@
                                     style="background-image: url(' {{ asset('storage/images/logos/ghana.jpg') }}'); background-position: center center; background-blend-mode: multiply; background-size: cover;">
                                     <img class="md:w-22 md:p-6 p-24 aspect-square relative"
                                         src="{{ $institute->institute_logo }}" alt="{{ $institute->name }}">
-                                    <span class="absolute top-3 right-3 cursor-pointer"
+                                    <span class="absolute top-3 right-3 cursor-pointer hidden"
                                         onclick="Livewire.emit('openModal', 'admin.institute.update-images', {{ json_encode([$institute->slug]) }})">
                                         <x-lucide-image-plus class="w-4 h-4 text-firefly-500" />
                                     </span>
@@ -109,7 +109,7 @@
 
                                             <div rel="noopener noreferrer"
                                             onclick="Livewire.emit('openModal', 'admin.institute.feature-update', {{ json_encode([$institute->slug]) }})"
-                                                class="inline-flex items-center  space-x-4 text-sm cursor-pointer hs-tooltip ">
+                                                class="hidden inline-flex items-center  space-x-4 text-sm cursor-pointer hs-tooltip ">
 
                                                 <div
                                                     class="flex items-center justify-between rounded-full bg-firefly-800 py-1 px-4 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 gap-2">

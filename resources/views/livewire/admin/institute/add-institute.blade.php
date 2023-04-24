@@ -147,6 +147,17 @@
                 <div class="block">
                     <label
                         class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                        Institute Introduction</label>
+                    <textarea wire:model="introduction"
+                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                        rows="3"></textarea>
+                    @error('introduction')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="block">
+                    <label
+                        class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
                         About Institute</label>
 
                     <textarea wire:model="about"

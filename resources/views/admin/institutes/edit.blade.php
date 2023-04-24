@@ -7,23 +7,7 @@
 
         <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
             <div class=" space-y-4 pb-12 m-8 p-5 border border-gray-300/80 dark:border-gray-800/80 rounded-xl ">
-                <div>
-                    <div class="grid grid-cols-5 gap-3">
-                        @foreach ($institute->getMedia('banner') as $media)
-                            <div class="relative">
-                                <img src="{{ $media->getUrl() }}" alt="{{ $media->getUrl() }}"
-                                    class="rounded shadow aspect-video h-28">
 
-                                <button
-                                    onclick="Livewire.emit('openModal', 'admin.institute.delete-media', {{ json_encode([$institute->slug, $media->id]) }})"
-                                    class="absolute top-1 right-2 cursor-pointer delay-200  duration-500 bg-red-50 dark:bg-red-500/10 transition-colors dark:hover:bg-red-500/20  hover:bg-red-100  grid place-items-center rounded-full w-7 h-7">
-                                    <x-heroicon-o-x-circle class="w-6 h-6 text-red-500" />
-                                </button>
-                            </div>
-                        @endforeach
-                    </div>
-
-                </div>
 
                 <form method="POST" action="{{ route('institutes.update', [$institute->slug]) }}" id=""
                     accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
@@ -53,6 +37,28 @@
                             </div>
 
                         </div>
+                        <div class="pb-5">
+                            <div class="text-gray-500 py-4 flex gap-2 items-center ">
+                                <x-lucide-verified class="w-5 h-5 text-green-500" />
+                                Click image to select image for deletion or to set as featured Image for {{ $institute->name }}.
+
+                            </div>
+                            <div class="grid grid-cols-7 gap-3">
+                                @foreach ($institute->getMedia('banner') as $media)
+                                    <div class="relative cursor-pointer"
+                                        onclick="Livewire.emit('openModal', 'admin.institute.delete-media', {{ json_encode([$institute->slug, $media->id]) }})">
+                                        <div class="relative">
+                                            <img src="{{ $media->getUrl() }}" alt="{{ $media->getUrl() }}"
+                                                class="rounded shadow aspect-w-16 aspect-h-8">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        </div>
+
+
+
                         <div>
 
                             <div class="space-y-4">
@@ -116,26 +122,24 @@
                                     <div>
 
                                         <div class="relative">
-                                            <label
-                                                class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
-                                                Amount</label>
-                                            <input name="price" type="text"
-                                                id="hs-input-with-leading-and-trailing-icon"
-                                                name="hs-input-with-leading-and-trailing-icon"
-                                                class="py-2 px-4 pl-9 pr-16 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700
-                                                     dark:text-gray-400"
-                                                placeholder="{{ __($institute->price ?? 'Instittute Value Here.') }}"
-                                                value="{{ old('price', optional($institute)->price) }}">
-                                            <div
-                                                class="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-                                                <span class="text-gray-500">
-                                                    <x-lucide-dollar-sign class="h-4 w-4 text-gray-400" />
-                                                </span>
+                                            <div>
+                                                <label
+                                                    class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                                    Amount</label>
+                                                <div class="flex rounded-md shadow-sm">
+                                                    <div
+                                                        class="px-4 inline-flex items-center min-w-fit rounded-l-md border border-r-0 border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+                                                        <span class="text-sm text-gray-500 dark:text-gray-400">
+                                                            <x-lucide-dollar-sign class="h-4 w-4 text-gray-400" />
+                                                        </span>
+                                                    </div>
+                                                    <input name="price" type="text" id="hs-input-with-add-on-url"
+                                                        class="py-2 px-4 pl-4 pr-16 block w-full border-gray-200 shadow-sm rounded-r-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                                        placeholder="{{ __($institute->price ?? 'Instittute Value Here.') }}"
+                                                        value="{{ old('price', optional($institute)->price) }}">
+                                                </div>
                                             </div>
-                                            <div
-                                                class="absolute inset-y-0 right-0 flex items-center pointer-events-none z-20 pr-4">
-                                                <span class="text-gray-500">USD</span>
-                                            </div>
+
                                         </div>
 
 
@@ -206,6 +210,17 @@
                                         class=" placeholder:py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                         rows="3">{{ old('overview', optional($institute)->overview) }}</textarea>
                                     @error('overview')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="block">
+                                    <label
+                                        class=" font-medium text-gray-700 dark:text-gray-300 text-xs text-[0.7rem] flex justify-start">
+                                        Institute Introduction</label>
+                                    <textarea name="introduction"
+                                        class=" placeholder:py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                        rows="3">{{ old('introduction', optional($institute)->introduction) }}</textarea>
+                                    @error('introduction')
                                         <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </div>

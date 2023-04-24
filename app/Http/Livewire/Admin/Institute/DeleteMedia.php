@@ -13,18 +13,34 @@ class DeleteMedia extends ModalComponent
     public Media $media;
     public Institute $institute;
     public $image, $imageId;
+    public $checked = false;
+
     public function mount(Institute $institute, Media $media)
     {
         $this->media = $media;
         $this->institute = $institute;
     }
+    protected $listeners = ['setFeaturedImage', 'deleteMedia'];
 
+    public function setFeaturedImage()
+    {
+        $mediaPosition = $this->institute->getMedia('banner')->count();
+        $this->institute->clearMediaCollection('featured_image');
+        $this->media->copy($this->institute, 'featured_image');
+        $this->media->delete();
+        $this->forceClose()->closeModal();
+        return redirect()->route('institutes.edit', $this->institute->slug)->with('message', 'Media made featured  item successfully.');
+
+    }
 
     public function deleteMedia()
     {
-        dd('deleted');
-        $this->institute->delete();
-        return redirect('admin/institutes')->with('message', 'Institute deleted successfully.');
+        // Delete the media item
+        if ($this->media) {
+            $this->media->delete();
+        }
+
+        return redirect()->route('institutes.edit', $this->institute->slug)->with('message', 'Media item deleted successfully.');
     }
 
 

@@ -125,6 +125,7 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feature> $features
  * @property-read int|null $features_count
  * @property-read string $duration
+ * @property-read string $featured_image
  * @property-read mixed $frontend_url
  * @property-read string $institute_banner_url
  * @property-read string $institute_logo

@@ -22,6 +22,7 @@ class Institute extends Model implements HasMedia
         'name',
         'acronym',
         'overview',
+        'introduction',
         'about',
         'icon',
         'logo',
@@ -59,7 +60,8 @@ class Institute extends Model implements HasMedia
         'institute_banner_url',
         'services',
         'progress',
-        'duration'
+        'duration',
+        'featured_image'
     ];
 
     function getDurationAttribute(): string
@@ -135,6 +137,13 @@ class Institute extends Model implements HasMedia
         return 'slug';
     }
 
+    public function getFeaturedImageAttribute() : string
+    {
+
+        return ($this->getFirstMediaUrl('featured_image') != null) ? $this->getFirstMediaUrl('featured_image')  :  $this->getFirstMediaUrl('banner');
+    }
+
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this
@@ -142,8 +151,14 @@ class Institute extends Model implements HasMedia
             ->fit(Manipulations::FIT_CROP, 300, 300)
             ->nonQueued();
     }
+
     public function registerMediaCollections(): void
     {
+        $this->addMediaConversion('featured_image')
+            ->width(1024)
+            ->height(500)
+            ->sharpen(10);
+
         $this->addMediaConversion('banner')
             ->width(1024)
             ->height(500)

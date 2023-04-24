@@ -87,6 +87,9 @@ html {
     transform-style: preserve-3d;
     opacity: 0;
 }
+.prominent-titles-2 {
+    @apply bg-gradient-to-r from-[#d239f1] via-[#c96e05] to-[#8d37d8] text-transparent inline-block bg-clip-text;
+}
 .prominent-titles {
     @apply bg-gradient-to-r from-[#f1dc39] via-[#c96e05] to-[#8d37d8] text-transparent inline-block bg-clip-text;
 }

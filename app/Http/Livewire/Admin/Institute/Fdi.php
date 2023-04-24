@@ -10,6 +10,7 @@ class Fdi extends Component
 
     public Institute $institute;
 
+
     public function mount () {
         $this->institute = Institute::where('acronym', 'fdi')->first();
     }

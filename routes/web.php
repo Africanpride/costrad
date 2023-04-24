@@ -209,9 +209,9 @@ Route::get('nations', function () {
             return null;
         }
 
-        // return $upcomingInstitute;
+        return $upcomingInstitute;
 
-        dd($upcomingInstitute);
+
 
 
 })->name('nations');

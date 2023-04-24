@@ -1,17 +1,19 @@
 <div>
 
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+
         <div class="kenburns min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
-            style="background-image: url('{{ $institute->getFirstMediaUrl('banner') }}');">
+            style="background-image: url('{{ $institute->featured_image }}');">
 
             <div
                 class="absolute bottom-0 left-0 right-0 max-w-xl text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
                 <div class="px-5 py-4 flex bg-white rounded-2xl md:p-7 dark:bg-gray-900 flex-col justify-between gap-4 ">
                     <div class="block">
-                        <div class="flex justify-between items-center dark:text-gray-200 font-bold text-gray-800 text-left text-sm">
-                            <h3 class=" "> <span
-                                    class="uppercase">{{ $institute->acronym }}</span>: A Critical Mandate.
+                        <div
+                            class="flex justify-between items-center dark:text-gray-200 font-bold text-gray-800 text-left text-sm">
+                            <h3 class=" "> <span class="uppercase">{{ $institute->acronym }}</span>: A Critical
+                                Mandate.
                             </h3>
                             <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}</div>
                         </div>
@@ -59,14 +61,16 @@
         <div class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto space-y-5">
 
             <div class="mb-5">
-                <div class="mx-auto max-w-4xl sm:text-center pb-10">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl text-gradient__teal">
+                <div class="mx-auto max-w-5xl sm:text-center pb-10">
+                    <h2
+                        class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl text-gradient__teal">
                         Other Key Subjects Treated at <span class="uppercase">{{ $institute->acronym }}</span>
                     </h2>
                     <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                        Foundations for brain architecture in early childhood, Early childhood development, Developing
-                        children into sons, Strategic Innovative and effective child development systems and Futuristic
-                        systems of education.
+                        {{ $institute->introduction ??
+                            " Foundations for brain architecture in early childhood, Early childhood development, Developing
+                                                children into sons, Strategic Innovative and effective child development systems and Futuristic
+                                                systems of education." }}
                     </p>
                 </div>
 
@@ -75,8 +79,8 @@
                     @foreach ($images as $image)
                         <div class="group rounded-xl overflow-hidden cursor-pointer" href="#">
                             <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
-                                <img class="w-full h-full absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
-                                    src="{{ $image->getUrl() }}" style="aspect-ratio: 16 / 9;" alt="Image Description">
+                                <img class="w-full h-full  absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
+                                    src="{{ $image->getUrl() }}" style="aspect-ratio: 16 / 7;" alt="Image Description">
 
                             </div>
                         </div>
@@ -88,7 +92,8 @@
             <div
                 class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 dark:ring-gray-700 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
                 <div class="p-8 sm:p-10 lg:flex-auto">
-                    <h4 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50">{{ $institute->name }}
+                    <h4 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
+                        {{ $institute->name }}
                     </h4>
                     <p class=" text-base leading-7 text-gray-600 dark:text-gray-300">
                         {!! $institute->about !!}

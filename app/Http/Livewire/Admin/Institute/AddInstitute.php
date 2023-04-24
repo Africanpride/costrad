@@ -14,7 +14,7 @@ class AddInstitute extends ModalComponent
 {
     use WithFileUploads;
 
-    public $name, $acronym, $overview, $about, $icon, $logo, $banner, $startDate, $endDate, $seo,  $slug, $price;
+    public $name, $acronym, $overview, $introduction, $about, $icon, $logo, $banner, $startDate, $endDate, $seo,  $slug, $price;
     public bool $active = true;
     public $instituteId;
     public $isOpen = 0;
@@ -49,6 +49,7 @@ class AddInstitute extends ModalComponent
             'name' => 'required|min:2|unique:institutes,name',
             'acronym' => 'required|min:2|unique:institutes,acronym',
             'overview' => 'required|min:2',
+            'introduction' => 'required|min:2',
             'about' => 'required|min:2',
             'icon' => 'nullable',
             'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
@@ -104,6 +105,7 @@ class AddInstitute extends ModalComponent
         $this->name = $institute->name;
         $this->acronym = $institute->acronym;
         $this->overview = $institute->overview;
+        $this->introduction = $institute->introduction;
         $this->about = $institute->about;
         $this->icon = $institute->icon;
         $this->logo = $institute->logo;
@@ -123,6 +125,7 @@ class AddInstitute extends ModalComponent
             'name' => 'required|min:2|unique:institutes,name, $institute->id',
             'acronym' => 'required|min:2|unique:institutes,acronym, $institute->id',
             'overview' => 'required|min:2',
+            'introduction' => 'required|min:2',
             'about' => 'required|min:2',
             'icon' => 'nullable',
             'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
@@ -154,6 +157,7 @@ class AddInstitute extends ModalComponent
         $this->name = '';
         $this->acronym = '';
         $this->overview = '';
+        $this->introduction = '';
         $this->about = '';
         $this->icon = '';
         $this->logo = '';
