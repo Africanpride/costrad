@@ -87,7 +87,7 @@ class InstituteController extends Controller
             }
         }
 
-        return redirect('admin/institutes')->with('message', 'Institute Updated successfully.');
+        return redirect()->back()->with('message', 'Institute Updated successfully.');
     }
 
     /**

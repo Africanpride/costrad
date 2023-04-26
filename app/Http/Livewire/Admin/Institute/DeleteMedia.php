@@ -20,7 +20,7 @@ class DeleteMedia extends ModalComponent
         $this->media = $media;
         $this->institute = $institute;
     }
-    protected $listeners = ['setFeaturedImage', 'deleteMedia'];
+    protected $listeners = ['setFeaturedImage', 'deleteMedia', 'sortUp'];
 
     public function setFeaturedImage()
     {
@@ -30,9 +30,19 @@ class DeleteMedia extends ModalComponent
         $this->media->delete();
         $this->forceClose()->closeModal();
         return redirect()->route('institutes.edit', $this->institute->slug)->with('message', 'Media made featured  item successfully.');
-
     }
 
+    public function sortUp()
+    {
+        // Delete the media item
+        if ($this->media->order_column > 0) {
+            $this->media->order_column - 1;
+            $this->media->save();
+        }
+
+
+        return redirect()->route('institutes.edit', $this->institute->slug)->with('message', 'Media item deleted successfully.');
+    }
     public function deleteMedia()
     {
         // Delete the media item

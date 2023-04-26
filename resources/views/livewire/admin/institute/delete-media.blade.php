@@ -13,6 +13,7 @@
     <div class="p-8 ">
         <div class="grid grid-cols-2 gap-4 w-5/8 mx-auto">
             <x-jet-button wire:click="$emit('setFeaturedImage')">Make Featured Image</x-jet-button>
+            <x-jet-button wire:click="$emit('sortUp')">Move Up</x-jet-button>
             <x-jet-button class="bg-red-500 hover:bg-red-600" wire:click="$emit('deleteMedia')">Delete Image</x-jet-button>
         </div>
     </div>

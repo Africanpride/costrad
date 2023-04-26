@@ -95,10 +95,10 @@
                     <h4 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
                         {{ $institute->name }}
                     </h4>
-                    <p class=" text-base leading-7 text-gray-600 dark:text-gray-300">
+                    <p class=" text-base leading-7 text-gray-600 dark:text-gray-300 pb-5">
                         {!! $institute->about !!}
                     </p>
-                    <div class=" flex items-center gap-x-4">
+                    <div class=" flex items-center gap-x-4 py-6">
                         <h4 class="flex-none text-sm font-semibold leading-6 text-firefly-600 dark:text-firefly-400">
                             What’s included
                         </h4>
@@ -122,7 +122,7 @@
 
                 <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
                     <div
-                        class="rounded-2xl bg-gray-300/40 dark:bg-blue-900/10 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+                        class="rounded-2xl bg-gray-300/40 dark:bg-blue-900/10 h-full py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
                         <div class="mx-auto max-w-xs px-8">
                             <p class="text-base font-semibold text-gray-600 dark:text-gray-400">Pay once, own it forever
                             </p>
