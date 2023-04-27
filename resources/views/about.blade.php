@@ -15,11 +15,11 @@
 
                             <x-slot name="paragraph">
 
-                                    The College of Sustainable Transformation and Development (<a
-                                        href="{{ route('institute.show', [\App\Models\Institute::whereAcronym('costrad')->first()->slug]) }}"
-                                        class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
-                                    is an initiative of the Logos-Rhema Foundation for Leadership Resource Development,
-                                    a Non-Governmental Foundation registered in Ghana.
+                                The College of Sustainable Transformation and Development (<a
+                                    href="{{ route('institute.show', [\App\Models\Institute::whereAcronym('costrad')->first()->slug]) }}"
+                                    class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
+                                is an initiative of the Logos-Rhema Foundation for Leadership Resource Development,
+                                a Non-Governmental Foundation registered in Ghana.
 
                             </x-slot>
 
@@ -98,10 +98,6 @@
 
                 <img class="rounded-xl h-auto" src="{{ asset('images/main/lecture_hall.jpg') }}"
                     alt="Costrad on leadership">
-
-                {{-- <img class="rounded-xl"
-                        src="https://images.unsplash.com/photo-1648737963503-1a26da876aca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=900&q=80"
-                        alt="Image Description"> --}}
 
                 <!-- End Col -->
             </div>
@@ -292,51 +288,69 @@
         <!-- End Grid -->
     </div>
     <!-- End agenda -->
+    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
 
-    <div class="md:p-12 p-4">
-        <!-- End Mission -->
         <div
-            class="max-w-10xl md:max-w-6xl mx-auto relative text-center px-4 sm:px-6 lg:px-8 py-10 md:py-24 space-y-3">
-            <div
-                class="inline-block bg-gradient-to-tl from-firefly-600 via-transparent to-purple-400 p-px rounded-md mb-3">
+            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
+         bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+          from-slate-900 to-gray-900">
+            <div class="md:p-12 p-4">
+                <!-- End Mission -->
                 <div
-                    class="bg-white rounded-md py-1.5 px-3 text-xl font-bold md:text-2xl lg:text-3xl lg:leading-tight dark:bg-slate-900">
+                    class="max-w-10xl md:max-w-6xl mx-auto relative text-center px-4 sm:px-6 lg:px-8 py-10 md:py-24 space-y-3">
+                    <div
+                        class="inline-block bg-gradient-to-tl from-firefly-600 via-transparent to-purple-400 p-px rounded-md mb-3">
+                        <div
+                            class="bg-white rounded-md py-1.5 px-3 text-xl font-bold md:text-2xl lg:text-3xl lg:leading-tight dark:bg-slate-900">
 
-                    <span class="bg-clip-text bg-gradient-to-tl from-firefly-600 to-purple-400 text-transparent">
-                        Our Mission 20 Years +
-                    </span>
+                            <span
+                                class="bg-clip-text bg-gradient-to-tl from-firefly-600 to-purple-400 text-transparent">
+                                Our Mission 20 Years +
+                            </span>
+                        </div>
+                    </div>
+
+                    <p class="block font-thin text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
+                        Our Mission is to raise and develop generations of
+                        transformational leaders, equipped to bring systemic and sustainable change, to every sphere of
+                        society.
+                    </p>
+
+                    <div class="mt-5 hidden">
+                        <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+                            href="https://github.com/htmlstreamofficial/preline/tree/main/examples/html"
+                            target="_blank">
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                                </path>
+                            </svg>
+                            Download examples
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <p class="block font-thin text-firefly-800 text-xl md:text-3xl  dark:text-gray-200  uppercase">
-                Our Mission is to raise and develop generations of
-                transformational leaders, equipped to bring systemic and sustainable change, to every sphere of society.
-            </p>
-
-            <div class="mt-5 hidden">
-                <a class="inline-flex justify-center items-center gap-x-3 text-center bg-firefly-600 hover:bg-firefly-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-firefly-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-                    href="https://github.com/htmlstreamofficial/preline/tree/main/examples/html" target="_blank">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-                        </path>
-                    </svg>
-                    Download examples
-                </a>
+                <!-- End Mission -->
             </div>
         </div>
-        <!-- End Mission -->
-    </div>
+    </section>
 
-<livewire:team />
+    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+
+        <div
+            class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
+         bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+          from-slate-900 to-gray-900">
+            <livewire:team />
+        </div>
+    </section>
 
     <!-- agenda -->
     <div class="max-w-[85rem] w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-firefly-100 dark:bg-slate-900">
         <!-- Grid -->
         <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
 
-            <div class="mt-5 sm:mt-10 lg:mt-0">
+            <div class="my-5 sm:mt-10 lg:mt-0">
                 <div class="space-y-6 sm:space-y-8">
                     <!-- Title -->
                     <div class="space-y-2 md:space-y-4">

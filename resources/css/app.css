@@ -265,3 +265,7 @@ html {
         radial-gradient(circle at top left, #efceff, #9773ff, #3d67ff);
     border: 1px double transparent;
 }
+.bullets ul,
+.bullets li {
+  display: hidden !important;
+}

@@ -87,30 +87,14 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
 
                     </a>
                 </div>
-                <div class="text-firefly-700 dark:text-firefly-200 flex justify-start items-center gap-2">
-                    <svg class="block w-4 h-4 md:hidden" xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                            d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z">
-                        </path>
-                        <path
-                            d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z">
-                        </path>
-                    </svg>
-                    <a href="{{ url('topics') }}"
-                        class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
-    {{ Request::is('topics') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
-                        Topics
 
-                    </a>
-                </div>
 
                 <livewire:institutes-list />
 
                 <a href="{{ route('news') }}"
                     class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
 {{ Request::is('news') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
-                    <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
+                    {{-- <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.81533 12.5C7.81533 13.5989 6.91234 14.5 5.78901 14.5C4.66568 14.5 3.7627 13.5989 3.7627 12.5C3.7627 11.4011 4.66568 10.5 5.78901 10.5H7.81533V12.5Z"
@@ -127,13 +111,13 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
                         <path
                             d="M12.8681 7.5C12.8681 8.59893 11.9651 9.5 10.8417 9.5C9.71841 9.5 8.81543 8.59894 8.81543 7.5C8.81543 6.40106 9.71841 5.5 10.8417 5.5C11.9651 5.5 12.8681 6.40107 12.8681 7.5Z"
                             stroke="currentColor"></path>
-                    </svg>
+                    </svg> --}}
                     {{ __('News') }}
                 </a>
                 <a href="{{ route('institute.show', [$costrad->slug]) }}"
                     class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
 {{ Request::is('costrad') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
-                    <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
+                    {{-- <svg class="block w-4 h-4 md:hidden" width="16" height="16" viewBox="0 0 16 16"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.81533 12.5C7.81533 13.5989 6.91234 14.5 5.78901 14.5C4.66568 14.5 3.7627 13.5989 3.7627 12.5C3.7627 11.4011 4.66568 10.5 5.78901 10.5H7.81533V12.5Z"
@@ -150,7 +134,7 @@ md:backdrop-blur-none dark:bg-slate-900 text-sm  sticky top-0 inset-x-0  sm:just
                         <path
                             d="M12.8681 7.5C12.8681 8.59893 11.9651 9.5 10.8417 9.5C9.71841 9.5 8.81543 8.59894 8.81543 7.5C8.81543 6.40106 9.71841 5.5 10.8417 5.5C11.9651 5.5 12.8681 6.40107 12.8681 7.5Z"
                             stroke="currentColor"></path>
-                    </svg>
+                    </svg> --}}
                     {{ __('COSTrAD') }}
                 </a>
 

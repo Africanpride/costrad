@@ -60,12 +60,14 @@
                             multiple>
                     </div>
                     <div class="pb-5">
-                        <div class="text-gray-500 py-4 flex gap-2 items-center ">
-                            <x-lucide-verified class="w-5 h-5 text-green-500" />
-                            Click image to select image for deletion or to set as featured Image for
-                            {{ $institute->name }}.
+                            @if (!is_null($institute->getFirstMedia('banner')))
+                            <div class="text-gray-500 py-4 flex gap-2 items-center ">
+                                <x-lucide-verified class="w-5 h-5 text-green-500" />
+                                Click image to select image for deletion or to set as featured Image for
+                                {{ $institute->name }}.
 
-                        </div>
+                            </div>
+                            @endif
                         <div class="grid grid-cols-7 gap-3">
                             @foreach ($institute->getMedia('banner') as $media)
                                 <div class="relative cursor-pointer"

@@ -45,7 +45,10 @@ Route::view('institutes', 'institutes'); // front end institute
 
 Route::get('/', function () {
     $latest = Newsroom::latest()->take(4)->get();
-    return view('home', compact('latest'));
+    $upcomingInstitute = Institute::where('startDate', '>', now())
+    ->orderBy('startDate', 'asc')
+    ->first();
+    return view('home', compact('latest', 'upcomingInstitute'));
 })->name('home');
 
 Route::get('news', function () {
@@ -209,7 +212,9 @@ Route::get('nations', function () {
             return null;
         }
 
-        return $upcomingInstitute;
+        // return $upcomingInstitute;
+
+        return Institute::count();
 
 
 

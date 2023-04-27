@@ -1,4 +1,4 @@
-<div class="py-16 md:py-24 border-t dark:border-gray-500/10 border-gray-200/50 ">
+<div class="">
 
 
     <div
