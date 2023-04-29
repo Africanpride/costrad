@@ -1,28 +1,27 @@
 <div>
-
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto h-auto">
 
         <div class="kenburns min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
             style="background-image: url('{{ $institute->featured_image }}');">
 
-            <div
-                class="absolute bottom-0 left-0 right-0 max-w-xl text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
+            <div class="absolute bottom-0 left-0 right-0 max-w-xl mx-auto p-6 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
                 <div class="px-5 py-4 flex bg-white rounded-2xl md:p-7 dark:bg-gray-900 flex-col justify-between gap-4 ">
                     <div class="block">
                         <div
                             class="flex justify-between items-center dark:text-gray-200 font-bold text-gray-800 text-left text-sm">
-                            <h3 class=" "> <span class="uppercase">{{ $institute->acronym }}</span>: A Critical
+                            <h3 class="hidden md:flex  "> <span class="uppercase ">{{ $institute->acronym }}</span>: A
+                                Critical
                                 Mandate.
                             </h3>
                             <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}</div>
                         </div>
-                        <p class="mt-2 text-gray-800 dark:text-gray-200 text-xs text-justify">
-                            <span class="text-xs">{!! $institute->overview !!}</span>
+                        <div class="my-2 text-gray-800 dark:text-gray-200 text-xs md:text-justify">
+                            <span class="text-xs line-clamp-4 md:line-clamp-none">{!! $institute->overview !!}</span>
 
                     </div>
 
-                    <div class="flex justify-between items-center">
+                    <div class="hidden md:flex justify-between items-center">
                         <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
                             href="#">
                             <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -47,33 +46,41 @@
                             </span>
                         </div>
 
-
-
-
                     </div>
                 </div>
                 <!-- End Card -->
             </div>
         </div>
     </section>
-    <section class="max-w-8xl mx-auto px-8">
+
+    <section class="max-w-8xl md:px-8 mx-auto px-4">
         <div
             class="min-h-[600px] md:min-h-max bg-slate-500/10 border border-gray-300/10 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:bg-black from-slate-900 mx-auto p-8 rounded-2xl space-y-5 text-left to-gray-900 py-16">
             <img class="inline-block h-[4.975rem] w-[4.975rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-            src="{{ $institute->institute_logo }}" alt="{{ $institute->name }}">
-<div class="max-w-xl">
-    <div class="bg-gradient-to-r from-gray-200 to-white/0 h-0.5 mt-6 dark:from-gray-700 dark:to-slate-900/0">
-        <div class="bg-gray-300 w-[4.975rem] h-0.5"></div>
-    </div>
-</div>
+                src="{{ $institute->institute_logo }}" alt="{{ $institute->name }}">
+            <div class="max-w-xl">
+                <div
+                    class="bg-gradient-to-r from-gray-200 to-white/0 h-0.5 mt-6 dark:from-gray-700 dark:to-slate-900/0">
+                    <div class="bg-gray-300 w-[4.975rem] h-0.5"></div>
+                </div>
+            </div>
             <h2 class="mt-5 font-semibold text-sky-500 text-gradient1">{{ __('Overview') }}</h2>
-            <p class="mt-4 gap-3 text-3xl sm:text-4xl text-slate-900 font-extrabold tracking-tight dark:text-slate-50 ">
-                <span>{{ $institute->name }}:</span> <span class="uppercase text-gradient1">({{ $institute->acronym }})</span> </p>
-            <p class="mt-4 max-w-6xl space-y-6 "> {!! $institute->introduction ??
-                " Foundations for brain architecture in early childhood, Early childhood development, Developing
-                        children into sons, Strategic Innovative and effective child development systems and Futuristic
-                        systems of education." !!}
+            <p
+                class="mt-4 gap-3 text-md md:text-3xl sm:text-xl text-slate-900 font-extrabold tracking-tight dark:text-slate-50 ">
+                <span>{{ $institute->name }}:</span>
+                <span class="text-gradient1">
+                    @if ($institute->acronym == 'costrad')
+                        (<span>{{ __('COSTrAD') }}</span>)
+                    @else
+                        <span class="uppercase">({{ $institute->acronym }}) </span>
+                    @endif
+                </span>
             </p>
+            <div class="mt-4 max-w-6xl space-y-6 text-[16px] "> {!! $institute->introduction ??
+                " Foundations for brain architecture in early childhood, Early childhood development, Developing
+                                                children into sons, Strategic Innovative and effective child development systems and Futuristic
+                                                systems of education." !!}
+            </div>
             <div class="py-5">
                 <div class="flex space-x-1">
                     <svg class="h-4 w-4 text-yellow-500 dark:text-white" width="51" height="51"
@@ -100,9 +107,14 @@
                             d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
                             fill="currentColor"></path>
                     </svg>
-                    <svg class="h-4 w-4 text-yellow-500 dark:text-gray-200" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M49.6867 20.0305C50.2889 19.3946 49.9878 18.1228 49.0846 18.1228L33.7306 15.8972C33.4296 15.8972 33.1285 15.8972 32.8275 15.2613L25.9032 0.317944C25.6021 0 25.3011 0 25 0V42.6046C25 42.6046 25.3011 42.6046 25.6021 42.6046L39.7518 49.9173C40.3539 50.2352 41.5581 49.5994 41.2571 48.6455L38.5476 32.4303C38.5476 32.1124 38.5476 31.7944 38.8486 31.4765L49.6867 20.0305Z" fill="transparent"></path>
-                        <path d="M0.313299 20.0305C-0.288914 19.3946 0.0122427 18.1228 0.915411 18.1228L16.2694 15.8972C16.5704 15.8972 16.8715 15.8972 17.1725 15.2613L24.0968 0.317944C24.3979 0 24.6989 0 25 0V42.6046C25 42.6046 24.6989 42.6046 24.3979 42.6046L10.2482 49.9173C9.64609 50.2352 8.44187 49.5994 8.74292 48.6455L11.4524 32.4303C11.4524 32.1124 11.4524 31.7944 11.1514 31.4765L0.313299 20.0305Z" fill="currentColor"></path>
+                    <svg class="h-4 w-4 text-yellow-500 dark:text-gray-200" width="51" height="51"
+                        viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M49.6867 20.0305C50.2889 19.3946 49.9878 18.1228 49.0846 18.1228L33.7306 15.8972C33.4296 15.8972 33.1285 15.8972 32.8275 15.2613L25.9032 0.317944C25.6021 0 25.3011 0 25 0V42.6046C25 42.6046 25.3011 42.6046 25.6021 42.6046L39.7518 49.9173C40.3539 50.2352 41.5581 49.5994 41.2571 48.6455L38.5476 32.4303C38.5476 32.1124 38.5476 31.7944 38.8486 31.4765L49.6867 20.0305Z"
+                            fill="transparent"></path>
+                        <path
+                            d="M0.313299 20.0305C-0.288914 19.3946 0.0122427 18.1228 0.915411 18.1228L16.2694 15.8972C16.5704 15.8972 16.8715 15.8972 17.1725 15.2613L24.0968 0.317944C24.3979 0 24.6989 0 25 0V42.6046C25 42.6046 24.6989 42.6046 24.3979 42.6046L10.2482 49.9173C9.64609 50.2352 8.44187 49.5994 8.74292 48.6455L11.4524 32.4303C11.4524 32.1124 11.4524 31.7944 11.1514 31.4765L0.313299 20.0305Z"
+                            fill="currentColor"></path>
                     </svg>
                 </div>
 
@@ -137,7 +149,8 @@
         </div>
 
     </section>
-    <div class="bg-white dark:bg-gray-900">
+
+    <section class="bg-white dark:bg-gray-900">
         <div class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto space-y-5">
 
             <div class="mb-5">
@@ -160,13 +173,13 @@
             </div>
             <div
                 class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 dark:ring-gray-700 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-                <div class="p-8 sm:p-10 lg:flex-auto">
+                <div class="p-8 sm:p-10 lg:flex-auto space-y-4">
                     <h4 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 ">
                         {{ $institute->name }}
                     </h4>
-                    <p class=" text-base leading-7 text-gray-600 dark:text-gray-300 pb-5">
+                    <div class=" text-[16px]  text-gray-600 dark:text-gray-300 pb-5">
                         {!! $institute->about !!}
-                    </p>
+                    </div>
                     <div class=" flex items-center gap-x-4 py-6">
                         <h4 class="flex-none text-sm font-semibold leading-6 text-firefly-600 dark:text-firefly-400">
                             What’s included
@@ -193,7 +206,7 @@
                     <div
                         class="rounded-2xl bg-gray-300/40 dark:bg-blue-900/10 h-full py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
                         <div class="mx-auto max-w-xs px-8">
-                            <p class="text-base font-semibold text-gray-600 dark:text-gray-400">Pay once, own it
+                            <p class="text-base font-bold text-gray-600 dark:text-gray-500">Pay once, own it
                                 forever
                             </p>
                             <p class="mt-6 flex items-baseline justify-center gap-x-2">
@@ -206,8 +219,8 @@
                                 class="mt-10 block w-full rounded-md bg-firefly-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800">Get
                                 access</a>
                             <p class="mt-6 text-xs leading-5 text-gray-600 dark:text-gray-400">
-                                Invoices and receipts
-                                available for easy company reimbursement
+                                Gain knowledge that lasts a lifetime. Invoices and receipts
+                                available for easy company reimbursement.
                             </p>
                         </div>
                     </div>
@@ -215,17 +228,15 @@
 
             </div>
         </div>
-    </div>
+    </section>
 
-</div>
-
-<div class="relativemax-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
-    <!-- Overview -->
-    <figure>
-        <img class=" rounded-2xl" src="{{ asset('images/main/training.jpg') }}" alt="Image Description">
-        {{-- <figcaption class="mt-3 text-sm text-left text-gray-500">
+    <section class="relative max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+        <!-- Overview -->
+        <figure>
+            <img class=" rounded-2xl" src="{{ asset('images/main/training.jpg') }}" alt="Image Description">
+            {{-- <figcaption class="mt-3 text-sm text-left text-gray-500">
         {{ $newsroom->overview }}
     </figcaption> --}}
-    </figure>
-
+        </figure>
+    </section>
 </div>

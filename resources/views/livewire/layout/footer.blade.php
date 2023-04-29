@@ -17,6 +17,9 @@
                 <a href="{{  url('privacy') }}">Privacy</a>
             </li>
             <li>
+                <a href="{{  url('dmca') }}">DMCA</a>
+            </li>
+            <li>
                 <a href="{{  url('terms') }}">Terms</a>
             </li>
 

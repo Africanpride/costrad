@@ -37,6 +37,7 @@ Route::view('help', 'help');
 Route::view('topics', 'topics');
 Route::view('donate', 'donate');
 Route::view('privacy', 'privacy');
+Route::view('dmca', 'dmca');
 Route::view('about', 'about');
 Route::view('documentation', 'documentation');
 Route::view('contact', 'contact');
@@ -71,7 +72,10 @@ Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->n
 
 Route::get('institutes', function () {
     $institutes = Institute::get();
-    return view('institutes.index', compact('institutes'));
+    $nextInstitute = Institute::where('startDate', '>', now())
+    ->orderBy('startDate', 'asc')
+    ->first();
+    return view('institutes.index', compact('institutes', 'nextInstitute'));
 })->name('institutes');
 
 Route::get('/news/{slug}', [NewsroomController::class, 'show'])->name('news.show');

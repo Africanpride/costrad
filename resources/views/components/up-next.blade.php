@@ -18,13 +18,14 @@
         <use href="#1d77c128-3ec1-4660-a7f6-26c7006705ad" />
     </svg>
     <div class="flex flex-wrap items-center gap-y-2 gap-x-4">
-        <p class="text-sm leading-6 text-gray-900 dark:text-white">
+        <p class="text-sm md:leading-6 text-gray-900 dark:text-white">
             <strong class="font-semibold">{{ $upcomingInstitute->name }} <span
-                    class="uppercase">({{ $upcomingInstitute->acronym }} )</span>
-                {{ Carbon\Carbon::parse($upcomingInstitute->startDate)->year }}</strong>
-            <svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+                    class="uppercase">({{ $upcomingInstitute->acronym }})</span>
+                <span class="hidden md:inline-flex">{{ Carbon\Carbon::parse($upcomingInstitute->startDate)->year }}</span></strong>
+            <svg viewBox="0 0 2 2" class="mx-2 hidden md:inline h-0.5 w-0.5 fill-current" aria-hidden="true">
                 <circle cx="1" cy="1" r="1" />
             </svg>
+
             <span class="md:hidden "><br /></span> Join us in <b>Accra</b> from <span
                 class="font-bold">{{ Carbon\Carbon::parse($upcomingInstitute->startDate)->format('M d') }} –
                 {{ Carbon\Carbon::parse($upcomingInstitute->endDate)->format('M d') }}</span> for this Special edition.

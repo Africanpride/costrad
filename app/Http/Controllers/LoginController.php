@@ -76,7 +76,9 @@ class LoginController extends Controller
                 // login User
                 Auth::login($newUser);
 
-                return redirect()->route('home');
+
+                return redirect()->intended(route('home'));
+
             }
         } catch (Exception $e) {
             // dd($e);

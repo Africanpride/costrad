@@ -1,6 +1,6 @@
 <x-front-layout>
 
-    <section class="isolate relative z-20 overflow-hidden p-6 pt-24 pb-12 ">
+    <section class="isolate relative z-20 overflow-hidden p-4 md:p-6 pt-24 pb-6 ">
         <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-20 space-y-3">
                 <x-top-title>
@@ -40,8 +40,8 @@
         </div>
 
         <div class="max-w-7xl mx-auto space-y-6 ">
-            <div class="block md:flex md:space-x-2 px-2 lg:p-0">
-                <a class="mb-4 md:mb-0 w-full md:w-2/3 relative rounded-2xl inline-block" style="height: 24em;"
+            <div class="block md:flex md:space-x-2  lg:p-0">
+                <a class="mb-2 md:mb-0 w-full md:w-2/3 relative rounded-2xl inline-block" style="height: 24em;"
                     href="{{ route('news.show', [$firstLatest]) }}" target="_blank">
                     <div class="absolute left-0 bottom-0 w-full h-full z-10"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
@@ -114,19 +114,19 @@
                             <div
                                 class="border-l border-gray-900/10 p-4 dark:border-white/10 sm:!border-l-transparent ">
                                 <a href="{{ route('news.show', [$article]) }}">
-                                    <h3 class="font-bold uppercase text-gray-900 dark:text-white">
+                                    <h3 class="font-bold uppercase text-gray-900 dark:text-white text-[13px]">
                                         {{ $article->title }}
                                     </h3>
                                 </a>
 
-                                <p class="mt-2 text-sm leading-relaxed text-gray-700 line-clamp-4 dark:text-gray-200">
+                                <div class="mt-2 !text-[12px] leading-relaxed text-gray-700 line-clamp-4 dark:text-gray-200">
                                     {!! $article->body !!}
-                                </p>
+                                </div>
                             </div>
 
                             <div class="sm:flex sm:items-end sm:justify-end">
                                 <a href="{{ route('news.show', [$article]) }}"
-                                    class="block bg-yellow-400 px-5 py-2 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-500">
+                                    class="block bg-firefly-500 px-5 py-2 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-firefly-400">
                                     Read Article
                                 </a>
                             </div>

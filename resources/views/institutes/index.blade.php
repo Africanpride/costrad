@@ -1,9 +1,9 @@
 <x-front-layout>
-    <section class="isolate relative z-20 overflow-hidden p-6 pt-24 pb-12 ">
+    <section class="isolate relative z-20 overflow-hidden pt-24 pb-12 ">
         <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[920px] text-center lg:mb-10 space-y-3">
                 <x-top-title>
-                    COSTrAD: News, Articles & publications
+                    COSTrAD & Institutes
                     <x-slot name="icon">
                         <x-lucide-trending-up class="dark:text-white  w-5 h-5 " />
                     </x-slot>
@@ -21,10 +21,51 @@
             </div>
         </div>
 
+        <div class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
+            <!-- Announcement Banner -->
+            <div class="bg-gradient-to-r from-firefly-700 to-firefly-500 ">
+                <div class="max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 mx-auto">
+                    <!-- Grid -->
+                    <div class="grid justify-center md:grid-cols-2 md:justify-between md:items-center gap-2">
+                        <div class="text-center md:text-left md:order-2 md:flex md:justify-end md:items-center">
+                            <p class="mr-5 inline-block text-xs font-semibold text-white">
+                                Ready? Add Full Schedule To Your Calender
+                            </p>
+                            <span
+                                class="py-1 px-3 inline-flex justify-center items-center gap-2 rounded-md border-2 border-white font-medium text-white hover:bg-white hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all text-sm cursor-pointer"
+                                onclick="addCalendar()">
+                                Calender
+                            </span>
+                        </div>
+                        <!-- End Col -->
 
+                        <div class="flex  items-center">
+                            <a class="py-2 md:px-3 inline-flex justify-center items-center gap-2 rounded-md font-medium text-white hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all text-sm"
+                                href="#">
+                                <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
+                                </svg>
+                                Watch Video
+                            </a>
+                            <span class="inline-block border-r border-white/[.3] w-px h-5 mx-2"></span>
+                            <a class="py-2 md:px-3 inline-flex justify-center items-center gap-2 rounded-md font-medium text-white hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all text-sm"
+                                href="{{ route('institute.show', [$nextInstitute]) }}">
+                                Explore what's Next: <span
+                                    class="uppercase text-gradient__teal ">{{ $nextInstitute->acronym }}</span>
+                            </a>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Grid -->
+                </div>
+            </div>
+            <!-- End Announcement Banner -->
+        </div>
 
         <section class="">
-            <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
                 <div class="grid gap-8 md:grid-cols-2">
                     @forelse ($institutes as $institute)
                         <div
@@ -48,9 +89,9 @@
                             </a>
 
 
-                            <div class="">
+                            <div class="space-y-3">
                                 <a href="{{ route('institute.show', [$institute]) }}"
-                                    class="dark:text-white text-md title-font font-bold mb-3 uppercase">
+                                    class="dark:text-white text-xs md:text-md title-font font-bold mb-3 uppercase">
                                     {{ $institute->name }} <span
                                         class="uppercase">({{ $institute->acronym }})</span></a>
 
@@ -58,7 +99,7 @@
 
                                 <div class="flex justify-between items-center mt-4">
                                     <a href="{{ route('institute.show', [$institute]) }}"
-                                        class=" dark:text-yellow-400 text-yellow-500 inline-flex items-center">Learn
+                                        class=" dark:text-yellow-400 text-yellow-500 hidden md:inline-flex items-center">Learn
                                         More
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                             stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
@@ -130,3 +171,21 @@
 
 
 </x-front-layout>
+<script>
+    function addCalendar() {
+        // Replace the URL below with the URL of the public calendar you want to add
+        const calendarUrl = "https://calendar.google.com/calendar/ical/en.gh%23holiday%40group.v.calendar.google.com/public/basic.ics";
+
+        // Replace the text below with the name you want to give to the added calendar
+        const calendarName = "Public Calendar";
+
+        // Create a new calendar object
+        const newCalendar = {
+            calendarName: calendarName,
+            calendarUrl: calendarUrl
+        };
+
+        // Use the webcal protocol to add the calendar to the user's calendar app
+        window.open("webcal://" + calendarUrl);
+    }
+</script>
