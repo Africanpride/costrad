@@ -15,13 +15,6 @@ use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
 
-// Route::get('/auth/redirect', function () {
-//     return Socialite::driver('google')->redirect();
-// });
-
-// Route::get('/auth/callback', function () {
-//     $user = Socialite::driver('google')->user();
-// });
 
 Route::get('banned', function () {
     return view('auth.banned');
@@ -29,6 +22,18 @@ Route::get('banned', function () {
 
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
+
+// Payment Route with it's callback.
+Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])
+    ->name('pay')
+    ->middleware('auth');
+
+Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])
+    ->name('payment')
+    ->middleware('verifyWebhookIP');
+
+// end payment
+
 Route::view('test4', 'test4');
 Route::view('test5', 'test5');
 Route::view('test', 'test');
@@ -44,11 +49,12 @@ Route::view('contact', 'contact');
 Route::view('our-process', 'our-process');
 Route::view('institutes', 'institutes'); // front end institute
 
+
 Route::get('/', function () {
     $latest = Newsroom::latest()->take(4)->get();
     $upcomingInstitute = Institute::where('startDate', '>', now())
-    ->orderBy('startDate', 'asc')
-    ->first();
+        ->orderBy('startDate', 'asc')
+        ->first();
     return view('home', compact('latest', 'upcomingInstitute'));
 })->name('home');
 
@@ -73,8 +79,8 @@ Route::get('/institutes/{slug}', [DisplayInstituteController::class, 'show'])->n
 Route::get('institutes', function () {
     $institutes = Institute::get();
     $nextInstitute = Institute::where('startDate', '>', now())
-    ->orderBy('startDate', 'asc')
-    ->first();
+        ->orderBy('startDate', 'asc')
+        ->first();
     return view('institutes.index', compact('institutes', 'nextInstitute'));
 })->name('institutes');
 
@@ -111,11 +117,7 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
         $participants = User::participant()->get();
         return view('admin/participants/index', compact('participants'));
     })->name('admin.participants');
-    // Route::resources([
-    //     'institutes' => 'InstituteController',
-    //     'announcements' => 'AnnouncementController',
-    //     'newsroom' => 'NewsroomController',
-    // ]);
+
     Route::resource('institutes', InstituteController::class);
     Route::resource('announcements', AnnouncementController::class);
     Route::resource('newsroom', NewsroomController::class);
@@ -186,41 +188,27 @@ Route::get('flags', function () {
     // return $flagUrl;
 })->name('flags');
 
-// Route::get('nations', function () {
-//     $nation = Country::whereId('5')->first();
-//     $imgObj = $nation->emoji;
 
-//     $codepoints = array_map(function ($char) {
-//         return dechex(mb_ord($char));
-//     }, preg_split('//u', $imgObj, -1, PREG_SPLIT_NO_EMPTY));
-
-//     $url = "https://twemoji.maxcdn.com/v/13.4.0/72x72/" . implode('-', $codepoints) . ".png";
-//     $altText = "Image of a flag";
-//     return '<img src="' . $url . '" alt="' . $altText . '">';
-// })->name('nations');
 
 
 Route::get('nations', function () {
 
 
-        // Get the current date
-        $today = date('Y-m-d');
+    // Get the current date
+    $today = date('Y-m-d');
 
-        // Find the first instance of an institute where startDate is greater than today's date
-        $upcomingInstitute = Institute::where('startDate', '>', $today)
-            ->orderBy('startDate', 'asc')
-            ->first();
+    // Find the first instance of an institute where startDate is greater than today's date
+    $upcomingInstitute = Institute::where('startDate', '>', $today)
+        ->orderBy('startDate', 'asc')
+        ->first();
 
-        // If no upcoming institute was found, return null
-        if (!$upcomingInstitute) {
-            return null;
-        }
+    // If no upcoming institute was found, return null
+    if (!$upcomingInstitute) {
+        return null;
+    }
 
-        // return $upcomingInstitute;
+    return $upcomingInstitute;
 
-        return Institute::count();
-
-
-
-
+    // return Institute::count();
 })->name('nations');
+

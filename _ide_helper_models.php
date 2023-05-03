@@ -94,10 +94,22 @@ namespace App\Models{
 /**
  * App\Models\Feature
  *
- * @property-read \App\Models\Institute|null $institute
+ * @property int $id
+ * @property string $title
+ * @property string|null $description
+ * @property int $institute_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Institute $institute
  * @method static \Illuminate\Database\Eloquent\Builder|Feature newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Feature newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Feature query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature whereInstituteId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feature whereUpdatedAt($value)
  */
 	class Feature extends \Eloquent {}
 }
@@ -122,6 +134,7 @@ namespace App\Models{
  * @property float $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $introduction
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feature> $features
  * @property-read int|null $features_count
  * @property-read string $duration
@@ -129,6 +142,7 @@ namespace App\Models{
  * @property-read mixed $frontend_url
  * @property-read string $institute_banner_url
  * @property-read string $institute_logo
+ * @property-read mixed $local_currency
  * @property-read int $progress
  * @property-read mixed $services
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
@@ -144,6 +158,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereEndDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereIcon($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Institute whereIntroduction($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereLogo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereOverview($value)

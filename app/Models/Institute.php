@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Feature;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -49,11 +50,6 @@ class Institute extends Model implements HasMedia
         'Mentorship on Systems Development',
     ];
 
-    public function getServicesAttribute()
-    {
-        return $this->services;
-    }
-
     protected $appends = [
         'frontend_url',
         'institute_logo',
@@ -61,8 +57,29 @@ class Institute extends Model implements HasMedia
         'services',
         'progress',
         'duration',
-        'featured_image'
+        'featured_image',
+        'local_currency'
     ];
+
+    public function getLocalCurrencyAttribute()
+    {
+        $response = Http::get('https://openexchangerates.org/api/latest.json', [
+            'app_id' => config('app.openExchange'),
+            'symbols' => 'GHS'
+        ]);
+
+        $data = $response->json();
+        $exchange_rate = $data['rates']['GHS'];
+        $ghs_amount = $this->attributes['price'] * ($exchange_rate + 1);
+
+        return round($ghs_amount);
+    }
+
+    public function getServicesAttribute()
+    {
+        return $this->services;
+    }
+
 
     function getDurationAttribute(): string
     {

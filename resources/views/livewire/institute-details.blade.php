@@ -1,7 +1,9 @@
 <div>
+
+
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto h-auto">
 
-        <div class="kenburns min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
+        <div class="{{ $isMobile ? '' : 'kenburns' }} min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
             style="background-image: url('{{ $institute->featured_image }}');">
 
             <div class="absolute bottom-0 left-0 right-0 max-w-xl mx-auto p-6 md:left-auto md:text-left md:mx-0">
@@ -19,40 +21,45 @@
                         <div class="my-2 text-gray-800 dark:text-gray-200 text-xs md:text-justify">
                             <span class="text-xs line-clamp-4 md:line-clamp-none">{!! $institute->overview !!}</span>
 
-                    </div>
-
-                    <div class="hidden md:flex justify-between items-center">
-                        <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
-                            href="#">
-                            <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-                                <path
-                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z">
-                                </path>
-                            </svg>
-                            Watch our AudioVisual
-                        </a>
-
-                        <div x-data="{ progress: {{ $institute->progress }} }" class="w-2/5">
-                            <span x-show="progress > 0">
-                                <div
-                                    class="flex w-full h-6.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
-                                    <div class="flex flex-col justify-center overflow-hidden bg-firefly-800 text-[9px] text-white text-center"
-                                        role="progressbar" style="width: {{ $institute->progress }}%"
-                                        aria-valuenow="{{ $institute->progress }}" aria-valuemin="0"
-                                        aria-valuemax="100">Progress: {{ $institute->progress }}%</div>
-                                </div>
-                            </span>
                         </div>
 
-                    </div>
-                </div>
-                <!-- End Card -->
-            </div>
-        </div>
-    </section>
+                        <div class="hidden md:flex justify-between items-center">
+                            <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
+                                href="#">
+                                <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z">
+                                    </path>
+                                    <path
+                                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z">
+                                    </path>
+                                </svg>
+                                Watch our AudioVisual
+                            </a>
 
+                            <div x-data="{ progress: {{ $institute->progress }} }" class="w-2/5">
+                                <span x-show="progress > 0">
+                                    <div
+                                        class="flex w-full h-6.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+                                        <div class="flex flex-col justify-center overflow-hidden bg-firefly-800 text-[9px] text-white text-center"
+                                            role="progressbar" style="width: {{ $institute->progress }}%"
+                                            aria-valuenow="{{ $institute->progress }}" aria-valuemin="0"
+                                            aria-valuemax="100">Progress: {{ $institute->progress }}%</div>
+                                    </div>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Card -->
+                </div>
+            </div>
+    </section>
+    @if (session('msg'))
+        <div class="mb-4 font-medium text-sm text-red-600">
+            {{ session('msg') }}
+        </div>
+    @endif
     <section class="max-w-8xl md:px-8 mx-auto px-4">
         <div
             class="min-h-[600px] md:min-h-max bg-slate-500/10 border border-gray-300/10 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:bg-black from-slate-900 mx-auto p-8 rounded-2xl space-y-5 text-left to-gray-900 py-16">
@@ -78,8 +85,8 @@
             </p>
             <div class="mt-4 max-w-6xl space-y-6 text-[16px] "> {!! $institute->introduction ??
                 " Foundations for brain architecture in early childhood, Early childhood development, Developing
-                                                children into sons, Strategic Innovative and effective child development systems and Futuristic
-                                                systems of education." !!}
+                                                                                                            children into sons, Strategic Innovative and effective child development systems and Futuristic
+                                                                                                            systems of education." !!}
             </div>
             <div class="py-5">
                 <div class="flex space-x-1">
@@ -215,13 +222,22 @@
                                 <span
                                     class="text-sm font-semibold leading-6 tracking-wide text-gray-600 dark:text-gray-400">USD</span>
                             </p>
-                            <a href="#"
-                                class="mt-10 block w-full rounded-md bg-firefly-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800">Get
-                                access</a>
+
+
+
+                            <button
+                                class="mt-10 flex justify-center items-center w-full rounded-md bg-firefly-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800"
+                                data-hs-overlay="#payment-invoice">
+                                <x-lucide-plus-circle class="w-5 h-5 text-current pr-2" />
+                                <span>{{ 'Get Access!' }}</span>
+                            </button>
+
                             <p class="mt-6 text-xs leading-5 text-gray-600 dark:text-gray-400">
                                 Gain knowledge that lasts a lifetime. Invoices and receipts
                                 available for easy company reimbursement.
                             </p>
+
+
                         </div>
                     </div>
                 </div>
@@ -239,4 +255,193 @@
     </figcaption> --}}
         </figure>
     </section>
+
+
+    <div class="">
+
+
+        <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal d-none"
+            role="form">
+            <input type="hidden" name="institute" value="{{ $institute->acronym }}">
+            @csrf
+
+
+            <!-- Invoice -->
+            <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto my-4 sm:my-10">
+
+                <div id="payment-invoice"
+                    class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 right-0 transition-all duration-300 transform h-full max-w-md w-full z-[60] bg-white border-r dark:bg-gray-800 dark:border-gray-700"
+                    tabindex="-1">
+                    <div style="background-image: url('{{ asset('images/main/abstract-bg-1.svg') }}');  background-repeat: no-repeat;
+          background-size: auto 300px; "
+                        class="relative overflow-hidden min-h-[8rem] text-center  bg-no-repeat bg-center">
+                        <!-- Close Button -->
+                        <div class="absolute top-2 right-2">
+                            <button type="button"
+                                class="py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-xs dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                                data-hs-overlay="#payment-invoice">
+                                Close
+                            </button>
+                        </div>
+                        <!-- End Close Button -->
+
+                        <!-- SVG Background Element -->
+                        <figure class="absolute inset-x-0 bottom-0">
+                            <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                y="0px" viewBox="0 0 1920 100.1">
+                                <path fill="currentColor" class="fill-white dark:fill-gray-800"
+                                    d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+                            </svg>
+                        </figure>
+                        <!-- End SVG Background Element -->
+                    </div>
+
+                    <div class="relative z-10 -mt-12">
+                        <!-- Icon -->
+                        <span
+                            class="mx-auto flex justify-center items-center w-[62px] h-[62px] rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" viewBox="0 0 16 16">
+                                <path
+                                    d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                                <path
+                                    d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </span>
+                        <!-- End Icon -->
+                    </div>
+
+                    <!-- Body -->
+                    <div class="p-4 sm:p-7 overflow-y-auto">
+                        <div class="text-center">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                Invoice For <span class="text-gradient1">
+                                    @if ($institute->acronym == 'costrad')
+                                        (<span>{{ __('COSTrAD') }}</span>)
+                                    @else
+                                        <span class="uppercase">({{ $institute->acronym }}) </span>
+                                    @endif
+                                </span>
+                            </h3>
+                            <p class="text-sm text-gray-500">
+                                Invoice #3682303
+                            </p>
+                        </div>
+
+                        <!-- Grid -->
+                        <div class="mt-5 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <div>
+                                <span class="block text-xs uppercase text-gray-500">Total Amount:</span>
+                                <span
+                                    class=" text-[11px] font-medium text-gray-800 dark:text-gray-200 inline-block">${{ $institute->price }}
+                                    /{{ __('GHS ') }} {{ $institute->local_currency }}</span>
+                            </div>
+                            <!-- End Col -->
+
+                            <div>
+                                <span class="block text-xs uppercase text-gray-500">Invoice Date:</span>
+                                <span
+                                    class=" text-[11px] font-medium text-gray-800 dark:text-gray-200 inline-block">{{ now()->format('M d, Y') }}</span>
+                            </div>
+                            <!-- End Col -->
+
+                            <div>
+                                <span class="block text-xs uppercase text-gray-500">Payment method:</span>
+                                <div class="flex items-center gap-x-2">
+                                    <svg class="w-5 h-5" width="400" height="248" viewBox="0 0 400 248"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0)">
+                                            <path d="M254 220.8H146V26.4H254V220.8Z" fill="#FF5F00" />
+                                            <path
+                                                d="M152.8 123.6C152.8 84.2 171.2 49 200 26.4C178.2 9.2 151.4 0 123.6 0C55.4 0 0 55.4 0 123.6C0 191.8 55.4 247.2 123.6 247.2C151.4 247.2 178.2 238 200 220.8C171.2 198.2 152.8 163 152.8 123.6Z"
+                                                fill="#EB001B" />
+                                            <path
+                                                d="M400 123.6C400 191.8 344.6 247.2 276.4 247.2C248.6 247.2 221.8 238 200 220.8C228.8 198.2 247.2 163 247.2 123.6C247.2 84.2 228.8 49 200 26.4C221.8 9.2 248.6 0 276.4 0C344.6 0 400 55.4 400 123.6Z"
+                                                fill="#F79E1B" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0">
+                                                <rect width="400" height="247.2" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <span class="block text-sm font-medium text-gray-800 dark:text-gray-200">••••
+                                        4242</span>
+                                </div>
+                            </div>
+                            <!-- End Col -->
+                        </div>
+                        <!-- End Grid -->
+
+                        <div class="mt-5 sm:mt-10">
+                            <h4 class="text-xs font-semibold uppercase text-gray-800 dark:text-gray-200">Summary</h4>
+
+                            <ul class="mt-3 flex flex-col">
+                                <li
+                                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
+                                    <div class="flex items-center justify-between w-full">
+                                        <span class="capitalize ">{{ $institute->name }}</span>
+                                        <span>GHS{{ $institute->local_currency }}</span>
+                                    </div>
+                                </li>
+                                <li
+                                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
+                                    <div class="flex items-center justify-between w-full">
+                                        <span>Charges</span>
+                                        <span>GHS {{ $institute->local_currency }}</span>
+                                    </div>
+                                </li>
+                                <li
+                                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-semibold bg-gray-50 border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-800 dark:border-gray-700 dark:text-gray-200">
+                                    <div class="flex items-center justify-between w-full">
+                                        <span>Total Amount Due</span>
+                                        <span>GHS {{ $institute->local_currency }}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="mt-5 flex justify-between gap-x-2">
+                            <a
+                                class="py-1 px-3 w-full inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path
+                                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                    <path
+                                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                                </svg>
+                                <span>Invoice PDF</span>
+                            </a>
+                            <button
+                                class=" flex justify-center items-center w-full rounded-md bg-firefly-600 px-3 py-1 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800"
+                                href="#">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z" />
+                                    <path
+                                        d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                                </svg>
+                                <span class="px-2"> Initiate Payment</span>
+                            </button>
+                        </div>
+                        <!-- End Buttons -->
+
+                        <div class="mt-5 sm:mt-10">
+                            <p class="text-sm text-gray-500">If you have any questions, please contact us at <a
+                                    class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
+                                    href="mailto:info@costrad.org">info@costrad.org</a> or call at <a
+                                    class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
+                                    href="tel:+233208127797">+233 20 812 7797 </a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Body -->
+                </div>
+            </div>
+            <!-- End Invoice -->
+        </form>
+    </div>
 </div>

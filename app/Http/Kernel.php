@@ -40,6 +40,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\ActivityByUser::class,
             \App\Http\Middleware\CheckUserActive::class,
             \App\Http\Middleware\Banned::class,
+            \App\Http\Middleware\DetectMobile::class,
+
 
         ],
 
@@ -73,5 +75,7 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'setNewPassword' => \App\Http\Middleware\setNewPassword::class,
         'banned' => \App\Http\Middleware\Banned::class,
+        'verifyWebhookIP' => \App\Http\Middleware\VerifyWebhookIP::class,
+
     ];
 }

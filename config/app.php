@@ -42,6 +42,7 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+    'openExchange' => env('OPEN_EXCHANGE_RATES_APP_ID'),
 
     /*
     |--------------------------------------------------------------------------
@@ -185,6 +186,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
+        Unicodeveloper\Paystack\PaystackServiceProvider::class,
+
 
         /*
          * Package Service Providers...
