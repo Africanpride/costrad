@@ -7,7 +7,7 @@
             ]) }}>
             <span
                 class=" text-black px-4 py-2 font-semibold rounded-full bg-white dark:bg-slate-900
-            flex justify-center items-center gap-2 dark:text-white">
+            flex justify-center items-center gap-2 dark:text-white text-sm md:text-md">
                 {{ $slot }}
                 @if (isset($icon))
                     {{ $icon }}

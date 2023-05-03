@@ -37,7 +37,7 @@
                         class="bg-gradient-to-r from-violet-300/50 to-purple-400 blur-2xl w-[25rem] h-[44rem]  transform -translate-x-[10rem] dark:from-violet-600/50 dark:to-slate-700">
                     </div>
                     <div
-                        class="bg-gradient-to-tr from-firefly-100 via-firefly-200 to-firefly-100 blur-2xl w-[90rem] h-[50rem] rounded-fulls origin-down rotate-5 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
+                        class="bg-gradient-to-tr from-gray-100 via-gray-300 to-gray-200 blur-2xl w-[90rem] h-[50rem] rounded-fulls origin-down rotate-5 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-firefly-900/70">
                     </div>
                 </div>
                 <!-- End Gradients -->

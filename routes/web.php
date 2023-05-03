@@ -12,6 +12,7 @@ use App\Http\Controllers\ContactController;
 use Lwwcas\LaravelCountries\Models\Country;
 use App\Http\Controllers\NewsroomController;
 use App\Http\Controllers\InstituteController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
 
@@ -119,6 +120,7 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
     })->name('admin.participants');
 
     Route::resource('institutes', InstituteController::class);
+    Route::resource('transactions', TransactionController::class);
     Route::resource('announcements', AnnouncementController::class);
     Route::resource('newsroom', NewsroomController::class);
 

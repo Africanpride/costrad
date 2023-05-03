@@ -365,6 +365,19 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Transaction
+ *
+ * @property-read \App\Models\Institute $institute
+ * @property-read \App\Models\User|null $participant
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction query()
+ */
+	class Transaction extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property string $id

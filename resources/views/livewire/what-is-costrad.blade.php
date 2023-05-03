@@ -2,8 +2,11 @@
     {{-- Image --}}
     <div class="w-[126px] rounded-full aspect-square relative ">
 
-        <div class=" w-[126px] blur hidden dark:inline-block absolute inset-0 rounded-full  bg-gradient-to-r from-purple-600 to-pink-600 z-10"></div>
-        <img class="w-[126px] aspect-square absolute inset-0 z-20  " src="{{ asset( 'storage/' . $costrad->logo) }}" alt="{{ $costrad->name }}">
+        <div
+            class=" w-[126px] blur hidden dark:inline-block absolute inset-0 rounded-full  bg-gradient-to-r from-purple-600 to-pink-600 z-10">
+        </div>
+        <img class="w-[126px] aspect-square absolute inset-0 z-20  " src="{{ asset('storage/' . $costrad->logo) }}"
+            alt="{{ $costrad->name }}">
     </div>
 
     {{-- Title --}}
@@ -35,7 +38,8 @@
                 </div>
                 <div class="mt-5">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Life Changing</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">A window to reboot and rediscover your life purpose.</p>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">A window to reboot and rediscover your life
+                        purpose.</p>
                 </div>
             </div>
             <!-- End Icon Block -->
@@ -75,7 +79,8 @@
                 </div>
                 <div class="mt-5">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Intensive</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">5-weeks of total immersion in an intensive program.</p>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">5-weeks of total immersion in an intensive program.
+                    </p>
                 </div>
             </div>
             <!-- End Icon Block -->
@@ -95,7 +100,8 @@
                 </div>
                 <div class="mt-5">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white">All-Encompassing</h3>
-                    <p class="mt-1 text-gray-600 dark:text-gray-400">COSTrAD curriculum spans all subjects taught in all 8 institutes.</p>
+                    <p class="mt-1 text-gray-600 dark:text-gray-400">COSTrAD curriculum spans all subjects taught in all
+                        8 institutes.</p>
                 </div>
             </div>
             <!-- End Icon Block -->
@@ -104,7 +110,8 @@
     <!-- End Icon Blocks -->
 
     <div class="text-center w-full mx-auto">
-        <a href="{{ route('institute.show', [$costrad->slug]) }}"> <button class="cbutton !py-1 w-24">Learn More About costrad</button>
+        <a href="{{ route('institute.show', [$costrad->slug]) }}"> <button class="cbutton !py-1 w-24">Learn More About
+                costrad</button>
         </a>
     </div>
 </div>

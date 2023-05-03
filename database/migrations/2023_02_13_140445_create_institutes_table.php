@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('acronym');
             $table->text('overview')->nullable();
             $table->text('about')->nullable();
+            $table->text('introduction')->nullable();
             $table->string('icon')->nullable();
             $table->string('logo')->nullable();
             $table->string('banner')->nullable();

@@ -33,8 +33,8 @@
     <section class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Grid -->
         <div
-            class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center rounded-2xl md:border border-gray-500/20 md:p-8">
-            <div>
+            class="border-gray-500/20 gap-4 grid md:border md:gap-8 md:grid-cols-2 md:items-center md:p-2 rounded-3xl xl:gap-20">
+            <div class="p-4 md:p-8">
                 <h1
                     class="block text-2xl font-bold text-gray-800 sm:text-3xl lg:text-5xl lg:leading-tight dark:text-white">
                     <span class="prominent-titles">COSTrAD</span>
@@ -210,7 +210,7 @@
             <!-- End Col -->
 
             <div class="relative md:ml-4">
-                <img class="w-full rounded-md" src="{{ asset('images/main/donate.jpg') }}" alt="Donate to costrad">
+                <img class="w-full rounded-3xl" src="{{ asset('images/main/donate.jpg') }}" alt="Donate to costrad">
                 <div
                     class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 mr-4 -ml-4 lg:mt-6 lg:-mb-6 lg:mr-6 lg:-ml-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0">
                 </div>

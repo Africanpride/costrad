@@ -1,12 +1,12 @@
-<div>
+<div class="space-y-4 pt-4">
 
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto h-auto">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
 
         <div class="{{ $isMobile ? '' : 'kenburns' }} min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
             style="background-image: url('{{ $institute->featured_image }}');">
 
-            <div class="absolute bottom-0 left-0 right-0 max-w-xl mx-auto p-6 md:left-auto md:text-left md:mx-0">
+            <div class="absolute bottom-0 left-0 right-0 max-w-xl mx-auto p-3 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
                 <div class="px-5 py-4 flex bg-white rounded-2xl md:p-7 dark:bg-gray-900 flex-col justify-between gap-4 ">
                     <div class="block">
@@ -19,6 +19,7 @@
                             <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}</div>
                         </div>
                         <div class="my-2 text-gray-800 dark:text-gray-200 text-xs md:text-justify">
+
                             <span class="text-xs line-clamp-4 md:line-clamp-none">{!! $institute->overview !!}</span>
 
                         </div>
@@ -55,14 +56,11 @@
                 </div>
             </div>
     </section>
-    @if (session('msg'))
-        <div class="mb-4 font-medium text-sm text-red-600">
-            {{ session('msg') }}
-        </div>
-    @endif
-    <section class="max-w-8xl md:px-8 mx-auto px-4">
+
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
         <div
-            class="min-h-[600px] md:min-h-max bg-slate-500/10 border border-gray-300/10 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:bg-black from-slate-900 mx-auto p-8 rounded-2xl space-y-5 text-left to-gray-900 py-16">
+            class="min-h-[600px] md:min-h-max bg-slate-500/10 border border-gray-300/10 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:bg-black from-slate-900 mx-auto p-8 rounded-3xl space-y-5 text-left to-gray-900 py-16">
+
             <img class="inline-block h-[4.975rem] w-[4.975rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                 src="{{ $institute->institute_logo }}" alt="{{ $institute->name }}">
             <div class="max-w-xl">
@@ -85,8 +83,8 @@
             </p>
             <div class="mt-4 max-w-6xl space-y-6 text-[16px] "> {!! $institute->introduction ??
                 " Foundations for brain architecture in early childhood, Early childhood development, Developing
-                                                                                                            children into sons, Strategic Innovative and effective child development systems and Futuristic
-                                                                                                            systems of education." !!}
+                                                                                                                        children into sons, Strategic Innovative and effective child development systems and Futuristic
+                                                                                                                        systems of education." !!}
             </div>
             <div class="py-5">
                 <div class="flex space-x-1">
@@ -157,109 +155,104 @@
 
     </section>
 
-    <section class="bg-white dark:bg-gray-900">
-        <div class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto space-y-5">
 
-            <div class="mb-5">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
+        <div class="gap-4 grid grid-cols-1 md:gap-3 md:grid-cols-5 pb-4">
 
-                <div class="gap-4 grid grid-cols-1 md:gap-3 md:grid-cols-5 pb-4">
+            @foreach ($images as $image)
+                <div class="group rounded-xl overflow-hidden cursor-pointer" href="#">
+                    <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+                        <img class="w-full h-full  absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
+                            src="{{ $image->getUrl() }}" style="aspect-ratio: 16 / 7;" alt="Image Description">
 
-                    @foreach ($images as $image)
-                        <div class="group rounded-xl overflow-hidden cursor-pointer" href="#">
-                            <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
-                                <img class="w-full h-full  absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
-                                    src="{{ $image->getUrl() }}" style="aspect-ratio: 16 / 7;"
-                                    alt="Image Description">
-
-                            </div>
-                        </div>
-                        {{-- <img src="{{ $image->getUrl() }}" alt="" style="aspect-ratio: 16 / 10;" class="rounded-2xl
-            group-hover:scale-105 transition-transform duration-500 ease-in-out "> --}}
-                    @endforeach
-                </div>
-            </div>
-            <div
-                class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 dark:ring-gray-700 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-                <div class="p-8 sm:p-10 lg:flex-auto space-y-4">
-                    <h4 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 ">
-                        {{ $institute->name }}
-                    </h4>
-                    <div class=" text-[16px]  text-gray-600 dark:text-gray-300 pb-5">
-                        {!! $institute->about !!}
-                    </div>
-                    <div class=" flex items-center gap-x-4 py-6">
-                        <h4 class="flex-none text-sm font-semibold leading-6 text-firefly-600 dark:text-firefly-400">
-                            What’s included
-                        </h4>
-                        <div class="h-px flex-auto bg-gray-100 dark:bg-gray-600"></div>
-                    </div>
-                    <ul role="list"
-                        class="mt-3 grid grid-cols-1 gap-2 text-sm leading-6 text-gray-600 dark:text-gray-300 sm:grid-cols-2">
-
-                        @foreach ($institute->services as $service)
-                            <li class="flex gap-x-3">
-                                <button
-                                    class="btn  h65 w-6 rounded-full bg-gray-400/40 p-0 font-medium text-slate-800 hover:bg-slate-200 hover:shadow-lg hover:shadow-slate-200/50 focus:bg-slate-200 focus:shadow-lg focus:shadow-slate-200/50 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:hover:shadow-navy-450/50 dark:focus:bg-navy-450 dark:focus:shadow-navy-450/50 dark:active:bg-navy-450/90  grid place-items-center ">
-                                    <x-lucide-check class="h-5 w-5 text-current dark:text-white" />
-                                </button>
-                                <span class="text-gray-900 dark:text-gray-300">{{ $service }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-
-                </div>
-
-                <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-                    <div
-                        class="rounded-2xl bg-gray-300/40 dark:bg-blue-900/10 h-full py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-                        <div class="mx-auto max-w-xs px-8">
-                            <p class="text-base font-bold text-gray-600 dark:text-gray-500">Pay once, own it
-                                forever
-                            </p>
-                            <p class="mt-6 flex items-baseline justify-center gap-x-2">
-                                <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">$
-                                    {{ $institute->price }}</span>
-                                <span
-                                    class="text-sm font-semibold leading-6 tracking-wide text-gray-600 dark:text-gray-400">USD</span>
-                            </p>
-
-
-
-                            <button
-                                class="mt-10 flex justify-center items-center w-full rounded-md bg-firefly-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800"
-                                data-hs-overlay="#payment-invoice">
-                                <x-lucide-plus-circle class="w-5 h-5 text-current pr-2" />
-                                <span>{{ 'Get Access!' }}</span>
-                            </button>
-
-                            <p class="mt-6 text-xs leading-5 text-gray-600 dark:text-gray-400">
-                                Gain knowledge that lasts a lifetime. Invoices and receipts
-                                available for easy company reimbursement.
-                            </p>
-
-
-                        </div>
                     </div>
                 </div>
-
-            </div>
+                {{-- <img src="{{ $image->getUrl() }}" alt="" style="aspect-ratio: 16 / 10;" class="rounded-2xl
+        group-hover:scale-105 transition-transform duration-500 ease-in-out "> --}}
+            @endforeach
         </div>
     </section>
 
-    <section class="relative max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
-        <!-- Overview -->
+    <section class="max-w-8xl md:px-8 md:pr-10 mx-auto h-auto">
+
+        <div
+            class="dark:ring-gray-700 lg:flex lg:max-w-none lg:mx-0 max-w-2xl mx-auto ring-1 ring-gray-200 rounded-3xl">
+            <div class="p-8 sm:p-10 lg:flex-auto space-y-4">
+                <h4 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 ">
+                    {{ $institute->name }}
+                </h4>
+                <div class=" text-[16px]  text-gray-600 dark:text-gray-300 pb-5">
+                    {!! $institute->about !!}
+                </div>
+                <div class=" flex items-center gap-x-4 py-6">
+                    <h4 class="flex-none text-sm font-semibold leading-6 text-firefly-600 dark:text-firefly-400">
+                        What’s included
+                    </h4>
+                    <div class="h-px flex-auto bg-gray-100 dark:bg-gray-600"></div>
+                </div>
+                <ul role="list"
+                    class="mt-3 grid grid-cols-1 gap-2 text-sm leading-6 text-gray-600 dark:text-gray-300 sm:grid-cols-2">
+
+                    @foreach ($institute->services as $service)
+                        <li class="flex gap-x-3">
+                            <button
+                                class="btn  h65 w-6 rounded-full bg-gray-400/40 p-0 font-medium text-slate-800 hover:bg-slate-200 hover:shadow-lg hover:shadow-slate-200/50 focus:bg-slate-200 focus:shadow-lg focus:shadow-slate-200/50 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:hover:shadow-navy-450/50 dark:focus:bg-navy-450 dark:focus:shadow-navy-450/50 dark:active:bg-navy-450/90  grid place-items-center ">
+                                <x-lucide-check class="h-5 w-5 text-current dark:text-white" />
+                            </button>
+                            <span class="text-gray-900 dark:text-gray-300">{{ $service }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+
+            </div>
+
+            <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+                <div
+                    class="rounded-2xl bg-gray-300/40 dark:bg-blue-900/10 h-full py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+                    <div class="mx-auto max-w-xs px-8">
+                        <p class="text-base font-bold text-gray-600 dark:text-gray-500">Pay once, own it
+                            forever
+                        </p>
+                        <p class="mt-6 flex items-baseline justify-center gap-x-2">
+                            <span class="text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">$
+                                {{ $institute->price }}</span>
+                            <span
+                                class="text-sm font-semibold leading-6 tracking-wide text-gray-600 dark:text-gray-400">USD</span>
+                        </p>
+
+
+
+                        <button
+                            class="mt-10 flex justify-center items-center w-full rounded-md bg-firefly-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800"
+                            data-hs-overlay="#payment-invoice">
+                            <x-lucide-plus-circle class="w-5 h-5 text-current pr-2" />
+                            <span>{{ 'Get Access!' }}</span>
+                        </button>
+
+                        <p class="mt-6 text-xs leading-5 text-gray-600 dark:text-gray-400">
+                            Gain knowledge that lasts a lifetime. Invoices and receipts
+                            available for easy company reimbursement.
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="h-auto max-w-8xl md:pr-10 md:px-8 mx-auto pt-8">
         <figure>
-            <img class=" rounded-2xl" src="{{ asset('images/main/training.jpg') }}" alt="Image Description">
-            {{-- <figcaption class="mt-3 text-sm text-left text-gray-500">
-        {{ $newsroom->overview }}
-    </figcaption> --}}
+            <img class=" rounded-3xl" src="{{ asset('images/main/abstract-bg-1.svg') }}" alt="Image Description">
         </figure>
     </section>
 
 
+
     <div class="">
-
-
         <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal d-none"
             role="form">
             <input type="hidden" name="institute" value="{{ $institute->acronym }}">
