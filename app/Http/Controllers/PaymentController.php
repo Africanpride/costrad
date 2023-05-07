@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Auth;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Requests;
+use App\Models\Invoice;
 use App\Models\Institute;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Payment; // Payment Model
 use Paystack; // Paystack package
@@ -21,20 +24,31 @@ class PaymentController extends Controller
      * Redirect the User to Paystack Payment Page
      * @return Url
      */
+
+    public function invoiceBeforeGateway (Request $request) {
+       $institute = Institute::whereAcronym($request->institute)->first();
+       dd($institute->price);
+    }
+
     public function redirectToGateway(Request $request)
     {
 
         try {
-            $institute = Institute::whereAcronym($request->institute)->first();
+            $invoice = new Invoice();
+            $invoice->participant_id = Auth::user()->id;
+            $invoice->status = 'pending';
+            $invoice->save();
 
+            $institute = Institute::whereAcronym($request->institute)->first();
             // Get the exchange rate
             $response = Http::get('https://openexchangerates.org/api/latest.json', [
                 'app_id' => config('app.openExchange'),
                 'symbols' => 'GHS'
             ]);
-            $data = $response->json();
-            $exchange_rate = $data['rates']['GHS'];
-            $ghs_amount = $institute->price * ($exchange_rate + 1) * 100;
+
+            $responseData = $response->json();
+            $exchange_rate = $responseData['rates']['GHS'];
+            $ghs_amount = $institute->price * ($exchange_rate + 1) * 100 * 1.02;
             $reference = Paystack::genTranxRef();
 
             $data = array(
@@ -43,12 +57,16 @@ class PaymentController extends Controller
                 "email" => Auth::user()->email,
                 "currency" => "GHS",
                 "orderID" => "123456789",
-                "channels" => ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer']
+                "channels" => ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
+                "metadata" => [
+                    "institute_id" => $institute->id,
+                    "invoice_id" => $invoice->id
+                ]
             );
 
             return Paystack::getAuthorizationUrl($data)->redirectNow();
-
         } catch (\Exception $e) {
+            dd($e);
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
         }
     }
@@ -57,11 +75,67 @@ class PaymentController extends Controller
      * Obtain Paystack payment information
      * @return void
      */
-    public function handleGatewayCallback()
+    public function handleGatewayCallback(Request $request)
     {
 
-        $paymentDetails = Paystack::getPaymentData();
-        dd($paymentDetails['status']);
+        try {
+
+            $paymentDetails = Paystack::getPaymentData();
+            if ($paymentDetails['status'] == true) {
+
+                $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
+
+                $transaction = new Transaction();
+                $transaction->amount = $paymentDetails['data']['amount'];
+                $transaction->description = 'Payment for services rendered';
+                $transaction->fees = $paymentDetails['data']['fees'];
+                $transaction->participant_id = Auth::user()->id;
+                $transaction->reference = $paymentDetails['data']['reference'];
+                $transaction->authorization_code = $paymentDetails['data']['authorization']['authorization_code'];
+                $transaction->transaction_date = Carbon::parse($paymentDetails['data']['created_at'])->toDateTimeString();
+                $transaction->currency = $paymentDetails['data']['currency'];
+                $transaction->ipAddress = $paymentDetails['data']['ip_address'];
+                $transaction->institute_id = $paymentDetails['data']['metadata']['institute_id'];
+
+                $transaction->invoice()->associate($invoice);
+                $transaction->save();
+
+                dd('saved successfully');
+            }
+        } catch (\Exception $e) {
+            dd($e);
+            return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
+        }
+
+
+        $validatedData = $request->validate([
+            'payment_status' => 'required|in:success,failure',
+            'participant_id' => 'required|exists:users,id',
+            'amount' => 'required|numeric',
+            'transaction_id' => 'required|string|unique:transactions',
+            'transaction_reference' => 'required|string|unique:transactions',
+            'transaction_date' => 'required|date',
+            'currency' => 'required|string',
+            'institute_id' => 'required|exists:institutes,id',
+            'ipAddress' => 'nullable|ip',
+            // ... add any additional validation rules as needed
+        ]);
+
+        // If the payment was successful, create a new transaction
+        if ($validatedData['payment_status'] === 'success') {
+            $transaction = Transaction::create($validatedData);
+            return response()->json([
+                'message' => 'Transaction created successfully',
+                'transaction' => $transaction,
+            ], 201);
+        }
+
+        // If the payment failed, return an error response
+        return response()->json([
+            'message' => 'Payment failed',
+        ], 400);
+
+
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want

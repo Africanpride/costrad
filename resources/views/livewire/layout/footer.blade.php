@@ -2,7 +2,7 @@
     <div class="sm:flex sm:items-center sm:justify-between">
         <x-admin.branding />
         <ul
-            class="flex flex-wrap items-center mb-6 uppercase text-[9px] md:text-xs text-gray-700 sm:mb-0 dark:text-gray-400 space-x-4">
+            class="flex flex-wrap items-center uppercase text-[9px] md:text-xs text-gray-700 sm:mb-0 dark:text-gray-400 space-x-4">
             <li>
                 <a href="{{ url('contact') }}">Contact</a>
             </li>
@@ -32,7 +32,7 @@
 
         </ul>
     </div>
-    <hr class="my-6 border-dashed	 border-gray-200 sm:mx-auto dark:border-gray-700/50 lg:my-8" />
+    <hr class="my-3 border-dashed	 border-gray-200 sm:mx-auto dark:border-gray-700/50 lg:my-4" />
     <div class="flex justify-between items-center ">
         <span class="block text-md  text-gray-700 sm:text-center dark:text-gray-400 ">&copy;
             &MediumSpace;<a href="https://www.costrad.com/"

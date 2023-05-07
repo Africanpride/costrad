@@ -34,6 +34,21 @@
         </div>
     </section>
 
+    <section class="w-full items-center flex flex-col justify-center py-8">
+        <svg width="317" height="120"
+            viewBox="0 0 317 120" fill="none">
+            <path transform="translate(-36,0)" d="m197.32283 25.03412l-0 100.48032" stroke="gray" stroke-opacity="0.2">
+            </path>
+            <path transform="translate(-36,0)" d="m197.32283 25.03412l-0 100.48032" stroke="url(#pulse-1)"
+                stroke-linecap="round" stroke-width="2"></path>
+            <path d="m197.32283 25.03412-0 20" stroke="gray"
+                style="transform: translateX(-36px) translateY(118.724px); transform-origin: 197.323px 35.0341px;"
+                transform-origin="197.3228302001953px 35.034119606018066px"></path>
+        </svg>
+        <h2 class=" text-slate-800 px-5 text-gradient1 inline-block mt-5 text-3xl md:text-4xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase">...doing the seemingly impossible.</h2><span
+            class="text-lg text-gray-500 text-center mt-2 px-6 sm:px-0">
+            Explore what COSTrAD can help you achieve.</span>
+    </section>
 
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
 
@@ -109,18 +124,18 @@
     <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto  ">
         <div style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');"
             class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative rounded-2xl md:min-h-[85vh] ">
-            <div
-                class="bottom-0 left-0 md:left-auto md:mx-0 md:text-left mx-auto p-6 right-0 text-center">
+            <div class="bottom-0 left-0 md:left-auto md:mx-0 md:text-left mx-auto p-6 right-0 text-center">
                 <!-- Card -->
                 <div
-                class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">
-                <h1
-                    class=" max-w-6xl md:text-3xl uppercase font-['anton'] text-3xl lg:text-4xl dark:text-gray-100 text-firefly-200">
-                    We invite you to partner with us in developing leaders who have the capacity and vision to create
-                    lasting and positive change in all domains of life.
-                </h1>
+                    class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">
+                    <h1
+                        class=" max-w-6xl md:text-3xl uppercase font-['anton'] text-3xl lg:text-4xl dark:text-gray-100 text-firefly-200">
+                        We invite you to partner with us in developing leaders who have the capacity and vision to
+                        create
+                        lasting and positive change in all domains of life.
+                    </h1>
 
-            </div>
+                </div>
                 <!-- End Card -->
             </div>
         </div>
@@ -180,8 +195,7 @@
 
 
     <div class="absolute bottom-0 right-0 z-[-1]">
-        <svg width="1440" height="886" viewBox="0 0 1440 886" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+        <svg width="1440" height="886" viewBox="0 0 1440 886" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5"
                 d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
                 fill="url(#paint0_linear)"></path>

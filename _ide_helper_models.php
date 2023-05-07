@@ -173,6 +173,28 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Invoice
+ *
+ * @property string $id
+ * @property string $participant_id
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Transaction|null $transaction
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereParticipantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereUpdatedAt($value)
+ */
+	class Invoice extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Newsroom
  *
  * @property string $id
@@ -367,11 +389,40 @@ namespace App\Models{
 /**
  * App\Models\Transaction
  *
+ * @property string $id
+ * @property string $amount
+ * @property string $authorization_code
+ * @property string $description
+ * @property string $fees
+ * @property string $transaction_reference
+ * @property string $transaction_date
+ * @property string $currency
+ * @property string $participant_id
+ * @property string $invoice_id
+ * @property int $institute_id
+ * @property string $ipAddress
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Institute $institute
- * @property-read \App\Models\User|null $participant
+ * @property-read \App\Models\Invoice $invoice
+ * @property-read \App\Models\User $participant
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAuthorizationCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCurrency($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereFees($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereInstituteId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereInvoiceId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereIpAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereParticipantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTransactionDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTransactionReference($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereUpdatedAt($value)
  */
 	class Transaction extends \Eloquent {}
 }
@@ -414,6 +465,8 @@ namespace App\Models{
  * @property-read mixed $name
  * @property-read string $profile_photo_url
  * @property-read mixed $user_role
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Invoice> $invoices
+ * @property-read int|null $invoices_count
  * @property-read \Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog|null $latestAuthentication
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Newsroom> $news
  * @property-read int|null $news_count
@@ -426,6 +479,8 @@ namespace App\Models{
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Transaction> $transactions
+ * @property-read int|null $transactions_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User faculty()
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()

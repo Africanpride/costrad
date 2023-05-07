@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Newsroom;
 use App\Models\Institute;
@@ -25,6 +26,10 @@ Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirec
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
 
 // Payment Route with it's callback.
+Route::post('/invoice', [App\Http\Controllers\PaymentController::class, 'invoiceBeforeGateway'])
+    ->name('invoice')
+    ->middleware('auth');
+
 Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])
     ->name('pay')
     ->middleware('auth');
@@ -35,7 +40,7 @@ Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 
 
 // end payment
 
-Route::view('test4', 'test4');
+Route::view('test4', 'test4')->middleware('auth');
 Route::view('test5', 'test5');
 Route::view('test', 'test');
 Route::view('terms', 'terms');
@@ -214,3 +219,9 @@ Route::get('nations', function () {
     // return Institute::count();
 })->name('nations');
 
+Route::get('time', function () {
+    $date = Carbon::parse('2023-05-06T00:47:42.000Z')->toDateTimeString();
+    // $timestamp = $date->toDateTimeString();
+
+    return $date; // Output: 2023-05-05 20:47:42
+});

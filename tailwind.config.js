@@ -91,6 +91,8 @@ module.exports = {
         require('@tailwindcss/typography'),
         require('tailwind-scrollbar'),
         require('@tailwindcss/line-clamp'),
+        require("tailwindcss-animate"),
+
         // require('flowbite/plugin')
 
 

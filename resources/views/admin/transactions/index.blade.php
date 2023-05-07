@@ -5,250 +5,183 @@
         </x-admin-pageheader>
 
         <div>
-
-<!-- component -->
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="relative py-16 bg-blueGray-50">
-<div class="w-full mb-12 px-4">
-  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded
-  bg-pink-900 text-white">
-    <div class="rounded-t mb-0 px-4 py-3 border-0">
-      <div class="flex flex-wrap items-center">
-        <div class="relative w-full px-4 max-w-full flex-grow flex-1 ">
-          <h3 class="font-semibold text-lg text-white">Card Tables</h3>
-        </div>
-      </div>
-    </div>
-    <div class="block w-full overflow-x-auto ">
-      <table class="items-center w-full bg-transparent border-collapse">
-        <thead>
-          <tr>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Project</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Budget</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Status</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Users</th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Completion </th>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-              <img src="https://demos.creative-tim.com/notus-js/assets/img/bootstrap.jpg" class="h-12 w-12 bg-white rounded-full border" alt="...">
-              <span class="ml-3 font-bold text-white"> Argon Design System </span></th>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$2,500 USD</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i class="fas fa-circle text-orange-500 mr-2"></i>pending</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-3-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-4-470x470.png" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><div class="flex items-center">
-                <span class="mr-2">60%</span>
-                <div class="relative w-full">
-                  <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
-                    <div style="width: 60%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
-                  </div>
+            <!-- Jumbotron -->
+            <div class="p-6 shadow  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
+                <div class="flex flex-row justify-between my-2">
+                    <h2 class="font-semibold text-3xl">Administrator Privileges</h2>
                 </div>
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-              <a href="#pablo" class="text-blueGray-500 block py-1 px-3" onclick="openDropdown(event,'table-dark-1-dropdown')">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" id="table-dark-1-dropdown">
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Another action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something else here</a>
-                <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated link</a>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-              <img src="https://demos.creative-tim.com/notus-js/assets/img/angular.jpg" class="h-12 w-12 bg-white rounded-full border" alt="...">
-              <span class="ml-3 font-bold text-white">Angular Now UI Kit PRO </span></th>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$1,800 USD</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i class="fas fa-circle text-emerald-500 mr-2"></i>completed</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-3-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-4-470x470.png" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex items-center">
-                <span class="mr-2">100%</span>
-                <div class="relative w-full">
-                  <div class="overflow-hidden h-2 text-xs flex rounded bg-emerald-500">
-                    <div style="width: 30%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"></div>
-                  </div>
+                <div class="space-y-3">
+                    <p class="max-w-2xl">
+                        These are members of <b>{{ config('app.name') }}</b> with Administrator Privileges in the
+                        organization. You may create new roles and permissions here.
+                    </p>
                 </div>
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-              <a href="#pablo" class="text-blueGray-500 block py-1 px-3" onclick="openDropdown(event,'table-dark-1-dropdown')">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" id="table-dark-1-dropdown">
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Another action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something else here</a>
-                <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated link</a>
-              </div>
-            </td>
-          </tr>
 
-          <tr>
-            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-              <img src="https://demos.creative-tim.com/notus-js/assets/img/sketch.jpg" class="h-12 w-12 bg-white rounded-full border" alt="...">
-              <span class="ml-3 font-bold text-white">Black Dashboard Sketch
-              </span></th>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$3,150 USD</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i class="fas fa-circle text-orange-500 mr-2"></i>delayed</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-3-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-4-470x470.png" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex items-center">
-                <span class="mr-2">73%</span>
-                <div class="relative w-full">
-                  <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
-                    <div style="width: 73%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-              <a href="#pablo" class="text-blueGray-500 block py-1 px-3" onclick="openDropdown(event,'table-dark-1-dropdown')">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" id="table-dark-1-dropdown">
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Another action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something else here</a>
-                <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated link</a>
-              </div>
-            </td>
-          </tr>
 
-          <tr>
-            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-              <img src="https://demos.creative-tim.com/notus-js/assets/img/react.jpg" class="h-12 w-12 bg-white rounded-full border" alt="...">
-              <span class="ml-3 font-bold text-white">React Material Dashboard
-              </span></th>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$4,400 USD</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i class="fas fa-circle text-teal-500 mr-2"></i>on schedule</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-3-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-4-470x470.png" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex items-center">
-                <span class="mr-2">90%</span>
-                <div class="relative w-full">
-                  <div class="overflow-hidden h-2 text-xs flex rounded bg-teal-200">
-                    <div style="width: 90%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500"></div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-              <a href="#pablo" class="text-blueGray-500 block py-1 px-3" onclick="openDropdown(event,'table-dark-1-dropdown')">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" id="table-dark-1-dropdown">
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Another action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something else here</a>
-                <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated link</a>
-              </div>
-            </td>
-          </tr>
+                <div class="mt-6 border dark:border-0 overflow-hidden ">
+                    <div class="overflow-x-auto">
+                        <div class="align-middle inline-block min-w-full">
+                            <table class="min-w-full border-secondary-300 rounded-md dark:border-secondary-900">
+                                <thead>
+                                    <tr
+                                        class=" bg-gray-200 dark:border-secondary-900 dark:bg-secondary-900 text-secondary-900  dark:text-secondary-400">
+                                        <th scope="col"
+                                            class="px-3  py-2  text-left text-[11px] leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400">
+                                            <span class="lg:pl-2">Institute</span>
+                                        </th>
+                                        <th scope="col"
+                                            class="px-3  py-2  text-left text-[11px] leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400 ">
+                                            <span class="lg:pl-2">Participant</span>
 
-          <tr>
-            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-              <img src="https://demos.creative-tim.com/notus-js/assets/img/vue.jpg" class="h-12 w-12 bg-white rounded-full border" alt="...">
-              <span class="ml-3 font-bold text-white">Vue Material Dashboard
-              </span></th>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$2,200USD</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i class="fas fa-circle text-emerald-500 mr-2"></i>completed</td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-3-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-                <img src="https://demos.creative-tim.com/notus-js/assets/img/team-4-470x470.png" alt="..." class="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4">
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <div class="flex items-center">
-                <span class="mr-2">100%</span>
-                <div class="relative w-full">
-                  <div class="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
-                    <div style="width: 100%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"></div>
-                  </div>
+                                        </th>
+                                        <th scope="col"
+                                            class="px-3  py-2   uppercase tracking-wider  hidden md:table-cell text-left text-[11px] leading-4 font-medium ">
+                                            Reference
+                                        </th>
+                                        <th scope="col"
+                                            class="px-3  py-2  text-[11px] leading-4 font-medium  uppercase tracking-wider  hidden md:table-cell text-left">
+                                            Amount
+                                        </th>
+                                        <th scope="col"
+                                            class="px-2 py-2  text-[11px] leading-4 whitespace-nowrap font-medium  uppercase tracking-wider  hidden md:table-cell text-left">
+                                            Invoice
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-3  py-2  text-left text-[11px] leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400">
+                                            Date
+                                        </th>
+                                        <th scope="col"
+                                            class="px-3  py-2  text-left text-[11px] leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400">
+                                            Status
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody
+                                    class="divide-y divide-secondary-100 bg-white dark:bg-secondary-800 dark:divide-secondary-900"
+                                    x-max="1">
+                                    @if ($transactions->count() > 0)
+                                        @foreach ($transactions as $transaction)
+                                            <tr>
+                                                <td
+                                                    class="px-3  py-2  whitespace-no-wrap text-sm leading-5 font-medium text-secondary-900 dark:text-white">
+                                                    <div class="flex items-center">
+                                                        <div class="shrink-0 h-10 w-10">
+                                                            <img class="h-10 w-10 rounded-full"
+                                                                src="https://ui-avatars.com/api/?name=Kwame+Hughes&amp;color=1d4ed8&amp;background=dbeafe"
+                                                                alt="User avatar">
+                                                        </div>
+                                                        <div class="ml-4">
+                                                            <div
+                                                                class="text-sm leading-5 font-medium whitespace-nowrap">
+                                                                {{ __('Family Development Institute') }}
+                                                            </div>
+                                                            <div
+                                                                class="text-sm leading-5 text-secondary-500 dark:text-secondary-400 whitespace-nowrap">
+                                                                Registered <time
+                                                                    datetime="{{ Auth::user()->created_at }}"
+                                                                    class="capitalize">{{ Auth::user()->created_at->diffForHumans() }}
+                                                                </time>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td
+                                                    class="px-3  py-2  whitespace-no-wrap text-sm leading-5 font-medium text-secondary-900 dark:text-white">
+                                                    <div class="flex items-center">
+                                                        <div>
+                                                            <div
+                                                                class="text-sm leading-5 font-medium whitespace-nowrap">
+                                                                {{ Auth::user()->full_name }}
+                                                            </div>
+                                                            <div
+                                                                class="text-sm leading-5 text-secondary-500 dark:text-secondary-400 whitespace-nowrap">
+                                                                <div class="capitalize">{{ Auth::user()->email }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td
+                                                    class="px-3  py-2  text-sm leading-5 text-secondary-500 dark:text-secondary-400">
+                                                    <div class="flex items-center">
+                                                        <svg class="w-5 h-5 text-green-500"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                            fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd"
+                                                                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                                clip-rule="evenodd"></path>
+                                                        </svg>
+                                                        <span
+                                                            class="ml-1.5 whitespace-no-wrap ">hjhjgjhgyfdrsppipoioiouitgb45</span>
+                                                    </div>
+                                                </td>
+                                                <td
+                                                    class="hidden md:table-cell px-3  py-2  whitespace-no-wrap text-sm leading-5 text-left">
+                                                    <span class="ml-1.5 whitespace-no-wrap ">GHS12369</span>
+
+                                                </td>
+                                                <td
+                                                    class="hidden md:table-cell px-3  py-2  whitespace-no-wrap text-sm leading-5 text-secondary-500 dark:text-secondary-400 text-left">
+                                                    56236987
+                                                </td>
+
+                                                <td
+                                                    class="hidden md:table-cell px-3  py-2  whitespace-no-wrap text-sm leading-5 text-secondary-500 dark:text-secondary-400 text-left">
+                                                    May 3, 2023
+                                                </td>
+                                                <td
+                                                    class="hidden md:table-cell px-3  py-2  whitespace-no-wrap text-sm leading-5 text-secondary-500 dark:text-secondary-400 text-left">
+                                                    <div
+                                                        class="inline-flex items-center px-2 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+                                                        <svg width="12" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 3L4.5 8.5L2 6" stroke="currentColor"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+
+                                                        <h2 class="text-sm font-normal">Paid</h2>
+                                                    </div>
+
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                        <div
+                            class="flex items-center justify-between px-3  py-3 sm:px-6 border-t border-secondary-200 rounded-b-md bg-white dark:bg-secondary-800 dark:border-secondary-900">
+                            <div class="flex-1 flex justify-between sm:hidden">
+
+                            </div>
+                            <div class=" sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm leading-5 text-secondary-900 dark:text-secondary-400">
+                                        Showing
+                                        <span class="font-medium">1</span>
+                                        to
+                                        <span class="font-medium">1</span>
+                                        of
+                                        <span class="font-medium"> 1</span>
+                                        results
+                                    </p>
+                                </div>
+                                <div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </td>
-            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-              <a href="#pablo" class="text-blueGray-500 block py-1 px-3" onclick="openDropdown(event,'table-dark-1-dropdown')">
-                <i class="fas fa-ellipsis-v"></i></a>
-              <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" id="table-dark-1-dropdown">
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Another action</a><a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Something else here</a>
-                <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
-                <a href="#pablo" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">Seprated link</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-    <footer class="relative pt-8 pb-6 mt-8">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-wrap items-center md:justify-between justify-center">
-          <div class="w-full md:w-6/12 px-4 mx-auto text-center">
-            <div class="text-sm text-blueGray-500 font-semibold py-1">
-              Made with <a href="https://www.creative-tim.com/product/notus-js" class="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" class="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
             </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-</section>
+            <!-- Jumbotron -->
+
+
+
         </div>
 
 </x-app-layout>

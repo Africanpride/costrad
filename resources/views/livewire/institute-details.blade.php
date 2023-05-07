@@ -12,9 +12,8 @@
                     <div class="block">
                         <div
                             class="flex justify-between items-center dark:text-gray-200 font-bold text-gray-800 text-left text-sm">
-                            <h3 class="hidden md:flex  "> <span class="uppercase ">{{ $institute->acronym }}</span>: A
-                                Critical
-                                Mandate.
+                            <h3 class="hidden md:flex  "> <span class="uppercase ">{{ $institute->acronym }}</span>
+                                : A Critical Mandate.
                             </h3>
                             <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}</div>
                         </div>
@@ -82,9 +81,7 @@
                 </span>
             </p>
             <div class="mt-4 max-w-6xl space-y-6 text-[16px] "> {!! $institute->introduction ??
-                " Foundations for brain architecture in early childhood, Early childhood development, Developing
-                                                                                                                        children into sons, Strategic Innovative and effective child development systems and Futuristic
-                                                                                                                        systems of education." !!}
+                " Foundations for brain architecture in early childhood, Early childhood development, Developing children into sons, Strategic Innovative and effective child development systems and Futuristic systems of education." !!}
             </div>
             <div class="py-5">
                 <div class="flex space-x-1">
@@ -246,14 +243,14 @@
 
     <section class="h-auto max-w-8xl md:pr-10 md:px-8 mx-auto pt-8">
         <figure>
-            <img class=" rounded-3xl" src="{{ asset('images/main/abstract-bg-1.svg') }}" alt="Image Description">
+            <img class=" rounded-3xl" src="{{ asset('images/main/world-map.svg') }}" alt="Image Description">
         </figure>
     </section>
 
 
 
     <div class="">
-        <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal d-none"
+        <form method="POST" action="{{ route('invoice') }}" accept-charset="UTF-8" class="form-horizontal d-none"
             role="form">
             <input type="hidden" name="institute" value="{{ $institute->acronym }}">
             @csrf

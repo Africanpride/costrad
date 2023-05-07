@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('authorization_code');
             $table->text('description');
             $table->decimal('fees', 10, 2);
-            $table->string('transaction_id');
-            $table->string('transaction_reference');
-            $table->dateTime('transaction_date');
+            $table->string('reference');
+            $table->timestamp('transaction_date');
             $table->string('currency');
             $table->foreignUuid('participant_id')->constrained('users')->onDelete('cascade');
+            $table->foreignUuid('invoice_id')->constrained('invoices')->onDelete('cascade')->nullable();
             $table->foreignId('institute_id')->constrained('institutes')->onDelete('cascade');
             $table->string('ipAddress');
             $table->timestamps();
