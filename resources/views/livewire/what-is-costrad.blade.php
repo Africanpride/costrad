@@ -110,7 +110,7 @@
     <!-- End Icon Blocks -->
 
     <div class="text-center w-full mx-auto">
-        <a href="{{ route('institute.show', [$costrad->slug]) }}"> <button class="cbutton !py-1 w-24">Learn More About
+        <a href="{{ route('institute.show', [$costrad->slug]) }}"> <button class="cbutton !py-1 w-24 font-bold">Learn More About
                 costrad</button>
         </a>
     </div>

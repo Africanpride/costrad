@@ -75,6 +75,25 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\ExchangeRate
+ *
+ * @property int $id
+ * @property string $rate
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate whereRate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ExchangeRate whereUpdatedAt($value)
+ */
+	class ExchangeRate extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Faculty
  *
  * @property int $id
@@ -394,7 +413,7 @@ namespace App\Models{
  * @property string $authorization_code
  * @property string $description
  * @property string $fees
- * @property string $transaction_reference
+ * @property string $reference
  * @property string $transaction_date
  * @property string $currency
  * @property string $participant_id
@@ -420,8 +439,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereInvoiceId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereIpAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereParticipantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereReference($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTransactionDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTransactionReference($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereUpdatedAt($value)
  */
 	class Transaction extends \Eloquent {}

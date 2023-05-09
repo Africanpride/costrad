@@ -81,7 +81,7 @@
                 </span>
             </p>
             <div class="mt-4 max-w-6xl space-y-6 text-[16px] "> {!! $institute->introduction ??
-                " Foundations for brain architecture in early childhood, Early childhood development, Developing children into sons, Strategic Innovative and effective child development systems and Futuristic systems of education." !!}
+                ' Foundations for brain architecture in early childhood, Early childhood development, Developing children into sons, Strategic Innovative and effective child development systems and Futuristic systems of education.' !!}
             </div>
             <div class="py-5">
                 <div class="flex space-x-1">
@@ -250,7 +250,7 @@
 
 
     <div class="">
-        <form method="POST" action="{{ route('invoice') }}" accept-charset="UTF-8" class="form-horizontal d-none"
+        <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal d-none"
             role="form">
             <input type="hidden" name="institute" value="{{ $institute->acronym }}">
             @csrf
@@ -302,7 +302,7 @@
                     </div>
 
                     <!-- Body -->
-                    <div class="p-4 sm:p-7 overflow-y-auto">
+                    <div class="p-4 sm:p-5 overflow-y-auto space-y-4">
                         <div class="text-center">
                             <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
                                 Invoice For <span class="text-gradient1">
@@ -319,7 +319,7 @@
                         </div>
 
                         <!-- Grid -->
-                        <div class="mt-5 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="pt-5 grid grid-cols-3 gap-3">
                             <div>
                                 <span class="block text-xs uppercase text-gray-500">Total Amount:</span>
                                 <span
@@ -336,54 +336,32 @@
                             <!-- End Col -->
 
                             <div>
-                                <span class="block text-xs uppercase text-gray-500">Payment method:</span>
-                                <div class="flex items-center gap-x-2">
-                                    <svg class="w-5 h-5" width="400" height="248" viewBox="0 0 400 248"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0)">
-                                            <path d="M254 220.8H146V26.4H254V220.8Z" fill="#FF5F00" />
-                                            <path
-                                                d="M152.8 123.6C152.8 84.2 171.2 49 200 26.4C178.2 9.2 151.4 0 123.6 0C55.4 0 0 55.4 0 123.6C0 191.8 55.4 247.2 123.6 247.2C151.4 247.2 178.2 238 200 220.8C171.2 198.2 152.8 163 152.8 123.6Z"
-                                                fill="#EB001B" />
-                                            <path
-                                                d="M400 123.6C400 191.8 344.6 247.2 276.4 247.2C248.6 247.2 221.8 238 200 220.8C228.8 198.2 247.2 163 247.2 123.6C247.2 84.2 228.8 49 200 26.4C221.8 9.2 248.6 0 276.4 0C344.6 0 400 55.4 400 123.6Z"
-                                                fill="#F79E1B" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0">
-                                                <rect width="400" height="247.2" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <span class="block text-sm font-medium text-gray-800 dark:text-gray-200">••••
-                                        4242</span>
+                                <span class="block text-xs uppercase text-gray-500">Payment methods:</span>
+                                <div class=" pt-2">
+                                    <img src="{{ asset('images/main/cards.png') }}" alt="Donate with Credit Card"
+                                        class="w-auto rounded-md">
                                 </div>
                             </div>
                             <!-- End Col -->
                         </div>
                         <!-- End Grid -->
 
-                        <div class="mt-5 sm:mt-10">
+                        <div>
                             <h4 class="text-xs font-semibold uppercase text-gray-800 dark:text-gray-200">Summary</h4>
 
                             <ul class="mt-3 flex flex-col">
                                 <li
-                                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
-                                    <div class="flex items-center justify-between w-full">
-                                        <span class="capitalize ">{{ $institute->name }}</span>
+                                    class="inline-flex items-center gap-x-4 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
+                                    <div class="flex gap-x-2 items-center justify-between w-full ">
+                                        <span class="capitalize ">{{ $institute->name }}
+                                            <span class="uppercase">({{ $institute->acronym }})</span> </span>
                                         <span>GHS{{ $institute->local_currency }}</span>
                                     </div>
                                 </li>
-                                <li
-                                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-gray-700 dark:text-gray-200">
-                                    <div class="flex items-center justify-between w-full">
-                                        <span>Charges</span>
-                                        <span>GHS {{ $institute->local_currency }}</span>
-                                    </div>
-                                </li>
+
                                 <li
                                     class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-semibold bg-gray-50 border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-800 dark:border-gray-700 dark:text-gray-200">
-                                    <div class="flex items-center justify-between w-full">
+                                    <div class="flex gap-x-2 items-center justify-between w-full ">
                                         <span>Total Amount Due</span>
                                         <span>GHS {{ $institute->local_currency }}</span>
                                     </div>
@@ -419,13 +397,35 @@
                         </div>
                         <!-- End Buttons -->
 
-                        <div class="mt-5 sm:mt-10">
-                            <p class="text-sm text-gray-500">If you have any questions, please contact us at <a
-                                    class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
-                                    href="mailto:info@costrad.org">info@costrad.org</a> or call at <a
-                                    class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
-                                    href="tel:+233208127797">+233 20 812 7797 </a>
-                            </p>
+                        <div class="p-3 text-[12px] space-y-4 border border-gray-500/20 rounded-xl">
+                            <div class=" flex gap-2 ">
+                                <span class="mx-auto text-center">
+                                    <svg class="w-8 h-8" viewBox="0 0 35 35" fill="none" class="mx-auto">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M4.375 9.7155C4.375 7.83237 5.58001 6.1605 7.36651 5.56501L16.1165 2.64834C17.0145 2.34899 17.9855 2.34899 18.8835 2.64834L27.6335 5.56501C29.42 6.1605 30.625 7.83237 30.625 9.7155V17.4997C30.625 25.5235 22.5164 30.3939 19.046 32.111C18.0651 32.5962 16.9349 32.5962 15.954 32.111C12.4836 30.3939 4.375 25.5235 4.375 17.4997V9.7155Z"
+                                            fill="#27B67A">
+                                        </path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M22.9065 13.5521C23.476 14.1217 23.476 15.045 22.9065 15.6145L17.8982 20.6229C16.873 21.6481 15.211 21.6481 14.1858 20.6229L12.0941 18.5312C11.5246 17.9617 11.5246 17.0383 12.0941 16.4688C12.6636 15.8993 13.587 15.8993 14.1565 16.4688L16.042 18.3543L20.8441 13.5521C21.4136 12.9826 22.337 12.9826 22.9065 13.5521Z"
+                                            fill="white">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="text-left">
+                                        We do not store any credit card information on our server. 100% secure
+                                        payments are processed by PayStack and site is secured by SSL encryption. If you
+                                        have any questions, please contact us at <span>
+                                            <a class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
+                                                href="mailto:info@costrad.org">info@costrad.org</a> or call at <a
+                                                class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
+                                                href="tel:+233208127797">+233 20 812 7797 </a></span>
+                                    </p>
+
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                     <!-- End Body -->

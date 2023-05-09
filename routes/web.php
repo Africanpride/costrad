@@ -25,10 +25,9 @@ Route::get('banned', function () {
 Route::get('auth/google', [App\Http\Controllers\LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [App\Http\Controllers\LoginController::class, 'handleGoogleCallback']);
 
-// Payment Route with it's callback.
-Route::post('/invoice', [App\Http\Controllers\PaymentController::class, 'invoiceBeforeGateway'])
-    ->name('invoice')
-    ->middleware('auth');
+
+Route::post('/donation', [App\Http\Controllers\PaymentController::class, 'donationGateway'])
+    ->name('donation');
 
 Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])
     ->name('pay')

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Auth;
 
+use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Requests;
 use App\Models\Invoice;
 use App\Models\Institute;
 use App\Models\Transaction;
+use App\Models\ExchangeRate;
 use Illuminate\Http\Request;
 use App\Payment; // Payment Model
 use Paystack; // Paystack package
@@ -20,14 +22,57 @@ use Illuminate\Support\Facades\Redirect;
 class PaymentController extends Controller
 {
 
+
     /**
      * Redirect the User to Paystack Payment Page
      * @return Url
      */
 
-    public function invoiceBeforeGateway (Request $request) {
-       $institute = Institute::whereAcronym($request->institute)->first();
-       dd($institute->price);
+    public function donationGateway(Request $request)
+    {
+
+        if ($request->has('anonymousDonation')) {
+
+            $validatedData = $request->validate([
+                'name' => 'nullable',
+                'email' => 'nullable',
+                'amount' => 'required|numeric',
+            ]);
+        } else {
+            $validatedData = $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'amount' => 'required|numeric',
+            ]);
+        }
+
+        return redirect()->back()->with('status', 'Your status message here.');
+
+        dd($request->has('anonymousDonation'));
+        // Get the exchange rate
+        $exchange_rate = ExchangeRate::getExchangeRate();
+
+        $ghs_amount = $validatedData->amount * ($exchange_rate + 1) * 100 * 1.02;
+        $reference = Paystack::genTranxRef();
+        dd($reference);
+        try {
+
+            $data = array(
+                "amount" => round($ghs_amount),
+                "reference" =>  $reference,
+                "email" => $validatedData->email ?? Auth::user()->email,
+                "currency" => "GHS",
+                "orderID" => "123456789",
+                "channels" => ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
+                "metadata" => [
+                    "donation" => true,
+                ]
+            );
+
+            return Paystack::getAuthorizationUrl($data)->redirectNow();
+        } catch (\Exception $e) {
+            return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
+        }
     }
 
     public function redirectToGateway(Request $request)
@@ -60,13 +105,13 @@ class PaymentController extends Controller
                 "channels" => ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
                 "metadata" => [
                     "institute_id" => $institute->id,
-                    "invoice_id" => $invoice->id
+                    "invoice_id" => $invoice->id,
+
                 ]
             );
 
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
-            dd($e);
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
         }
     }

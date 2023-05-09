@@ -114,11 +114,11 @@
                         <p class="text-lg text-firefly-700 dark:text-white prose dark:prose-invert">
                             Our agenda touches key areas in governance, building strong institutions, Economy, Education
                             and
-                            Skills development, Innovation and Technology as well as social foundations. These are just
+                            Skills development, Innovation and Technology as well as social foundations and belief systems. These are just
                             some of
                             the key factors that contribute to a nation's transformational capacity, and the specific
                             mix of factors will vary depending on the context and challenges faced by each individual
-                            and nation. Our goals align if the list below is of interest;
+                            and nation. Our goals align if making an impact in the list below is of interest to you;
                         </p>
                     </div>
                     <!-- End Title -->

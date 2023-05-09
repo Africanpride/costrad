@@ -13,7 +13,7 @@
     </div>
 
     {{-- Image --}}
-    <div class="mt-8 md:mx-5 grid gap-px sm:grid-cols-2 md:grid-cols-4">
+    <div class="gap-px grid md:grid-cols-4 md:mx-5 mt-8 md:px-8 sm:grid-cols-2">
 
         @forelse ($institutes as $institute)
             <a href="{{ route('institute.show', [$institute->slug]) }}"
@@ -36,7 +36,7 @@
 
 
     <div class="text-center w-full mx-auto">
-        <a href="{{ url('/institutes') }}"> <button class="cbutton !py-1 w-24">More On Our Institutes</button>
+        <a href="{{ url('/institutes') }}"> <button class="cbutton !py-1 w-24 font-bold ">More On Our Institutes</button>
         </a>
     </div>
 

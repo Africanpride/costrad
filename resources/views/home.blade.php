@@ -1,8 +1,10 @@
 <x-front-layout>
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto ">
-        <div style="background-image: url('{{ asset('images/main/un2.jpg') }}');"
-            class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative rounded-xl md:min-h-[85vh] ">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto  ">
+        <div class="{{ $isMobile ? '' : 'kenburns' }} min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
+            style="background-image: url('{{ asset('images/main/un2.jpg') }}');">
+
+
             <div
                 class="absolute bottom-0 left-0 right-0 max-w-md text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
@@ -35,8 +37,7 @@
     </section>
 
     <section class="w-full items-center flex flex-col justify-center py-8">
-        <svg width="317" height="120"
-            viewBox="0 0 317 120" fill="none">
+        <svg width="317" height="120" viewBox="0 0 317 120" fill="none">
             <path transform="translate(-36,0)" d="m197.32283 25.03412l-0 100.48032" stroke="gray" stroke-opacity="0.2">
             </path>
             <path transform="translate(-36,0)" d="m197.32283 25.03412l-0 100.48032" stroke="url(#pulse-1)"
@@ -45,12 +46,84 @@
                 style="transform: translateX(-36px) translateY(118.724px); transform-origin: 197.323px 35.0341px;"
                 transform-origin="197.3228302001953px 35.034119606018066px"></path>
         </svg>
-        <h2 class=" text-slate-800 px-5 text-gradient1 inline-block mt-5 text-3xl md:text-4xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase">...doing the seemingly impossible.</h2><span
-            class="text-lg text-gray-500 text-center mt-2 px-6 sm:px-0">
-            Explore what COSTrAD can help you achieve.</span>
+        <h2
+            class="mt-4 max-w-5xl text-slate-900 text-xl md:text-3xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
+                    ...doing the seemingly impossible.
+        </h2>
+        {{-- <h2
+            class=" text-slate-800 px-5 text-gradient1 inline-block mt-5 text-3xl md:text-4xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase">
+            ...doing the seemingly impossible.
+        </h2> --}}
+        <span class="text-lg text-gray-400 text-center mt-2 px-6 sm:px-0">
+            Explore what COSTrAD can help you achieve.
+        </span>
+    </section>
+    <!-- component -->
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
+        <div
+            class="py-10 bg-gray-200/50 dark:bg-transparent dark:border-gray-500/20 dark:border  sm:py-16 lg:py-24 rounded-3xl">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="grid items-stretch gap-y-10 md:grid-cols-2 md:gap-x-20">
+                    <div class="relative grid grid-cols-2 gap-4 mt-10 md:mt-0">
+                        <div class="overflow-hidden aspect-w-3 aspect-h-4 rounded-2xl">
+                            <img class="object-cover object-top origin-top scale-150 "
+                                src="{{ asset('images/main/leader2.jpg') }}" alt="" />
+                        </div>
+
+                        <div class="relative">
+                            <div class="h-full overflow-hidden aspect-w-3 aspect-h-4 rounded-2xl">
+                                <img class="object-cover object-top origin-top scale-150"
+                                    src="{{ asset('images/main/leader4.jpg') }}" alt="" />
+                            </div>
+
+                        </div>
+
+                        <div class="absolute -translate-x-1/2 left-1/2 -top-16 ">
+                            <img class="w-32 h-32 rotating"
+                                src="{{ asset('images/main/round-text-costrad.png') }}"
+                                alt="" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start justify-between md:px-8 space-y-3">
+
+                            <h2
+                                class="uppercase  text-slate-800 text-gradient1 inline-block mt-5 text-2xl md:text-3xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 ">
+                                The Vital Role of Leadership Training Today
+                            </h2>
+                            <p class="hidden">
+                                At COSTrAD, You would find out more reasons why leadership training is essential and how
+                                leadership impacts family, governance, economy and every aspect of society. We teach you
+                                the necessary skills and qualities to effectively lead and manage people, organizations,
+                                and systems. Leaders must possess strong communication, decision-making, and
+                                problem-solving skills, as well as the ability to inspire and motivate others.
+
+                            </p>
+                            <p>
+                                Effective leadership involves being able to adapt to changing circumstances and make
+                                difficult decisions when necessary. Through COSTrAD and it's various Institutes,
+                                individuals, business leader and political leaders can gain the knowledge and skills
+                                necessary to navigate complex political and social environments, build strong teams, and
+                                create positive change within their
+                                communities. Do you want to acquire what it takes to make a mark in your area of
+                                operation? Book your seat early as space could fill up quickly.
+                            </p>
+
+
+                        <div class=" w-full mx-auto">
+                            <a href="{{ url('about') }}">
+                                <button class="cbutton !py-1 font-bold" style="width:70%;">Learn More About
+                                    costrad</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
 
         <div
             class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
@@ -61,7 +134,7 @@
         </div>
     </section>
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
 
         <div
             class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5
@@ -73,7 +146,7 @@
 
     </section>
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
         <div
             class=" min-h-[600px] mx-auto rounded-2xl border  border-gray-300/10 text-center space-y-5 p-8
          bg-slate-500/10 dark:bg-black py-16 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
@@ -121,15 +194,15 @@
         </div>
     </section>
 
-    <section class="max-w-8xl p-4 md:p-8 md:pr-10 mx-auto  ">
-        <div style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');"
-            class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative rounded-2xl md:min-h-[85vh] ">
+    <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto  ">
+        <div class="{{ $isMobile ? '' : 'kenburns' }} min-h-[55vh] bg-center bg-cover bg-no-repeat relative rounded-3xl md:min-h-[85vh]"
+            style="background-image: url('{{ asset('images/main/quarterglobe.jpg') }}');">
+
             <div class="bottom-0 left-0 md:left-auto md:mx-0 md:text-left mx-auto p-6 right-0 text-center">
                 <!-- Card -->
                 <div
                     class="min-h-[35vh]  bg-center bg-cover bg-no-repeat relative  md:min-h-[85vh] h-full text-center flex justify-center items-center  ">
-                    <h1
-                        class=" max-w-6xl md:text-3xl uppercase font-['anton'] text-3xl lg:text-4xl dark:text-gray-100 text-firefly-200">
+                    <h1 class=" max-w-6xl md:text-3xl uppercase font-['anton'] text-3xl lg:text-4xl text-gray-100 ">
                         We invite you to partner with us in developing leaders who have the capacity and vision to
                         create
                         lasting and positive change in all domains of life.
@@ -195,7 +268,8 @@
 
 
     <div class="absolute bottom-0 right-0 z-[-1]">
-        <svg width="1440" height="886" viewBox="0 0 1440 886" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="1440" height="886" viewBox="0 0 1440 886" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5"
                 d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
                 fill="url(#paint0_linear)"></path>

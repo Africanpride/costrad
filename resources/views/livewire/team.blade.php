@@ -31,8 +31,8 @@
                     src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Oliver Aguilerra</p>
-                    <p class="text-sm text-gray-500">Product Manager</p>
+                    <p class="text-lg font-bold  text-left">Abu Bako</p>
+                    <p class="text-sm text-gray-500">Founding President</p>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                     src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Anthony Geek</p>
+                    <p class="text-lg font-bold text-left ">Anthony Geek</p>
                     <p class="text-sm text-gray-500">CTO, Lorem Inc.</p>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     src="https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Alice Melbourne</p>
+                    <p class="text-lg font-bold text-left ">Alice Melbourne</p>
                     <p class="text-sm text-gray-500">Human Resources</p>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Martin Garix</p>
+                    <p class="text-lg font-bold text-left ">Martin Garix</p>
                     <p class="text-sm text-gray-500">Bad boy</p>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     src="https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Andrew Larkin</p>
+                    <p class="text-lg font-bold text-left ">Andrew Larkin</p>
                     <p class="text-sm text-gray-500">Backend Developer</p>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                     src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Sophie Denmo</p>
+                    <p class="text-lg font-bold text-left ">Sophie Denmo</p>
                     <p class="text-sm text-gray-500">Designer UI/UX</p>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     src="https://images.pexels.com/photos/3931553/pexels-photo-3931553.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Benedict Caro</p>
+                    <p class="text-lg font-bold text-left ">Benedict Caro</p>
                     <p class="text-sm text-gray-500">Frontend Developer</p>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     src="https://images.pexels.com/photos/3783255/pexels-photo-3783255.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                     alt="Person" />
                 <div class="flex flex-col justify-center">
-                    <p class="text-lg font-bold">Adam Molly</p>
+                    <p class="text-lg font-bold text-left ">Adam Molly</p>
                     <p class="text-sm text-gray-500">Full Stack Developer</p>
                 </div>
             </div>
