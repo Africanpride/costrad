@@ -9,63 +9,55 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Requests;
 use App\Models\Invoice;
+use App\Models\Donations;
 use App\Models\Institute;
 use App\Models\Transaction;
 use App\Models\ExchangeRate;
 use Illuminate\Http\Request;
 use App\Payment; // Payment Model
 use Paystack; // Paystack package
+use Flasher\Prime\FlasherInterface;
 use App\Http\Controllers\Controller;
+use Flasher\Laravel\Facade\Flasher;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class PaymentController extends Controller
 {
 
 
-    /**
-     * Redirect the User to Paystack Payment Page
-     * @return Url
-     */
-
-    public function donationGateway(Request $request)
+    public function donationGateway(Request $request, FlasherInterface $flasher)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'sometimes',
+            'email' => 'sometimes',
+            'amount' => 'required|numeric',
+        ]);
 
-        if ($request->has('anonymousDonation')) {
-
-            $validatedData = $request->validate([
-                'name' => 'nullable',
-                'email' => 'nullable',
-                'amount' => 'required|numeric',
-            ]);
-        } else {
-            $validatedData = $request->validate([
-                'name' => 'required',
-                'email' => 'required',
-                'amount' => 'required|numeric',
-            ]);
-        }
-
-        return redirect()->back()->with('status', 'Your status message here.');
-
-        dd($request->has('anonymousDonation'));
-        // Get the exchange rate
+        $donationID = Donations::generateOrderId();
+        $user_id = Donations::getDonor();
+        // Get the exchange rate and other inputs for api
         $exchange_rate = ExchangeRate::getExchangeRate();
-
-        $ghs_amount = $validatedData->amount * ($exchange_rate + 1) * 100 * 1.02;
+        $email = Donations::getEmail($request->email);
+        $ghs_amount = $request->amount * (($exchange_rate + 0.50) * 100);
         $reference = Paystack::genTranxRef();
-        dd($reference);
-        try {
 
+        try {
             $data = array(
                 "amount" => round($ghs_amount),
                 "reference" =>  $reference,
-                "email" => $validatedData->email ?? Auth::user()->email,
+                "email" => $email,
                 "currency" => "GHS",
-                "orderID" => "123456789",
+                "orderID" => $donationID,
                 "channels" => ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
                 "metadata" => [
                     "donation" => true,
+                    "orderID" => $donationID,
+                    "name" => (isset($request->name) ? $request->name : 'Anonymous Donor'),
+                    "user_id" => $user_id,
                 ]
             );
 
@@ -74,6 +66,7 @@ class PaymentController extends Controller
             return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
         }
     }
+
 
     public function redirectToGateway(Request $request)
     {
@@ -86,26 +79,23 @@ class PaymentController extends Controller
 
             $institute = Institute::whereAcronym($request->institute)->first();
             // Get the exchange rate
-            $response = Http::get('https://openexchangerates.org/api/latest.json', [
-                'app_id' => config('app.openExchange'),
-                'symbols' => 'GHS'
-            ]);
+            $exchange_rate = ExchangeRate::getExchangeRate();
+            $ghs_amount = $institute->price * (($exchange_rate + 0.40) * 100);
 
-            $responseData = $response->json();
-            $exchange_rate = $responseData['rates']['GHS'];
-            $ghs_amount = $institute->price * ($exchange_rate + 1) * 100 * 1.02;
             $reference = Paystack::genTranxRef();
+            $orderID = $invoice->id;
 
             $data = array(
                 "amount" => round($ghs_amount),
                 "reference" =>  $reference,
                 "email" => Auth::user()->email,
                 "currency" => "GHS",
-                "orderID" => "123456789",
+                "orderID" => $orderID,
                 "channels" => ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'],
                 "metadata" => [
                     "institute_id" => $institute->id,
                     "invoice_id" => $invoice->id,
+
 
                 ]
             );
@@ -120,65 +110,58 @@ class PaymentController extends Controller
      * Obtain Paystack payment information
      * @return void
      */
-    public function handleGatewayCallback(Request $request)
+    public function handleGatewayCallback()
     {
+        $paymentDetails = Paystack::getPaymentData();
 
-        try {
+        if ($paymentDetails && isset($paymentDetails['data']['metadata']['donation'])) {
+            // run logic for Donation payment
+            // redirect to institute frontpage url
+            $donation = new Donations;
+            $donation->ip_address = $paymentDetails['data']['ip_address'];
+            $donation->donor_email = $paymentDetails['data']['customer']['email'];
+            $donation->donor_name = $paymentDetails['data']['metadata']['name'];
+            $donation->user_id = $paymentDetails['data']['metadata']['user_id'];
+            $donation->save();
 
-            $paymentDetails = Paystack::getPaymentData();
-            if ($paymentDetails['status'] == true) {
+            // Donation instance created. Redirect and thank you.
+            app('flasher')->addSuccess('Thank you For your Kind Donation.', 'Success');
+            return redirect()->route('home');
 
-                $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
+        } else {
+            // run logic for institute payment transaction.
+            try {
 
-                $transaction = new Transaction();
-                $transaction->amount = $paymentDetails['data']['amount'];
-                $transaction->description = 'Payment for services rendered';
-                $transaction->fees = $paymentDetails['data']['fees'];
-                $transaction->participant_id = Auth::user()->id;
-                $transaction->reference = $paymentDetails['data']['reference'];
-                $transaction->authorization_code = $paymentDetails['data']['authorization']['authorization_code'];
-                $transaction->transaction_date = Carbon::parse($paymentDetails['data']['created_at'])->toDateTimeString();
-                $transaction->currency = $paymentDetails['data']['currency'];
-                $transaction->ipAddress = $paymentDetails['data']['ip_address'];
-                $transaction->institute_id = $paymentDetails['data']['metadata']['institute_id'];
+                if ($paymentDetails['status'] == true) {
+                    // Get the invoice generated before sending to paystack and associate it with
+                    // transaction later on.
+                    $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
+                    $institute = Institute::whereId($paymentDetails['data']['metadata']['institute_id'])->first();
 
-                $transaction->invoice()->associate($invoice);
-                $transaction->save();
+                    $transaction = new Transaction();
+                    $transaction->amount = $paymentDetails['data']['amount'];
+                    $transaction->description = 'Payment for services rendered';
+                    $transaction->fees = $paymentDetails['data']['fees'];
+                    $transaction->participant_id = Auth::user()->id;
+                    $transaction->reference = $paymentDetails['data']['reference'];
+                    $transaction->authorization_code = $paymentDetails['data']['authorization']['authorization_code'];
+                    $transaction->transaction_date = Carbon::parse($paymentDetails['data']['created_at'])->toDateTimeString();
+                    $transaction->currency = $paymentDetails['data']['currency'];
+                    $transaction->ipAddress = $paymentDetails['data']['ip_address'];
+                    $transaction->institute_id = $paymentDetails['data']['metadata']['institute_id'];
+                    $transaction->invoice()->associate($invoice);
+                    $transaction->save();
 
-                dd('saved successfully');
+                    // redirect to institute frontpage url
+                    app('flasher')->addSuccess('Payment Successful.', 'Success');
+
+                    return redirect()->route('institute.show', [$institute]);
+                }
+            } catch (\Exception $e) {
+                return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
             }
-        } catch (\Exception $e) {
-            dd($e);
-            return Redirect::back()->withMessage(['msg' => 'The paystack token has expired. Please refresh the page and try again.', 'type' => 'error']);
         }
 
-
-        $validatedData = $request->validate([
-            'payment_status' => 'required|in:success,failure',
-            'participant_id' => 'required|exists:users,id',
-            'amount' => 'required|numeric',
-            'transaction_id' => 'required|string|unique:transactions',
-            'transaction_reference' => 'required|string|unique:transactions',
-            'transaction_date' => 'required|date',
-            'currency' => 'required|string',
-            'institute_id' => 'required|exists:institutes,id',
-            'ipAddress' => 'nullable|ip',
-            // ... add any additional validation rules as needed
-        ]);
-
-        // If the payment was successful, create a new transaction
-        if ($validatedData['payment_status'] === 'success') {
-            $transaction = Transaction::create($validatedData);
-            return response()->json([
-                'message' => 'Transaction created successfully',
-                'transaction' => $transaction,
-            ], 201);
-        }
-
-        // If the payment failed, return an error response
-        return response()->json([
-            'message' => 'Payment failed',
-        ], 400);
 
 
         // Now you have the payment details,

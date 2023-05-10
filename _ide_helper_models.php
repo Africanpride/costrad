@@ -75,6 +75,35 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Donations
+ *
+ * @property string $id
+ * @property string|null $amount
+ * @property string|null $fees
+ * @property string|null $donor_name
+ * @property string|null $donor_email
+ * @property string|null $ip_address
+ * @property string $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereDonorEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereDonorName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereFees($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereIpAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Donations whereUserId($value)
+ */
+	class Donations extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\ExchangeRate
  *
  * @property int $id

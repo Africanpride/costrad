@@ -29,10 +29,19 @@
 
 <html class="h-full">
 
-<body class="dark:bg-slate-900 bg-gray-100">
+<body class="dark:bg-slate-900 bg-gray-100 relative">
 
-    <div class="grid grid-cols-1 md:grid-cols-3  h-screen">
+
+    <div class="grid grid-cols-1 md:grid-cols-3  h-screen ">
+
         <div class="col-span-1 min-h-[450px] md:min-h-screen relative px-8 ">
+
+            <a href="{{  route('home') }}"
+            class="z-20 absolute top-4 right-4 cursor-pointer bg-gray-400/20 rounded-full
+            flex justify-between items-center "> <span class="text-white pl-3 pr-1 text-[11px] font-bold">Home</span>
+                <x-heroicon-o-x-circle class="w-8 h-8 text-firefly-500 dark:text-firefly-600  hover:p-0.5 transition-[padding] ease-in-out delay-150 duration-500"  />
+            </a>
+
             <img src="{{ asset('/images/main/login.jpg') }}" alt="Image Description"
                 class="absolute inset-0 h-full w-full object-cover">
             <div class="absolute inset-0 bg-black/80 "></div>

@@ -267,6 +267,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Newsroom::class);
     }
 
+    public function donation() {
+        return $this->hasMany(Donation::class);
+    }
+
     public function defaultProfilePhotoUrl()
     {
         if (empty($this->avatar) && !empty($this->social_avatar)) {

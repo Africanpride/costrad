@@ -8,7 +8,7 @@
             <div
                 class="absolute bottom-0 left-0 right-0 max-w-md text-center mx-auto p-6 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
-                <div class="px-5 py-4 inline-block bg-white rounded-lg md:p-7 dark:bg-gray-900">
+                <div class="bg-white dark:bg-gray-900 flex-col gap-4 inline-flex justify-between md:p-4 px-2 rounded-2xl shadow-2xl">
                     <div class="hidden md:block">
                         <h3 class=" font-bold text-gray-800 text-sm dark:text-gray-200"> COSTrAD: A Critical Mandate.
                         </h3>
@@ -17,8 +17,8 @@
                             restoration, transformation and development of all spheres of society.</p>
                     </div>
 
-                    <div class="md:mt-6">
-                        <a class="flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
+                    <div class="inline-flex">
+                        <a class="p-2 md:p-0 flex items-center gap-2 text-xs text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
                             href="#">
                             <svg class="w-4 h-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" viewBox="0 0 16 16">
@@ -48,7 +48,7 @@
         </svg>
         <h2
             class="mt-4 max-w-5xl text-slate-900 text-xl md:text-3xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
-                    ...doing the seemingly impossible.
+            ...doing the seemingly impossible.
         </h2>
         {{-- <h2
             class=" text-slate-800 px-5 text-gradient1 inline-block mt-5 text-3xl md:text-4xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 uppercase">
@@ -63,7 +63,7 @@
         <div
             class="py-10 bg-gray-200/50 dark:bg-transparent dark:border-gray-500/20 dark:border  sm:py-16 lg:py-24 rounded-3xl">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="grid items-stretch gap-y-10 md:grid-cols-2 md:gap-x-20">
+                <div class="grid items-stretch gap-y-10 md:grid-cols-2 md:gap-x-8">
                     <div class="relative grid grid-cols-2 gap-4 mt-10 md:mt-0">
                         <div class="overflow-hidden aspect-w-3 aspect-h-4 rounded-2xl">
                             <img class="object-cover object-top origin-top scale-150 "
@@ -79,40 +79,39 @@
                         </div>
 
                         <div class="absolute -translate-x-1/2 left-1/2 -top-16 ">
-                            <img class="w-32 h-32 rotating"
-                                src="{{ asset('images/main/round-text-costrad.png') }}"
+                            <img class="w-32 h-32 rotating" src="{{ asset('images/main/round-text-costrad.png') }}"
                                 alt="" />
                         </div>
                     </div>
 
                     <div class="flex flex-col items-start justify-between md:px-8 space-y-3">
 
-                            <h2
-                                class="uppercase  text-slate-800 text-gradient1 inline-block mt-5 text-2xl md:text-3xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 ">
-                                The Vital Role of Leadership Training Today
-                            </h2>
-                            <p class="hidden">
-                                At COSTrAD, You would find out more reasons why leadership training is essential and how
-                                leadership impacts family, governance, economy and every aspect of society. We teach you
-                                the necessary skills and qualities to effectively lead and manage people, organizations,
-                                and systems. Leaders must possess strong communication, decision-making, and
-                                problem-solving skills, as well as the ability to inspire and motivate others.
+                        <h2
+                            class="uppercase  text-slate-800 text-gradient1 inline-block mt-5 text-2xl md:text-3xl font-extrabold  bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 ">
+                            The Vital Role of Leadership Training Today
+                        </h2>
+                        <p class="hidden">
+                            At COSTrAD, You would find out more reasons why leadership training is essential and how
+                            leadership impacts family, governance, economy and every aspect of society. We teach you
+                            the necessary skills and qualities to effectively lead and manage people, organizations,
+                            and systems. Leaders must possess strong communication, decision-making, and
+                            problem-solving skills, as well as the ability to inspire and motivate others.
 
-                            </p>
-                            <p>
-                                Effective leadership involves being able to adapt to changing circumstances and make
-                                difficult decisions when necessary. Through COSTrAD and it's various Institutes,
-                                individuals, business leader and political leaders can gain the knowledge and skills
-                                necessary to navigate complex political and social environments, build strong teams, and
-                                create positive change within their
-                                communities. Do you want to acquire what it takes to make a mark in your area of
-                                operation? Book your seat early as space could fill up quickly.
-                            </p>
+                        </p>
+                        <p>
+                            Effective leadership involves being able to adapt to changing circumstances and make
+                            difficult decisions when necessary. Through COSTrAD and it's various Institutes,
+                            individuals, business leader and political leaders can gain the knowledge and skills
+                            necessary to navigate complex political and social environments, build strong teams, and
+                            create positive change within their
+                            communities. Do you want to acquire what it takes to make a mark in your area of
+                            operation? Book your seat early as space could fill up quickly.
+                        </p>
 
 
-                        <div class=" w-full mx-auto">
+                        <div class=" w-full mx-auto pt-3">
                             <a href="{{ url('about') }}">
-                                <button class="cbutton !py-1 font-bold" style="width:70%;">Learn More About
+                                <button class="cbutton !py-1 font-bold" style="width:50%;">Learn More About
                                     costrad</button>
                             </a>
                         </div>

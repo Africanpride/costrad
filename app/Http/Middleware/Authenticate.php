@@ -15,6 +15,8 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+            app('flasher')->addInfo('Kindly Login First. Thanks!', 'Login Required');
+
             return route('login');
         }
     }

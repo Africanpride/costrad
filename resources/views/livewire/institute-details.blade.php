@@ -8,7 +8,7 @@
 
             <div class="absolute bottom-0 left-0 right-0 max-w-xl mx-auto p-3 md:left-auto md:text-left md:mx-0">
                 <!-- Card -->
-                <div class="px-5 py-4 flex bg-white rounded-2xl md:p-7 dark:bg-gray-900 flex-col justify-between gap-4 ">
+                <div class="bg-white dark:bg-gray-900 flex flex-col gap-4 justify-between md:p-7 px-5 py-4 rounded-2xl shadow-2xl">
                     <div class="block">
                         <div
                             class="flex justify-between items-center dark:text-gray-200 font-bold text-gray-800 text-left text-sm">

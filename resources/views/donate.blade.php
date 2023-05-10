@@ -34,7 +34,7 @@
         <!-- Grid -->
 
         <div
-        class="border-gray-500/20 gap-4 grid md:border md:gap-8 md:grid-cols-2 md:items-center md:p-2 rounded-3xl xl:gap-20">
+            class="border-gray-500/20 gap-4 grid md:border md:gap-8 md:grid-cols-2 md:items-center md:p-2 rounded-3xl xl:gap-20">
             <div class="p-4 md:p-8 space-y-5">
                 <h1
                     class="block text-2xl font-bold text-gray-800 sm:text-3xl lg:text-5xl lg:leading-tight dark:text-white">
@@ -127,14 +127,14 @@
                                                             </span>
                                                         </span>
 
-                                                        <input type="checkbox" id="hs-account-activity"  x-model="toggle"
-
+                                                        <input type="checkbox" id="hs-account-activity" x-model="toggle" value="boolean"
                                                             name="anonymousDonation"
                                                             class="transition duration-500 delay-700 ease-in-out relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-firefly-600 rounded-full cursor-pointer border border-transparent ring-1 ring-transparent focus:border-firefly-600 focus:ring-firefly-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-firefly-600 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-firefly-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-firefly-200">
                                                     </label>
                                                 </div>
 
-                                                <div class="space-y-3 transition duration-500 delay-700 ease-in-out " x-show="!toggle">
+                                                <div class="space-y-3 transition duration-500 delay-700 ease-in-out "
+                                                    x-show="!toggle">
                                                     <div>
 
                                                         <div class="flex justify-between items-center">
