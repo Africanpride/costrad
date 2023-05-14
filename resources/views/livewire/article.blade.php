@@ -134,9 +134,9 @@
 
 
             <!-- Content -->
-            <p class="text-lg text-gray-800 dark:text-gray-200">
+            <div class="text-lg  text-gray-800 dark:text-gray-200 space-y-5">
                 {!! $newsroom->body !!}
-            </p>
+            </div>
             <!-- Content -->
 
             <!-- Tags -->

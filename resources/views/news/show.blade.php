@@ -13,7 +13,7 @@
                         <li>
                             <!-- component -->
                             <div
-                                class="bg-gray-100/50 dark:bg-gray-800 p-2 max-w-3xl sm:w-full sm:p-4 h-auto sm:h-48 rounded-2xl shadow-md flex flex-col sm:flex-row gap-5 select-none">
+                                class="bg-gray-100/50 dark:bg-gray-800 p-2 max-w-3xl sm:w-full sm:p-3 h-auto sm:h-48 rounded-2xl shadow-md flex flex-col sm:flex-row gap-4 select-none">
                                 <a href="{{ route('news.show', $latest) }}" class="h-auto w-auto aspect-video rounded-md object-cover">
                                     <img alt="Home"
                                         src="{{ $latest->getFirstMediaUrl('featured_image') ? $latest->getFirstMediaUrl('featured_image') : $latest->featured_image }}&auto=format&fit=crop&w=1770&q=80"
@@ -23,7 +23,7 @@
                                     <h1 class="text-lg sm:text-md font-semibold dark:text-gray-300  text-gray-600">
                                         {{ $latest->title }}
                                     </h1>
-                                    <div class="text-gray-500 dark:text-white text-sm sm:text-base line-clamp-4">
+                                    <div class="text-gray-500 dark:text-white text-[12px] line-clamp-4">
                                         {!! $latest->body !!}
                                     </div>
 

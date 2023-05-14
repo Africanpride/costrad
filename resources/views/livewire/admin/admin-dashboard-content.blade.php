@@ -30,6 +30,7 @@
                 </button>
             </div>
         </div>
+
         <div class="flex flex-wrap">
             @foreach (App\Models\Institute::all() as $institute)
                 <div class="w-full md:w-4/12">
@@ -75,7 +76,7 @@
         </div>
     </div>
 
-    <div class=" w-full md:col-span-4 ">
+    <div class=" w-full h-auto md:col-span-4 ">
         <div class="shadow-md dark:bg-gray-900 bg-gray-800 rounded-3xl px-6 pt-6 pb-6 h-full">
             <div class="flex justify-between items-center text-white text-2xl pb-6 font-bold">
                 <p>New User Registration</p>
@@ -110,7 +111,7 @@
                 @empty
 
                     <div>
-                        No Dahta
+                        No Data
                     </div>
                 @endforelse
             </div>

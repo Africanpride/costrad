@@ -141,7 +141,7 @@ Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix(
     })->name('admin.media');
 
     Route::get('dashboard', function () {
-        $latest = User::take(4)->orderBy('created_at', 'desc')->get();
+        $latest = User::take(7)->orderBy('created_at', 'desc')->get();
         return view('admin.dashboard', compact('latest'));
     })->name('admin.dashboard');
 

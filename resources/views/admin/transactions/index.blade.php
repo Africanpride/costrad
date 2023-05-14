@@ -8,12 +8,11 @@
             <!-- Jumbotron -->
             <div class="p-6 shadow  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
                 <div class="flex flex-row justify-between my-2">
-                    <h2 class="font-semibold text-3xl">Administrator Privileges</h2>
+                    <h2 class="font-semibold text-3xl">Financial Transactions</h2>
                 </div>
                 <div class="space-y-3">
                     <p class="max-w-2xl">
-                        These are members of <b>{{ config('app.name') }}</b> with Administrator Privileges in the
-                        organization. You may create new roles and permissions here.
+                        These are financial transactions of <b>{{ config('app.name') }}</b> .
                     </p>
                 </div>
 
@@ -47,10 +46,7 @@
                                             Invoice
                                         </th>
 
-                                        <th scope="col"
-                                            class="px-3  py-2  text-left text-[11px] leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400">
-                                            Date
-                                        </th>
+
                                         <th scope="col"
                                             class="px-3  py-2  text-left text-[11px] leading-4 font-medium  uppercase tracking-wider dark:text-secondary-400">
                                             Status
@@ -67,21 +63,21 @@
                                                 <td
                                                     class="px-3  py-2  whitespace-no-wrap text-sm leading-5 font-medium text-secondary-900 dark:text-white">
                                                     <div class="flex items-center">
-                                                        <div class="shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full"
-                                                                src="https://ui-avatars.com/api/?name=Kwame+Hughes&amp;color=1d4ed8&amp;background=dbeafe"
+                                                        <div class="shrink-0 h-12 w-12">
+                                                            <img class="h-12 w-12 rounded-full"
+                                                                src="{{ $transaction->institute->institute_logo }}"
                                                                 alt="User avatar">
                                                         </div>
                                                         <div class="ml-4">
                                                             <div
                                                                 class="text-sm leading-5 font-medium whitespace-nowrap">
-                                                                {{ __('Family Development Institute') }}
+                                                                {{ $transaction->institute->name }}
                                                             </div>
                                                             <div
                                                                 class="text-sm leading-5 text-secondary-500 dark:text-secondary-400 whitespace-nowrap">
                                                                 Registered <time
                                                                     datetime="{{ Auth::user()->created_at }}"
-                                                                    class="capitalize">{{ Auth::user()->created_at->diffForHumans() }}
+                                                                    class="capitalize">{{ $transaction->created_at->diffForHumans() }}
                                                                 </time>
                                                             </div>
                                                         </div>
@@ -92,8 +88,16 @@
                                                     <div class="flex items-center">
                                                         <div>
                                                             <div
-                                                                class="text-sm leading-5 font-medium whitespace-nowrap">
-                                                                {{ Auth::user()->full_name }}
+                                                                class="text-sm leading-5 font-medium whitespace-nowrap flex gap-x-2 justify-start items-center">
+                                                                <svg class="w-4 h-4 text-green-500"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 20 20" fill="currentColor"
+                                                                    aria-hidden="true">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                                        clip-rule="evenodd"></path>
+                                                                </svg>
+                                                                <span> {{ $transaction->participant->full_name }}</span>
                                                             </div>
                                                             <div
                                                                 class="text-sm leading-5 text-secondary-500 dark:text-secondary-400 whitespace-nowrap">
@@ -106,15 +110,9 @@
                                                 <td
                                                     class="px-3  py-2  text-sm leading-5 text-secondary-500 dark:text-secondary-400">
                                                     <div class="flex items-center">
-                                                        <svg class="w-5 h-5 text-green-500"
-                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                            fill="currentColor" aria-hidden="true">
-                                                            <path fill-rule="evenodd"
-                                                                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                clip-rule="evenodd"></path>
-                                                        </svg>
+
                                                         <span
-                                                            class="ml-1.5 whitespace-no-wrap ">hjhjgjhgyfdrsppipoioiouitgb45</span>
+                                                            class="ml-1.5 whitespace-no-wrap ">{{ $transaction->reference }}</span>
                                                     </div>
                                                 </td>
                                                 <td
@@ -127,10 +125,6 @@
                                                     56236987
                                                 </td>
 
-                                                <td
-                                                    class="hidden md:table-cell px-3  py-2  whitespace-no-wrap text-sm leading-5 text-secondary-500 dark:text-secondary-400 text-left">
-                                                    May 3, 2023
-                                                </td>
                                                 <td
                                                     class="hidden md:table-cell px-3  py-2  whitespace-no-wrap text-sm leading-5 text-secondary-500 dark:text-secondary-400 text-left">
                                                     <div

@@ -1,4 +1,4 @@
-<div class="absolute bottom-2 w-full flex justify-between items-center gap-4 overflow-hidden px-5">
+<div class="absolute w-full flex justify-between items-center gap-4 overflow-hidden px-5">
 <div class="hs-tooltip inline-block">
     <button type="button" class="hs-tooltip-toggle"  data-hs-overlay="#setting-modal">
         <x-heroicon-o-cog-8-tooth

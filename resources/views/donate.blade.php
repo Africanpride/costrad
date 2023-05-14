@@ -94,8 +94,10 @@
                                         <h3 class="mb-2 text-xl font-bold text-gray-800 dark:text-gray-200">
                                             Donation
                                         </h3>
-                                        <p class="text-gray-500">
-                                            Get notified of activity at Preline
+                                        <p class="text-gray-500 text-[10px]">
+                                            We do not store any credit card information on the server. 100% secure payments are processed by PayStack and PayPal. This site is secured by SSL encryption.
+
+
                                         </p>
                                     </div>
                                     <div x-data="{ toggle: false }">
@@ -234,12 +236,8 @@ value="{{ Auth::user()->email }}" @endauth
                         class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-firefly-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
                         data-hs-overlay="#trigger-donation">
                         Click Here To Donate
-                        <svg class="w-2.5 h-auto" width="17" height="16" viewBox="0 0 17 16" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M1 7C0.447715 7 -3.73832e-07 7.44771 -3.49691e-07 8C-3.2555e-07 8.55228 0.447715 9 1 9L13.0858 9L7.79289 14.2929C7.40237 14.6834 7.40237 15.3166 7.79289 15.7071C8.18342 16.0976 8.81658 16.0976 9.20711 15.7071L16.0303 8.88388C16.5185 8.39573 16.5185 7.60427 16.0303 7.11612L9.20711 0.292893C8.81658 -0.0976318 8.18342 -0.0976318 7.79289 0.292893C7.40237 0.683417 7.40237 1.31658 7.79289 1.70711L13.0858 7L1 7Z"
-                                fill="currentColor" />
-                        </svg>
+                        <x-lucide-arrow-right-circle class="w-6 h-6 text-current pl-2" />
+
                     </button>
 
                     <button type="button"
@@ -297,7 +295,7 @@ value="{{ Auth::user()->email }}" @endauth
                             <span class="font-bold">4.6</span> /5 - from 12k reviews
                         </p>
 
-                        <div class="mt-5">
+                        <div class="mt-5 hidden">
                             <!-- Star -->
                             <svg class="h-auto w-16 text-gray-800 dark:text-white" width="80" height="27"
                                 viewBox="0 0 80 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -325,7 +323,7 @@ value="{{ Auth::user()->email }}" @endauth
 
                     <!-- Review -->
                     <div class="py-5">
-                        <div class="flex space-x-1">
+                        <div class="space-x-1 hidden">
                             <svg class="h-4 w-4 text-gray-800 dark:text-gray-200" width="51" height="51"
                                 viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -361,11 +359,11 @@ value="{{ Auth::user()->email }}" @endauth
                             </svg>
                         </div>
 
-                        <p class="mt-3 text-sm text-gray-800 dark:text-gray-200">
-                            <span class="font-bold">4.8</span> /5 - from 5k reviews
+                        <p class="mt-3 text-sm text-gray-800 dark:text-gray-200 hidden">
+                            <span class="font-bold">4.8</span> /5 - from 5k+ Participant
                         </p>
 
-                        <div class="mt-5">
+                        <div class="mt-5 hidden">
                             <!-- Star -->
                             <svg class="h-auto w-16 text-gray-800 dark:text-white" width="110" height="28"
                                 viewBox="0 0 110 28" fill="none" xmlns="http://www.w3.org/2000/svg">
