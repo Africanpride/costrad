@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Expression;
 use Illuminate\Validation\Rules\Password;
-use Illuminate\Support\Arr;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function register()
     {
         //
@@ -27,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Password::defaults(function () {
             return Password::min(10)
                            ->mixedCase()

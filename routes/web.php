@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Newsroom;
 use App\Models\Institute;
+use App\Models\Transaction;
 use Illuminate\Support\HtmlString;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
@@ -213,14 +214,17 @@ Route::get('nations', function () {
         return null;
     }
 
-    return $upcomingInstitute;
+    return $upcomingInstitute->name;
 
     // return Institute::count();
 })->name('nations');
 
-Route::get('time', function () {
-    $date = Carbon::parse('2023-05-06T00:47:42.000Z')->toDateTimeString();
-    // $timestamp = $date->toDateTimeString();
 
-    return $date; // Output: 2023-05-05 20:47:42
+Route::get('test', function () {
+    $latest = Transaction::latest()->first();
+    $latestAmount = 'GHS ' . number_format($latest->amount / 100, 2, '.', ',');
+    // dd($latest->amount);
+
+
+return view('test', compact('latestAmount'));
 });

@@ -1,6 +1,6 @@
 <div>
 
-    <div class="text-sm flex items-center justify-between w-full hidden">
+    <div class="text-sm flex items-center justify-between w-full ">
         <span class="font-semibold">Faculty Members ({{ App\Models\User::faculty()->count() }})</span>
         <a href="#" class="text-accent-400 font-medium text-sm">View all</a>
     </div>

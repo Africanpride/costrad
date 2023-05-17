@@ -37,7 +37,7 @@
                            <span class="px-1"> {{ $news->category->title }}</span>
                         </div>
                         <div class="container grid grid-cols-12 mx-auto ">
-                            <div class="relative grid place-items-center bg-no-repeat bg-cover  bg-gray-700 col-span-full md:col-span-3 md:rounded-l-xl  "
+                            <a href="{{ route('news.show', $news ) }}" class="relative grid place-items-center bg-no-repeat bg-cover  bg-gray-700 col-span-full md:col-span-3 md:rounded-l-xl  "
                                 style="background-image: url('{{ ($news->getFirstMediaUrl('featured_image')) ? $news->getFirstMediaUrl('featured_image') : $news->featured_image }}'); background-position: center center; background-blend-mode: multiply; background-size: cover;">
                                 {{-- <img class="md:w-22 md:p-6 p-24 aspect-square relative rounded-full" src="{{ $news->featured_image }}"
                                 alt="{{ $news->title }}"> --}}
@@ -45,7 +45,7 @@
                                     onclick="Livewire.emit('openModal', 'admin.newsroom.update-images', {{ json_encode([$news->slug]) }})">
                                     <x-lucide-image-plus class="w-4 h-4 text-firefly-500" />
                                 </span> --}}
-                            </div>
+                            </a>
 
                             <div
                                 class="flex flex-col justify-between p-4 pt-6 pb-4 pl-8 md:col-span-9 col-span-12 space-y-2 rounded-r-xl relative ">

@@ -13,11 +13,15 @@ module.exports = {
     darkMode: 'class',
     theme: {
         extend: {
+            backgroundImage:{
+                'hero-pattern': 'url( /public/images/main/hero-pattern.svg)',
+                'hero-pattern-dark': 'url( /public/images/main/hero-pattern-dark.svg)'
+              },
             fontFamily: {
                 sans: ['Open Sans', 'source sans pro', 'montserrat', 'inter', 'anton', ...defaultTheme.fontFamily.sans],
             },
             fontSize: {
-                sm: ['13px', '20px'],
+                sm: ['12px', '20px'],
                 base: ['16px', '20px'],
                 lg: ['16px', '20px'],
                 xl: ['24px', '32px'],

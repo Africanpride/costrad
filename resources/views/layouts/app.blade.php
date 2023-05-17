@@ -31,7 +31,7 @@
 </head>
 
 <body
-    class="bg-gray-100 dark:bg-gray-900/30 grid md:grid-cols-12 scrollbar-thin
+    class="bg-gray-100 dark:bg-black grid md:grid-cols-12 scrollbar-thin
 scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-y-scroll ">
     <div class="md:col-span-2 w-full relative">
         <livewire:cookie />
@@ -43,7 +43,7 @@ scrollbar-thumb-firefly-800 scrollbar-track-gray-300 overflow-x-hidden overflow-
     <div class="md:col-span-10 w-full overflow-x-hidden">
 
         <!-- Content -->
-        <div class="bg-gray-50 dark:bg-gray-900 w-full ">
+        <div class="bg-gray-50 dark:bg-black w-full pr-2">
             <!-- ========== HEADER ========== -->
             <livewire:layout.header />
             <!-- Sidebar Toggle -->

@@ -171,7 +171,7 @@
                         <a class="group block" href="{{ route('news.show', [$article]) }}">
                             <div
                                 class="flex-shrink-0 relative w-full rounded-xl overflow-hidden h-[200px] before:absolute before:inset-x-0 before:w-full before:h-full before:bg-gradient-to-t before:from-gray-900/[.7] before:z-[1]">
-                                <img class="w-full h-full absolute top-0 left-0 object-cover"
+                                <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out w-full h-full absolute top-0 left-0 object-cover rounded-xl"
                                     src="{{ $article->getFirstMediaUrl('featured_image') ? $article->getFirstMediaUrl('featured_image') : $article->featured_image }}&auto=format&fit=crop&w=1062&q=80"
                                     alt="{{ $article->title }}">
                             </div>

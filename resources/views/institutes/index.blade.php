@@ -10,8 +10,8 @@
 
                     <x-slot name="paragraph">
 
-                        The College of Sustainable Transformation and Development (<a href="{{ url('costrad') }}"
-                            class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>)
+                        The College of Sustainable Transformation and Development <a href="{{ url('costrad') }}"
+                            class=" bg-clip-text bg-gradient-to-l from-firefly-600 to-violet-500 text-transparent dark:from-firefly-400 dark:to-violet-400 font-bold">COSTrAD</a>
                         is an initiative of the Logos-Rhema Foundation for Leadership Resource Development, a
                         Non-Governmental Foundation registered in Ghana.
 
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <section class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mb-2 ">
+        <section class="lg:max-w-screen-xl mx-auto py-6 sm:max-w-xl">
             <!-- Announcement Banner -->
             <div class="bg-gradient-to-r from-firefly-700 to-firefly-500 ">
                 <div class="max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 mx-auto">
@@ -79,7 +79,7 @@
             </div>
         </section>
         <section class="">
-            <div class="px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+            <div class="lg:max-w-screen-xl lg:py-6 mx-auto py-4 sm:max-w-xl">
                 <div class="grid gap-8 md:grid-cols-2">
                     @forelse ($institutes as $institute)
                         <div
@@ -143,8 +143,6 @@
                 </div>
             </div>
         </section>
-
-
 
 
         <div

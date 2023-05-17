@@ -118,6 +118,8 @@ class PaymentController extends Controller
             // run logic for Donation payment
             // redirect to institute frontpage url
             $donation = new Donations;
+            $donation->amount = $paymentDetails['data']['amount'];
+            $donation->fees = $paymentDetails['data']['fees'];
             $donation->ip_address = $paymentDetails['data']['ip_address'];
             $donation->donor_email = $paymentDetails['data']['customer']['email'];
             $donation->donor_name = $paymentDetails['data']['metadata']['name'];

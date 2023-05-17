@@ -41,7 +41,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\CheckUserActive::class,
             \App\Http\Middleware\Banned::class,
             \App\Http\Middleware\DetectMobile::class,
-
+            \App\Http\Middleware\DetectDarkMode::class,
 
         ],
 

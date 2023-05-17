@@ -33,6 +33,12 @@ class Transaction extends Model
     {
         return 'id';
     }
+    public static function latestFormattedAmount(): string
+    {
+        $latest = self::latest()->first();
+        return 'GHS ' . number_format($latest->amount / 100, 2, '.', ',');
+    }
+
 
     protected $hidden = ['authorization_code'];
 

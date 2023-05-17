@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="mt-4 grid grid-cols-12 gap-4 px-4 pr-6 md:px-8 ">
+    <div class="gap-4 grid grid-cols-12 p-4">
 
         <div class="col-span-12 md:col-span-9  xl:col-span-8 space-y-4">
             <livewire:admin.welcome-faculty />
@@ -178,7 +178,6 @@
 
 
             </div>
-
         </div>
 
 
@@ -186,7 +185,7 @@
         <div class="col-span-12 md:col-span-3  xl:col-span-4 space-y-4">
 
             <div class="space-y-4">
-                <div class="rounded-lg bg-gray-200 dark:bg-gray-900 p-4 text-firefly-8 00 dark:text-white space-y-3">
+                {{-- <div class="rounded-lg bg-gray-200 dark:bg-gray-900 p-4 text-firefly-8 00 dark:text-white space-y-3">
 
                     <div class="flex justify-between items-center">
                         <div>Latest Member</div>
@@ -246,7 +245,7 @@
                             <span class="text-xs text-slate-400 dark:text-navy-300">3rd January 2021</span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <livewire:admin.appointment-overview />
                 <livewire:admin.mini-calender />
 

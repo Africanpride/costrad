@@ -1,4 +1,4 @@
-<div class="w-full h-auto rounded-lg bg-gray-200 dark:bg-gray-900 text-firefly-8 00 dark:text-white mt-4">
+<div class="w-full h-auto rounded-lg bg-gray-200 dark:bg-gray-900 text-firefly-8 00 dark:text-white">
 
         <div class="p-4 h-full space-y-4">
             <div class="flex justify-between items-center">

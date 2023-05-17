@@ -42,11 +42,11 @@
         <div class="max-w-7xl mx-auto space-y-6 ">
             <div class="block md:flex md:space-x-2  lg:p-0">
                 <a class="mb-2 md:mb-0 w-full md:w-2/3 relative rounded-2xl inline-block" style="height: 24em;"
-                    href="{{ route('news.show', [$firstLatest]) }}" target="_blank">
-                    <div class="absolute left-0 bottom-0 w-full h-full z-10"
+                    href="{{ route('news.show', [$firstLatest]) }}" >
+                    <div class="absolute left-0 bottom-0 w-full h-full z-10 rounded-xl"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
                     <img src="{{ $firstLatest->getFirstMediaUrl('featured_image') ? $firstLatest->getFirstMediaUrl('featured_image') : $firstLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
-                        class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover">
+                        class="absolute left-0 top-0 w-full h-full  z-0 object-cover rounded-xl">
                     <div class="p-4 absolute bottom-0 left-0 z-20">
                         <span
                             class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ $firstLatest->category->title }}</span>
@@ -68,10 +68,10 @@
 
                 <a class="w-full md:w-1/3 relative rounded" style="height: 24em;"
                     href="{{ route('news.show', $secondLatest) }}">
-                    <div class="absolute left-0 top-0 w-full h-full z-10"
+                    <div class="absolute left-0 top-0 w-full h-full z-10  rounded-xl"
                         style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
                     <img src="{{ $secondLatest->getFirstMediaUrl('featured_image') ? $secondLatest->getFirstMediaUrl('featured_image') : $secondLatest->featured_image }}&auto=format&fit=crop&w=900&q=60"
-                        class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover">
+                        class="absolute left-0 top-0 w-full h-full  z-0 object-cover rounded-xl">
                     <div class="p-4 absolute bottom-0 left-0 z-20">
                         <span
                             class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{ $secondLatest->category->title }}</span>

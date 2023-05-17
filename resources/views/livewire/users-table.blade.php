@@ -60,7 +60,7 @@
     </div>
 
 
-    <table class="min-w-full border-white rounded-md dark:border-secondary-900">
+    <table class="min-w-full border-white rounded-md dark:border-secondary-900 dark:text-white dark:bg-gray-800 p-2">
         <thead>
             <tr
                 class=" bg-gray-200 dark:border-secondary-900 dark:bg-secondary-900 text-secondary-900  dark:text-secondary-400">
@@ -201,7 +201,7 @@
 
 
     </table>
-    <div class="pt-20">
+    <div class="pt-20 ">
         {!! $users->links('pagination') !!}
     </div>
 

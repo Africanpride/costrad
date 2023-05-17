@@ -1,9 +1,9 @@
 <x-app-layout>
 
 
-<livewire:admin.admin-dashboard-content />
+<livewire:admin.admin-dashboard />
 
 
-    </x-app-layout>
+ </x-app-layout>
 
 

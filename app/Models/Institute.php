@@ -59,7 +59,8 @@ class Institute extends Model implements HasMedia
         'progress',
         'duration',
         'featured_image',
-        'local_currency'
+        'local_currency',
+
     ];
 
     public static function getExchangeRate()
@@ -154,6 +155,7 @@ class Institute extends Model implements HasMedia
         return 0;
 
     }
+
 
     public function features(): HasMany
     {
