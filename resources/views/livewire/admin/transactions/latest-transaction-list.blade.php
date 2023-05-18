@@ -1,4 +1,4 @@
-<div class="bg-white col-span-3 overflow-hidden p-4 relative rounded-xl shadow-lg w-full ">
+<div class="bg-white col-span-12 md:col-span-6 overflow-hidden p-4 relative rounded-xl shadow-lg w-full ">
     <a href="#" class="w-full h-full block">
         <div class="flex items-center border-b-2 mb-2 py-2">
             <img class='w-10 h-10 object-cover rounded-full' alt='User avatar' src='https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200'>
