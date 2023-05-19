@@ -6,10 +6,12 @@ use Carbon\Carbon;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\Institute;
+use App\Models\Transaction;
 
 class AdminDashboard extends Component
 {
-    public function pastInstitutes() {
+    public function pastInstitutes()
+    {
         $institutes = Institute::all();
         $totalInstitutes = count($institutes);
         $now = Carbon::now();
@@ -23,11 +25,12 @@ class AdminDashboard extends Component
 
         return $pastInstitutes->count();
     }
-    public function nextInstitute() {
+    public function nextInstitute()
+    {
         $upcomingInstitute = Institute::where('startDate', '>', now())
             ->orderBy('startDate', 'asc')
             ->first();
-return $upcomingInstitute;
+        return $upcomingInstitute;
     }
 
     public function InstitutePercentage()
@@ -50,6 +53,7 @@ return $upcomingInstitute;
         $nextInstitute = $this->nextInstitute();
         $totalUsers = User::count();
         $institutes = Institute::all();
-        return view('livewire.admin.admin-dashboard', compact('totalUsers', 'institutes','nextInstitute'));
+        $nextInstituteTable = Transaction::whereInstituteId($nextInstitute->id)->get();
+        return view('livewire.admin.admin-dashboard', compact('totalUsers', 'institutes', 'nextInstitute','nextInstituteTable'));
     }
 }

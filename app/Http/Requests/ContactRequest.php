@@ -22,15 +22,34 @@ class ContactRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
+
     public function rules()
     {
-
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'message' => ['required', 'string', 'min:3', 'max:2055'],
-            // 'g-recaptcha-response' => ['required', new Recaptcha()],
-            'g-recaptcha-score' => ['required', new Recaptcha()],
+            'name' => 'required|string|min:3|max:255',
+            'email' => 'required|email|min:3|max:255',
+            'email' => 'required|string|min:3|max:2055',
+            'g-recaptcha-response' => 'required|boolean',
+            'g-recaptcha-score' => 'required',
         ];
+    }
+
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'g-recaptcha-response' => $this->toBoolean($this->input('g-recaptcha-response')),
+        ]);
+    }
+
+    /**
+     * Convert to boolean
+     *
+     * @param $booleable
+     * @return boolean
+     */
+    private function toBoolean($booleable)
+    {
+        return filter_var($booleable, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
     }
 }

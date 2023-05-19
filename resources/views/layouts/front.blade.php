@@ -34,7 +34,6 @@
 
     <!-- Required Meta Tags Always Come First -->
     @stack('scripts')
-
 </head>
 
 <body

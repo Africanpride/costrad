@@ -5,7 +5,7 @@
     <!-- component -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.2.2/cdn.js" defer></script>
 <div class="p-8">
-    {{ $latestAmount }}
+    {{ $latestAmount }} <a href="{{ url('contact') }}"> Back</a>
 </div>
     {{-- <style>
         .container {

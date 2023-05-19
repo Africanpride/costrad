@@ -16,7 +16,8 @@ class ContactController extends Controller
     public function __invoke(ContactRequest $request)
     {
         //
+        app('flasher')->addSuccess('Message Submitted Successfully.', 'Success');
 
-        dd($request->all());
+        return view('contact');
     }
 }

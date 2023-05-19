@@ -61,7 +61,7 @@
 
                     <!-- Card -->
                     <a class="group flex flex-col bg-white border border-gray-400/40 shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
-                    href="https://wa.me/+233504700700?text=COSTrAD%20contact!" target="_blank" >
+                        href="https://wa.me/+233504700700?text=COSTrAD%20contact!" target="_blank">
                         <div class="p-4 md:p-5">
                             <div class="flex">
                                 <svg class="w-5 h-5" width="100px" height="100px" viewBox="0 0 24.00 24.00"
@@ -93,7 +93,7 @@
 
                     <!-- Card -->
                     <a class="group flex flex-col bg-white border border-gray-400/40 shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800"
-                        href="{{  url('help') }}">
+                        href="{{ url('help') }}">
                         <div class="p-4 md:p-5">
                             <div class="flex">
                                 <svg class="mt-1 shrink-0 w-5 h-5 text-gray-800 dark:text-gray-200"
@@ -158,7 +158,8 @@
                         <div class="text-white lg:w-1/2 lg:mx-6 space-y-6">
                             <!-- Grid -->
                             <div class="w-auto flex justify-center text-center p-8">
-                                <img class="w-3/5" src="{{ asset('images/main/mail.png') }}" alt="Donate to costrad via cheque">
+                                <img class="w-3/5" src="{{ asset('images/main/mail.png') }}"
+                                    alt="Donate to costrad via cheque">
                             </div>
                             <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
 
@@ -297,6 +298,80 @@
                                     @enderror
                                 </div>
 
+                                @guest
+
+                                <form method="POST" action="{{ route('contact-form') }}" id="contactForm"
+                                accept-charset="UTF-8" class="form-horizontal space-y-4"
+                                        enctype="multipart/form-data">
+                                        @csrf
+
+
+
+                                        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                                        <input type="hidden" name="g-recaptcha-score" id="g-recaptcha-score">
+
+                                        <div class="grid grid-cols-2 gap-x-2">
+                                            <div>
+                                                <div class="">
+                                                    <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full
+                                                        Name</label>
+
+                                                    <input name="name" value="{{ old('name') }}" type="text"
+                                                        placeholder="Dr. Kwame Prince"
+                                                        class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring" />
+                                                </div>
+                                                <div class="flex justify-start items-center gap-x-2">
+                                                    @error('name')
+                                                        <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
+
+                                                        <span class="text-red-500">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <div class="">
+                                                    <label
+                                                        class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email
+                                                        address</label>
+                                                    <input name="email" value="{{ old('email') }}" type="email"
+                                                        placeholder="kwame.prince@costrad.org"
+                                                        class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring" />
+                                                </div>
+                                                <div class="flex justify-start items-center gap-x-2">
+                                                    @error('email')
+                                                        <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
+
+                                                        <span class="text-red-500">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="w-full mt-6">
+                                            <label
+                                                class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
+                                            <div class="flex justify-start items-center gap-x-2">
+                                                @error('message')
+                                                    <x-lucide-check-circle-2 class="text-red-500 h-4 w-4" />
+
+                                                    <span class="text-red-500">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <textarea name="message" value="{{ old('message') }}"
+                                                class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring"
+                                                placeholder="Message">{{ old('message') }}</textarea>
+                                        </div>
+
+
+
+                                        <button type="submit"
+                                            class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-firefly-600 rounded-md hover:bg-firefly-500 focus:outline-none focus:ring focus:ring-firefly-400 focus:ring-opacity-50">
+                                            get in touch
+                                        </button>
+
+                                    </form>
+                                @else
 
                                 <form method="POST" action="{{ route('contact-form') }}" id="contactForm"
                                     accept-charset="UTF-8" class="form-horizontal space-y-4"
@@ -314,7 +389,7 @@
                                                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full
                                                     Name</label>
 
-                                                <input name="name" value="{{ old('name') }}" type="text"
+                                                <input name="name" value="{{  Auth::user()->full_name }}" type="text"
                                                     placeholder="Dr. Kwame Prince"
                                                     class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring" />
                                             </div>
@@ -332,7 +407,7 @@
                                                 <label
                                                     class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email
                                                     address</label>
-                                                <input name="email" value="{{ old('email') }}" type="email"
+                                                <input name="email" value="{{ Auth::user()->email }}" type="email"
                                                     placeholder="kwame.prince@costrad.org"
                                                     class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-firefly-400 focus:ring-firefly-300 focus:ring-opacity-40 dark:focus:border-firefly-300 focus:outline-none focus:ring" />
                                             </div>
@@ -370,6 +445,8 @@
 
                                 </form>
 
+                                @endauth
+
                             </div>
                         </div>
                     </div>
@@ -399,7 +476,7 @@
 
 
 
-    @push('head-script')
+    @push('scripts')
         <script>
             function callbackThen(response) {
                 response.json().then(function(data) {
@@ -422,6 +499,8 @@
             'callback_then' => 'callbackThen',
             'callback_catch' => 'callbackCatch',
         ]) !!}
+
+        {{-- 123456789 --}}
     @endpush
 
 </x-front-layout>
