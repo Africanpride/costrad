@@ -72,6 +72,9 @@ Route::get('news', function () {
     return view('news', compact('news', 'latest', 'firstLatest', 'secondLatest'));
 })->name('news');
 
+Route::get('myEnrolments', function () {
+    return view('myEnrolments');
+})->name('myEnrolments')->middleware('auth');
 
 Route::get('test3', function () {
     $roles = Role::paginate();
@@ -221,10 +224,9 @@ Route::get('nations', function () {
 
 
 Route::get('test', function () {
-    $latest = Transaction::latest()->first();
-    $latestAmount = 'GHS ' . number_format($latest->amount / 100, 2, '.', ',');
-    // dd($latest->amount);
-
-
-return view('test', compact('latestAmount'));
+    $transaction = Transaction::where('participant_id', Auth::user()->id)->where('institute_id', 5)->first();
+    dd($transaction);
+    if (now()->year === 2023) {
+        dd('yes');
+    }
 });

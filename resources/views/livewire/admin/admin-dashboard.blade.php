@@ -39,26 +39,26 @@
                 </div>
             </div>
             <div
-            class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
-            <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton'] ">
-                Total Transactions</div>
-            <div class="flex justify-between items-center">
-                <div class="capitalize flex-none text-lg font-semibold dark:text-white">
-                    <div class=" text-xl gap-x-2 ">
-                        <span class=" text-slate-700 dark:text-slate-200">
-                            {{ 'GHS ' . number_format(App\Models\Transaction::sum('amount') / 100, 2, '.', ',') }}
-                        </span>
+                class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+                <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton'] ">
+                    Total Transactions</div>
+                <div class="flex justify-between items-center">
+                    <div class="capitalize flex-none text-lg font-semibold dark:text-white">
+                        <div class=" text-xl gap-x-2 ">
+                            <span class=" text-slate-700 dark:text-slate-200">
+                                {{ 'GHS ' . number_format(App\Models\Transaction::sum('amount') / 100, 2, '.', ',') }}
+                            </span>
 
+                        </div>
+                    </div>
+                    <div>
+                        <x-lucide-banknote class="w-12 h-12 dark:text-firefly-500  text-firefly-500/80" />
                     </div>
                 </div>
-                <div>
-                    <x-lucide-banknote class="w-12 h-12 dark:text-firefly-500  text-firefly-500/80" />
+                <div class="text-sm tracking-tight">
+                    <span class="font-bold">Latest: {{ App\Models\Transaction::latestFormattedAmount() }}</span>
                 </div>
             </div>
-            <div class="text-sm tracking-tight">
-                <span class="font-bold">Latest: {{ App\Models\Transaction::latestFormattedAmount() }}</span>
-            </div>
-        </div>
 
         </div>
         <div class="col-span-full md:col-span-2">
@@ -259,21 +259,23 @@
                         </a>
                     </div>
                     <div class="items-center overflow-hidden pr-6 border-r border-gray-300/30">
-                        <img class="inline-block h-6 w-6 rounded-full text-white border-2 border-white object-cover object-center"
-                            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            alt="">
-                        <img class="-ml-2 inline-block h-6 w-6 rounded-full text-white border-2 border-white object-cover object-center"
-                            src="https://images.unsplash.com/photo-1510520434124-5bc7e642b61d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60"
-                            alt="">
-                        <img class="-ml-2 inline-block h-6 w-6 rounded-full text-white border-2 border-white object-cover object-center"
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
-                            alt="">
-                        <img class="-ml-2 inline-block h-6 w-6 rounded-full text-white border-2 border-white object-cover object-center"
-                            src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80"
-                            alt="">
-                        <img class="-ml-2 inline-block h-6 w-6 rounded-full text-white border-2 border-white object-cover object-center"
-                            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            alt="">
+                        <div class="flex items-center pl-2">
+                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80"
+                                alt="">
+                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80"
+                                alt="">
+                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1256&amp;q=80"
+                                alt="">
+                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80"
+                                alt="">
+                            <p
+                                class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
+                                +4</p>
+                        </div>
 
                     </div>
                     <div class="text-white text-sm capitalize">
@@ -296,60 +298,46 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
 
 
-    </div>
-
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-4 px-4 py-2">
-
-        {{-- <livewire:admin.transactions.latest-transaction-list /> --}}
-        <div class="md:col-span-12 rounded-2xl">
-            <div class="grid gap-4 grid-cols-1 ">
-                <div class="bg-white dark:bg-gray-950 dark:text-white rounded-2xl shadow py-4" id="chartline"></div>
-            </div>
-        </div>
-
-        <div class="md:col-span-12 rounded-2xl">
-
-            <div class="bg-white dark:bg-gray-950 dark:text-white shadow-lg" id="chartpie"></div>
-
-        </div>
     </div>
     <div class="grid md:grid-cols-3 gap-4 px-4 py-2 ">
         <div
-        class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
-        <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton']">Donations</div>
-        <div class="flex justify-between items-center">
-            <div class="capitalize flex-none text-lg font-semibold dark:text-white">
-                <div class=" text-xl gap-x-2 ">
-                    <span class=" text-slate-700 dark:text-slate-200">
-                        {{ 'GHS ' . number_format(App\Models\Donations::sum('amount') / 100, 2, '.', ',') }}
-                    </span>
+            class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+            <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton']">Donations</div>
+            <div class="flex justify-between items-center">
+                <div class="capitalize flex-none text-lg font-semibold dark:text-white">
+                    <div class=" text-xl gap-x-2 ">
+                        <span class=" text-slate-700 dark:text-slate-200">
+                            {{ 'GHS ' . number_format(App\Models\Donations::sum('amount') / 100, 2, '.', ',') }}
+                        </span>
 
+                    </div>
+                </div>
+                <div>
+                    <x-lucide-wallet class="w-12 h-12 dark:text-firefly-500  text-firefly-500/80" />
                 </div>
             </div>
-            <div>
-                <x-lucide-wallet class="w-12 h-12 dark:text-firefly-500  text-firefly-500/80" />
+            <div class="text-sm tracking-tight">
+                <span class="font-bold">Latest:
+                    {{ 'GHS ' . number_format(App\Models\Donations::all()->last()->amount / 100, 2, '.', ',') }}
+                </span>
             </div>
         </div>
-        <div class="text-sm tracking-tight">
-            <span class="font-bold">Latest:
-                {{ 'GHS ' . number_format(App\Models\Donations::all()->last()->amount / 100, 2, '.', ',') }}
-            </span>
-        </div>
-    </div>
         <div
-            class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+            class="relative  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+            <div class="absolute top-3 right-3 w-6 h-6 bg-firefly-300/50 text-firefly-900 font-bold rounded-full flex justify-center items-center text-[11px] dark:text-white">
+                {{ $this->totalsForMonth() }}
+            </div>
             <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton'] ">
                 Total For: {{ \Carbon\Carbon::parse(now())->format('M, Y') }}</div>
             <div class="flex justify-between items-center">
                 <div class="capitalize flex-none text-lg font-semibold dark:text-white">
                     <div class=" text-xl gap-x-2 ">
                         <span class=" text-slate-700 dark:text-slate-200">
-                            {{ 'GHS ' . number_format(App\Models\Transaction::sum('amount') / 100, 2, '.', ',') }}
+                            {{ 'GHS ' . number_format($this->totalAmountForMonth() / 100, 2, '.', ',') }}
                         </span>
 
                     </div>
@@ -394,6 +382,22 @@
             <div class="text-sm tracking-tight">
                 <div class=" font-bold">{{ $nextInstitute->duration }}, {{ now()->format('Y') }}</div>
             </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-4 px-4 py-2">
+
+        {{-- <livewire:admin.transactions.latest-transaction-list /> --}}
+        <div class="md:col-span-12 rounded-2xl">
+            <div class="grid gap-4 grid-cols-1 ">
+                <div class="bg-white dark:bg-gray-950 dark:text-white rounded-2xl shadow py-4" id="chartline"></div>
+            </div>
+        </div>
+
+        <div class="md:col-span-12 rounded-2xl">
+
+            <div class="bg-white dark:bg-gray-950 dark:text-white shadow-lg" id="chartpie"></div>
+
         </div>
     </div>
 

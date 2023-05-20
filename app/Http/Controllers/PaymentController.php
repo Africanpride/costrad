@@ -70,6 +70,8 @@ class PaymentController extends Controller
 
     public function redirectToGateway(Request $request)
     {
+        // check if User has already payed for institute.
+        $this->preventDuplicateInstituteTransaction($request->institute_id);
 
         try {
             $invoice = new Invoice();
@@ -129,9 +131,8 @@ class PaymentController extends Controller
             // Donation instance created. Redirect and thank you.
             app('flasher')->addSuccess('Thank you For your Kind Donation.', 'Success');
             return redirect()->route('home');
-
         } else {
-            // run logic for institute payment transaction.
+
             try {
 
                 if ($paymentDetails['status'] == true) {
@@ -169,5 +170,18 @@ class PaymentController extends Controller
         // Now you have the payment details,
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want
+    }
+
+    public function preventDuplicateInstituteTransaction($id)
+    {
+
+        $instituteDetails = Institute::whereId($id)->first();
+        $transaction = Transaction::where('participant_id', Auth::user()->id)->where('institute_id', $id)->first();
+
+        if (!is_null($transaction) && ($instituteDetails->created_at->year === $transaction->created_at->year)) {
+            app('flasher')->addWarning('You have already subscribed to this institute.', 'Duplicate Payment');
+
+            return Redirect::back()->withMessage(['duplicateInstitutePaymentError' => 'You have already subscribed to this institute.', 'type' => 'error']);
+        }
     }
 }

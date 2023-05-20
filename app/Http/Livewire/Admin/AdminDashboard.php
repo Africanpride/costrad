@@ -48,12 +48,27 @@ class AdminDashboard extends Component
         return $remainingPercentage = round(($remainingInstitutes->count() / $totalInstitutes) * 100, 2);
     }
 
+    public function totalsForMonth()
+    {
+        $month = Carbon::now()->month;
+        $year = Carbon::now()->year;
+        $totalTransactions = Transaction::whereMonth('created_at', $month)->whereYear('created_at', $year)->count();
+        return $totalTransactions;
+    }
+
+    public function totalAmountForMonth()
+    {
+        $month = Carbon::now()->month;
+        $year = Carbon::now()->year;
+        $totalAmount = Transaction::whereMonth('created_at', $month)->whereYear('created_at', $year)->sum('amount');
+        return $totalAmount;
+    }
     public function render()
     {
         $nextInstitute = $this->nextInstitute();
         $totalUsers = User::count();
         $institutes = Institute::all();
         $nextInstituteTable = Transaction::whereInstituteId($nextInstitute->id)->get();
-        return view('livewire.admin.admin-dashboard', compact('totalUsers', 'institutes', 'nextInstitute','nextInstituteTable'));
+        return view('livewire.admin.admin-dashboard', compact('totalUsers', 'institutes', 'nextInstitute', 'nextInstituteTable'));
     }
 }
