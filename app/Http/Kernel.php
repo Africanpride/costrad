@@ -76,6 +76,8 @@ class Kernel extends HttpKernel
         'setNewPassword' => \App\Http\Middleware\setNewPassword::class,
         'banned' => \App\Http\Middleware\Banned::class,
         'verifyWebhookIP' => \App\Http\Middleware\VerifyWebhookIP::class,
+        'preventduplicatetransaction' => \App\Http\Middleware\PreventDuplicateInstituteTransactionMiddleware::class,
+
 
     ];
 }

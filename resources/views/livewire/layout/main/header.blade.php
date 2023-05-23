@@ -10,8 +10,6 @@ md:backdrop-blur-none dark:bg-gray-900 text-sm  sticky top-0 inset-x-0  sm:justi
         </a>
 
         <div class="flex items-center gap-x-3 ml-auto md:pl-3 md:order-3">
-
-
             <div
                 class="pl-4 flex justify-between items-center gap-4   md:before:w-px md:before:h-4 before:bg-gray-300 dark:before:bg-gray-700">
                 <a class="pl-3" href="https://www.youtube.com/@costrad6590" target="_blank">

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-admin.pageheader model-name="Documentation" description="Application <br /> Documentation" add-button="false"
+    <x-admin.pageheader model-name="Documentation" description="Application Documentation" add-button="false"
         class="mx-4">
         <x-heroicon-o-question-mark-circle class="w-6 h-6 text-current" />
         </x-admin-pageheader>

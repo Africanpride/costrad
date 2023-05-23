@@ -2,7 +2,7 @@
 
     {{-- <x-admin.pageheader /> --}}
     <div class="grid md:grid-cols-12 gap-4 md:gap-2">
-        <div class=" col-span-12 md:col-span-3 md:border-r border-gray-200 dark:border-gray-700  md:h-screen ">
+        <div class=" col-span-12 md:col-span-3 md:border-r border-gray-200 dark:border-gray-700  md:h-full ">
             <nav class="flex flex-col " aria-label="Tabs" role="tablist">
 
                 <button
@@ -87,11 +87,13 @@
             <div id="basic-tabs-1" role="tabpanel" aria-labelledby="basic-tabs-item-1">
                 <div class="mx-auto w-full">
                     @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                        <x-admin.pageheader model-name="Profile " description="Update <br /> Profile Details"
+                        <x-admin.pageheader model-name="Profile " description="Profile Details"
                             add-button="false" class="mx-4">
                             <x-heroicon-o-user-circle class="w-5 h-5 text-current" />
                             </x-admin-pageheader>
+
                             @livewire('profile.update-profile-information-form')
+
 
                             {{-- <x-jet-section-border /> --}}
                     @endif
@@ -100,7 +102,7 @@
             <div id="basic-tabs-2" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-2">
                 <div class="mx-auto w-full relative">
                     @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                        <x-admin.pageheader model-name="Password " description="Update <br /> Password Details"
+                        <x-admin.pageheader model-name="Password " description="Password Details"
                             add-button="false" class="mx-4">
                             <x-heroicon-o-lock-closed class="w-5 h-5 text-current" />
                             </x-admin-pageheader>
@@ -114,7 +116,7 @@
             </div>
             <div id="basic-tabs-3" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-3">
                 @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                    <x-admin.pageheader model-name="Security " description="Multifactor <br /> Authentication"
+                    <x-admin.pageheader model-name="Security " description="Multifactor Authentication"
                         add-button="false" class="mx-4">
                         <x-heroicon-o-shield-check class="w-5 h-5 text-current" />
                         </x-admin-pageheader>
@@ -124,7 +126,7 @@
                 @endif
             </div>
             <div id="basic-tabs-4" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-4">
-                <x-admin.pageheader model-name="Sessions " description="Manage <br /> Sessions" add-button="false"
+                <x-admin.pageheader model-name="Sessions " description="Manage Sessions" add-button="false"
                     class="mx-4">
                     <x-heroicon-o-cpu-chip class="w-5 h-5 text-current" />
                     </x-admin-pageheader>
@@ -132,7 +134,7 @@
             </div>
             <div id="basic-tabs-5" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-5">
                 @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                    <x-admin.pageheader model-name="Deletion " description="Account <br /> Deletion" add-button="false"
+                    <x-admin.pageheader model-name="Account " description="Account Deletion" add-button="false"
                         class="mx-4">
                         <x-heroicon-o-trash class="w-5 h-5 text-current" />
                         </x-admin-pageheader>

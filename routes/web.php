@@ -32,7 +32,7 @@ Route::post('/donation', [App\Http\Controllers\PaymentController::class, 'donati
 
 Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])
     ->name('pay')
-    ->middleware('auth');
+    ->middleware('auth','preventduplicatetransaction');
 
 Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])
     ->name('payment')
@@ -42,7 +42,6 @@ Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 
 
 Route::view('test4', 'test4')->middleware('auth');
 Route::view('test5', 'test5');
-Route::view('test', 'test');
 Route::view('terms', 'terms');
 Route::view('help', 'help');
 Route::view('topics', 'topics');
@@ -224,9 +223,10 @@ Route::get('nations', function () {
 
 
 Route::get('test', function () {
-    $transaction = Transaction::where('participant_id', Auth::user()->id)->where('institute_id', 5)->first();
-    dd($transaction);
-    if (now()->year === 2023) {
-        dd('yes');
-    }
+
+    return view('test');
 });
+Route::get('test2', function () {
+
+    return view('test2');
+})->middleware('auth');

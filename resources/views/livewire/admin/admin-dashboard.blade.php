@@ -1,20 +1,9 @@
 <div>
     <div class="px-4 pb-2 pt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
 
-        {{-- <div>
-
-            <ul>
-                @foreach ($nextInstituteTable as $data)
-                <li>
-                    {{'GHS ' . number_format( $data->amount/100 , 2, '.', ',',) }}
-                </li>
-                @endforeach
-            </ul>
-        </div> --}}
-
         <div class="col-span-full md:col-span-1  space-y-4">
             <div
-                class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+                class="dark:border-gray-700/10  border-gray-500/10 rounded-2xl h-36 bg-firefly-100   dark:bg-gray-950 dark:text-white p-6   shadow flex flex-col justify-between  ">
                 <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton'] tracking-wider">
                     Institute
                     Details</div>
@@ -39,7 +28,7 @@
                 </div>
             </div>
             <div
-                class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+                class="dark:border-gray-700/10  border-gray-500/10 rounded-2xl h-36 bg-firefly-100   dark:bg-gray-950 dark:text-white p-6   shadow flex flex-col justify-between  ">
                 <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton'] ">
                     Total Transactions</div>
                 <div class="flex justify-between items-center">
@@ -64,7 +53,7 @@
         <div class="col-span-full md:col-span-2">
 
             <div
-                class="relative bg-indigo-700 shadow-lg rounded-lg p-5 overflow-hidden h-full flex flex-col justify-between ">
+                class="bg-indigo-800 flex flex-col h-full justify-between overflow-hidden p-6 relative rounded-2xl shadow-lg">
                 <!-- Illustration -->
                 <svg class="absolute top-0 right-0" width="158" height="119" aria-hidden="true">
                     <defs>
@@ -305,7 +294,7 @@
     </div>
     <div class="grid md:grid-cols-3 gap-4 px-4 py-2 ">
         <div
-            class="  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+            class="dark:border-gray-700/10  border-gray-500/10 rounded-2xl h-36 bg-firefly-100   dark:bg-gray-950 dark:text-white p-6   shadow flex flex-col justify-between  ">
             <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton']">Donations</div>
             <div class="flex justify-between items-center">
                 <div class="capitalize flex-none text-lg font-semibold dark:text-white">
@@ -327,7 +316,7 @@
             </div>
         </div>
         <div
-            class="relative  border dark:border-gray-700/10  border-gray-500/10 rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  ">
+            class="relativedark:border-gray-700/10  border-gray-500/10 rounded-2xl h-36 bg-firefly-100   dark:bg-gray-950 dark:text-white  p-6   shadow flex flex-col justify-between  ">
             <div class="absolute top-3 right-3 w-6 h-6 bg-firefly-300/50 text-firefly-900 font-bold rounded-full flex justify-center items-center text-[11px] dark:text-white">
                 {{ $this->totalsForMonth() }}
             </div>
@@ -347,12 +336,13 @@
                 </div>
             </div>
             <div class="text-sm tracking-tight">
-                <span class="font-bold">Latest: {{ App\Models\Transaction::latestFormattedAmount() }}</span>
+                <span class="font-bold">Monthly Transactions</span>
+                {{-- <span class="font-bold">Latest: {{ App\Models\Transaction::latestFormattedAmount() }}</span> --}}
             </div>
         </div>
 
         <div
-            class=" rounded-xl h-36 bg-white  dark:bg-gray-950 dark:text-white p-4  shadow flex flex-col justify-between  border dark:border-gray-700/10  border-gray-500/10">
+            class=" rounded-2xl h-36 bg-firefly-100   dark:bg-gray-950 dark:text-white  p-6   shadow flex flex-col justify-betweendark:border-gray-700/10  border-gray-500/10">
             <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton']">
                 <div class="flex justify-between items-center">
                     <div class="dark:text-white font-bold">

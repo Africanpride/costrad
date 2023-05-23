@@ -322,8 +322,7 @@ namespace App\Models{
  * @property string|null $title
  * @property string|null $gender
  * @property string|null $dateOfBirth
- * @property string|null $address_1
- * @property string|null $address_2
+ * @property string|null $address
  * @property string|null $city
  * @property string|null $state
  * @property string|null $zipcode
@@ -332,11 +331,9 @@ namespace App\Models{
  * @property string|null $emergencyContactName
  * @property string|null $emergencyContactTelephone
  * @property string|null $nationality
- * @property bool|null $active
  * @property string|null $bio
  * @property string|null $resume
  * @property string $user_id
- * @property bool|null $disabled
  * @property string|null $marital_status
  * @property string|null $avatar
  * @property int|null $lc_country_id
@@ -351,16 +348,13 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile query()
- * @method static \Illuminate\Database\Eloquent\Builder|Profile whereActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Profile whereAddress1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Profile whereAddress2($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereAvatar($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereBio($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCountry($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDateOfBirth($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDisabled($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereEmergencyContactName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereEmergencyContactTelephone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereGender($value)

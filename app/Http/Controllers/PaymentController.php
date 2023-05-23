@@ -18,6 +18,7 @@ use App\Payment; // Payment Model
 use Paystack; // Paystack package
 use Flasher\Prime\FlasherInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Livewire\InstituteDetails;
 use Flasher\Laravel\Facade\Flasher;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
@@ -70,8 +71,7 @@ class PaymentController extends Controller
 
     public function redirectToGateway(Request $request)
     {
-        // check if User has already payed for institute.
-        $this->preventDuplicateInstituteTransaction($request->institute_id);
+
 
         try {
             $invoice = new Invoice();
@@ -172,16 +172,31 @@ class PaymentController extends Controller
         // you can then redirect or do whatever you want
     }
 
-    public function preventDuplicateInstituteTransaction($id)
+
+    private static function preventDuplicateInstituteTransaction($id)
     {
+        $institute = Institute::find($id);
 
-        $instituteDetails = Institute::whereId($id)->first();
-        $transaction = Transaction::where('participant_id', Auth::user()->id)->where('institute_id', $id)->first();
-
-        if (!is_null($transaction) && ($instituteDetails->created_at->year === $transaction->created_at->year)) {
-            app('flasher')->addWarning('You have already subscribed to this institute.', 'Duplicate Payment');
-
-            return Redirect::back()->withMessage(['duplicateInstitutePaymentError' => 'You have already subscribed to this institute.', 'type' => 'error']);
+        if (!$institute) {
+            app('flasher')->addError('Institute not found.', 'Error');
+            return redirect()->back();
         }
+
+        $user = Auth::user();
+
+        if (!$user) {
+            app('flasher')->addError('User not authenticated.', 'Error');
+            return redirect()->back();
+        }
+
+        $transaction = Transaction::where('participant_id', $user->id)->where('institute_id', $id)->first();
+
+        if ($transaction && $institute->created_at->year == $transaction->created_at->year) {
+            app('flasher')->addWarning('You have already subscribed to this institute.', 'Duplicate Payment');
+            return redirect()->route('institute.show', $institute);
+        }
+
+        // Continue with the rest of your logic
     }
+
 }

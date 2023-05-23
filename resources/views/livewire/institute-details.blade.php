@@ -1,14 +1,13 @@
-<div class="space-y-4 pt-4">
-
-    <div x-data="{ showBanner: {{ $this->instituteAlreadyEnrolled() ? 'true' : 'false' }} }" x-show="showBanner" class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto text-center">
-
-        <!-- Announcement Banner -->
-        <a class="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 pl-4 rounded-full shadow-md"
-            href="{{ route('myEnrolments') }}">
-            <p class="mr-2 inline-block text-white text-sm">
-                You have Already Enrolled in <span class="gap-3  text-slate-900  tracking-tight dark:text-slate-50 ">
-                    <span>{{ $institute->name }}:</span>
-                    <span class="text-gradient1">
+<div x-data="{ showBanner: {{ $this->instituteAlreadyEnrolled() ? 'true' : 'false' }} }" x-show="showBanner" class="bg-gradient-to-r from-blue-500 to-violet-600">
+    <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="py-1.5 text-center md:text-left grid justify-center items-center gap-1.5 md:flex md:justify-between">
+            <p class="mr-2 inline-block text-xs sm:text-sm text-white">
+                You are Enrolled in <span class="capitalize">{{ $institute->name }}</span>
+            </p>
+            <div class="flex justify-center md:justify-start items-center gap-x-2.5">
+                <span
+                    class="py-1.5 px-1 inline-flex justify-center items-center gap-x-1.5 rounded-md font-semibold text-white/90 decoration-2    transition-all text-xs">
+                    <span>{{ $institute->name }}</span>: <span class="text-gradient-copilot">
                         @if ($institute->acronym == 'costrad')
                             (<span class=" tracking-wide">{{ __('COSTrAD') }}</span>)
                         @else
@@ -16,19 +15,17 @@
                         @endif
                     </span>
                 </span>
-            </p>
-            <span
-                class="group-hover:bg-white/[.1] py-2 px-3 inline-flex justify-center items-center gap-x-2 rounded-full bg-white/[.075] font-semibold text-white text-sm">
-                <svg class="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-            </span>
-        </a>
-        <!-- End Announcement Banner -->
-
+                <div class="inline-block h-3 border-r border-white/50"></div>
+                <a class="py-1.5 px-2.5 inline-flex justify-center items-center gap-x-1.5 rounded-md bg-white/10 font-semibold text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-violet-900 transition-all text-xs"
+                    href="{{ route('myEnrolments', $institute) }}">
+                    Visit My Enrollments
+                    <x-lucide-arrow-right class="w-3 h-3 text-current" />
+                </a>
+            </div>
+        </div>
     </div>
-
+</div>
+<div class="space-y-4 pt-4">
 
 
     <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
@@ -46,7 +43,8 @@
                             <h3 class="hidden md:flex  "> <span class="uppercase ">{{ $institute->acronym }}</span>
                                 : A Critical Mandate.
                             </h3>
-                            <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}</div>
+                            <div class="text-gradient__teal">{{ $institute->duration }}, {{ now()->format('Y') }}
+                            </div>
                         </div>
                         <div class="my-2 text-gray-800 dark:text-gray-200 text-xs md:text-justify">
 

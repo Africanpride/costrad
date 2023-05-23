@@ -21,9 +21,10 @@ class Profile extends Model
         'title',
         'gender',
         'dateOfBirth',
-        'address_1',
-        'address_2',
+        'marital_status',
+        'address',
         'city',
+        'country',
         'state',
         'zipcode',
         'country',
@@ -31,11 +32,8 @@ class Profile extends Model
         'emergencyContactName',
         'emergencyContactTelephone',
         'nationality',
-        'active',
         'bio',
-        'resume',
         'disabled',
-        'marital_status',
         'avatar'
     ];
 

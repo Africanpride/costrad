@@ -27,7 +27,7 @@
         @empty
             <div class="w-full flex flex-col  space-y-3">
                 <img class="h-16 w-16  rounded-full" src="{{ asset('/images/empty.png') }}" alt="Image Description">
-                {{-- <x-admin.nothing-here /> --}}
+
                 <div>No Role Added Yet</div>
             </div>
         @endforelse

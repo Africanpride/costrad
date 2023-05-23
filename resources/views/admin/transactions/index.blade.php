@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-admin.pageheader model-name="Transactions " description="Instititues &<br /> College" add-button="false"
+    <x-admin.pageheader model-name="Transactions " description="Transaction Details" add-button="false"
         class="mx-4">
         <x-heroicon-o-user-group class="w-5 h-5 text-current" />
     </x-admin-pageheader>
