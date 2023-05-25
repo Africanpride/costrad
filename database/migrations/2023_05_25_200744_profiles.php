@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('nationality')->nullable();
             $table->longText('bio')->nullable();
             $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
-            $table->boolean('disabled')->nullable();
+            $table->boolean('disabled')->default(false)->nullable();
             $table->string('avatar')->nullable();
             $table->integer('lc_country_id')->unsigned()->nullable();
             $table->timestamps();

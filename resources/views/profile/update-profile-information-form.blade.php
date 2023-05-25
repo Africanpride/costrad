@@ -25,11 +25,9 @@
 
                             <!-- Current Profile Photo -->
                             <div class="mt-2 relative" x-show="! photoPreview">
-                                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->firstName }}"
+                                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->full_name }}"
                                     class="rounded-full h-20 w-20 object-cover z-10"
                                     x-on:click.prevent="$refs.photo.click()">
-                                <x-lucide-image-plus
-                                    class="hidden w-4 h-4 text-firefly-500 dark:text-green-700 absolute bottom-0 right-1 cursor-pointer z-20" />
                             </div>
 
                             <!-- New Profile Photo Preview -->
@@ -42,7 +40,8 @@
 
                         <div class=" flex gap-2 justify-start items-center ">
                             <div class="grid grid-cols-2 gap-x-2">
-                                <x-jet-button class="mt-2 mr-2 text-[10px]" type="button" x-on:click.prevent="$refs.photo.click()">
+                                <x-jet-button class="mt-2 mr-2 text-[10px]" type="button"
+                                    x-on:click.prevent="$refs.photo.click()">
                                     {{ __('Select Photo') }}
                                 </x-jet-button>
                                 @if ($this->user->profile_photo_path)
@@ -51,39 +50,40 @@
                                         {{ __('Remove Photo') }}
                                     </x-jet-secondary-button>
                                 @endif
-
-
-                            </div>
-                            <div>
-
                             </div>
                         </div>
 
-                        <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                            <label for="disabled" class="flex p-2 md:p-4">
-                              <span class="flex mr-3">
-                                <svg class="flex-shrink-0 mt-1 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"></path>
-                                </svg>
-
-                                <span class="ml-5">
-                                  <span class="block font-medium text-gray-800 dark:text-gray-200">Disability Assistance</span>
-                                  <span class="block text-[10px] text-gray-500">Let us know if myou have any disability So we can better serve you.</span>
-                                </span>
-                              </span>
-
-                              <input type="checkbox" id="pricing-switch" class="relative shrink-0 w-[3.25rem] h-7 bg-gray-300 text-violet-900 checked:bg-none checked:bg-violet-900 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-violet-900 focus:ring-violet-900 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-violet-900 dark:focus:ring-offset-gray-800
-
-                              before:inline-block before:w-6 before:h-6 before:bg-white before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400" checked="">
-                            </label>
-                          </div>
 
                     </div>
                     <x-jet-input-error for="photo" class="mt-2" />
                 </div>
             @endif
 
-            <div class="grid grid-cols-4 gap-4">
+            <div class="block">
+
+                <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 w-full ">
+                    <label for="disabled" class="flex justify-between p-2 md:p-4">
+                        <span class="flex mr-3 ">
+                            <span>
+                                <x-lucide-accessibility class=" w-5 h-5 text-gray-500" />
+                            </span>
+                            <span class="ml-5">
+                                <span class="block font-medium text-gray-800 dark:text-gray-200">Disability
+                                    Assistance</span>
+                                <span class="block text-[12px] text-gray-500 w-10/12">
+                                    Let us know if you would requirean assistance regarding any disability. This is to enable us better serve
+                                    you.</span>
+                            </span>
+                        </span>
+
+                        <input type="checkbox" id="pricing-switch"
+                            class="relative shrink-0 w-[3.25rem] h-7 bg-gray-300 text-blue-900 checked:bg-none checked:bg-blue-900  rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-900 focus:ring-blue-900 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-900 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400"
+                            checked>
+                    </label>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-4">
                 <div>
                     <x-jet-label for="title" value="{{ __('Title') }}" />
                     <select id="title"
@@ -133,7 +133,7 @@
 
 
             </div>
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid md:grid-cols-3 gap-4">
                 <div class="">
                     <x-jet-label for="firstName" value="{{ __('First Name') }}" />
                     <x-jet-input id="firstName" type="text" class="mt-1 block w-full"
@@ -158,7 +158,7 @@
                 <div>
                     <x-jet-label for="address1" value="{{ __('Address') }}" />
                     <x-jet-input id="address1" type="text" class="mt-1 block w-full"
-                        wire:model.defer="state.address_1" autocomplete="address1" />
+                        wire:model.defer="state.address" autocomplete="address" />
                     <x-jet-input-error for="address1" class="mt-2" />
                 </div>
             </div>

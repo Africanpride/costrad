@@ -47,7 +47,7 @@
                 transform-origin="197.3228302001953px 35.034119606018066px"></path>
         </svg>
         <h2
-            class="mt-4 max-w-5xl text-slate-900 text-xl md:text-3xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
+            class="mt-4 max-w-5xl text-slate-900 text-xl md:text-5xl tracking-tight font-bold  font-['inter'] uppercase prominent-titles">
             ...doing the seemingly impossible.
         </h2>
         {{-- <h2

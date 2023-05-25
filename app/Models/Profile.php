@@ -77,7 +77,6 @@ class Profile extends Model
 
     protected $casts = [
         'disabled' => 'boolean',
-        'active' => 'boolean',
     ];
 
     protected $appends = [

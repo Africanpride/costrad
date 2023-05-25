@@ -41,7 +41,7 @@ Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 
 // end payment
 
 Route::view('test4', 'test4')->middleware('auth');
-Route::view('test5', 'test5');
+Route::view('test5', 'test5')->middleware('auth');
 Route::view('terms', 'terms');
 Route::view('help', 'help');
 Route::view('topics', 'topics');
@@ -227,6 +227,20 @@ Route::get('test', function () {
     return view('test');
 });
 Route::get('test2', function () {
+    $record = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+    ->where('created_at', '>', Carbon::today()->subDay(66))
+    ->groupBy('day_name','day')
+    ->orderBy('day')
+    ->get();
 
-    return view('test2');
+     $data = [];
+
+     foreach($record as $row) {
+        $data['label'][] = $row->day_name;
+        $data['data'][] = (int) $row->count;
+      }
+
+    $data['chart_data'] = json_encode($data);
+    return view('test2', $data);
+
 })->middleware('auth');

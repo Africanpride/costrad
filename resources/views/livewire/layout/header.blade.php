@@ -1,4 +1,5 @@
-<header
+<div>
+    <header
     class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap  z-10 w-full bg-white border-b text-sm py-2.5 sm:py-4 dark:bg-black dark:border-slate-800 ">
     <nav class="flex basis-full justify-between items-center w-full mx-auto px-4 sm:px-6 md:px-8" aria-label="Global">
         <div class="mr-5 md:mr-8">
@@ -187,7 +188,8 @@
         </div>
     </nav>
 </header>
-<!-- Announcement Banner -->
+<livewire:profile-percentage />
+
 @if (Auth::check() && Auth::user()->must_create_password)
     <div
         class="group block bg-gray-100 hover:bg-gray-200 p-4 rounded-md text-center transition-all duration-300 dark:bg-white/[.05] dark:hover:bg-white/[.075]">
@@ -203,6 +205,6 @@
         </div>
     </div>
 @endif
-<!-- End Announcement Banner -->
-<!-- End Announcement Banner -->
-<!-- End Announcement Banner -->
+
+
+</div>

@@ -1,185 +1,598 @@
 <x-app-layout>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <div class="p-6 grid md:grid-cols-2 gap-4">
 
 
-
-
-
-    <div class="p-8">
-        <!-- Card Section -->
-        <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <form>
-                <!-- Card -->
-                <div class="bg-white rounded-xl shadow dark:bg-slate-900">
-                    <div class="relative h-40 rounded-t-xl bg-no-repeat bg-cover bg-center"
-                        style="background-image: url('{{ asset('images/main/profile_banner.svg') }}')">
-                        <div class="absolute top-0 right-0 p-4">
-                            <button type="button"
-                                class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
-                                <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" viewBox="0 0 16 16">
-                                    <path
-                                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                    <path
-                                        d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
-                                </svg>
-                                Upload header
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6 p-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <x-jet-label for="firstName" value="{{ __('First Name') }}" />
-                                <x-jet-input id="firstName" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.firstName" autocomplete="firstName" />
-                                <x-jet-input-error for="firstName" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="lastName" value="{{ __('Last Name') }}" />
-                                <x-jet-input id="lastName" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.lastName" autocomplete="lastName" />
-                                <x-jet-input-error for="lastName" class="mt-2" />
-                            </div>
-
-                            <!-- Add more fields here -->
-                            <div>
-                                <x-jet-label for="title" value="{{ __('Title') }}" />
-                                <x-jet-input id="title" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.title" autocomplete="title" />
-                                <x-jet-input-error for="title" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="gender" value="{{ __('Gender') }}" />
-                                <x-jet-input id="gender" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.gender" autocomplete="gender" />
-                                <x-jet-input-error for="gender" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="dateOfBirth" value="{{ __('Date of Birth: DD/MM/YYYY') }}" />
-                                <x-jet-input id="dateOfBirth" type="text" placeholder="Date of Birth"
-                                class="mt-1 block w-full" datepicker  datepicker-autohide datepicker-format="dd/mm/yyyy" datepicker-title="Choose Date of Birth"
-                               wire:model.defer="state.dateOfBirth" autocomplete="dateOfBirth" />
-                            </div>
-
-
-                            <div>
-                                <x-jet-label for="address1" value="{{ __('Address 1') }}" />
-                                <x-jet-input id="address1" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.address_1" autocomplete="address1" />
-                                <x-jet-input-error for="address1" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="address2" value="{{ __('Address 2') }}" />
-                                <x-jet-input id="address2" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.address_2" autocomplete="address2" />
-                                <x-jet-input-error for="address2" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="city" value="{{ __('City') }}" />
-                                <x-jet-input id="city" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.city" autocomplete="city" />
-                                <x-jet-input-error for="city" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="state" value="{{ __('State') }}" />
-                                <x-jet-input id="state" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.state" autocomplete="state" />
-                                <x-jet-input-error for="state" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="zipcode" value="{{ __('Zip Code') }}" />
-                                <x-jet-input id="zipcode" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.zipcode" autocomplete="zipcode" />
-                                <x-jet-input-error for="zipcode" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="country" value="{{ __('Country') }}" />
-                                <x-jet-input id="country" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.country" autocomplete="country" />
-                                <x-jet-input-error for="country" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="telephone" value="{{ __('Telephone') }}" />
-                                <x-jet-input id="telephone" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.telephone" autocomplete="telephone" />
-                                <x-jet-input-error for="telephone" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="emergencyContactName" value="{{ __('Emergency Contact Name') }}" />
-                                <x-jet-input id="emergencyContactName" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.emergencyContactName"
-                                    autocomplete="emergencyContactName" />
-                                <x-jet-input-error for="emergencyContactName" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="emergencyContactTelephone"
-                                    value="{{ __('Emergency Contact Telephone') }}" />
-                                <x-jet-input id="emergencyContactTelephone" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.emergencyContactTelephone"
-                                    autocomplete="emergencyContactTelephone" />
-                                <x-jet-input-error for="emergencyContactTelephone" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="nationality" value="{{ __('Nationality') }}" />
-                                <x-jet-input id="nationality" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.nationality" autocomplete="nationality" />
-                                <x-jet-input-error for="nationality" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="active" value="{{ __('Active') }}" />
-                                <x-jet-input id="active" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.active" autocomplete="active" />
-                                <x-jet-input-error for="active" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="bio" value="{{ __('Bio') }}" />
-                                <x-jet-input id="bio" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.bio" autocomplete="bio" />
-                                <x-jet-input-error for="bio" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="resume" value="{{ __('Resume') }}" />
-                                <x-jet-input id="resume" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.resume" autocomplete="resume" />
-                                <x-jet-input-error for="resume" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="disabled" value="{{ __('Disabled') }}" />
-                                <x-jet-input id="disabled" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.disabled" autocomplete="disabled" />
-                                <x-jet-input-error for="disabled" class="mt-2" />
-                            </div>
-                            <div>
-                                <x-jet-label for="maritalStatus" value="{{ __('Marital Status') }}" />
-                                <x-jet-input id="maritalStatus" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.marital_status" autocomplete="maritalStatus" />
-                                <x-jet-input-error for="maritalStatus" class="mt-2" />
-                            </div>
-
-                            <div>
-                                <x-jet-label for="avatar" value="{{ __('Avatar') }}" />
-                                <x-jet-input id="avatar" type="text" class="mt-1 block w-full"
-                                    wire:model.defer="state.avatar" autocomplete="avatar" />
-                                <x-jet-input-error for="avatar" class="mt-2" />
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-md-5">
+                <div class="box shadow">
+                    <div id="bar"></div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box shadow">
+                    <div id="donutTop"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box shadow">
+                    <div id="radialBar1"></div>
+                </div>
+            </div>
 
-            </form>
-        </div>
 
+
+            {{-- <div class="col-md-6">
+                <div class="box body-bg">
+                    <div id="area-adwords" style="background: #fff" class="shadow"></div>
+                </div>
+            </div> --}}
+            <div class="col-md-5">
+                <div class="box shadow">
+                    <div id="radialBarBottom"></div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="box shadow">
+                    <div id="bubbleChart"></div>
+                </div>
+            </div>
     </div>
-
 </x-app-layout>
+
+<script>
+    window.Apex = {
+        dataLabels: {
+            enabled: false
+        }
+    };
+
+    var spark1 = {
+        chart: {
+            id: 'sparkline1',
+            type: 'line',
+            height: 140,
+            sparkline: {
+                enabled: true
+            },
+            group: 'sparklines'
+        },
+        series: [{
+            name: 'purple',
+            data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21]
+        }],
+        stroke: {
+            curve: 'smooth'
+        },
+        markers: {
+            size: 0
+        },
+        tooltip: {
+            fixed: {
+                enabled: true,
+                position: 'right'
+            },
+            x: {
+                show: false
+            }
+        },
+        title: {
+            text: '439',
+            style: {
+                fontSize: '26px'
+            }
+        },
+        colors: ['#734CEA']
+    }
+
+    var spark2 = {
+        chart: {
+            id: 'sparkline2',
+            type: 'line',
+            height: 140,
+            sparkline: {
+                enabled: true
+            },
+            group: 'sparklines'
+        },
+        series: [{
+            name: 'green',
+            data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69]
+        }],
+        stroke: {
+            curve: 'smooth'
+        },
+        markers: {
+            size: 0
+        },
+        tooltip: {
+            fixed: {
+                enabled: true,
+                position: 'right'
+            },
+            x: {
+                show: false
+            }
+        },
+        title: {
+            text: '387',
+            style: {
+                fontSize: '26px'
+            }
+        },
+        colors: ['#34bfa3']
+    }
+
+    var spark3 = {
+        chart: {
+            id: 'sparkline3',
+            type: 'line',
+            height: 140,
+            sparkline: {
+                enabled: true
+            },
+            group: 'sparklines'
+        },
+        series: [{
+            name: 'red',
+            data: [47, 45, 74, 32, 56, 31, 44, 33, 45, 19]
+        }],
+        stroke: {
+            curve: 'smooth'
+        },
+        markers: {
+            size: 0
+        },
+        tooltip: {
+            fixed: {
+                enabled: true,
+                position: 'right'
+            },
+            x: {
+                show: false
+            }
+        },
+        colors: ['#f4516c'],
+        title: {
+            text: '577',
+            style: {
+                fontSize: '26px'
+            }
+        },
+        xaxis: {
+            crosshairs: {
+                width: 1
+            },
+        }
+    }
+
+    var spark4 = {
+        chart: {
+            id: 'sparkline4',
+            type: 'line',
+            height: 140,
+            sparkline: {
+                enabled: true
+            },
+            group: 'sparklines'
+        },
+        series: [{
+            name: 'teal',
+            data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
+        }],
+        stroke: {
+            curve: 'smooth'
+        },
+        markers: {
+            size: 0
+        },
+        tooltip: {
+            fixed: {
+                enabled: true,
+                position: 'right'
+            },
+            x: {
+                show: false
+            }
+        },
+        colors: ['#00c5dc'],
+        title: {
+            text: '615',
+            style: {
+                fontSize: '26px'
+            }
+        },
+        xaxis: {
+            crosshairs: {
+                width: 1
+            },
+        }
+    }
+
+    new ApexCharts(document.querySelector("#spark1"), spark1).render();
+    new ApexCharts(document.querySelector("#spark2"), spark2).render();
+    new ApexCharts(document.querySelector("#spark3"), spark3).render();
+    new ApexCharts(document.querySelector("#spark4"), spark4).render();
+
+    var optionsBar = {
+        chart: {
+            type: 'bar',
+            height: 250,
+            width: '100%',
+            stacked: true,
+            foreColor: '#999',
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: false
+                },
+                columnWidth: '75%',
+                endingShape: 'rounded'
+            }
+        },
+        colors: ["#00C5A4", '#F3F2FC'],
+        series: [{
+            name: "Sessions",
+            data: [20, 16, 24, 28, 26, 22, 15, 5, 14, 16, 22, 29, 24, 19, 15, 10, 11, 15, 19, 23],
+        }, {
+            name: "Views",
+            data: [20, 16, 24, 28, 26, 22, 15, 5, 14, 16, 22, 29, 24, 19, 15, 10, 11, 15, 19, 23],
+        }],
+        labels: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 1, 2, 3, 4],
+        xaxis: {
+            axisBorder: {
+                show: false
+            },
+            axisTicks: {
+                show: false
+            },
+            crosshairs: {
+                show: false
+            },
+            labels: {
+                show: false,
+                style: {
+                    fontSize: '14px'
+                }
+            },
+        },
+        grid: {
+            xaxis: {
+                lines: {
+                    show: false
+                },
+            },
+            yaxis: {
+                lines: {
+                    show: false
+                },
+            }
+        },
+        yaxis: {
+            axisBorder: {
+                show: false
+            },
+            labels: {
+                show: false
+            },
+        },
+        legend: {
+            floating: true,
+            position: 'top',
+            horizontalAlign: 'right',
+            offsetY: -36
+        },
+        title: {
+            text: 'Web Statistics',
+            align: 'left',
+        },
+        subtitle: {
+            text: 'Sessions and Views'
+        },
+        tooltip: {
+            shared: true,
+            intersect: false
+        }
+
+    }
+
+    var chartBar = new ApexCharts(document.querySelector('#bar'), optionsBar);
+    chartBar.render();
+
+    var optionsCircle1 = {
+        chart: {
+            type: 'radialBar',
+            height: 266,
+            zoom: {
+                enabled: false
+            },
+            offsetY: 0
+        },
+        colors: ['#cc0099'],
+        plotOptions: {
+            radialBar: {
+                dataLabels: {
+                    name: {
+                        show: true
+                    },
+                    value: {
+                        offsetY: 0
+                    }
+                }
+            }
+        },
+        series: [65],
+        theme: {
+            monochrome: {
+                enabled: false
+            }
+        },
+        legend: {
+            show: false
+        },
+        title: {
+            text: 'Bounce Rate',
+            align: 'left'
+        }
+    }
+
+    var chartCircle1 = new ApexCharts(document.querySelector('#radialBar1'), optionsCircle1);
+    chartCircle1.render();
+
+
+    var optionsDonutTop = {
+        chart: {
+            height: 265,
+            type: 'donut',
+            offsetY: 20
+        },
+        plotOptions: {
+            pie: {
+                customScale: 0.86,
+                donut: {
+                    size: '72%',
+                },
+                dataLabels: {
+                    enabled: false
+                }
+            }
+        },
+        colors: ['#775DD0', '#00C8E1', '#FFB900'],
+        title: {
+            text: 'Visitors Source'
+        },
+        series: [2, 7, 5],
+        labels: ['Social Media', 'Blog', 'External'],
+        legend: {
+            show: false
+        }
+    }
+
+    var chartDonut2 = new ApexCharts(document.querySelector('#donutTop'), optionsDonutTop);
+    chartDonut2.render().then(function() {
+        // window.setInterval(function () {
+        //   chartDonut2.updateSeries([getRandom(), getRandom(), getRandom()])
+        // }, 1000)
+    });
+
+    var optionsArea = {
+        chart: {
+            height: 421,
+            type: 'area',
+            background: '#fff',
+            stacked: true,
+            offsetY: 39,
+            zoom: {
+                enabled: false
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: false
+                }
+            }
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        colors: ["#3F51B5", '#2196F3'],
+        series: [{
+                name: "Adwords Views",
+                data: [15, 26, 20, 33, 27, 43, 17, 26, 19]
+            },
+            {
+                name: "Adwords Clicks",
+                data: [33, 21, 42, 19, 32, 25, 36, 29, 49]
+            }
+        ],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                inverseColors: false,
+                shade: 'light',
+                type: "vertical",
+                opacityFrom: 0.9,
+                opacityTo: 0.6,
+                stops: [0, 100, 100, 100]
+            }
+        },
+        title: {
+            text: 'Visitor Insights',
+            align: 'left',
+            offsetY: -5,
+            offsetX: 20
+        },
+        subtitle: {
+            text: 'Adwords Statistics',
+            offsetY: 30,
+            offsetX: 20
+        },
+        markers: {
+            size: 0,
+            style: 'hollow',
+            strokeWidth: 8,
+            strokeColor: "#fff",
+            strokeOpacity: 0.25,
+        },
+        grid: {
+            show: false,
+            padding: {
+                left: 0,
+                right: 0
+            }
+        },
+        yaxis: {
+            show: false
+        },
+        labels: ['01/15/2002', '01/16/2002', '01/17/2002', '01/18/2002', '01/19/2002', '01/20/2002', '01/21/2002',
+            '01/22/2002', '01/23/2002'
+        ],
+        xaxis: {
+            type: 'datetime',
+            tooltip: {
+                enabled: false
+            }
+        },
+        legend: {
+            offsetY: -50,
+            position: 'top',
+            horizontalAlign: 'right'
+        }
+    }
+
+    var chartArea = new ApexCharts(document.querySelector('#area-adwords'), optionsArea);
+    chartArea.render();
+
+    var optionsCircle4 = {
+        chart: {
+            height: 314,
+            type: 'radialBar',
+        },
+        colors: ['#775DD0', '#00C8E1', '#FFB900'],
+        labels: ['q4'],
+        series: [71, 63, 77],
+        labels: ['June', 'May', 'April'],
+        theme: {
+            monochrome: {
+                enabled: false
+            }
+        },
+        plotOptions: {
+            radialBar: {
+                offsetY: -30
+            }
+        },
+        legend: {
+            show: true,
+            position: 'left',
+            containerMargin: {
+                right: 0
+            }
+        },
+        title: {
+            text: 'Growth'
+        }
+    }
+
+    var chartCircle4 = new ApexCharts(document.querySelector('#radialBarBottom'), optionsCircle4);
+    chartCircle4.render();
+
+    function generateData(baseval, count, yrange) {
+        var i = 0;
+        var series = [];
+        while (i < count) {
+            var x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;;
+            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+            var z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
+
+            series.push([x, y, z]);
+            baseval += 86400000;
+            i++;
+        }
+        return series;
+    }
+
+    function getRandom() {
+        return Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+    }
+
+
+    var options = {
+        chart: {
+            height: 294,
+            type: 'bubble',
+            sparkline: {
+                enabled: true
+            },
+        },
+        plotOptions: {
+            bubble: {
+                dataLabels: {
+                    enabled: false
+                }
+            }
+        },
+        colors: ["#734CEA", "#34bfa3", "#f4516c", "#00c5dc"],
+        series: [{
+                name: 'Facebook',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            },
+            {
+                name: 'Twitter',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            },
+            {
+                name: 'Youtube',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            },
+            {
+                name: 'LinkedIn',
+                data: generateData(new Date('11 Feb 2017 GMT').getTime(), 20, {
+                    min: 10,
+                    max: 60
+                })
+            }
+        ],
+        fill: {
+            opacity: 0.8,
+            gradient: {
+                enabled: false
+            }
+        },
+        title: {
+            text: 'Social Media Reach'
+        },
+        xaxis: {
+            tickAmount: 12,
+            type: 'category',
+            min: -50,
+            max: 850
+        },
+        yaxis: {
+            max: 70
+        }
+    }
+
+    var chart = new ApexCharts(
+        document.querySelector("#bubbleChart"),
+        options
+    );
+
+    // a small hack to extend height in website sample dashboard
+    chart.render().then(function() {
+        var ifr = document.querySelector("#wrapper");
+        if (ifr.contentDocument) {
+            ifr.style.height = ifr.contentDocument.body.scrollHeight + 20 + 'px';
+        }
+    });
+</script>

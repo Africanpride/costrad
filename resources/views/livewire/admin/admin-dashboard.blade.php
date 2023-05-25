@@ -10,7 +10,6 @@
                 <div class="flex justify-between items-center">
                     <div class="capitalize flex-none text-lg font-semibold dark:text-white">
                         <span class="text-2xl  ">
-                            {{-- <span class="text-slate-700">{{ $totalUsers }}</span> --}}
                             <span
                                 class=" text-slate-700 dark:text-slate-200">{{ $this->pastInstitutes() }}/{{ $institutes->count() }}<span
                                     class="text-2xl"></span> </span>
@@ -23,7 +22,7 @@
                 </div>
                 <div class="flex w-full h-2 bg-gray-300/50 rounded-full overflow-hidden dark:bg-gray-700">
                     <div class="flex overflow-hidden bg-firefly-700 dark:bg-firefly-500" role="progressbar"
-                        style="width: {{ ($this->pastInstitutes() / $institutes->count()) * 100 }}%" aria-valuenow="25"
+                        style="width: {{ ($this->pastInstitutes() / $institutes->count()) * 100 }}%" aria-valuenow="{{ ($this->pastInstitutes() / $institutes->count()) * 100 }}"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
@@ -311,7 +310,7 @@
             </div>
             <div class="text-sm tracking-tight">
                 <span class="font-bold">Latest:
-                    {{ 'GHS ' . number_format(App\Models\Donations::all()->last()->amount / 100, 2, '.', ',') }}
+                    {{ 'GHS ' . number_format(App\Models\Donations::all()->last()?->amount / 100, 2, '.', ',') ?? 'No Donations Yet' }}
                 </span>
             </div>
         </div>

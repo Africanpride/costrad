@@ -4,7 +4,6 @@
 @import "quill/dist/quill.snow.css";
 
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -116,6 +115,7 @@ html {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 .text-gradient1 {
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
