@@ -251,7 +251,7 @@
                         <button
                             class="mt-10 flex justify-center items-center w-full rounded-md bg-firefly-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-firefly-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-firefly-600 dark:bg-firefly-800 dark:hover:bg-firefly-700 dark:focus-visible:outline-firefly-800"
                             data-hs-overlay="#payment-invoice">
-                            <span>{{ 'Get Access!' }}</span>
+                            <span>{{ 'Enroll now!' }}</span>
                             <x-lucide-arrow-right-circle class="w-6 h-6 text-current pl-2" />
                         </button>
 

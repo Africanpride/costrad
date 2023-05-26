@@ -36,8 +36,15 @@ class Transaction extends Model
     public static function latestFormattedAmount(): string
     {
         $latest = self::latest()->first();
-        return 'GHS ' . number_format($latest->amount / 100, 2, '.', ',');
+
+        if ($latest) {
+            return 'GHS ' . number_format($latest->amount / 100, 2, '.', ',');
+        }
+
+        // Handle the case where no records are available
+        return 'No records found';
     }
+
 
 
     protected $hidden = ['authorization_code'];

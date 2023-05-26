@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         // $random_country = $countries[array_rand($countries)];
 
         $countries = Country::all();
+        $ghana = Country::where('international_phone', 233)->first();
 
 
         if (App::environment(['local', 'staging'])) {
@@ -59,13 +60,13 @@ class DatabaseSeeder extends Seeder
             ]);
             $super_admin->profile()->create([
                 'bio' => 'Update Admin bio',
-                'lc_country_id' => $countries->random()->id,
+                'lc_country_id' => $ghana->id,
             ]);
 
             $super_admin->assignRole('super_admin');
             $this->command->info("Admin User Creation Done");
 
-            User::factory()->count(32)->has(
+            User::factory()->count(5)->has(
                 Profile::factory()->state(function (array $attributes) use ( $countries) {
                     return [
                         'bio' => 'Factory Bio, Update bio',

@@ -41,8 +41,14 @@
                             class="inline-flex items-center gap-1.5 py-1 px-3 sm:py-2 sm:px-4 rounded-full text-xs sm:text-sm bg-gray-300 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-800 dark:text-gray-200">
                             Last Edited
                         </div>
+                        <a class="flex justify-center items-center  bg-blue-600 gap-x-2 hover:bg-blue-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-2 px-4 dark:focus:ring-offset-gray-800"
+                        href="{{ route('institute.show', $institute) }}" target="_blank">
+                        <span>{{ __('Preview') }}</span>
+                        <span><x-lucide-corner-up-right class="w-4 h-4 text-current" /></span>
+                    </a>
                         <p class="text-xs sm:text-sm text-gray-800 dark:text-gray-200">
-                            {{ $institute->created_at->format('D, M d, Y h:i A') }}</p>
+                            {{ $institute->created_at->format('D, M d, Y h:i A') }}
+                        </p>
                     </div>
 
                 </div>

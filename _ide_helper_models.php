@@ -171,6 +171,7 @@ namespace App\Models{
  * @property string $acronym
  * @property string|null $overview
  * @property string|null $about
+ * @property string|null $introduction
  * @property string|null $icon
  * @property string|null $logo
  * @property string|null $banner
@@ -182,7 +183,6 @@ namespace App\Models{
  * @property float $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $introduction
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feature> $features
  * @property-read int|null $features_count
  * @property-read string $duration
@@ -322,19 +322,19 @@ namespace App\Models{
  * @property string|null $title
  * @property string|null $gender
  * @property string|null $dateOfBirth
- * @property string|null $address
- * @property string|null $city
- * @property string|null $state
- * @property string|null $zipcode
- * @property string|null $country
+ * @property string|null $marital_status
  * @property string|null $telephone
+ * @property string|null $address
+ * @property string|null $state
+ * @property string|null $city
+ * @property string|null $country
+ * @property string|null $zipcode
  * @property string|null $emergencyContactName
  * @property string|null $emergencyContactTelephone
  * @property string|null $nationality
  * @property string|null $bio
- * @property string|null $resume
  * @property string $user_id
- * @property string|null $marital_status
+ * @property bool|null $disabled
  * @property string|null $avatar
  * @property int|null $lc_country_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -355,6 +355,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCountry($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDateOfBirth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDisabled($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereEmergencyContactName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereEmergencyContactTelephone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereGender($value)
@@ -362,7 +363,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereLcCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereMaritalStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereNationality($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Profile whereResume($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereTelephone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereTitle($value)

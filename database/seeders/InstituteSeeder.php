@@ -69,7 +69,15 @@ class InstituteSeeder extends Seeder
                 'active' => 1,
                 'startDate' => '2023-06-21',
                 'endDate' => '2023-06-26',
-                'about' => 'Iea',
+                'about' => 'The Institute of Economic Affairs (IEA) is a prestigious executive education program that offers a one-week intensive certificate training in Economics Affairs. The program is facilitated by an international faculty with expertise in different areas of economics, ensuring a comprehensive learning experience for participants.
+
+                This program is designed to cater to the needs of professionals who are already in leadership roles as well as non-professionals who aspire to become leaders in various spheres of influence in society. It provides an immersive and interdisciplinary experience that helps individuals and organizations to enhance their impact and expand their reach.
+
+                Through this program, participants can sharpen their leadership skills and deepen their understanding of the principles of economics. By doing so, they can increase their effectiveness and make a more sustainable impact on their organizations and communities. The program covers key areas such as micro and macroeconomics, trade and globalization, financial management, and economic policy, among others.
+
+                In addition to the rigorous academic curriculum, the IEA provides a range of opportunities for participants to interact with industry experts and thought leaders. This allows them to gain insights into the latest trends and developments in the field of economics, as well as best practices for driving growth and innovation.
+
+                Overall, the IEA is an excellent opportunity for individuals and organizations seeking to enhance their understanding of economics and its impact on the global economy. The program provides a transformative experience that will enable participants to sharpen their influence, expand their sphere of influence, and deepen their impact, making it more sustainable.',
                 'overview' => 'Resource management and allocation towards the thriving of everyone and everything is yet to be explored to its greatest possibility. This institute introduces the concept of theonomy which at best exploits the natural resources',
                 'seo' => 'Economic Affairs, Economics, Economic Development, Economic Policy, Macroeconomics, Microeconomics, Business Strategy',
             ],
@@ -78,7 +86,7 @@ class InstituteSeeder extends Seeder
                 'slug' => 'college-of-sustainable-transformation-and-development',
                 'acronym' => 'costrad',
                 'logo' => 'images/logos/costrad.png',
-                'price' => '99.99',
+                'price' => '599.99',
                 'active' => 1,
                 'startDate' => '2023-07-14',
                 'endDate' => '2023-07-19',

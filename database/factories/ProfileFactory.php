@@ -25,21 +25,19 @@ class ProfileFactory extends Factory
         return [
             'title' => $this->faker->title(),
             'gender' => $this->faker->randomElement(['male', 'female']),
+            'marital_status' => $this->faker->randomElement(['single', 'married', 'divorced', 'widowed']),
             'dateOfBirth' => $this->faker->date(),
             'address' => $this->faker->address(),
             'city' => $this->faker->optional()->city(),
+            'country' => $this->faker->optional()->country(),
             'state' => $this->faker->optional()->state(),
             'zipcode' => $this->faker->optional()->postcode(),
-            'country' => $this->faker->optional()->country(),
             'telephone' => $this->faker->phoneNumber(),
             'emergencyContactName' => $this->faker->name(),
             'emergencyContactTelephone' => $this->faker->phoneNumber(),
             'nationality' => $this->faker->randomElement(['Nigeria', 'Ghana', 'South Africa', 'United States', 'United Kingdom']),
-            'active' => $this->faker->boolean(false),
             'bio' => 'We want to know more about you - update your bio once and showcase your unique story.',
-            'resume' => $this->faker->url(),
             'disabled' => $this->faker->boolean(false),
-            'marital_status' => $this->faker->randomElement(['single', 'married', 'divorced', 'widowed']),
             'avatar' => $this->faker->imageUrl(640, 480),
         ];
     }
