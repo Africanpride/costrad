@@ -21,6 +21,7 @@ class UpdateProfile extends Component
     public $profile;
     public $validatedData = [];
     public $userID;
+    public $verificationLinkSent = false;
 
     public function mount()
     {
@@ -60,6 +61,14 @@ class UpdateProfile extends Component
         ];
     }
 
+    public function sendEmailVerification()
+    {
+        $this->user->sendEmailVerificationNotification();
+
+        $this->verificationLinkSent = true;
+        app('flasher')->addSuccess('Email Verification Request Sent.', 'Success');
+    }
+
 
     public function savePhoto()
     {
@@ -78,35 +87,36 @@ class UpdateProfile extends Component
     {
         $validatedData = $this->validate();
 
-        $email = $validatedData['user']['email'];
+        $newEmail = $validatedData['user']['email'];
 
         if (isset($validatedData['photo'])) {
             $this->user->updateProfilePhoto($validatedData['photo']);
         }
 
-        if (
-            $email !== Auth::user()->email || Auth::user()->email instanceof MustVerifyEmail
-        ) {
+        if (isset($validatedData['user']['email']) && $this->user instanceof MustVerifyEmail && $validatedData['user']['email'] !== Auth::user()->email) {
+            // Update the user's email address
             $this->user->forceFill([
                 'firstName' => $validatedData['user']['firstName'],
                 'lastName' => $validatedData['user']['lastName'],
-                'email' => $validatedData['user']['email'],
+                'email' => $newEmail,
                 'email_verified_at' => null,
             ])->save();
-            Auth::user()->sendEmailVerificationNotification();
-            app('flasher')->addSuccess('Email Verification Request Sent.', 'Success');
+
+            $this->profile->forceFill($validatedData['profile'])->save();
+
+            // Send the verification email to the new email address
+            $this->user->sendEmailVerificationNotification();
+
+            app('flasher')->addSuccess('Profile Updated. Email Verification Request Sent.', 'Success');
         } else {
-            $this->user->forceFill([
-                'firstName' => $validatedData['user']['firstName'],
-                'lastName' => $validatedData['user']['lastName'],
-                'email' => $validatedData['user']['email'],
-            ])->save();
+            $this->user->forceFill($validatedData['user'])->save();
+            $this->profile->forceFill($validatedData['profile'])->save();
+            app('flasher')->addSuccess('Profile Updated.', 'Success');
         }
 
-        $this->profile->forceFill($validatedData['profile'])->save();
-        app('flasher')->addSuccess('Profile Updated.', 'Success');
         return redirect()->route('profile.show');
     }
+
 
     public function render()
     {
