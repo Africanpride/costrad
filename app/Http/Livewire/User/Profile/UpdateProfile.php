@@ -5,18 +5,21 @@ namespace App\Http\Livewire\User\Profile;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UpdateProfile extends Component
 {
-
     use WithFileUploads;
 
     public User $user;
     public $photo;
     public $profile;
-    public $input = [];
+    public $validatedData = [];
     public $userID;
 
     public function mount()
@@ -25,32 +28,42 @@ class UpdateProfile extends Component
         $this->profile = Auth::user()->profile;
         $this->userID = Auth::user()->id;
     }
+
     protected function rules()
     {
         return [
             'user.firstName' => 'required|string|min:2',
-            'user.lastName' => 'required|string|min:8',
-            'user.profile.title' => 'nullable|string|min:1',
-            'user.profile.gender' => 'nullable|string|min:1',
-            'user.profile.dateOfBirth' => 'nullable|string|min:1',
-            'user.profile.marital_status' => 'nullable|string|min:1',
-            'user.profile.telephone' => 'nullable|string|min:9',
-            'user.profile.address' => 'nullable|string|min:8',
-            'user.profile.state' => 'nullable|string|min:8',
-            'user.profile.city' => 'nullable|string|min:8',
-            'user.profile.country' => 'nullable|string|min:8',
-            'user.profile.zipcode' => 'nullable|string|min:8',
-            'user.profile.emergencyContactName' => 'nullable|string|min:8',
-            'user.profile.emergencyContactTelephone' => 'nullable|string|min:8',
-            'user.profile.nationality' => 'nullable|string|min:8',
-            'user.profile.bio' => 'nullable|string|min:8',
-            'user.email' => 'required|string|email|max:255|unique:users,email,' . $this->userID
+            'user.lastName' => 'required|string',
+            'profile.title' => 'nullable|string',
+            'profile.disabled' => 'nullable',
+            'profile.gender' => 'nullable',
+            'profile.dateOfBirth' => 'nullable|string|min:1',
+            'profile.marital_status' => 'nullable',
+            'profile.telephone' => 'nullable|string|min:9',
+            'profile.address' => 'nullable|string',
+            'profile.state' => 'nullable|string',
+            'profile.city' => 'nullable|string',
+            'profile.country' => 'nullable|string',
+            'profile.zipcode' => 'nullable|string',
+            'profile.emergencyContactName' => 'nullable|string',
+            'profile.emergencyContactTelephone' => 'nullable|string',
+            'profile.nationality' => 'nullable|string',
+            'profile.bio' => 'nullable|string',
+            'user.email' => [
+                'nullable',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users', 'email')->ignore($this->userID),
+            ],
+            'photo' => 'nullable|mimes:jpg,jpeg,png|max:1024',
         ];
     }
 
 
     public function savePhoto()
     {
+
         $this->user->deleteProfilePhoto();
         $this->user->updateProfilePhoto($this->photo);
     }
@@ -63,10 +76,38 @@ class UpdateProfile extends Component
 
     public function saveProfile()
     {
-        $this->validate();
-        $this->savePhoto();
-        dd('save profile');
+        $validatedData = $this->validate();
+
+        $email = $validatedData['user']['email'];
+
+        if (isset($validatedData['photo'])) {
+            $this->user->updateProfilePhoto($validatedData['photo']);
+        }
+
+        if (
+            $email !== Auth::user()->email || Auth::user()->email instanceof MustVerifyEmail
+        ) {
+            $this->user->forceFill([
+                'firstName' => $validatedData['user']['firstName'],
+                'lastName' => $validatedData['user']['lastName'],
+                'email' => $validatedData['user']['email'],
+                'email_verified_at' => null,
+            ])->save();
+            Auth::user()->sendEmailVerificationNotification();
+            app('flasher')->addSuccess('Email Verification Request Sent.', 'Success');
+        } else {
+            $this->user->forceFill([
+                'firstName' => $validatedData['user']['firstName'],
+                'lastName' => $validatedData['user']['lastName'],
+                'email' => $validatedData['user']['email'],
+            ])->save();
+        }
+
+        $this->profile->forceFill($validatedData['profile'])->save();
+        app('flasher')->addSuccess('Profile Updated.', 'Success');
+        return redirect()->route('profile.show');
     }
+
     public function render()
     {
         return view('livewire.user.profile.update-profile');

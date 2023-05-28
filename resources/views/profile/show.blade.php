@@ -92,7 +92,7 @@
                             <x-heroicon-o-user-circle class="w-5 h-5 text-current" />
                             </x-admin-pageheader>
 
-                            @livewire('profile.update-profile-information-form')
+                            <livewire:user.profile.update-profile />
 
 
                             {{-- <x-jet-section-border /> --}}

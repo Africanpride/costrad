@@ -76,10 +76,11 @@
                                     you.</span>
                             </span>
                         </span>
+                        <x-jet-input-error for="profile.disabled" class="mt-2" />
 
-                        <input type="checkbox" id="pricing-switch" wire:model="disabled"
-                            class="relative shrink-0 w-[3.25rem] h-7 bg-gray-300 text-blue-900 checked:bg-none checked:bg-blue-900  rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-900 focus:ring-blue-900 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-900 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400"
-                            checked>
+
+                        <input type="checkbox" id="disabled" wire:model="profile.disabled"
+                            class="relative shrink-0 w-[3.25rem] h-7 bg-gray-300 text-blue-900 checked:bg-none checked:bg-blue-900  rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-900 focus:ring-blue-900 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-900 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400">
                     </label>
                 </div>
             </div>
@@ -89,21 +90,22 @@
                     <x-jet-label for="title" value="{{ __('Title') }}" />
                     <select id="title"
                         class="py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                        wire:model.defer="user.profile.title" autocomplete="title">
+                        wire:model.defer="profile.title" autocomplete="title">
                         <option value="">Select a title</option>
-                        <option value="Mr">Mr</option>
-                        <option value="Mrs">Mrs</option>
-                        <option value="Miss">Miss</option>
-                        <option value="Ms">Ms</option>
-                        <option value="Dr">Dr</option>
+                        <option value="Mr.">Mr</option>
+                        <option value="Mrs.">Mrs</option>
+                        <option value="Miss.">Miss</option>
+                        <option value="Ms.">Ms</option>
+                        <option value="Dr.">Dr</option>
                     </select>
-                    <x-jet-input-error for="gender" class="mt-2" />
+
+                    <x-jet-input-error for="title" class="mt-2" />
                 </div>
                 <div>
                     <x-jet-label for="gender" value="{{ __('Gender') }}" />
                     <select id="gender"
                         class="py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                        wire:model.defer="user.profile.gender" autocomplete="gender">
+                        wire:model.defer="profile.gender" autocomplete="gender">
                         <option value="">Select Gender</option>
                         <option value="male">male</option>
                         <option value="female">female</option>
@@ -114,7 +116,7 @@
                     <x-jet-label for="dateOfBirth" value="{{ __('Date of Birth: DD/MM/YYYY') }}" />
                     <x-jet-input id="dateOfBirth" type="date" placeholder="Date of Birth"
                         class="py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                        wire:model="user.profile.dateOfBirth" autocomplete="dateOfBirth" />
+                        wire:model="profile.dateOfBirth" autocomplete="dateOfBirth" />
                     <x-jet-input-error for="dateOfBirth" class="mt-2" />
                 </div>
 
@@ -122,7 +124,7 @@
                     <x-jet-label for="marital_status" value="{{ __('Marital Status') }}" />
                     <select id="marital_status"
                         class="py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                        wire:model="user.profile.marital_status" autocomplete="marital_status">
+                        wire:model="profile.marital_status" autocomplete="marital_status">
                         <option value="">Select Marital Status</option>
                         <option value="single">Single</option>
                         <option value="married">Married</option>
@@ -139,7 +141,7 @@
                     <x-jet-label for="firstName" value="{{ __('First Name') }}" />
                     <x-jet-input id="firstName" type="text" class="mt-1 block w-full"
                         wire:model.defer="user.firstName" autocomplete="firstName" />
-                    <x-jet-input-error for="firstName" class="mt-2" />
+                    <x-jet-input-error for="user.firstName" class="mt-2" />
                 </div>
                 <div class="">
                     <x-jet-label for="lastName" value="{{ __('Last Name') }}" />
@@ -150,18 +152,18 @@
                 <div>
                     <x-jet-label for="telephone" value="{{ __('Telephone') }}" />
                     <x-jet-input id="telephone" type="tel" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.telephone" autocomplete="telephone"
+                        wire:model.defer="profile.telephone" autocomplete="telephone"
                         placeholder="+x(xxx)xxx-xxxx" />
-                    <x-jet-input-error for="telephone" class="mt-2" />
+                    <x-jet-input-error for="profile.telephone" class="mt-2" />
                 </div>
 
             </div>
             <div class="grid grid-cols-1">
                 <div>
                     <x-jet-label for="address1" value="{{ __('Address') }}" />
-                    <x-jet-input id="address1" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.address" autocomplete="address" />
-                    <x-jet-input-error for="address1" class="mt-2" />
+                    <x-jet-input id="address" type="text" class="mt-1 block w-full"
+                        wire:model.defer="profile.address" autocomplete="address" />
+                    <x-jet-input-error for="profile.address" class="mt-2" />
                 </div>
             </div>
             <div class="grid md:grid-cols-4 gap-4">
@@ -170,49 +172,49 @@
                 <div>
                     <x-jet-label for="state" value="{{ __('State') }}" />
                     <x-jet-input id="state" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.state" autocomplete="state" />
-                    <x-jet-input-error for="state" class="mt-2" />
+                        wire:model.defer="profile.state" autocomplete="state" />
+                    <x-jet-input-error for="profile.state" class="mt-2" />
                 </div>
                 <div>
                     <x-jet-label for="city" value="{{ __('City') }}" />
                     <x-jet-input id="city" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.city" autocomplete="city" />
-                    <x-jet-input-error for="city" class="mt-2" />
+                        wire:model.defer="profile.city" autocomplete="city" />
+                    <x-jet-input-error for="profile.city" class="mt-2" />
                 </div>
                 <div>
                     <x-jet-label for="country" value="{{ __('Country') }}" />
                     <x-jet-input id="country" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.country" autocomplete="country" />
-                    <x-jet-input-error for="country" class="mt-2" />
+                        wire:model.defer="profile.country" autocomplete="country" />
+                    <x-jet-input-error for="profile.country" class="mt-2" />
                 </div>
                 <div>
                     <x-jet-label for="zipcode" value="{{ __('Zipcode') }}" />
                     <x-jet-input id="zipcode" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.zipcode" autocomplete="zipcode" />
-                    <x-jet-input-error for="zipcode" class="mt-2" />
+                        wire:model.defer="profile.zipcode" autocomplete="zipcode" />
+                    <x-jet-input-error for="profile.zipcode" class="mt-2" />
                 </div>
             </div>
             <div class="grid md:grid-cols-3 gap-4">
                 <div>
                     <x-jet-label for="emergencyContactName" value="{{ __('Emergency Contact Name') }}" />
                     <x-jet-input id="emergencyContactName" type="text" class="mt-1 block w-full"
-                        wire:model="user.profile.emergencyContactName" autocomplete="emergencyContactName"
+                        wire:model="profile.emergencyContactName" autocomplete="emergencyContactName"
                         placeholder="Emergency Contact Name" />
-                    <x-jet-input-error for="emergencyContactName" class="mt-2" />
+                    <x-jet-input-error for="profile.emergencyContactName" class="mt-2" />
                 </div>
                 <div>
                     <x-jet-label for="emergencyContactTelephone" value="{{ __('Emergency Contact Telephone') }}" />
                     <x-jet-input id="emergencyContactTelephone" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.emergencyContactTelephone"
+                        wire:model.defer="profile.emergencyContactTelephone"
                         autocomplete="emergencyContactTelephone" />
-                    <x-jet-input-error for="emergencyContactTelephone" class="mt-2" />
+                    <x-jet-input-error for="profile.emergencyContactTelephone" class="mt-2" />
                 </div>
 
                 <div>
                     <x-jet-label for="nationality" value="{{ __('Nationality') }}" />
                     <x-jet-input id="nationality" type="text" class="mt-1 block w-full"
-                        wire:model.defer="user.profile.nationality" autocomplete="nationality" />
-                    <x-jet-input-error for="nationality" class="mt-2" />
+                        wire:model.defer="profile.nationality" autocomplete="nationality" />
+                    <x-jet-input-error for="profile.nationality" class="mt-2" />
                 </div>
             </div>
 
@@ -220,18 +222,18 @@
                 <div>
                     <x-jet-label for="bio" value="{{ __('Bio') }}" />
                     <div class="mt-1">
-                        <textarea wire:model.defer="user.profile.bio" autocomplete="bio" name="bio" id="bio" rows="5"
+                        <textarea wire:model.defer="profile.bio" autocomplete="bio" name="bio" id="bio" rows="5"
                             class="shadow-sm focus:ring-blue-600 focus:border-blue-600 block w-full sm:text-sm border-gray-300 rounded-md dark:bg-slate-900 dark:text-gray-300 dark:border-gray-700"
                             placeholder="{{ Auth::user()->profile->bio }}"></textarea>
                     </div>
                 </div>
             </div>
             <!-- Email -->
+            <x-jet-input-error for="user.email" class="mt-2" />
 
             <div class="col-span-6 sm:col-span-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="user.email" />
-                <x-jet-input-error for="user.email" class="mt-2" />
 
                 {{-- @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
                     <div class="w-full text-left">
