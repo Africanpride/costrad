@@ -19,6 +19,7 @@
                     <span class=" capitalize">Dashboard</span>
                 </a>
             </li>
+            @hasanyrole(['admin', 'super_admin'])
 
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-500 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
@@ -29,19 +30,6 @@
                     <span class=" capitalize">Staff</span>
                 </a>
             </li>
-
-            {{-- <li>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-500 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
-                    href="{{ route('faculty') }}">
-                    <span class="flex ">
-
-                        <x-lucide-contact class="w-6 h-6 text-current" />
-
-                    </span>
-                    <span class=" capitalize">{{ __('Faculty') }}</span>
-                </a>
-            </li> --}}
-
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-500 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                     href="{{ url('admin/institutes/') }}">
@@ -52,8 +40,6 @@
                     <span class=" capitalize">{{ __('Institutes') }}</span>
                 </a>
             </li>
-
-
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-500 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                     href="{{  route('transactions.index') }}">
@@ -74,7 +60,6 @@
                     <span class=" capitalize">{{ __('Participants') }}</span>
                 </a>
             </li>
-
             <li>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-firefly-900 hover:bg-firefly-100 focus:ring-2 focus:ring-blue-500 dark:text-firefly-500 dark:hover:bg-firefly-700 dark:hover:text-firefly-300"
                     href="{{ route('announcements.index') }}">
@@ -125,6 +110,8 @@
                     <span class=" capitalize">Authentication Logs</span>
                 </a>
             </li>
+
+            @endhasanyrole
         </ul>
     </nav>
 

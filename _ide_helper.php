@@ -21254,6 +21254,48 @@
      
 }
 
+    namespace Spatie\SignalAwareCommand\Facades { 
+            /**
+     * 
+     *
+     * @see \Spatie\SignalAwareCommand\Signal
+     */ 
+        class Signal {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function handle($signal, $callable)
+        {
+                        /** @var \Spatie\SignalAwareCommand\Signal $instance */
+                        return $instance->handle($signal, $callable);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function executeSignalHandlers($signal, $command)
+        {
+                        /** @var \Spatie\SignalAwareCommand\Signal $instance */
+                        return $instance->executeSignalHandlers($signal, $command);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function clearHandlers($signal = null)
+        {
+                        /** @var \Spatie\SignalAwareCommand\Signal $instance */
+                        return $instance->clearHandlers($signal);
+        }
+         
+    }
+     
+}
+
     namespace Unicodeveloper\Paystack\Facades { 
             /**
      * 
@@ -25862,6 +25904,7 @@ namespace  {
             class Flasher extends \Flasher\Laravel\Facade\Flasher {}
             class FormComponents extends \Rawilk\FormComponents\Facades\FormComponents {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
+            class Signal extends \Spatie\SignalAwareCommand\Facades\Signal {}
             class Paystack extends \Unicodeveloper\Paystack\Facades\Paystack {}
             class Timezone extends \JamesMills\LaravelTimezone\Facades\Timezone {}
      

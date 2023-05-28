@@ -61,7 +61,8 @@
 
             <div class="block">
 
-                <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 w-full ">
+                <div
+                    class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 w-full ">
                     <label for="disabled" class="flex justify-between p-2 md:p-4">
                         <span class="flex mr-3 ">
                             <span>
@@ -71,7 +72,8 @@
                                 <span class="block font-medium text-gray-800 dark:text-gray-200">Disability
                                     Assistance</span>
                                 <span class="block text-[12px] text-gray-500 w-10/12">
-                                    Let us know if you would requirean assistance regarding any disability. This is to enable us better serve
+                                    Let us know if you would requirean assistance regarding any disability. This is to
+                                    enable us better serve
                                     you.</span>
                             </span>
                         </span>
@@ -194,13 +196,14 @@
                 <div>
                     <x-jet-label for="emergencyContactName" value="{{ __('Emergency Contact Name') }}" />
                     <x-jet-input id="emergencyContactName" type="text" class="mt-1 block w-full"
-                        wire:model.defer="state.emergencyContactName" autocomplete="emergencyContactName" />
+                        wire:model="user.profile.emergencyContactName" autocomplete="emergencyContactName"
+                        placeholder="Emergency Contact Name" />
                     <x-jet-input-error for="emergencyContactName" class="mt-2" />
                 </div>
                 <div>
                     <x-jet-label for="emergencyContactTelephone" value="{{ __('Emergency Contact Telephone') }}" />
                     <x-jet-input id="emergencyContactTelephone" type="text" class="mt-1 block w-full"
-                        wire:model.defer="state.emergencyContactTelephone" autocomplete="emergencyContactTelephone" />
+                        wire:model.defer="user.emergencyContactTelephone" autocomplete="emergencyContactTelephone" />
                     <x-jet-input-error for="emergencyContactTelephone" class="mt-2" />
                 </div>
 
@@ -217,7 +220,7 @@
                     <x-jet-label for="bio" value="{{ __('Bio') }}" />
                     <div class="mt-1">
                         <textarea wire:model.defer="state.bio" autocomplete="bio" name="bio" id="bio" rows="5"
-                            value="{{ old('bio'), Auth::user()?->profile->bio }}"
+
                             class="shadow-sm focus:ring-blue-600 focus:border-blue-600 block w-full sm:text-sm border-gray-300 rounded-md dark:bg-slate-900 dark:text-gray-300 dark:border-gray-700"
                             placeholder="{{ Auth::user()?->profile->bio }}"></textarea>
                     </div>

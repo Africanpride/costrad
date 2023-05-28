@@ -2,8 +2,29 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <div class="p-8">
+        @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&
+                !Auth::user()->hasVerifiedEmail())
+            <div class="w-full text-left">
+                <p class="text-sm mt-2">
+                    {{ __('Your email address is unverified.') }}
 
-<livewire:profile-photo />
+                <div class="flex justify-start items-center gap-2">
+                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900"
+                        wire:click.prevent="sendEmailVerification">
+                        {{ __('Click here to re-send the verification email.') }}
+                    </button>
+
+                    {{-- @if ($this->verificationLinkSent)
+                <p v-show="verificationLinkSent" class=" font-medium text-sm text-green-600">
+                    {{ __('A new verification link has been sent to your email address.') }}
+                </p>
+            @endif --}}
+
+                </div>
+                </p>
+            </div>
+        @endif
+        {{-- <livewire:profile-photo /> --}}
     </div>
     <section class="max-w-8xl p-4 md:px-8 md:pr-10 mx-auto h-auto">
 
