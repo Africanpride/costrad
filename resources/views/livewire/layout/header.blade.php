@@ -190,7 +190,8 @@
 </header>
 <livewire:profile-percentage />
 
-@if (Auth::check() && Auth::user()->must_create_password)
+<div>
+    @if (Auth::check() && Auth::user()->must_create_password)
     <div
         class="group block bg-gray-100 hover:bg-gray-200 p-4 rounded-md text-center transition-all duration-300 dark:bg-white/[.05] dark:hover:bg-white/[.075]">
         <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
@@ -205,6 +206,7 @@
         </div>
     </div>
 @endif
+</div>
 
 
 </div>

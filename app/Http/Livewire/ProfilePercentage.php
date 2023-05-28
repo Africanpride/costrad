@@ -5,17 +5,18 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use App\Models\Profile;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilePercentage extends Component
 {
 
+
     function calculateProfileCompletionPercentage($userId)
     {
-        // $user = User::find($userId);
-        $profile = Profile::with('user')->find($userId);
-
+        $profile = Auth::user()->profile;
         $filledAttributes = 0;
-        $totalAttributes = 0;
+        $totalAttributes = count($profile->getAttributes());
+
 
         $profileAttributes = [
             'title',
@@ -34,24 +35,25 @@ class ProfilePercentage extends Component
             'nationality',
             'bio',
             'disabled',
-            'avatar'
         ];
 
+
         foreach ($profileAttributes as $attribute) {
-            if (!empty($profile->{$attribute})) {
+
+            if ($profile->{$attribute} !== null && $profile->{$attribute} !== '') {
                 $filledAttributes++;
             }
-            $totalAttributes++;
         }
 
-        if ($totalAttributes > 0) {
-            $percentage = ($filledAttributes / $totalAttributes) * 100;
-        } else {
-            $percentage = 0;
-        }
+
+        $percentage = ($filledAttributes / count($profileAttributes) * 100);
 
         return $percentage;
     }
+
+
+
+
     public function render()
     {
         return view('livewire.profile-percentage');
