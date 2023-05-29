@@ -11,7 +11,7 @@ class ProfilePercentage extends Component
 {
 
 
-    function calculateProfileCompletionPercentage($userId)
+    function calculateProfileCompletionPercentage()
     {
         $profile = Auth::user()->profile;
         $filledAttributes = 0;

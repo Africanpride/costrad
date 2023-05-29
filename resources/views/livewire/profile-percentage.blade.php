@@ -1,5 +1,5 @@
 <div>
-    @if ($this->calculateProfileCompletionPercentage(Auth::user()?->profile->id, 80))
+    @if ($this->calculateProfileCompletionPercentage() < 95)
     <!-- Announcement Banner -->
     <div x-data="{ showBanner: true }" x-show="showBanner"
         class="bg-gray-200/50 hover:bg-gray-200 p-4 text-center transition-all duration-300 dark:bg-white/[.05] dark:hover:bg-white/[.095] w-full">

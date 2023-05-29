@@ -1,52 +1,39 @@
-<x-jet-form-section submit="updatePassword">
-    <x-slot name="title">
-        {{ __('Update Password') }}
-    </x-slot>
-
-    <x-slot name="description">
-        {{ __('Ensure your account is using a long, random password to stay secure.') }}
-    </x-slot>
-
-    <x-slot name="form">
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="current_password" value="{{ __('Current Password') }}" />
-            <x-jet-input id="current_password" type="password" class="mt-1 block w-full" wire:model.defer="state.current_password" autocomplete="current-password" />
-            <x-jet-input-error for="current_password" class="mt-2" />
+<div>
+    <form id="password_form" wire:submit.prevent="updatePassword">
+        <div class="mb-4">
+            <label for="current_password" class="block font-medium text-gray-700">{{ __('Current Password') }}</label>
+            <input id="current_password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" wire:model.defer="state.current_password" autocomplete="current-password">
+            @error('state.current_password') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
         </div>
 
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="password" value="{{ __('New Password') }}" />
-            <x-jet-input id="password" type="password" class="mt-1 block w-full" wire:model.defer="state.password" autocomplete="new-password" />
-            <x-jet-input-error for="password" class="mt-2" />
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="password" class="block font-medium text-gray-700">{{ __('New Password') }}</label>
+                <input id="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" wire:model.defer="state.password" autocomplete="new-password">
+                @error('state.password') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
+
+            <div>
+                <label for="password_confirmation" class="block font-medium text-gray-700">{{ __('Confirm Password') }}</label>
+                <input id="password_confirmation" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" wire:model.defer="state.password_confirmation" autocomplete="new-password">
+                @error('state.password_confirmation') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
         </div>
 
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-            <x-jet-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model.defer="state.password_confirmation" autocomplete="new-password" />
-            <x-jet-input-error for="password_confirmation" class="mt-2" />
-        </div>
-    </x-slot>
-
-    <x-slot name="actions">
-        <x-jet-button>
-            {{ __('Save Password') }}
-        </x-jet-button>
-        <x-jet-action-message class="mr-3" on="saved">
-            <div class="max-w-xs bg-white border rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700" role="alert">
-                <div class="flex p-4">
-                  <div class="flex-shrink-0">
-                    <svg class="h-4 w-4 text-green-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                    </svg>
-                  </div>
-                  <div class="ml-3">
-                    <p class="text-sm text-gray-700 dark:text-gray-400">
-                      Successfully Saved.
-                    </p>
-                  </div>
+        <div class="flex items-center justify-end">
+            <button type="submit" class="cursor-pointer w-full px-6 py-2 bg-firefly-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-firefly-700 hover:shadow-lg focus:bg-firefly-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-firefly-800 active:shadow-lg transition duration-150 ease-in-out mt-2 mr-2 text-[10px]">Save Password</button>
+            <x-jet-action-message class="ml-3" on="saved">
+                <div class="max-w-xs bg-white border rounded-md shadow-lg">
+                    <div class="flex p-4">
+                        <svg class="flex-shrink-0 h-4 w-4 text-green-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16 9a7 7 0 1 1-14 0A7 7 0 0 1 16 9zm-9.293 3.293a1 1 0 0 1-1.414-1.414l3-3a1 1 0 0 1 1.414 0l3 3a1 1 0 1 1-1.414 1.414L10 10.414l-2.293 2.293z" clip-rule="evenodd" />
+                        </svg>
+                        <p class="ml-3 text-sm text-gray-700">Successfully Saved.</p>
+                    </div>
                 </div>
-              </div>
-        </x-jet-action-message>
+            </x-jet-action-message>
+        </div>
+    </form>
 
-    </x-slot>
-</x-jet-form-section>
+
+</div>

@@ -106,7 +106,7 @@
                                 <span class="block font-medium text-gray-800 dark:text-gray-200">Disability
                                     Assistance</span>
                                 <span class="block text-[12px] text-gray-500 w-10/12">
-                                    Let us know if you would requirean assistance regarding any disability. This is to
+                                    Let us know if you would require any assistance regarding any disability. This is to
                                     enable us better serve
                                     you.</span>
                             </span>
