@@ -57,10 +57,10 @@
                     <x-jet-input-error for="photo" class="mt-2" />
                 </div>
             @endif
-            <div>
+            <div class="grid md:grid-cols-2 gap-4">
                 <!-- Email -->
 
-                <div class="col-span-6 sm:col-span-4">
+                <div class="w-auto">
                     <x-jet-label for="email" value="{{ __('Email') }}" />
                     <x-jet-input id="email" type="email" class="mt-1 block w-full"
                         wire:model.defer="user.email" />
@@ -89,6 +89,12 @@
                         </div>
 
                     @endif
+                </div>
+                <div class="w-auto">
+                    <x-jet-label class="text-right capitalize" for="profession" value="{{ __('Profession') }}" />
+                    <x-jet-input id="profession" type="text" class="mt-1 block w-full"
+                        wire:model.defer="profile.profession" placeholder="Add You Profession" />
+                    <x-jet-input-error for="profession" class="mt-2" />
                 </div>
 
 

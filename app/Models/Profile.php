@@ -32,6 +32,7 @@ class Profile extends Model
         'emergencyContactName',
         'emergencyContactTelephone',
         'nationality',
+        'profession',
         'bio',
         'disabled',
         'avatar'

@@ -49,6 +49,7 @@ class UpdateProfile extends Component
             'profile.emergencyContactName' => 'nullable|string',
             'profile.emergencyContactTelephone' => 'nullable|string',
             'profile.nationality' => 'nullable|string',
+            'profile.profession' => 'nullable|string',
             'profile.bio' => 'nullable|string',
             'user.email' => [
                 'nullable',

@@ -339,6 +339,7 @@ namespace App\Models{
  * @property int|null $lc_country_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $profession
  * @property-read mixed $country_flag
  * @property-read mixed $nice_date
  * @property-read string $participant_avatar
@@ -363,6 +364,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereLcCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereMaritalStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereNationality($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereProfession($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereTelephone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereTitle($value)

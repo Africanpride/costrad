@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\InstituteRequest;
 use App\Models\Institute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\InstituteRequest;
 
 class InstituteController extends Controller
 {
@@ -15,9 +16,15 @@ class InstituteController extends Controller
      */
     public function index()
     {
-        // dd('trying');
-        $institutes = Institute::paginate(9);
-        return view('admin.institutes.index', compact('institutes'));
+        if (Gate::denies('isAdmin')) {
+
+            return response('Access Denied!', 404) ;
+
+        } else {
+
+            $institutes = Institute::paginate(9);
+            return view('admin.institutes.index', compact('institutes'));
+        }
 
     }
 

@@ -70,6 +70,10 @@
                                                                 class="text-sm capitalize leading-5 font-medium whitespace-nowrap">
                                                                 {{ $transaction->institute->name }}
                                                             </div>
+                                                            <div
+                                                                class="text-sm capitalize leading-5 font-medium whitespace-nowrap">
+                                                                {{ $transaction->institute->duration }}, {{ now()->format('Y') }}
+                                                            </div>
 
                                                         </div>
                                                     </div>
@@ -88,7 +92,7 @@
                                                         <div
                                                             class=" leading-5 dark:text-white whitespace-nowrap flex gap-x-2 items-center">
                                                             <x-lucide-at-sign class="w-4 h-4 text-green-500" />
-                                                            <span class="capitalize">{{ Auth::user()->email }}</span>
+                                                            <span class="capitalize">{{ $transaction->participant->email }}</span>
                                                         </div>
                                                     </div>
                                                 </td>
