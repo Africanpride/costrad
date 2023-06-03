@@ -39,7 +39,8 @@
         "torann/geoip": "^3.0",
         "unicodeveloper/laravel-paystack": "^1.1",
         "unisharp/laravel-filemanager": "^2.5",
-        "wire-elements/modal": "^1.0"
+        "wire-elements/modal": "^1.0",
+        "wnx/laravel-backup-restore": "^0.3.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",

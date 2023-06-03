@@ -138,8 +138,9 @@ class PaymentController extends Controller
                 if ($paymentDetails['status'] == true) {
                     // Get the invoice generated before sending to paystack and associate it with
                     // transaction later on.
-                    $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
                     $institute = Institute::whereId($paymentDetails['data']['metadata']['institute_id'])->first();
+                    $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
+
 
                     $transaction = new Transaction();
                     $transaction->amount = $paymentDetails['data']['amount'];
@@ -152,8 +153,12 @@ class PaymentController extends Controller
                     $transaction->currency = $paymentDetails['data']['currency'];
                     $transaction->ipAddress = $paymentDetails['data']['ip_address'];
                     $transaction->institute_id = $paymentDetails['data']['metadata']['institute_id'];
-                    $transaction->invoice()->associate($invoice);
                     $transaction->save();
+
+                    // Update invoice
+                    $invoice->status = 'paid';
+                    $invoice->transaction_id = $transaction->id;
+                    $invoice->save();
 
                     // redirect to institute frontpage url
                     app('flasher')->addSuccess('Payment Successful.', 'Success');
@@ -198,5 +203,4 @@ class PaymentController extends Controller
 
         // Continue with the rest of your logic
     }
-
 }

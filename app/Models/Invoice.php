@@ -12,6 +12,7 @@ class Invoice extends Model
 
     protected $fillable = [
         'participant_id',
+        'transaction_id',
         'status'
     ];
 
@@ -22,9 +23,13 @@ class Invoice extends Model
         return 'id';
     }
 
+    public function participant() {
+        return $this->belongsTo(User::class, 'participant_id', 'id');
+    }
+
     public function transaction()
     {
-        return $this->hasOne(Transaction::class);
+        return $this->hasOne(Transaction::class,'transaction_id');
     }
 
 }

@@ -17,7 +17,7 @@ use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
-
+use App\Models\Invoice;
 
 Route::get('banned', function () {
     return view('auth.banned');
@@ -107,6 +107,14 @@ Route::middleware(['auth', config('jetstream.auth_session'), 'setNewPassword'])-
     Route::get('dashboard', function () {
         return view('user.dashboard');
     })->name('dashboard');
+
+    Route::get('invoices', function () {
+        $transactions = Transaction::where('participant_id', Auth::user()->id)
+            ->with('participant', 'invoice','institute')
+            ->get();
+        // dd($transactions);
+        return view('user.invoices', compact('transactions'));
+    })->name('invoices');
 
     Route::get('/profile', function () {
         return view('profile.show');

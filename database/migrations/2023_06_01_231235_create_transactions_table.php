@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamp('transaction_date');
             $table->string('currency');
             $table->foreignUuid('participant_id')->constrained('users')->onDelete('cascade');
-            $table->foreignUuid('invoice_id')->constrained('invoices')->onDelete('cascade')->nullable();
+            // $table->foreignUuid('invoice_id')->constrained('invoices')->onDelete('cascade')->nullable();
             $table->foreignId('institute_id')->constrained('institutes')->onDelete('cascade');
             $table->string('ipAddress');
             $table->timestamps();
