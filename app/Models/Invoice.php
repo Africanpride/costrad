@@ -29,7 +29,7 @@ class Invoice extends Model
 
     public function transaction()
     {
-        return $this->hasOne(Transaction::class,'transaction_id');
+        return $this->belongsTo(Transaction::class);
     }
 
 }

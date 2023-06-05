@@ -225,6 +225,7 @@ namespace App\Models{
  *
  * @property string $id
  * @property string $participant_id
+ * @property string|null $transaction_id
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -237,6 +238,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereParticipantId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereTransactionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereUpdatedAt($value)
  */
 	class Invoice extends \Eloquent {}
@@ -443,13 +445,11 @@ namespace App\Models{
  * @property string $transaction_date
  * @property string $currency
  * @property string $participant_id
- * @property string $invoice_id
  * @property int $institute_id
  * @property string $ipAddress
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Institute $institute
- * @property-read \App\Models\Invoice $invoice
  * @property-read \App\Models\User $participant
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
@@ -462,7 +462,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereFees($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereInstituteId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereInvoiceId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereIpAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereParticipantId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereReference($value)

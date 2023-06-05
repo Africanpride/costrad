@@ -58,8 +58,5 @@ class Transaction extends Model
     {
         return $this->belongsTo(Institute::class, 'institute_id');
     }
-    public function invoice()
-    {
-        return $this->belongsTo(Invoice::class,'invoice_id');
-    }
+
 }

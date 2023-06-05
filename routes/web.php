@@ -109,11 +109,13 @@ Route::middleware(['auth', config('jetstream.auth_session'), 'setNewPassword'])-
     })->name('dashboard');
 
     Route::get('invoices', function () {
-        $transactions = Transaction::where('participant_id', Auth::user()->id)
-            ->with('participant', 'invoice','institute')
-            ->get();
-        // dd($transactions);
-        return view('user.invoices', compact('transactions'));
+        // $transactions = Transaction::where('participant_id', Auth::user()->id)
+        //     ->with('participant', 'invoice','institute')
+        //     ->get();
+        $myInvoices = Invoice::where('participant_id', Auth::user()->id)
+        ->with('participant','transaction')->get();
+        // dd($myInvoices);
+        return view('user.invoices', compact('myInvoices'));
     })->name('invoices');
 
     Route::get('/profile', function () {
