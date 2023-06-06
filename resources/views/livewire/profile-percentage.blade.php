@@ -9,14 +9,14 @@
                 <div>
                     Profile Details Incomplete. Kindly complete your profile to enable us to serve you better.
                     <span
-                        class="decoration-2 inline-flex justify-center items-center gap-x-4 font-semibold text-firefly-600 text-sm dark:text-firefly-500">
+                        class="decoration-2 inline-flex justify-center items-center gap-x-4 font-semibold text-red-600 text-sm dark:text-red-500">
                         <a class="flex justify-start items-center gap-1" href="{{ route('profile.show') }}">{{ __('Complete Profile') }}<x-lucide-arrow-right class="w-4 h-4" /></a>
                     </span>
                 </div>
             </div>
 
-            <div class="flex md:w-1/4 w-full h-1.5 bg-firefly-200 rounded-full overflow-hidden dark:bg-gray-700">
-                <div class="flex flex-col justify-center overflow-hidden bg-firefly-500" role="progressbar"
+            <div class="flex md:w-1/4 w-full h-1.5 bg-red-200 rounded-full overflow-hidden dark:bg-gray-700">
+                <div class="flex flex-col justify-center overflow-hidden bg-red-500" role="progressbar"
                     style="width: {{ number_format($this->calculateProfileCompletionPercentage(Auth::user()?->profile->id), 2) }}%" aria-valuenow="{{ number_format($this->calculateProfileCompletionPercentage(Auth::user()?->profile->id), 2) }}" aria-valuemin="0" aria-valuemax="100">
                 </div>
             </div>

@@ -4,20 +4,9 @@
         <x-heroicon-o-user-group class="w-5 h-5 text-current" />
     </x-admin-pageheader>
 
-    <section class="p-6 bg-white relative z-0 dark:bg-gray-900 bg-hero-pattern  dark:bg-hero-pattern-dark bg-no-repeat">
-        {{-- <img src="{{ asset('images/main/hero-pattern-dark.svg') }}" class="dark:absolute " alt=""> --}}
-        <div class="max-w-screen-xl mx-auto relative text-left z-10">
 
-            <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                Financial transactions Details</b>.
-            </h2>
-            <p class="mb-2 text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-200">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-
-        </div>
-        {{-- <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 -z-10"></div> --}}
-    </section>
-
-        <section class="relative">
+    <section class="relative">
+            <p class="text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-200 px-6">Payment List for all Institutes</p>
             <!-- Jumbotron -->
             <div class="p-6 shadow  bg-gray-100 dark:bg-slate-900/10 dark:text-white ">
 
@@ -41,7 +30,7 @@
                                         </th>
                                         <th scope="col"
                                             class="px-3  py-2   uppercase tracking-wider  hidden md:table-cell text-left text-[11px] leading-4 font-medium ">
-                                            Reference
+                                            Payment Reference
                                         </th>
 
                                         <th scope="col"
@@ -109,7 +98,7 @@
                                                 <td
                                                     class="hidden md:table-cell px-3 w-8 py-2  whitespace-no-wrap text-sm leading-5  text-left">
                                                     <div class="md:truncate text-secondary-500 dark:text-secondary-400">
-                                                        {{ $transaction->invoice->id }}</div>
+                                                        {{ $transaction->id }}</div>
                                                     <div class="text-sm leading-5  dark:text-white whitespace-nowrap">
                                                         <time datetime="{{ Auth::user()->created_at }}"
                                                             class="capitalize">{{ $transaction->created_at->format('l jS \of F Y h:i:s A') }}

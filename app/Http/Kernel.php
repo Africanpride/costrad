@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\DetectMobile::class,
             \App\Http\Middleware\DetectDarkMode::class,
 
+
         ],
 
         'api' => [
@@ -77,6 +78,7 @@ class Kernel extends HttpKernel
         'banned' => \App\Http\Middleware\Banned::class,
         'verifyWebhookIP' => \App\Http\Middleware\VerifyWebhookIP::class,
         'preventduplicatetransaction' => \App\Http\Middleware\PreventDuplicateInstituteTransactionMiddleware::class,
+        'mustBeAdmin' => \App\Http\Middleware\mustBeAdmin::class,
 
 
     ];

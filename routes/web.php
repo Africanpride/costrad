@@ -113,7 +113,7 @@ Route::middleware(['auth', config('jetstream.auth_session'), 'setNewPassword'])-
         //     ->with('participant', 'invoice','institute')
         //     ->get();
         $myInvoices = Invoice::where('participant_id', Auth::user()->id)
-        ->with('participant','transaction')->get();
+            ->with('participant', 'transaction')->get();
         // dd($myInvoices);
         return view('user.invoices', compact('myInvoices'));
     })->name('invoices');
@@ -129,7 +129,7 @@ Route::get('set_password', function () {
 
 
 // Admin Routes
-Route::middleware(['auth', 'banned', config('jetstream.auth_session')])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'banned','mustBeAdmin', config('jetstream.auth_session')])->prefix('admin')->group(function () {
 
     Route::get('participants/', function () {
         $participants = User::participant()->get();
