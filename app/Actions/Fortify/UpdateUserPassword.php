@@ -31,6 +31,7 @@ class UpdateUserPassword implements UpdatesUserPasswords
             'password' => Hash::make($input['password']),
         ])->save();
 
+        app('flasher')->addSuccess('Password Updated Successfully.', 'Success');
 
 
 

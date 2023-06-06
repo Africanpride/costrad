@@ -188,25 +188,10 @@
         </div>
     </nav>
 </header>
+<livewire:unverified-email />
 <livewire:profile-percentage />
 
-<div>
-    @if (Auth::check() && Auth::user()->must_create_password)
-    <div
-        class="group block bg-gray-100 hover:bg-gray-200 p-4 rounded-md text-center transition-all duration-300 dark:bg-white/[.05] dark:hover:bg-white/[.075]">
-        <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
-            <p class="inline-block text-sm text-gray-800 dark:text-gray-200">
-                Please create a password for your Account.
-            </p>
-            <span
-                class=" cursor-pointer group-hover:underline decoration-2 inline-flex justify-center items-center px-2 font-semibold text-blue-600 text-sm dark:text-blue-500">
-                Set Password
-                <x-lucide-arrow-right class="w-4 h-4 text-current" />
-            </span>
-        </div>
-    </div>
-@endif
-</div>
+
 
 
 </div>

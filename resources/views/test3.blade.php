@@ -3,7 +3,7 @@
     <div class="p-8">
 
 
-        <div class="bg-gray-900 doodles-light mt-16 md:mt-24">
+        <div class=" doodles-light mt-16 md:mt-24">
             <div class="mx-auto max-w-screen-xl px-6 md:px-10 py-16 md:py-24">
                 <h2
                     class="pb-4 text-3xl md:text-6xl font-headline font-black text-white tracking-snug leading-10 md:leading-18 text-center">
@@ -12,7 +12,7 @@
 
                 <div class="pt-6 lg:pt-12 lg:flex space-y-6 lg:space-y-0 lg:space-x-6 w-full text-center">
                     <div
-                        class="p-6 md:p-10 lg:w-1/2 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 lg:w-1/2 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div
                             class="mx-auto flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-red-500 text-gray-900">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 lg:w-1/2 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 lg:w-1/2 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div
                             class="mx-auto flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-yellow-300 text-gray-900">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
@@ -190,7 +190,7 @@
 
                 <div class="pt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-pink-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-red-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -251,7 +251,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-purple-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -269,7 +269,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-orange-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -288,7 +288,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-pink-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -305,7 +305,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -324,7 +324,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-purple-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -343,7 +343,7 @@
                         </div>
                     </div>
                     <div
-                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-105 hover:bg-gray-700 transition duration-150 ease-in-out">
+                        class="p-6 md:p-10 rounded-xl bg-gray-800 transform origin-center hover:scale-102 hover:bg-gray-700 transition duration-150 ease-in-out">
                         <div class="mb-6 flex items-center h-10 text-yellow-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"

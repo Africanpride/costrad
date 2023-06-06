@@ -1,5 +1,6 @@
-<div style="background-image: url('{{ asset('images/main/profile_banner.svg') }}');     background-repeat: no-repeat;
-background-position-x: right;
+<div style="background-image: url('{{ asset('images/main/profile_banner.svg') }}');     background-repeat: repeat-y;
+background-position-x: right;   background-size: auto;
+background-position-y: center;   background-origin: content-box;
 
 "
     {{ $attributes->merge([

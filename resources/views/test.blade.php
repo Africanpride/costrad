@@ -4,7 +4,7 @@
     <div class="container p-8">
         <!-- Top bar -->
         <div x-data="scrollProgress" class="fixed inset-x-0 top-0 z-50">
-            <div class="h-1 bg-firefly-700" :style="`width: ${percent}%`"></div>
+            <div class="h-0.5 bg-firefly-500" :style="`width: ${percent}%`"></div>
         </div>
 123
         <main class="w-scrren min-h-screen flex items-center justify-center">

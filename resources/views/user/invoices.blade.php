@@ -34,6 +34,10 @@
                                         class="px-5 py-3  text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Status
                                     </th>
+                                    <th
+                                        class="px-5 py-3  text-right text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Action
+                                    </th>
                                     <th class="px-5 py-3 "></th>
                                 </tr>
                             </thead>
@@ -82,13 +86,14 @@
                                                 {{ $invoice->status }}</div>
                                         </td>
                                         <td class="px-5 py-5 text-sm text-right">
-                                            <button type="button"
+                                           <a href="http://" class="font-bold text-blue-600"> {{ __('View') }}</a>
+                                            {{-- <button type="button"
                                                 class="inline-block text-gray-500 hover:text-gray-700">
                                                 <svg class="inline-block h-4 w-4 fill-current" viewBox="0 0 24 24">
                                                     <path
                                                         d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z" />
                                                 </svg>
-                                            </button>
+                                            </button> --}}
                                         </td>
                                     </tr>
                                 @endforeach
