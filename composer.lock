@@ -6736,16 +6736,16 @@
         },
         {
             "name": "spatie/laravel-analytics",
-            "version": "5.0.1",
+            "version": "5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-analytics.git",
-                "reference": "e609f66875c147fef6f3a4e7d8ade52a2f71f4d8"
+                "reference": "b51ff788c66831205caa915bc229da4d5bac772e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/e609f66875c147fef6f3a4e7d8ade52a2f71f4d8",
-                "reference": "e609f66875c147fef6f3a4e7d8ade52a2f71f4d8",
+                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/b51ff788c66831205caa915bc229da4d5bac772e",
+                "reference": "b51ff788c66831205caa915bc229da4d5bac772e",
                 "shasum": ""
             },
             "require": {
@@ -6802,7 +6802,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-analytics/tree/5.0.1"
+                "source": "https://github.com/spatie/laravel-analytics/tree/5.0.2"
             },
             "funding": [
                 {
@@ -6810,7 +6810,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-05-17T14:52:03+00:00"
+            "time": "2023-05-30T11:26:21+00:00"
         },
         {
             "name": "spatie/laravel-backup",

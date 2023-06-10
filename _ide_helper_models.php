@@ -183,6 +183,7 @@ namespace App\Models{
  * @property float $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $participant_id
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feature> $features
  * @property-read int|null $features_count
  * @property-read string $duration
@@ -195,6 +196,8 @@ namespace App\Models{
  * @property-read mixed $services
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $participants
+ * @property-read int|null $participants_count
  * @method static \Illuminate\Database\Eloquent\Builder|Institute newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Institute newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Institute query()
@@ -210,6 +213,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereLogo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereOverview($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Institute whereParticipantId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereSeo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Institute whereSlug($value)
@@ -509,6 +513,8 @@ namespace App\Models{
  * @property-read mixed $name
  * @property-read string $profile_photo_url
  * @property-read mixed $user_role
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Institute> $institutes
+ * @property-read int|null $institutes_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Invoice> $invoices
  * @property-read int|null $invoices_count
  * @property-read \Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog|null $latestAuthentication

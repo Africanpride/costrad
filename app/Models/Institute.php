@@ -4,15 +4,20 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use App\Models\Feature;
+use App\Models\Transaction;
 use App\Models\ExchangeRate;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class Institute extends Model implements HasMedia
 {
@@ -62,6 +67,11 @@ class Institute extends Model implements HasMedia
         'local_currency',
 
     ];
+
+    public function participants(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'institute_participant', 'institute_id', 'participant_id');
+    }
 
     public static function getExchangeRate()
     {
@@ -143,17 +153,16 @@ class Institute extends Model implements HasMedia
 
         // Check if the start and end dates fall within the current year
         //We evaluate further: if todays date  is greater than the end of institute, return zero (0)
-        if ($startYear == $currentYear && Carbon::now() > $end ) {
+        if ($startYear == $currentYear && Carbon::now() > $end) {
             return 100;
         }
 
-        if($startYear == $currentYear && Carbon::now() > $start && Carbon::now() > $end){
+        if ($startYear == $currentYear && Carbon::now() > $start && Carbon::now() > $end) {
 
             return $progress;
         }
 
         return 0;
-
     }
 
 
@@ -181,7 +190,7 @@ class Institute extends Model implements HasMedia
         return 'slug';
     }
 
-    public function getFeaturedImageAttribute() : string
+    public function getFeaturedImageAttribute(): string
     {
 
         return ($this->getFirstMediaUrl('featured_image') != null) ? $this->getFirstMediaUrl('featured_image')  :  $this->getFirstMediaUrl('banner');

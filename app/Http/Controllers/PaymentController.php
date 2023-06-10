@@ -139,6 +139,8 @@ class PaymentController extends Controller
                     // Get the invoice generated before sending to paystack and associate it with
                     // transaction later on.
                     $institute = Institute::whereId($paymentDetails['data']['metadata']['institute_id'])->first();
+                    // attach the Authenticated user to the institiute
+                    $institute->participants()->attach(Auth::user()->id);
                     $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
 
 

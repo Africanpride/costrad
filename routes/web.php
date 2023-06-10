@@ -2,12 +2,15 @@
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Invoice;
 use App\Models\Newsroom;
 use App\Models\Institute;
 use App\Models\Transaction;
+use Spatie\Analytics\Period;
 use Illuminate\Support\HtmlString;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
+use Spatie\Analytics\Facades\Analytics;
 use Laravel\Socialite\Facades\Socialite;
 use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ContactController;
@@ -17,7 +20,6 @@ use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DisplayInstituteController;
-use App\Models\Invoice;
 
 Route::get('banned', function () {
     return view('auth.banned');
@@ -40,7 +42,70 @@ Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 
 
 // end payment
 
-Route::view('test4', 'test4')->middleware('auth');
+
+
+Route::get('test6', function () {
+
+    // $period = Period::create(Carbon::now()->startOfYear(), Carbon::today());
+    // $data = Analytics::fetchTotalVisitorsAndPageViews($period);
+    // $totalSessions = $data->sum('screenPageViews');
+    // return $totalSessions;
+$institute = Institute::whereAcronym('iea')->first();
+dd($institute->participants );
+
+
+})->middleware('auth');
+
+
+Route::get('test4', function () {
+
+    // Specify the start and end dates for the period you want to fetch data
+    $startDate = now()->subMonths(1);
+    $endDate = now();
+
+    // Fetch page views for the specified period
+    $pageViews = Analytics::fetchTopBrowsers(Period::create($startDate, $endDate));
+
+    // Get the total page views
+    $totalPageViews = $pageViews->sum('screenPageViews');
+
+    // Output the result
+    echo "Total Page Views: " . $pageViews['browser'];
+
+})->middleware('auth');
+
+
+
+
+Route::get('/test9', function () {
+    // used to get days since beginning of the month
+    $myStartDate = new Carbon('first day of this month');
+    $endDate = Carbon::now();
+
+    $startDate = Carbon::createFromDate(2021, 1, 1);
+    $period = Period::create($startDate, $endDate);
+
+    // $live_users = Analytics::getAnalyticsService()
+    // ->data_realtime
+    // ->get('ga:'.env('ANALYTICS_VIEW_ID'), 'rt:activeVisitors')
+    // ->totalsForAllResults['rt:activeVisitors'];
+
+    $pages = Analytics::fetchMostVisitedPages($period)->max();
+    // $total_visitors = Analytics::newUsers(Period::days(31));
+    $visitors = Analytics::totalVisits(Period::months(1))->pluck('pageViews')->sum();
+    $totalThisMonth = Analytics::totalVisits(Period::days($myStartDate->diffInDays()))->pluck('pageViews')->sum();
+    $newThisMonth = Analytics::totalVisits(Period::days($myStartDate->diffInDays()))->pluck('newUsers')->sum();
+
+    $topCountries = Analytics::topCountries($period)->take(13);
+
+    $chart = (new LarapexChart)->donutChart()
+        ->setTitle('Top ' .  $topCountries->pluck('country')->count() . ' Visiting Countries.')
+        ->setSubtitle('Since Last ' . $startDate->diffForHumans())
+        ->addData($topCountries->pluck('sessions')->toArray())
+        ->setLabels($topCountries->pluck('country')->toArray());
+
+    return view('test6', compact('chart', 'live_users', 'pages', 'topCountries', 'visitors', 'totalThisMonth', 'newThisMonth'));
+})->middleware(['auth'])->name('test6');
 
 Route::view('terms', 'terms');
 Route::view('help', 'help');
@@ -129,7 +194,7 @@ Route::get('set_password', function () {
 
 
 // Admin Routes
-Route::middleware(['auth', 'banned','mustBeAdmin', config('jetstream.auth_session')])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'banned', 'mustBeAdmin', config('jetstream.auth_session')])->prefix('admin')->group(function () {
 
     Route::get('participants/', function () {
         $participants = User::participant()->get();

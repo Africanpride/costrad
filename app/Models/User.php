@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
@@ -126,7 +127,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'email';
     }
 
-    public function GetUserGreetingsAttribute() : string
+    public function GetUserGreetingsAttribute(): string
     {
         // Create a new Carbon instance using the current date and time
         $now = Carbon::now();
@@ -151,13 +152,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public static function searchParticipants($search)
     {
         return empty($search) ? static::query()
-        : static::query()->where('participant', true)
-        ->where(function ($query) use ($search) {
-            $query->where('id', 'like', '%' . $search . '%')
-                ->orWhere('firstName', 'like', '%' . $search . '%')
-                ->orWhere('lastName', 'like', '%' . $search . '%')
-                ->orWhere('email', 'like', '%' . $search . '%');
-        });
+            : static::query()->where('participant', true)
+            ->where(function ($query) use ($search) {
+                $query->where('id', 'like', '%' . $search . '%')
+                    ->orWhere('firstName', 'like', '%' . $search . '%')
+                    ->orWhere('lastName', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%');
+            });
     }
 
     // Scopes
@@ -243,34 +244,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'https://www.gravatar.com/avatar/' . $hash;
     }
 
-    public function whois()
-    {
-        return Auth::user()->firstName;
-    }
-
-
-    public function transactions() {
-        return $this->hasMany(Transaction::class);
-    }
-
-    public function invoices() {
-        return $this->hasMany(Invoice::class, 'invoice_id' );
-    }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
-
-    public function news() : hasMany
-    {
-        return $this->hasMany(Newsroom::class);
-    }
-
-    public function donation() {
-        return $this->hasMany(Donation::class);
-    }
-
     public function defaultProfilePhotoUrl()
     {
         if (empty($this->avatar) && !empty($this->social_avatar)) {
@@ -287,5 +260,41 @@ class User extends Authenticatable implements MustVerifyEmail
 
             return 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&color=7F9CF5&background=EBF4FF';
         }
+    }
+
+    public function whois()
+    {
+        return Auth::user()->firstName;
+    }
+
+    public function institutes(): BelongsToMany
+    {
+        return $this->belongsToMany(Institute::class, 'institute_participant', 'participant_id', 'institute_id');
+    }
+
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'invoice_id');
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    public function news(): hasMany
+    {
+        return $this->hasMany(Newsroom::class);
+    }
+
+    public function donation()
+    {
+        return $this->hasMany(Donation::class);
     }
 }

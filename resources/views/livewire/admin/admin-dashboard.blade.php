@@ -22,8 +22,9 @@
                 </div>
                 <div class="flex w-full h-2 bg-gray-300/50 rounded-full overflow-hidden dark:bg-gray-700">
                     <div class="flex overflow-hidden bg-firefly-700 dark:bg-firefly-500" role="progressbar"
-                        style="width: {{ ($this->pastInstitutes() / $institutes->count()) * 100 }}%" aria-valuenow="{{ ($this->pastInstitutes() / $institutes->count()) * 100 }}"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                        style="width: {{ ($this->pastInstitutes() / $institutes->count()) * 100 }}%"
+                        aria-valuenow="{{ ($this->pastInstitutes() / $institutes->count()) * 100 }}" aria-valuemin="0"
+                        aria-valuemax="100"></div>
                 </div>
             </div>
             <div
@@ -248,26 +249,21 @@
                     </div>
                     <div class="items-center overflow-hidden pr-6 border-r border-gray-300/30">
                         <div class="flex items-center pl-2">
-                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80"
-                                alt="">
-                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80"
-                                alt="">
-                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1256&amp;q=80"
-                                alt="">
-                            <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80"
-                                alt="">
+                            @foreach ($instituteParticipants as $participant)
+                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                    src="{{ $participant->profile_photo_url }}" alt="">
+                            @endforeach
+
                             <p
                                 class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                                +4</p>
+                                +{{ $instituteParticipants->count() }}</p>
                         </div>
 
                     </div>
-                    <div class="text-white text-sm capitalize">
-                        Total Enrolment: <span class="text-bold">630</span>
+                    <div class="text-white text-sm capitalize flex justify-start gap-2 items-center">
+                       <span> Total Enrolment: </span><span
+                            class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
+                            {{ $instituteParticipants->count() }}</span>
                     </div>
                 </div>
                 <!-- Card footer -->
@@ -316,7 +312,8 @@
         </div>
         <div
             class="relativedark:border-gray-700/10  border-gray-500/10 rounded-2xl h-36 bg-firefly-100   dark:bg-gray-950 dark:text-white  p-6   shadow flex flex-col justify-between  ">
-            <div class="absolute top-3 right-3 w-6 h-6 bg-firefly-300/50 text-firefly-900 font-bold rounded-full flex justify-center items-center text-[11px] dark:text-white">
+            <div
+                class="absolute top-3 right-3 w-6 h-6 bg-firefly-300/50 text-firefly-900 font-bold rounded-full flex justify-center items-center text-[11px] dark:text-white">
                 {{ $this->totalsForMonth() }}
             </div>
             <div class="text-slate-800 dark:text-white capitalize flex-none text-lg font-['anton'] ">

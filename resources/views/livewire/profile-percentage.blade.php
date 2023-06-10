@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <div class="flex md:w-1/4 w-full h-1.5 bg-red-200 rounded-full overflow-hidden dark:bg-gray-700">
+            <div class="flex md:w-1/4 w-full h-1.5 bg-red-200 rounded-full overflow-hidden dark:bg-red-200/30">
                 <div class="flex flex-col justify-center overflow-hidden bg-red-500" role="progressbar"
                     style="width: {{ number_format($this->calculateProfileCompletionPercentage(Auth::user()?->profile->id), 2) }}%" aria-valuenow="{{ number_format($this->calculateProfileCompletionPercentage(Auth::user()?->profile->id), 2) }}" aria-valuemin="0" aria-valuemax="100">
                 </div>

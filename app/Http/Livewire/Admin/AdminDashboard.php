@@ -66,9 +66,15 @@ class AdminDashboard extends Component
     public function render()
     {
         $nextInstitute = $this->nextInstitute();
+        $upcomingInstitute = Institute::where('startDate', '>', now())
+        ->orderBy('startDate', 'asc')
+        ->first();
+
+        $instituteParticipants = $upcomingInstitute->participants()->take(4)->get();
+            //    dd($instituteParticipants);
         $totalUsers = User::count();
         $institutes = Institute::all();
         $nextInstituteTable = Transaction::whereInstituteId($nextInstitute->id)->get();
-        return view('livewire.admin.admin-dashboard', compact('totalUsers', 'institutes', 'nextInstitute', 'nextInstituteTable'));
+        return view('livewire.admin.admin-dashboard', compact('totalUsers', 'institutes', 'nextInstitute', 'nextInstituteTable','instituteParticipants'));
     }
 }
