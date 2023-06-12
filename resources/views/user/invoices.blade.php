@@ -4,7 +4,7 @@
     </x-admin.pageheader>
     <!-- user/invoices.blade.php -->
 
-    <div class="container mx-auto px-4 sm:px-8">
+    <div class="container mx-auto px-4 sm:px-4">
         <div>
 
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto ">
@@ -23,8 +23,8 @@
                                         Amount
                                     </th>
                                     <th
-                                        class="px-5 py-3  text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Issued / Due
+                                        class="px-5 py-3  text-left text-xs font-semibold text-gray-700 uppercase tracking-wider whitespace-no-wrap">
+                                        Issued
                                     </th>
                                     <th
                                         class="px-5 py-3  text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
@@ -52,26 +52,25 @@
                                                         alt="" />
                                                 </div>
                                                 <div class="ml-3">
-                                                    <p class="text-gray-700 whitespace-no-wrap font-bold">
+                                                    <p class="text-gray-700 dark:text-white whitespace-nowrap font-bold">
                                                         {{ $invoice->transaction->institute->name }}
                                                     </p>
-                                                    <p class="text-gray-600 whitespace-no-wrap">
+                                                    <p class="text-gray-500 whitespace-no-wrap">
                                                         {{ $invoice->transaction->institute->duration }},
                                                         {{ now()->format('Y') }}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-5 py-5 text-sm">
-                                            <p class="text-gray-700 whitespace-no-wrap font-bold">GHC
+                                            <p class="text-gray-600 whitespace-nowrap font-bold">GHC
                                                 {{ number_format($invoice->transaction->amount / 100, 2, '.', ',') }}
                                             </p>
-                                            <p class="text-gray-600 whitespace-no-wrap">USD
+                                            <p class="text-gray-600 whitespace-nowrap">USD
                                                 {{ $invoice->transaction->institute->price }}</p>
                                         </td>
-                                        <td class="px-5 py-5 text-sm">
-                                            <p class="text-gray-700 whitespace-no-wrap font-bold">
-                                                {{ $invoice->created_at->format('d M, Y') }}</p>
-                                            <p class="text-gray-600 whitespace-no-wrap">Due in 3 days</p>
+                                        <td class="px-5 py-5 text-sm whitespace-no-wrap">
+                                            <div class="text-gray-600 whitespace-no-wrap font-bold whitespace-nowrap	 ">
+                                                {{ $invoice->created_at->format('d M, Y') }}</div>
                                         </td>
                                         <td class="px-5 py-5 text-sm">
 

@@ -256,7 +256,8 @@
 
                             <p
                                 class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                                +{{ $instituteParticipants->count() }}</p>
+                                +{{ $instituteParticipants->count() }}
+                            </p>
                         </div>
 
                     </div>

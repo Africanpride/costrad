@@ -140,7 +140,7 @@ class PaymentController extends Controller
                     // transaction later on.
                     $institute = Institute::whereId($paymentDetails['data']['metadata']['institute_id'])->first();
                     // attach the Authenticated user to the institiute
-                    $institute->participants()->attach(Auth::user()->id);
+                    $institute->participants()->attach(Auth::user()->id, ['created_at' => now()]);
                     $invoice = Invoice::whereId($paymentDetails['data']['metadata']['invoice_id'])->first();
 
 

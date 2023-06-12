@@ -29,7 +29,7 @@ class ProfilePhoto extends Component
 
     public function updatedPhoto()
     {
-        dd('incoming 123');
+
         $this->validate([
             'photo' => 'image|max:1024', // Add any additional validation rules as needed
         ]);
