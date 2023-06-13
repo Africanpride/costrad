@@ -130,40 +130,32 @@ class Institute extends Model implements HasMedia
 
     function getProgressAttribute(): int
     {
-
-        $startYear = Carbon::parse($this->startDate)->year;
-        $currentYear = Carbon::now()->year;
-
-        // Create Carbon instances from the date strings
         $start = Carbon::parse($this->startDate);
         $end = Carbon::parse($this->endDate);
+        $currentDate = Carbon::now();
 
-        // Get the start and end dates for the current year
-        // $currentYearStart = Carbon::create($currentYear, 1, 1);
-        // $currentYearEnd = Carbon::create($currentYear, 12, 31);
-
-        // Calculate the total number of days between the two dates
+        // Calculate the total number of days between the start and end dates
         $totalDays = $start->diffInDays($end);
 
-        // Calculate the number of days elapsed since the start date
-        $elapsedDays = $start->diffInDays($end);
+        // Calculate the number of elapsed days from the start date to the current date
+        $elapsedDays = $start->diffInDays($currentDate);
 
         // Calculate the progress as a percentage
         $progress = round(($elapsedDays / $totalDays) * 100);
 
-        // Check if the start and end dates fall within the current year
-        //We evaluate further: if todays date  is greater than the end of institute, return zero (0)
-        if ($startYear == $currentYear && Carbon::now() > $end) {
+        // Check if the current date is greater than the end date
+        if ($currentDate > $end) {
             return 100;
         }
 
-        if ($startYear == $currentYear && Carbon::now() > $start && Carbon::now() > $end) {
-
+        // Check if the current date is within the start and end dates
+        if ($currentDate > $start) {
             return $progress;
         }
 
         return 0;
     }
+
 
 
     public function features(): HasMany

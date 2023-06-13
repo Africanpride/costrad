@@ -1,19 +1,19 @@
 <x-app-layout>
-    <x-admin.pageheader model-name="Dashboard" description="{{ __('My Dashboard') }}" add-button="false" class="mx-4">
+    {{-- <x-admin.pageheader model-name="Dashboard" description="{{ __('My Dashboard') }}" add-button="false" class="mx-4">
         <x-heroicon-o-finger-print class="w-6 h-6 text-current" />
-        </x-admin-pageheader>
+        </x-admin-pageheader> --}}
 
 
 
         <div class="px-4 py-6">
-            <div class="max-w-5xl mx-auto">
-                <div class="bg-gray-200/30 dark:bg-gray-950 dark:text-white rounded-3xl p-8 mb-5">
+            <div class="max-w-8xl mx-auto">
+                <div class="bg-gray-200/50 dark:bg-slate-900 dark:text-white mb-5 p-8 rounded-3xl">
                     <h1 class="text-3xl font-bold mb-10 hidden">Messaging ID framework development for the marketing
                         branch</h1>
                     <div class="flex items-center justify-between">
                         <div class="flex items-stretch">
                             <div class="text-gray-400 text-xs">Members<br>connected</div>
-                            <div class="h-100 border-l mx-4"></div>
+                            <div class="h-100 dark:border-gray-800/50 border-l mx-4"></div>
                             <div class="flex flex-nowrap -space-x-3">
                                 <div class="h-9 w-9">
                                     <img class="object-cover w-full h-full rounded-full"
@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <hr class="my-10">
+                    <hr class="my-10 dark:border-gray-800/80">
 
                     <div class="grid md:grid-cols-2  gap-x-10 gap-8 !md:space-y-8">
                         <div class="h-auto">
@@ -50,7 +50,7 @@
                                 <div class="col-span-2">
                                     <div class="p-4 bg-green-100 dark:bg-transparent border border-gray-400/20 rounded-xl">
                                         <div class="font-bold text-xl text-gray-500 leading-none capitalize">
-                                            {{ Auth::user()->user_greetings . ' ' . Auth::user()->firstName }}_
+                                            {{ Auth::user()->user_greetings . ' ' . Auth::user()->firstName }}!
                                         </div>
                                         <div class="mt-5">
                                             <button type="button"

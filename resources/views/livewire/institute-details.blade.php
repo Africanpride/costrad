@@ -72,14 +72,15 @@
                                     Watch our AudioVisual
                                 </a>
 
-                                <div x-data="{ progress: {{ $institute->progress }} }" class="w-2/5">
+                                <div x-data="{ progress: {{ $institute->progress }} }" class="w-3/5">
                                     <span x-show="progress > 0">
                                         <div
-                                            class="flex w-full h-6.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
-                                            <div class="flex flex-col justify-center overflow-hidden bg-firefly-800 text-[9px] text-white text-center"
+                                            class="relative flex w-full h-5.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+                                            <div class="flex flex-col justify-center overflow-hidden bg-firefly-800 text-[9px] text-white text-center 	"
                                                 role="progressbar" style="width: {{ $institute->progress }}%"
                                                 aria-valuenow="{{ $institute->progress }}" aria-valuemin="0"
-                                                aria-valuemax="100">Progress: {{ $institute->progress }}%</div>
+                                                aria-valuemax="100">
+                                                <span class=" text-[9px] whitespace-nowrap text-center px-2">Progress {{ $institute->progress }}% </span></div>
                                         </div>
                                     </span>
                                 </div>

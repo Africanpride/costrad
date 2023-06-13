@@ -50,10 +50,8 @@ Route::get('test6', function () {
     // $data = Analytics::fetchTotalVisitorsAndPageViews($period);
     // $totalSessions = $data->sum('screenPageViews');
     // return $totalSessions;
-$institute = Institute::whereAcronym('iea')->first();
-dd($institute->participants );
-
-
+    $institute = Institute::whereAcronym('iea')->first();
+    dd($institute->progress);
 })->middleware('auth');
 
 
@@ -71,7 +69,6 @@ Route::get('test4', function () {
 
     // Output the result
     echo "Total Page Views: " . $pageViews['browser'];
-
 })->middleware('auth');
 
 
