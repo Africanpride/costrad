@@ -105,10 +105,10 @@
                         <div class="mt-1.5 font-semibold ">{{ Auth::user()->email }}</div>
 
                         <div class="text-gray-500 mt-5">Telephone</div>
-                        <div class="mt-1.5 font-semibold">{{ Auth::user()->telephone ?? ' Telephone Number' }}</div>
+                        <div class="mt-1.5 font-semibold">{{ Auth::user()->profile->telephone ?? ' Telephone Number' }}</div>
 
                         <div class="text-gray-500 mt-5">Profile</div>
-                        <div class="mt-1.5 font-semibold">{{ __('Add Profile information') }}</div>
+                        <div class="mt-1.5 font-semibold">{{ Auth::user()->profile->bio ?? ' Bio Details' }}</div>
 
                     </div>
                 </div>

@@ -8,7 +8,7 @@
 
 
                         <x-top-title>
-                            COSTrAD: A Leadership Initiative
+                            COSTrAD: A Leadership Development Initiative
                             <x-slot name="icon">
                                 <x-lucide-globe class="dark:text-white  w-5 h-5 " />
                             </x-slot>
@@ -108,7 +108,7 @@
                         <h4 class="text-firefly-700 dark:text-gray-200 font-semibold uppercase">
                             Discover Our Agender
                         </h4>
-                        <h2 class="uppercase font-['anton'] text-3xl lg:text-4xl text-gray-700 dark:text-firefly-700">
+                        <h2 class="uppercase font-['anton'] text-3xl lg:text-4xl text-gray-700 dark:text-firefly-300">
                             Developing The Transformational Capacity of Nations
                         </h2>
                         <p class="text-lg text-firefly-700 dark:text-white prose dark:prose-invert">
@@ -356,7 +356,7 @@
                     <div class="space-y-2 md:space-y-4">
                         <h4 class="text-firefly-700 dark:text-gray-200 font-semibold uppercase  ">
                             A Journey for Now and Beyond </h4>
-                        <h2 class="uppercase font-['anton'] text-3xl lg:text-4xl text-gray-700 dark:text-firefly-700">
+                        <h2 class="uppercase font-['anton'] text-3xl lg:text-4xl text-gray-700 dark:text-firefly-200">
                             Global Sustainable Transformation Leadership
                             Training.
                         </h2>
