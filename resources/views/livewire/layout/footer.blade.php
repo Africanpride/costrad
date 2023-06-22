@@ -35,7 +35,7 @@
     <hr class="my-3 border-dashed	 border-gray-200 sm:mx-auto dark:border-gray-700/50 lg:my-4" />
     <div class="flex justify-between items-center ">
         <span class="block text-md  text-gray-700 sm:text-center dark:text-gray-400 ">&copy;
-            &MediumSpace;<a href="https://www.costrad.com/"
+            &MediumSpace;<a href="https://www.costrad.org/"
                 class="font-bold dark:text-white ">{{ config('app.name') }}&MediumSpace;&trade;</a> All Rights
             Reserved.
         </span>
